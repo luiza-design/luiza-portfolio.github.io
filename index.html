@@ -2,23 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Lu — Portfolio</title>
 
+  <!-- =========================
+       FONT
+  ========================== -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&display=swap"
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&display=swap"
     rel="stylesheet"
   >
 
+
   <style>
 
-    /* =========================================
+    /* =====================================================
        RESET
-    ========================================= */
+    ===================================================== */
 
     * {
       margin: 0;
@@ -43,15 +57,17 @@
 
       font-family: "Bodoni Moda", serif;
 
+      -webkit-font-smoothing: antialiased;
+
       overscroll-behavior: none;
 
-      -webkit-font-smoothing: antialiased;
+      user-select: none;
     }
 
 
-    /* =========================================
+    /* =====================================================
        MAIN SCREEN
-    ========================================= */
+    ===================================================== */
 
     .portfolio-screen {
 
@@ -60,18 +76,12 @@
       inset: 0;
 
       width: 100vw;
+
       height: 100vh;
+
       height: 100svh;
 
       overflow: hidden;
-
-      background:
-        radial-gradient(
-          circle at 50% 48%,
-          rgba(105, 13, 32, 0.28),
-          transparent 52%
-        ),
-        #3E000C;
 
       display: flex;
 
@@ -79,13 +89,73 @@
 
       justify-content: center;
 
-      isolation: isolate;
+      background: #3E000C;
+
+      transition:
+        background 1.15s cubic-bezier(.16, 1, .3, 1);
+
     }
 
 
-    /* =========================================
-       VERY SUBTLE GRAIN
-    ========================================= */
+    /* =====================================================
+       4 BURGUNDY BACKGROUNDS
+    ===================================================== */
+
+    .portfolio-screen.stage-1 {
+
+      background:
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(110, 18, 40, 0.25),
+          transparent 55%
+        ),
+        #3E000C;
+
+    }
+
+
+    .portfolio-screen.stage-2 {
+
+      background:
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(155, 42, 63, 0.28),
+          transparent 58%
+        ),
+        #57101F;
+
+    }
+
+
+    .portfolio-screen.stage-3 {
+
+      background:
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(191, 83, 91, 0.25),
+          transparent 58%
+        ),
+        #702B35;
+
+    }
+
+
+    .portfolio-screen.stage-4 {
+
+      background:
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(226, 169, 151, 0.30),
+          transparent 60%
+        ),
+        #874B4A;
+
+    }
+
+
+    /* =====================================================
+       SUBTLE GRAIN
+    ===================================================== */
 
     .portfolio-screen::after {
 
@@ -97,20 +167,21 @@
 
       pointer-events: none;
 
+      z-index: 30;
+
       opacity: 0.035;
 
-      z-index: 20;
-
       background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
 
       mix-blend-mode: screen;
+
     }
 
 
-    /* =========================================
-       WORD
-    ========================================= */
+    /* =====================================================
+       LETTER AREA
+    ===================================================== */
 
     .portfolio-word {
 
@@ -124,213 +195,298 @@
 
       align-items: center;
 
-      justify-content: flex-start;
+      justify-content: center;
 
-      padding-left: 5vw;
+      z-index: 10;
 
-      z-index: 5;
     }
 
 
-    /* =========================================
-       LETTERS
-    ========================================= */
+    /* =====================================================
+       LETTER
+    ===================================================== */
 
     .letter {
 
-      position: relative;
+      position: absolute;
 
-      display: block;
-
-      flex: 0 0 auto;
+      top: 50%;
 
       color: #F6EBDD;
 
       font-family: "Bodoni Moda", serif;
 
       font-size: clamp(
-        105px,
-        14.2vw,
-        225px
+        190px,
+        30vw,
+        520px
       );
 
       font-weight: 400;
 
-      line-height: 0.75;
+      line-height: 0.72;
 
-      letter-spacing: -0.085em;
+      letter-spacing: -0.08em;
 
       opacity: 0;
 
       transform:
-        translateY(120vh)
-        scale(0.96);
+        translateY(125vh)
+        translateX(0)
+        scale(0.92);
 
       transition:
-        transform 1.15s cubic-bezier(.16, 1, .3, 1),
+        transform 1.15s cubic-bezier(.16,1,.3,1),
         opacity 0.9s ease;
 
-      will-change: transform, opacity;
+      will-change:
+        transform,
+        opacity;
+
     }
 
 
-    /* =========================================
+    /* =====================================================
+       FIRST PAIR — P O
+    ===================================================== */
+
+    .letter:nth-child(1) {
+
+      left: calc(50% - 11vw);
+
+    }
+
+
+    .letter:nth-child(2) {
+
+      left: calc(50% + 2vw);
+
+    }
+
+
+    /* =====================================================
+       SECOND PAIR — R T
+    ===================================================== */
+
+    .letter:nth-child(3) {
+
+      left: calc(50% - 11vw);
+
+    }
+
+
+    .letter:nth-child(4) {
+
+      left: calc(50% + 2vw);
+
+    }
+
+
+    /* =====================================================
+       THIRD PAIR — O L
+    ===================================================== */
+
+    .letter:nth-child(5) {
+
+      left: calc(50% - 11vw);
+
+    }
+
+
+    .letter:nth-child(6) {
+
+      left: calc(50% + 2vw);
+
+    }
+
+
+    /* =====================================================
+       FOURTH PAIR — I O
+    ===================================================== */
+
+    .letter:nth-child(7) {
+
+      left: calc(50% - 11vw);
+
+    }
+
+
+    .letter:nth-child(8) {
+
+      left: calc(50% + 2vw);
+
+    }
+
+
+    /* =====================================================
        ACTIVE LETTER
-    ========================================= */
+    ===================================================== */
 
     .letter.visible {
 
       opacity: 1;
 
       transform:
-        translateY(0)
+        translateY(-50%)
+        translateX(0)
         scale(1);
+
     }
 
 
-    /* =========================================
-       SLIGHTLY DIFFERENT SPACING
-       FOR THE EDITORIAL LOOK
-    ========================================= */
+    /* =====================================================
+       OLD LETTERS STAY
+    ===================================================== */
 
-    .letter:nth-child(2) {
-      margin-left: -0.015em;
+    .letter.pair-1 {
+      z-index: 1;
     }
 
-    .letter:nth-child(3) {
-      margin-left: -0.02em;
+    .letter.pair-2 {
+      z-index: 2;
     }
 
-    .letter:nth-child(4) {
-      margin-left: -0.025em;
+    .letter.pair-3 {
+      z-index: 3;
     }
 
-    .letter:nth-child(5) {
-      margin-left: -0.015em;
-    }
-
-    .letter:nth-child(6) {
-      margin-left: -0.02em;
-    }
-
-    .letter:nth-child(7) {
-      margin-left: -0.025em;
-    }
-
-    .letter:nth-child(8) {
-      margin-left: -0.02em;
+    .letter.pair-4 {
+      z-index: 4;
     }
 
 
-    /* =========================================
-       TOP / BOTTOM FADE
-       VERY SUBTLE
-    ========================================= */
+    /* =====================================================
+       SMALL STEP INDICATOR
+    ===================================================== */
 
-    .top-fade {
+    .step {
 
       position: absolute;
 
-      top: 0;
-      left: 0;
-      right: 0;
+      bottom: 42px;
 
-      height: 12vh;
+      left: 50%;
 
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(62, 0, 12, 0.18),
-          transparent
-        );
+      transform: translateX(-50%);
 
-      pointer-events: none;
+      display: flex;
 
-      z-index: 10;
+      align-items: center;
+
+      gap: 18px;
+
+      color: #F6EBDD;
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      font-size: 8px;
+
+      letter-spacing: 4px;
+
+      opacity: 0.8;
+
+      z-index: 40;
+
     }
 
 
-    .bottom-fade {
+    .step-line {
 
-      position: absolute;
+      width: 35px;
 
-      bottom: 0;
-      left: 0;
-      right: 0;
+      height: 1px;
 
-      height: 12vh;
+      background: #F6EBDD;
 
-      background:
-        linear-gradient(
-          to top,
-          rgba(62, 0, 12, 0.18),
-          transparent
-        );
+      opacity: 0.7;
 
-      pointer-events: none;
-
-      z-index: 10;
     }
 
 
-    /* =========================================
+    /* =====================================================
        MOBILE
-    ========================================= */
+    ===================================================== */
 
     @media (max-width: 768px) {
 
-      .portfolio-word {
+      .portfolio-screen {
 
-        padding-left: 5vw;
+        width: 100vw;
 
-        padding-right: 3vw;
+        height: 100svh;
 
       }
 
 
       .letter {
 
-        font-size: clamp(
-          52px,
-          14.1vw,
-          105px
-        );
+        font-size: 28vw;
 
-        letter-spacing: -0.09em;
+        letter-spacing: -0.10em;
 
-        transition:
-          transform 1s cubic-bezier(.16, 1, .3, 1),
-          opacity 0.8s ease;
+      }
+
+
+      .letter:nth-child(1),
+      .letter:nth-child(3),
+      .letter:nth-child(5),
+      .letter:nth-child(7) {
+
+        left: 25vw;
+
+      }
+
+
+      .letter:nth-child(2),
+      .letter:nth-child(4),
+      .letter:nth-child(6),
+      .letter:nth-child(8) {
+
+        left: 52vw;
+
+      }
+
+
+      .step {
+
+        bottom: 25px;
+
+        font-size: 7px;
+
+        letter-spacing: 3px;
+
+        gap: 12px;
+
+      }
+
+
+      .step-line {
+
+        width: 25px;
+
       }
 
     }
 
 
-    /* =========================================
-       VERY SMALL MOBILE
-    ========================================= */
+    /* =====================================================
+       SMALL MOBILE
+    ===================================================== */
 
     @media (max-width: 390px) {
 
-      .portfolio-word {
-
-        padding-left: 4vw;
-
-        padding-right: 2vw;
-      }
-
-
       .letter {
 
-        font-size: 13.4vw;
+        font-size: 27vw;
+
       }
 
     }
 
 
-    /* =========================================
+    /* =====================================================
        LANDSCAPE MOBILE
-    ========================================= */
+    ===================================================== */
 
     @media (
       max-width: 900px
@@ -340,177 +496,344 @@
 
       .letter {
 
-        font-size: 16vh;
+        font-size: 25vh;
+
       }
 
     }
 
   </style>
+
 </head>
 
 
 <body>
 
 
-  <!-- =========================================
-       PORTFOLIO
-  ========================================= -->
+  <!-- =====================================================
+       PORTFOLIO SCREEN
+  ===================================================== -->
 
-  <main class="portfolio-screen">
+  <main
+    class="portfolio-screen stage-1"
+    id="portfolioScreen"
+  >
 
-    <div class="top-fade"></div>
+
+    <!-- ===================================================
+         LETTERS
+    ==================================================== -->
 
     <div class="portfolio-word">
 
-      <span class="letter">P</span>
-      <span class="letter">O</span>
-      <span class="letter">R</span>
-      <span class="letter">T</span>
-      <span class="letter">F</span>
-      <span class="letter">O</span>
-      <span class="letter">L</span>
-      <span class="letter">I</span>
-      <span class="letter">O</span>
+
+      <!-- STEP 1 — PO -->
+
+      <span
+        class="letter pair-1"
+        data-step="1"
+      >
+        P
+      </span>
+
+      <span
+        class="letter pair-1"
+        data-step="1"
+      >
+        O
+      </span>
+
+
+      <!-- STEP 2 — RT -->
+
+      <span
+        class="letter pair-2"
+        data-step="2"
+      >
+        R
+      </span>
+
+      <span
+        class="letter pair-2"
+        data-step="2"
+      >
+        T
+      </span>
+
+
+      <!-- STEP 3 — OL -->
+
+      <span
+        class="letter pair-3"
+        data-step="3"
+      >
+        O
+      </span>
+
+      <span
+        class="letter pair-3"
+        data-step="3"
+      >
+        L
+      </span>
+
+
+      <!-- STEP 4 — IO -->
+
+      <span
+        class="letter pair-4"
+        data-step="4"
+      >
+        I
+      </span>
+
+      <span
+        class="letter pair-4"
+        data-step="4"
+      >
+        O
+      </span>
+
 
     </div>
 
-    <div class="bottom-fade"></div>
+
+    <!-- ===================================================
+         STEP INDICATOR
+    ==================================================== -->
+
+    <div class="step">
+
+      <span class="step-line"></span>
+
+      <span id="stepNumber">01 / 04</span>
+
+      <span class="step-line"></span>
+
+    </div>
+
 
   </main>
 
 
   <script>
 
-    /* =========================================
-       PORTFOLIO SCROLL ANIMATION
-    ========================================= */
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
 
-    const letters = document.querySelectorAll(".letter");
+    const screen =
+      document.getElementById("portfolioScreen");
 
-    let currentLetter = 0;
+    const letters =
+      document.querySelectorAll(".letter");
+
+    const stepNumber =
+      document.getElementById("stepNumber");
+
+
+    /* =====================================================
+       SETTINGS
+    ===================================================== */
+
+    let currentStep = 1;
 
     let isAnimating = false;
 
-    let touchStartY = 0;
+    const totalSteps = 4;
 
-    let touchEndY = 0;
+    const animationDuration = 1150;
 
 
-    /* -----------------------------------------
-       SHOW FIRST LETTER
-    ----------------------------------------- */
+    /* =====================================================
+       STEP → LETTERS
+    ===================================================== */
 
-    function showLetter(index) {
+    const stepLetters = {
 
-      if (index >= 0 && index < letters.length) {
+      1: [0, 1],
+
+      2: [2, 3],
+
+      3: [4, 5],
+
+      4: [6, 7]
+
+    };
+
+
+    /* =====================================================
+       SHOW STEP
+    ===================================================== */
+
+    function showStep(step) {
+
+      const indexes =
+        stepLetters[step];
+
+
+      indexes.forEach(index => {
 
         letters[index].classList.add("visible");
 
-      }
+      });
 
     }
 
 
-    /* -----------------------------------------
-       REMOVE LAST LETTER
-       WHEN SCROLLING BACK UP
-    ----------------------------------------- */
+    /* =====================================================
+       CHANGE BACKGROUND
+    ===================================================== */
 
-    function hideLetter(index) {
+    function changeBackground(step) {
 
-      if (index >= 0 && index < letters.length) {
+      screen.classList.remove(
+        "stage-1",
+        "stage-2",
+        "stage-3",
+        "stage-4"
+      );
 
-        letters[index].classList.remove("visible");
-
-      }
+      screen.classList.add(
+        `stage-${step}`
+      );
 
     }
 
 
-    /* -----------------------------------------
-       CHANGE LETTER
-    ----------------------------------------- */
+    /* =====================================================
+       UPDATE INDICATOR
+    ===================================================== */
 
-    function move(direction) {
+    function updateIndicator() {
 
-      if (isAnimating) {
+      stepNumber.textContent =
+        String(currentStep).padStart(2, "0")
+        + " / 04";
+
+    }
+
+
+    /* =====================================================
+       GO FORWARD
+    ===================================================== */
+
+    function goForward() {
+
+      if (
+        isAnimating ||
+        currentStep >= totalSteps
+      ) {
+
         return;
-      }
-
-
-      /* SCROLL DOWN */
-
-      if (direction === "down") {
-
-        if (currentLetter < letters.length - 1) {
-
-          isAnimating = true;
-
-          currentLetter++;
-
-          showLetter(currentLetter);
-
-
-          setTimeout(() => {
-
-            isAnimating = false;
-
-          }, 950);
-
-        }
 
       }
 
 
-      /* SCROLL UP */
-
-      if (direction === "up") {
-
-        if (currentLetter > 0) {
-
-          isAnimating = true;
-
-          hideLetter(currentLetter);
-
-          currentLetter--;
+      isAnimating = true;
 
 
-          setTimeout(() => {
+      currentStep++;
 
-            isAnimating = false;
 
-          }, 950);
+      showStep(currentStep);
 
-        }
+      changeBackground(currentStep);
 
-      }
+      updateIndicator();
+
+
+      setTimeout(() => {
+
+        isAnimating = false;
+
+      }, animationDuration);
 
     }
 
 
-    /* -----------------------------------------
-       MOUSE WHEEL / TRACKPAD
-    ----------------------------------------- */
+    /* =====================================================
+       GO BACK
+    ===================================================== */
+
+    function goBack() {
+
+      if (
+        isAnimating ||
+        currentStep <= 1
+      ) {
+
+        return;
+
+      }
+
+
+      isAnimating = true;
+
+
+      const indexes =
+        stepLetters[currentStep];
+
+
+      /*
+        Remove the current pair.
+      */
+
+      indexes.forEach(index => {
+
+        letters[index].classList.remove(
+          "visible"
+        );
+
+      });
+
+
+      currentStep--;
+
+
+      changeBackground(currentStep);
+
+      updateIndicator();
+
+
+      setTimeout(() => {
+
+        isAnimating = false;
+
+      }, animationDuration);
+
+    }
+
+
+    /* =====================================================
+       MOUSE WHEEL
+    ===================================================== */
 
     window.addEventListener(
       "wheel",
-      function(event) {
+      event => {
 
         event.preventDefault();
 
 
-        if (Math.abs(event.deltaY) < 8) {
+        if (
+          Math.abs(event.deltaY) < 8
+        ) {
+
           return;
+
         }
 
 
-        if (event.deltaY > 0) {
+        if (
+          event.deltaY > 0
+        ) {
 
-          move("down");
+          goForward();
 
         } else {
 
-          move("up");
+          goBack();
 
         }
 
@@ -521,15 +844,21 @@
     );
 
 
-    /* -----------------------------------------
-       TOUCH START
-    ----------------------------------------- */
+    /* =====================================================
+       TOUCH
+    ===================================================== */
+
+    let touchStartY = 0;
+
+    let touchEndY = 0;
+
 
     window.addEventListener(
       "touchstart",
-      function(event) {
+      event => {
 
-        touchStartY = event.touches[0].clientY;
+        touchStartY =
+          event.touches[0].clientY;
 
       },
       {
@@ -538,32 +867,34 @@
     );
 
 
-    /* -----------------------------------------
-       TOUCH END
-    ----------------------------------------- */
-
     window.addEventListener(
       "touchend",
-      function(event) {
+      event => {
 
-        touchEndY = event.changedTouches[0].clientY;
+        touchEndY =
+          event.changedTouches[0].clientY;
+
 
         const distance =
           touchStartY - touchEndY;
 
 
-        if (Math.abs(distance) < 35) {
+        if (
+          Math.abs(distance) < 40
+        ) {
+
           return;
+
         }
 
 
         if (distance > 0) {
 
-          move("down");
+          goForward();
 
         } else {
 
-          move("up");
+          goBack();
 
         }
 
@@ -574,13 +905,14 @@
     );
 
 
-    /* -----------------------------------------
-       KEYBOARD SUPPORT
-    ----------------------------------------- */
+    /* =====================================================
+       KEYBOARD
+    ===================================================== */
 
     window.addEventListener(
       "keydown",
-      function(event) {
+      event => {
+
 
         if (
           event.key === "ArrowDown" ||
@@ -590,7 +922,7 @@
 
           event.preventDefault();
 
-          move("down");
+          goForward();
 
         }
 
@@ -602,7 +934,7 @@
 
           event.preventDefault();
 
-          move("up");
+          goBack();
 
         }
 
@@ -610,13 +942,18 @@
     );
 
 
-    /* -----------------------------------------
+    /* =====================================================
        INITIAL STATE
-    ----------------------------------------- */
+    ===================================================== */
 
-    showLetter(0);
+    showStep(1);
+
+    changeBackground(1);
+
+    updateIndicator();
 
   </script>
+
 
 </body>
 </html>
