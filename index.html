@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -10,11 +12,15 @@
 
   <title>Lu — Portfolio</title>
 
+
   <!-- =========================
-       EDITORIAL SERIF FONT
+       FONT
   ========================== -->
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
   <link
     rel="preconnect"
@@ -45,14 +51,12 @@
     body {
       width: 100%;
       height: 100%;
-
       overflow: hidden;
     }
 
 
     body {
       background: #3E000C;
-
       color: #F6EBDD;
 
       font-family: "Bodoni Moda", serif;
@@ -76,9 +80,7 @@
       inset: 0;
 
       width: 100vw;
-
       height: 100vh;
-
       height: 100svh;
 
       overflow: hidden;
@@ -86,13 +88,13 @@
       background: #3E000C;
 
       transition:
-        background 1.1s cubic-bezier(.16, 1, .3, 1);
-
+        background 1.15s cubic-bezier(.16, 1, .3, 1);
     }
 
 
     /* =====================================================
-       BACKGROUND — 4 BURGUNDY SHADES
+       BACKGROUND 01
+       DEEP BURGUNDY
     ===================================================== */
 
     .portfolio-screen.stage-1 {
@@ -104,9 +106,13 @@
           transparent 58%
         ),
         #3E000C;
-
     }
 
+
+    /* =====================================================
+       BACKGROUND 02
+       LIGHTER BURGUNDY
+    ===================================================== */
 
     .portfolio-screen.stage-2 {
 
@@ -117,9 +123,13 @@
           transparent 58%
         ),
         #57101F;
-
     }
 
+
+    /* =====================================================
+       BACKGROUND 03
+       DUSTY BURGUNDY
+    ===================================================== */
 
     .portfolio-screen.stage-3 {
 
@@ -130,20 +140,23 @@
           transparent 60%
         ),
         #702B35;
-
     }
 
+
+    /* =====================================================
+       BACKGROUND 04
+       LIGHT WINE / BURGUNDY
+    ===================================================== */
 
     .portfolio-screen.stage-4 {
 
       background:
         radial-gradient(
           circle at 45% 50%,
-          rgba(226, 170, 153, 0.28),
+          rgba(230, 175, 158, 0.30),
           transparent 62%
         ),
         #874B4A;
-
     }
 
 
@@ -161,7 +174,7 @@
 
       pointer-events: none;
 
-      z-index: 20;
+      z-index: 30;
 
       opacity: 0.035;
 
@@ -169,7 +182,6 @@
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
 
       mix-blend-mode: screen;
-
     }
 
 
@@ -184,16 +196,14 @@
       inset: 0;
 
       width: 100%;
-
       height: 100%;
 
       z-index: 10;
-
     }
 
 
     /* =====================================================
-       EVERY LETTER
+       LETTERS
     ===================================================== */
 
     .letter {
@@ -202,26 +212,11 @@
 
       top: 50%;
 
-      /*
-        Each letter gets its own horizontal position.
-
-        0 = P
-        1 = O
-        2 = R
-        3 = T
-        4 = F
-        5 = O
-        6 = L
-        7 = I
-        8 = O
-      */
-
       left: calc(
         5vw + (var(--index) * 10vw)
       );
 
       transform:
-
         translateY(
           calc(-50% + 100vh)
         );
@@ -263,27 +258,24 @@
       will-change:
         transform,
         opacity;
-
     }
 
 
     /* =====================================================
-       FINAL POSITION
+       FINAL LETTER POSITION
     ===================================================== */
 
     .letter.visible {
 
       transform:
-
         translateY(-50%);
 
       opacity: 1;
-
     }
 
 
     /* =====================================================
-       LETTER INDEX POSITIONS
+       LETTER POSITIONS
     ===================================================== */
 
     .letter:nth-child(1) {
@@ -324,67 +316,12 @@
 
 
     /* =====================================================
-       STEP INDICATOR
-    ===================================================== */
-
-    .step-indicator {
-
-      position: absolute;
-
-      bottom: 34px;
-
-      left: 50%;
-
-      transform:
-        translateX(-50%);
-
-      z-index: 40;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 16px;
-
-      color: #F6EBDD;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-      font-size: 8px;
-
-      letter-spacing: 4px;
-
-      opacity: 0.65;
-
-    }
-
-
-    .step-line {
-
-      width: 30px;
-
-      height: 1px;
-
-      background: #F6EBDD;
-
-    }
-
-
-    /* =====================================================
        MOBILE
     ===================================================== */
 
     @media (max-width: 768px) {
 
       .letter {
-
-        /*
-          Smaller font so all 9 letters
-          can fit across the screen.
-        */
 
         font-size: 14vw;
 
@@ -393,27 +330,7 @@
         );
 
         letter-spacing: -0.10em;
-
       }
-
-
-      .step-indicator {
-
-        bottom: 24px;
-
-        font-size: 7px;
-
-        letter-spacing: 3px;
-
-      }
-
-
-      .step-line {
-
-        width: 22px;
-
-      }
-
     }
 
 
@@ -430,9 +347,7 @@
         left: calc(
           3vw + (var(--index) * 10.45vw)
         );
-
       }
-
     }
 
 
@@ -449,9 +364,7 @@
       .letter {
 
         font-size: 17vh;
-
       }
-
     }
 
   </style>
@@ -463,7 +376,7 @@
 
 
   <!-- =====================================================
-       MAIN PORTFOLIO SCREEN
+       PORTFOLIO
   ===================================================== -->
 
   <main
@@ -471,71 +384,66 @@
     id="portfolioScreen"
   >
 
-
-    <!-- ===================================================
-         PORTFOLIO LETTERS
-    ==================================================== -->
-
     <div class="portfolio-word">
 
 
-      <!-- 01 — P -->
+      <!-- P -->
 
       <span class="letter">
         P
       </span>
 
 
-      <!-- 02 — O -->
+      <!-- O -->
 
       <span class="letter">
         O
       </span>
 
 
-      <!-- 03 — R -->
+      <!-- R -->
 
       <span class="letter">
         R
       </span>
 
 
-      <!-- 04 — T -->
+      <!-- T -->
 
       <span class="letter">
         T
       </span>
 
 
-      <!-- 05 — F -->
+      <!-- F -->
 
       <span class="letter">
         F
       </span>
 
 
-      <!-- 06 — O -->
+      <!-- O -->
 
       <span class="letter">
         O
       </span>
 
 
-      <!-- 07 — L -->
+      <!-- L -->
 
       <span class="letter">
         L
       </span>
 
 
-      <!-- 08 — I -->
+      <!-- I -->
 
       <span class="letter">
         I
       </span>
 
 
-      <!-- 09 — O -->
+      <!-- O -->
 
       <span class="letter">
         O
@@ -543,24 +451,6 @@
 
 
     </div>
-
-
-    <!-- ===================================================
-         SMALL PROGRESS INDICATOR
-    ==================================================== -->
-
-    <div class="step-indicator">
-
-      <span class="step-line"></span>
-
-      <span id="stepNumber">
-        01 / 04
-      </span>
-
-      <span class="step-line"></span>
-
-    </div>
-
 
   </main>
 
@@ -583,102 +473,71 @@
       );
 
 
-    const stepNumber =
-      document.getElementById(
-        "stepNumber"
-      );
-
-
     /* =====================================================
-       SETTINGS
+       STATE
     ===================================================== */
 
     let currentStep = 1;
 
     let isAnimating = false;
 
-    const totalSteps = 4;
+
+    const totalSteps = 5;
 
     const animationDuration = 1150;
 
 
     /* =====================================================
-       WHICH LETTERS BELONG TO EACH STEP
+       WHAT IS VISIBLE AT EACH STEP
+    =====================================================
+
+       STEP 1
+       P
+
+       STEP 2
+       P O R
+
+       STEP 3
+       P O R T F
+
+       STEP 4
+       P O R T F O L
+
+       STEP 5
+       P O R T F O L I O
+
     ===================================================== */
 
-    const steps = {
+    const visibleLetters = {
 
       1: [0],
 
-      2: [1, 2],
+      2: [0, 1, 2],
 
-      3: [3, 4],
+      3: [0, 1, 2, 3, 4],
 
-      4: [5, 6],
+      4: [0, 1, 2, 3, 4, 5, 6],
 
-      5: [7, 8]
-
-    };
-
-
-    /*
-      Important:
-
-      We actually need 5 visual states:
-
-      Start:
-      P
-
-      Scroll 1:
-      P O R
-
-      Scroll 2:
-      P O R T F
-
-      Scroll 3:
-      P O R T F O L
-
-      Scroll 4:
-      P O R T F O L I O
-
-      But the desired interaction is
-      two letters after the initial P.
-
-      Therefore the state mapping below
-      handles the 4 scroll actions.
-    */
-
-
-    const visibleAfterScroll = {
-
-      0: [0],
-
-      1: [0, 1, 2],
-
-      2: [0, 1, 2, 3, 4],
-
-      3: [0, 1, 2, 3, 4, 5, 6],
-
-      4: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+      5: [0, 1, 2, 3, 4, 5, 6, 7, 8]
 
     };
 
 
     /* =====================================================
-       SHOW LETTERS
+       UPDATE LETTERS
     ===================================================== */
 
     function updateLetters() {
 
-      const visibleIndexes =
-        visibleAfterScroll[currentStep - 1];
+      const active =
+        visibleLetters[currentStep];
 
 
       letters.forEach(
         (letter, index) => {
 
           if (
-            visibleIndexes.includes(index)
+            active.includes(index)
           ) {
 
             letter.classList.add(
@@ -695,12 +554,30 @@
 
         }
       );
-
     }
 
 
     /* =====================================================
-       BACKGROUND
+       UPDATE BACKGROUND
+    =====================================================
+
+       IMPORTANT:
+
+       1 = P
+           deep burgundy
+
+       2 = POR
+           burgundy
+
+       3 = PORTF
+           darker/lighter burgundy
+
+       4 = PORTFOL
+           dusty burgundy
+
+       5 = PORTFOLIO
+           FINAL NEW BACKGROUND
+
     ===================================================== */
 
     function updateBackground() {
@@ -715,45 +592,60 @@
       );
 
 
-      const stage =
-        Math.max(
-          1,
-          Math.min(
-            currentStep,
-            4
-          )
-        );
+      let backgroundStage;
+
+
+      if (currentStep === 1) {
+
+        backgroundStage = 1;
+
+      }
+
+
+      else if (currentStep === 2) {
+
+        backgroundStage = 2;
+
+      }
+
+
+      else if (currentStep === 3) {
+
+        backgroundStage = 3;
+
+      }
+
+
+      else if (currentStep === 4) {
+
+        backgroundStage = 3;
+
+      }
+
+
+      else {
+
+        /*
+          FINAL IO PAIR
+
+          gets its OWN
+          new background.
+        */
+
+        backgroundStage = 4;
+
+      }
 
 
       screen.classList.add(
-        `stage-${stage}`
+        `stage-${backgroundStage}`
       );
 
     }
 
 
     /* =====================================================
-       INDICATOR
-    ===================================================== */
-
-    function updateIndicator() {
-
-      stepNumber.textContent =
-
-        String(
-          Math.min(
-            currentStep,
-            4
-          )
-        ).padStart(2, "0")
-
-        + " / 04";
-
-    }
-
-
-    /* =====================================================
-       SCROLL DOWN
+       NEXT
     ===================================================== */
 
     function nextStep() {
@@ -763,7 +655,10 @@
       }
 
 
-      if (currentStep >= 5) {
+      if (
+        currentStep >= totalSteps
+      ) {
+
         return;
       }
 
@@ -777,8 +672,6 @@
       updateLetters();
 
       updateBackground();
-
-      updateIndicator();
 
 
       setTimeout(
@@ -794,7 +687,7 @@
 
 
     /* =====================================================
-       SCROLL UP
+       PREVIOUS
     ===================================================== */
 
     function previousStep() {
@@ -819,8 +712,6 @@
 
       updateBackground();
 
-      updateIndicator();
-
 
       setTimeout(
         () => {
@@ -835,7 +726,7 @@
 
 
     /* =====================================================
-       MOUSE WHEEL / TRACKPAD
+       MOUSE / TRACKPAD
     ===================================================== */
 
     window.addEventListener(
@@ -850,7 +741,6 @@
         ) {
 
           return;
-
         }
 
 
@@ -860,7 +750,9 @@
 
           nextStep();
 
-        } else {
+        }
+
+        else {
 
           previousStep();
 
@@ -913,7 +805,6 @@
         ) {
 
           return;
-
         }
 
 
@@ -923,7 +814,9 @@
 
           nextStep();
 
-        } else {
+        }
+
+        else {
 
           previousStep();
 
@@ -980,10 +873,9 @@
 
     updateBackground();
 
-    updateIndicator();
-
   </script>
 
 
 </body>
+
 </html>
