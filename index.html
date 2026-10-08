@@ -54,7 +54,9 @@
 
 
     body {
+
       background: #3E000C;
+
       color: #F6EBDD;
 
       font-family:
@@ -88,12 +90,13 @@
       background: #3E000C;
 
       transition:
-        background 1.15s cubic-bezier(.16,1,.3,1);
+        background 1.15s
+        cubic-bezier(.16,1,.3,1);
     }
 
 
     /* =====================================================
-       BURGUNDY BACKGROUNDS
+       BURGUNDY STAGES
     ===================================================== */
 
     .portfolio-screen.stage-1 {
@@ -144,11 +147,8 @@
     }
 
 
-    /* =====================================================
-       ABOUT BACKGROUND
-    ===================================================== */
-
     .portfolio-screen.stage-about {
+
       background: #F6EBDD;
     }
 
@@ -179,7 +179,7 @@
 
 
     /* =====================================================
-       PORTFOLIO
+       PORTFOLIO WORD
     ===================================================== */
 
     .portfolio-word {
@@ -195,7 +195,8 @@
 
       transition:
         opacity .9s ease,
-        transform 1.1s cubic-bezier(.16,1,.3,1);
+        transform 1.1s
+        cubic-bezier(.16,1,.3,1);
     }
 
 
@@ -240,6 +241,7 @@
       white-space: nowrap;
 
       transition:
+
         transform
         1.15s
         cubic-bezier(.16,1,.3,1),
@@ -296,7 +298,7 @@
 
 
     /* =====================================================
-       ABOUT SECTION
+       ABOUT ME — FIRST SECTION
     ===================================================== */
 
     .about-section {
@@ -386,11 +388,13 @@
       overflow: hidden;
 
       background: #3E000C;
+
+      perspective: 1200px;
     }
 
 
     /* =====================================================
-       DOOR IMAGE — IMAGE3
+       DOOR IMAGE
     ===================================================== */
 
     .door-image {
@@ -406,17 +410,24 @@
 
       display: block;
 
+      transform-origin: right center;
+
       transition:
+
         transform
-        1.5s cubic-bezier(.16,1,.3,1),
+        1.4s
+        cubic-bezier(.16,1,.3,1),
 
         filter
-        1.2s ease;
+        1.2s ease,
+
+        opacity
+        1s ease;
     }
 
 
     /* =====================================================
-       DOOR CONTENT
+       ABOUT ME TITLE ON DOOR
     ===================================================== */
 
     .door-content {
@@ -426,8 +437,6 @@
       inset: 0;
 
       display: flex;
-
-      flex-direction: column;
 
       align-items: center;
 
@@ -462,85 +471,23 @@
 
       font-weight: 400;
 
-      margin-bottom: 5vh;
-
       transition:
-        opacity .5s ease,
+
+        opacity .6s ease,
 
         transform
-        .7s cubic-bezier(.16,1,.3,1);
+        .8s
+        cubic-bezier(.16,1,.3,1);
     }
 
 
     /* =====================================================
-       LEARN MORE
-    ===================================================== */
-
-    .learn-more {
-
-      position: relative;
-
-      display: inline-flex;
-
-      align-items: center;
-
-      gap: 14px;
-
-      padding: 0;
-
-      border: 0;
-
-      background: transparent;
-
-      color: #F6EBDD;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-      font-size: 10px;
-
-      letter-spacing: 4px;
-
-      text-transform: uppercase;
-
-      cursor: pointer;
-
-      pointer-events: auto;
-
-      transition:
-        opacity .4s ease;
-    }
-
-
-    .learn-more::after {
-
-      content: "";
-
-      width: 35px;
-
-      height: 1px;
-
-      background: #F6EBDD;
-
-      transition:
-        width
-        .5s cubic-bezier(.16,1,.3,1);
-    }
-
-
-    .learn-more:hover::after {
-      width: 60px;
-    }
-
-
-    /* =====================================================
-       DOOR OPEN
+       DOOR OPENING EFFECT
     ===================================================== */
 
     .door-area.opening {
-      cursor: default;
+
+      overflow: hidden;
     }
 
 
@@ -548,11 +495,13 @@
     .door-image {
 
       transform:
-        scale(1.12)
-        translateX(16%);
+        perspective(1200px)
+        rotateY(-62deg)
+        translateX(25%)
+        scale(1.08);
 
       filter:
-        brightness(.65);
+        brightness(.55);
     }
 
 
@@ -562,14 +511,8 @@
       opacity: 0;
 
       transform:
-        scale(1.08)
-        translateY(-30px);
-    }
-
-
-    .door-area.opening
-    .learn-more {
-      opacity: 0;
+        scale(1.15)
+        translateZ(100px);
     }
 
 
@@ -640,11 +583,13 @@
 
 
     .about-photo:nth-child(1) {
+
       margin-top: 7vh;
     }
 
 
     .about-photo:nth-child(2) {
+
       margin-bottom: 7vh;
     }
 
@@ -677,7 +622,7 @@
 
 
     /* =====================================================
-       ABOUT US CONTENT AFTER DOOR
+       SECOND ABOUT ME SECTION
     ===================================================== */
 
     .about-next {
@@ -694,7 +639,8 @@
 
       justify-content: center;
 
-      padding: 10vw;
+      padding:
+        10vw;
 
       background: #F6EBDD;
 
@@ -748,12 +694,12 @@
 
       width: 100%;
 
-      max-width: 1100px;
+      max-width: 1150px;
 
       display: grid;
 
       grid-template-columns:
-        35% 65%;
+        30% 70%;
 
       gap: 5vw;
 
@@ -794,6 +740,32 @@
       letter-spacing: -.05em;
 
       font-weight: 400;
+
+      opacity: 0;
+
+      transform:
+        translateY(60px);
+
+      transition:
+
+        opacity
+        .9s ease
+        .35s,
+
+        transform
+        1s
+        cubic-bezier(.16,1,.3,1)
+        .35s;
+    }
+
+
+    .about-next.active
+    .about-next-text {
+
+      opacity: 1;
+
+      transform:
+        translateY(0);
     }
 
 
@@ -820,7 +792,7 @@
       .about-section {
 
         padding:
-          6vh 5vw;
+          5vh 5vw;
 
         display: flex;
 
@@ -846,17 +818,8 @@
 
       .door-title {
 
-        font-size: 18vw;
-
-        margin-bottom: 3vh;
-      }
-
-
-      .learn-more {
-
-        font-size: 8px;
-
-        letter-spacing: 3px;
+        font-size:
+          18vw;
       }
 
 
@@ -883,18 +846,21 @@
 
 
       .about-photo:nth-child(1) {
+
         margin-top: 3vh;
       }
 
 
       .about-photo:nth-child(2) {
+
         margin-bottom: 3vh;
       }
 
 
       .about-next {
 
-        padding: 8vw;
+        padding:
+          8vw;
       }
 
 
@@ -908,7 +874,8 @@
 
       .about-next-text {
 
-        font-size: 12vw;
+        font-size:
+          12vw;
       }
 
     }
@@ -921,16 +888,20 @@
     @media (max-width: 390px) {
 
       .door-area {
+
         height: 47vh;
       }
 
 
       .door-title {
-        font-size: 17vw;
+
+        font-size:
+          17vw;
       }
 
 
       .about-images {
+
         height: 39vh;
       }
 
@@ -958,16 +929,19 @@
 
 
       .door-area {
+
         height: 88vh;
       }
 
 
       .about-images {
+
         height: 88vh;
       }
 
 
       .about-photo {
+
         height: 80vh;
       }
 
@@ -997,28 +971,20 @@
     >
 
       <span class="letter">P</span>
-
       <span class="letter">O</span>
-
       <span class="letter">R</span>
-
       <span class="letter">T</span>
-
       <span class="letter">F</span>
-
       <span class="letter">O</span>
-
       <span class="letter">L</span>
-
       <span class="letter">I</span>
-
       <span class="letter">O</span>
 
     </div>
 
 
     <!-- ===================================================
-         ABOUT US
+         ABOUT ME FIRST SECTION
     ==================================================== -->
 
     <section
@@ -1027,49 +993,32 @@
     >
 
 
-      <!-- ================================
-           LEFT — DOOR
-      ================================= -->
+      <!-- LEFT — DOOR -->
 
       <div
         class="door-area"
         id="doorArea"
       >
 
-        <!-- IMPORTANT: YOUR DOOR IMAGE -->
-
         <img
           class="door-image"
           src="image3"
-          alt="About Us"
+          alt="About Me"
         >
 
 
         <div class="door-content">
 
           <h1 class="door-title">
-            ABOUT US
+            ABOUT ME
           </h1>
-
-
-          <button
-            class="learn-more"
-            id="learnMore"
-            type="button"
-          >
-
-            LEARN MORE
-
-          </button>
 
         </div>
 
       </div>
 
 
-      <!-- ================================
-           RIGHT — YOUR PHOTOS
-      ================================= -->
+      <!-- RIGHT — PHOTOS -->
 
       <div class="about-images">
 
@@ -1101,7 +1050,7 @@
 
 
     <!-- ===================================================
-         ABOUT US CONTENT AFTER DOOR
+         NEXT ABOUT ME CONTENT
     ==================================================== -->
 
     <section
@@ -1114,7 +1063,7 @@
 
         <div class="about-next-label">
 
-          ABOUT US
+          ABOUT ME
 
         </div>
 
@@ -1173,12 +1122,6 @@
       );
 
 
-    const learnMore =
-      document.getElementById(
-        "learnMore"
-      );
-
-
     const letters =
       document.querySelectorAll(
         ".letter"
@@ -1193,17 +1136,10 @@
 
     let isAnimating = false;
 
+    let aboutOpened = false;
+
     let doorOpened = false;
 
-
-    /*
-      1 = P
-      2 = POR
-      3 = PORTF
-      4 = PORTFOL
-      5 = PORTFOLIO
-      6 = ABOUT US
-    */
 
     const totalSteps = 6;
 
@@ -1211,20 +1147,20 @@
 
 
     /* =====================================================
-       LETTER STATES
+       PORTFOLIO LETTER STATES
     ===================================================== */
 
     const visibleLetters = {
 
       1: [0],
 
-      2: [0,1,2],
+      2: [0, 1, 2],
 
-      3: [0,1,2,3,4],
+      3: [0, 1, 2, 3, 4],
 
-      4: [0,1,2,3,4,5,6],
+      4: [0, 1, 2, 3, 4, 5, 6],
 
-      5: [0,1,2,3,4,5,6,7,8],
+      5: [0, 1, 2, 3, 4, 5, 6, 7, 8],
 
       6: []
 
@@ -1242,7 +1178,7 @@
 
 
       letters.forEach(
-        (letter,index) => {
+        (letter, index) => {
 
           if (
             active.includes(index)
@@ -1262,11 +1198,12 @@
 
         }
       );
+
     }
 
 
     /* =====================================================
-       UPDATE BACKGROUND
+       BACKGROUND
     ===================================================== */
 
     function updateBackground() {
@@ -1334,30 +1271,224 @@
 
 
     /* =====================================================
-       ABOUT SECTION
+       OPEN ABOUT ME SECTION
     ===================================================== */
 
-    function updateAbout() {
+    function openAboutSection() {
 
       if (
-        currentStep === 6
+        aboutOpened
       ) {
 
-        aboutSection.classList.add(
-          "active"
+        return;
+      }
+
+
+      aboutOpened = true;
+
+
+      aboutSection.classList.add(
+        "active"
+      );
+
+
+      portfolioWord.style.opacity =
+        "0";
+
+
+      portfolioWord.style.transform =
+        "translateY(-8vh)";
+
+
+      screen.classList.remove(
+        "stage-1",
+        "stage-2",
+        "stage-3",
+        "stage-4"
+      );
+
+
+      screen.classList.add(
+        "stage-about"
+      );
+
+    }
+
+
+    /* =====================================================
+       OPEN DOOR ON NEXT SCROLL
+    ===================================================== */
+
+    function openDoorAndContinue() {
+
+      if (
+        doorOpened ||
+        !aboutOpened ||
+        isAnimating
+      ) {
+
+        return;
+      }
+
+
+      doorOpened = true;
+
+      isAnimating = true;
+
+
+      /*
+        First the door opens.
+      */
+
+      doorArea.classList.add(
+        "opening"
+      );
+
+
+      /*
+        After the door animation,
+        reveal the next About Me section.
+      */
+
+      setTimeout(
+        () => {
+
+          aboutNext.classList.add(
+            "active"
+          );
+
+
+          setTimeout(
+            () => {
+
+              isAnimating = false;
+
+            },
+            900
+          );
+
+        },
+        650
+      );
+
+    }
+
+
+    /* =====================================================
+       NEXT STEP
+    ===================================================== */
+
+    function nextStep() {
+
+      if (
+        isAnimating
+      ) {
+
+        return;
+      }
+
+
+      /*
+        Portfolio → About Me
+      */
+
+      if (
+        currentStep < totalSteps
+      ) {
+
+        isAnimating = true;
+
+        currentStep++;
+
+        updateLetters();
+
+        updateBackground();
+
+
+        if (
+          currentStep === totalSteps
+        ) {
+
+          openAboutSection();
+
+        }
+
+
+        setTimeout(
+          () => {
+
+            isAnimating = false;
+
+          },
+          animationDuration
         );
 
 
-        portfolioWord.style.opacity =
-          "0";
+        return;
+      }
 
 
-        portfolioWord.style.transform =
-          "translateY(-8vh)";
+      /*
+        About Me → Door
+      */
+
+      if (
+        currentStep === totalSteps &&
+        aboutOpened &&
+        !doorOpened
+      ) {
+
+        openDoorAndContinue();
 
       }
 
-      else {
+    }
+
+
+    /* =====================================================
+       PREVIOUS STEP
+    ===================================================== */
+
+    function previousStep() {
+
+      /*
+        Don't go backwards while
+        door animation is active.
+      */
+
+      if (
+        isAnimating ||
+        doorOpened
+      ) {
+
+        return;
+      }
+
+
+      if (
+        currentStep <= 1
+      ) {
+
+        return;
+      }
+
+
+      isAnimating = true;
+
+
+      currentStep--;
+
+
+      updateLetters();
+
+      updateBackground();
+
+
+      if (
+        currentStep < totalSteps
+      ) {
+
+        aboutOpened = false;
 
         aboutSection.classList.remove(
           "active"
@@ -1373,55 +1504,6 @@
 
       }
 
-    }
-
-
-    /* =====================================================
-       UPDATE SCREEN
-    ===================================================== */
-
-    function updateScreen() {
-
-      updateLetters();
-
-      updateBackground();
-
-      updateAbout();
-
-    }
-
-
-    /* =====================================================
-       NEXT
-    ===================================================== */
-
-    function nextStep() {
-
-      if (
-        isAnimating ||
-        doorOpened
-      ) {
-
-        return;
-      }
-
-
-      if (
-        currentStep >= totalSteps
-      ) {
-
-        return;
-      }
-
-
-      isAnimating = true;
-
-
-      currentStep++;
-
-
-      updateScreen();
-
 
       setTimeout(
         () => {
@@ -1433,104 +1515,6 @@
       );
 
     }
-
-
-    /* =====================================================
-       PREVIOUS
-    ===================================================== */
-
-    function previousStep() {
-
-      if (
-        isAnimating
-      ) {
-
-        return;
-      }
-
-
-      if (
-        currentStep <= 1
-      ) {
-
-        return;
-      }
-
-
-      if (
-        doorOpened
-      ) {
-
-        return;
-      }
-
-
-      isAnimating = true;
-
-
-      currentStep--;
-
-
-      updateScreen();
-
-
-      setTimeout(
-        () => {
-
-          isAnimating = false;
-
-        },
-        animationDuration
-      );
-
-    }
-
-
-    /* =====================================================
-       OPEN DOOR
-    ===================================================== */
-
-    function openDoor() {
-
-      if (
-        doorOpened ||
-        currentStep !== 6
-      ) {
-
-        return;
-      }
-
-
-      doorOpened = true;
-
-
-      doorArea.classList.add(
-        "opening"
-      );
-
-
-      setTimeout(
-        () => {
-
-          aboutNext.classList.add(
-            "active"
-          );
-
-        },
-        700
-      );
-
-    }
-
-
-    /* =====================================================
-       LEARN MORE CLICK
-    ===================================================== */
-
-    learnMore.addEventListener(
-      "click",
-      openDoor
-    );
 
 
     /* =====================================================
@@ -1538,7 +1522,9 @@
     ===================================================== */
 
     window.addEventListener(
+
       "wheel",
+
       (event) => {
 
         event.preventDefault();
@@ -1546,14 +1532,6 @@
 
         if (
           Math.abs(event.deltaY) < 5
-        ) {
-
-          return;
-        }
-
-
-        if (
-          currentStep === 6
         ) {
 
           return;
@@ -1575,9 +1553,11 @@
         }
 
       },
+
       {
         passive: false
       }
+
     );
 
 
@@ -1591,21 +1571,27 @@
 
 
     window.addEventListener(
+
       "touchstart",
+
       (event) => {
 
         touchStartY =
           event.touches[0].clientY;
 
       },
+
       {
         passive: true
       }
+
     );
 
 
     window.addEventListener(
+
       "touchend",
+
       (event) => {
 
         touchEndY =
@@ -1618,14 +1604,6 @@
 
         if (
           Math.abs(distance) < 35
-        ) {
-
-          return;
-        }
-
-
-        if (
-          currentStep === 6
         ) {
 
           return;
@@ -1647,9 +1625,11 @@
         }
 
       },
+
       {
         passive: true
       }
+
     );
 
 
@@ -1658,16 +1638,10 @@
     ===================================================== */
 
     window.addEventListener(
+
       "keydown",
+
       (event) => {
-
-        if (
-          currentStep === 6
-        ) {
-
-          return;
-        }
-
 
         if (
           event.key === "ArrowDown" ||
@@ -1694,6 +1668,7 @@
         }
 
       }
+
     );
 
 
@@ -1701,7 +1676,9 @@
        INITIAL STATE
     ===================================================== */
 
-    updateScreen();
+    updateLetters();
+
+    updateBackground();
 
   </script>
 
