@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -9,15 +10,29 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Lu — Portfolio</title>
+  <title>Luiza Sargsyan — Portfolio</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- =====================================================
+       FONTS
+  ====================================================== -->
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Inter:wght@400;500&display=swap"
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet"
   >
+
 
   <style>
 
@@ -31,6 +46,7 @@
       box-sizing: border-box;
     }
 
+
     html,
     body {
       width: 100%;
@@ -38,13 +54,28 @@
       overflow: hidden;
     }
 
+
     body {
-      background: #3E000C;
-      color: #F6EBDD;
-      font-family: "Bodoni Moda", serif;
-      -webkit-font-smoothing: antialiased;
-      overscroll-behavior: none;
-      user-select: none;
+
+      background:
+        #3E000C;
+
+      color:
+        #F6EBDD;
+
+      font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+      -webkit-font-smoothing:
+        antialiased;
+
+      overscroll-behavior:
+        none;
+
+      user-select:
+        none;
     }
 
 
@@ -53,23 +84,41 @@
     ===================================================== */
 
     .portfolio-screen {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      height: 100svh;
-      overflow: hidden;
-      background: #3E000C;
+
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      width:
+        100vw;
+
+      height:
+        100vh;
+
+      height:
+        100svh;
+
+      overflow:
+        hidden;
+
+      background:
+        #3E000C;
+
       transition:
-        background 1.15s cubic-bezier(.16,1,.3,1);
+        background
+        1.15s
+        cubic-bezier(.16,1,.3,1);
     }
 
 
     /* =====================================================
-       BURGUNDY PORTFOLIO STAGES
+       PORTFOLIO BACKGROUNDS
     ===================================================== */
 
     .portfolio-screen.stage-1 {
+
       background:
         radial-gradient(
           circle at 45% 50%,
@@ -79,7 +128,9 @@
         #3E000C;
     }
 
+
     .portfolio-screen.stage-2 {
+
       background:
         radial-gradient(
           circle at 45% 50%,
@@ -89,7 +140,9 @@
         #57101F;
     }
 
+
     .portfolio-screen.stage-3 {
+
       background:
         radial-gradient(
           circle at 45% 50%,
@@ -99,7 +152,9 @@
         #702B35;
     }
 
+
     .portfolio-screen.stage-4 {
+
       background:
         radial-gradient(
           circle at 45% 50%,
@@ -109,8 +164,11 @@
         #874B4A;
     }
 
+
     .portfolio-screen.stage-about {
-      background: #F6EBDD;
+
+      background:
+        #F6EBDD;
     }
 
 
@@ -119,17 +177,30 @@
     ===================================================== */
 
     .portfolio-screen::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 100;
-      opacity: .035;
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      pointer-events:
+        none;
+
+      z-index:
+        100;
+
+      opacity:
+        .035;
 
       background-image:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
 
-      mix-blend-mode: multiply;
+      mix-blend-mode:
+        multiply;
     }
 
 
@@ -138,20 +209,37 @@
     ===================================================== */
 
     .portfolio-word {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 10;
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      z-index:
+        10;
 
       transition:
         opacity .9s ease,
-        transform 1.1s cubic-bezier(.16,1,.3,1);
+        transform
+        1.1s
+        cubic-bezier(.16,1,.3,1);
     }
 
+
     .letter {
-      position: absolute;
-      top: 50%;
+
+      position:
+        absolute;
+
+      top:
+        50%;
 
       left:
         calc(
@@ -164,11 +252,15 @@
           calc(-50% + 100vh)
         );
 
-      opacity: 0;
+      opacity:
+        0;
 
-      color: #F6EBDD;
+      color:
+        #F6EBDD;
 
-      font-family: "Bodoni Moda", serif;
+      font-family:
+        "Bodoni Moda",
+        serif;
 
       font-size:
         clamp(
@@ -177,76 +269,158 @@
           230px
         );
 
-      font-weight: 400;
-      line-height: .75;
-      letter-spacing: -.08em;
-      white-space: nowrap;
+      font-weight:
+        400;
+
+      line-height:
+        .75;
+
+      letter-spacing:
+        -.08em;
+
+      white-space:
+        nowrap;
 
       transition:
-        transform 1.15s cubic-bezier(.16,1,.3,1),
-        opacity .75s ease;
+        transform
+        1.15s
+        cubic-bezier(.16,1,.3,1),
+        opacity
+        .75s ease;
     }
+
 
     .letter.visible {
-      transform: translateY(-50%);
-      opacity: 1;
+
+      transform:
+        translateY(-50%);
+
+      opacity:
+        1;
     }
 
-    .letter:nth-child(1) { --index: 0; }
-    .letter:nth-child(2) { --index: 1; }
-    .letter:nth-child(3) { --index: 2; }
-    .letter:nth-child(4) { --index: 3; }
-    .letter:nth-child(5) { --index: 4; }
-    .letter:nth-child(6) { --index: 5; }
-    .letter:nth-child(7) { --index: 6; }
-    .letter:nth-child(8) { --index: 7; }
-    .letter:nth-child(9) { --index: 8; }
+
+    .letter:nth-child(1) {
+      --index: 0;
+    }
+
+    .letter:nth-child(2) {
+      --index: 1;
+    }
+
+    .letter:nth-child(3) {
+      --index: 2;
+    }
+
+    .letter:nth-child(4) {
+      --index: 3;
+    }
+
+    .letter:nth-child(5) {
+      --index: 4;
+    }
+
+    .letter:nth-child(6) {
+      --index: 5;
+    }
+
+    .letter:nth-child(7) {
+      --index: 6;
+    }
+
+    .letter:nth-child(8) {
+      --index: 7;
+    }
+
+    .letter:nth-child(9) {
+      --index: 8;
+    }
 
 
     /* =====================================================
-       ABOUT — DOOR SECTION
+       ABOUT FIRST SECTION
     ===================================================== */
 
     .about-section {
-      position: absolute;
-      inset: 0;
 
-      width: 100%;
-      height: 100%;
+      position:
+        absolute;
 
-      padding: 6vh 5vw;
+      inset:
+        0;
 
-      display: grid;
-      grid-template-columns: 45% 55%;
-      gap: 3vw;
-      align-items: center;
+      width:
+        100%;
 
-      background: #F6EBDD;
-      color: #3E000C;
+      height:
+        100%;
 
-      opacity: 0;
-      visibility: hidden;
+      padding:
+        6vh 5vw;
 
-      transform: translateY(100vh);
+      display:
+        grid;
+
+      grid-template-columns:
+        45% 55%;
+
+      gap:
+        3vw;
+
+      align-items:
+        center;
+
+      background:
+        #F6EBDD;
+
+      color:
+        #3E000C;
+
+      opacity:
+        0;
+
+      visibility:
+        hidden;
+
+      transform:
+        translateY(100vh);
 
       transition:
-        transform 1.15s cubic-bezier(.16,1,.3,1),
-        opacity .9s ease,
-        visibility 0s linear 1.15s;
+        transform
+        1.15s
+        cubic-bezier(.16,1,.3,1),
+        opacity
+        .9s ease,
+        visibility
+        0s linear 1.15s;
 
-      z-index: 20;
-      overflow: hidden;
+      z-index:
+        20;
+
+      overflow:
+        hidden;
     }
 
+
     .about-section.active {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+
+      opacity:
+        1;
+
+      visibility:
+        visible;
+
+      transform:
+        translateY(0);
 
       transition:
-        transform 1.15s cubic-bezier(.16,1,.3,1),
-        opacity .9s ease,
-        visibility 0s linear 0s;
+        transform
+        1.15s
+        cubic-bezier(.16,1,.3,1),
+        opacity
+        .9s ease,
+        visibility
+        0s linear 0s;
     }
 
 
@@ -255,52 +429,97 @@
     ===================================================== */
 
     .door-area {
-      position: relative;
-      width: 100%;
-      height: 88vh;
 
-      overflow: hidden;
-      background: #3E000C;
+      position:
+        relative;
 
-      perspective: 1400px;
+      width:
+        100%;
+
+      height:
+        88vh;
+
+      overflow:
+        hidden;
+
+      background:
+        #3E000C;
+
+      perspective:
+        1400px;
     }
+
 
     .door-image {
-      position: absolute;
-      inset: 0;
 
-      width: 100%;
-      height: 100%;
+      position:
+        absolute;
 
-      object-fit: cover;
-      display: block;
+      inset:
+        0;
 
-      transform-origin: right center;
+      width:
+        100%;
+
+      height:
+        100%;
+
+      object-fit:
+        cover;
+
+      display:
+        block;
+
+      transform-origin:
+        right center;
 
       transition:
-        transform 1.35s cubic-bezier(.16,1,.3,1),
-        filter 1.1s ease,
-        opacity 1s ease;
+        transform
+        1.35s
+        cubic-bezier(.16,1,.3,1),
+        filter
+        1.1s ease,
+        opacity
+        1s ease;
     }
+
 
     .door-content {
-      position: absolute;
-      inset: 0;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position:
+        absolute;
 
-      z-index: 5;
+      inset:
+        0;
 
-      color: #F6EBDD;
-      text-align: center;
+      display:
+        flex;
 
-      pointer-events: none;
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      z-index:
+        5;
+
+      color:
+        #F6EBDD;
+
+      text-align:
+        center;
+
+      pointer-events:
+        none;
     }
 
+
     .door-title {
-      font-family: "Bodoni Moda", serif;
+
+      font-family:
+        "Bodoni Moda",
+        serif;
 
       font-size:
         clamp(
@@ -309,27 +528,43 @@
           145px
         );
 
-      line-height: .8;
-      letter-spacing: -.06em;
-      font-weight: 500;
+      line-height:
+        .8;
+
+      letter-spacing:
+        -.06em;
+
+      font-weight:
+        500;
 
       transition:
-        opacity .6s ease,
-        transform .8s cubic-bezier(.16,1,.3,1);
+        opacity
+        .6s ease,
+        transform
+        .8s
+        cubic-bezier(.16,1,.3,1);
     }
 
-    .door-area.opening .door-image {
+
+    .door-area.opening
+    .door-image {
+
       transform:
         perspective(1400px)
         rotateY(-62deg)
         translateX(25%)
         scale(1.08);
 
-      filter: brightness(.55);
+      filter:
+        brightness(.55);
     }
 
-    .door-area.opening .door-title {
-      opacity: 0;
+
+    .door-area.opening
+    .door-title {
+
+      opacity:
+        0;
 
       transform:
         scale(1.15)
@@ -342,143 +577,371 @@
     ===================================================== */
 
     .about-images {
-      position: relative;
 
-      width: 100%;
-      height: 86vh;
+      position:
+        relative;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width:
+        100%;
 
-      gap: 1.2vw;
+      height:
+        86vh;
 
-      opacity: 0;
+      display:
+        flex;
 
-      transform: translateY(80px);
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        1.2vw;
+
+      opacity:
+        0;
+
+      transform:
+        translateY(80px);
 
       transition:
-        transform 1.1s cubic-bezier(.16,1,.3,1) .15s,
-        opacity .9s ease .15s;
+        transform
+        1.1s
+        cubic-bezier(.16,1,.3,1) .15s,
+        opacity
+        .9s ease .15s;
     }
 
-    .about-section.active .about-images {
-      opacity: 1;
-      transform: translateY(0);
+
+    .about-section.active
+    .about-images {
+
+      opacity:
+        1;
+
+      transform:
+        translateY(0);
     }
+
 
     .about-photo {
-      position: relative;
 
-      width: 46%;
-      height: 78vh;
+      position:
+        relative;
 
-      overflow: hidden;
+      width:
+        46%;
 
-      background: #D8CBB9;
-      flex-shrink: 0;
+      height:
+        78vh;
+
+      overflow:
+        hidden;
+
+      background:
+        #D8CBB9;
+
+      flex-shrink:
+        0;
     }
+
 
     .about-photo:nth-child(1) {
-      margin-top: 7vh;
+
+      margin-top:
+        7vh;
     }
+
 
     .about-photo:nth-child(2) {
-      margin-bottom: 7vh;
+
+      margin-bottom:
+        7vh;
     }
 
-    .about-photo img {
-      width: 100%;
-      height: 100%;
 
-      object-fit: cover;
-      display: block;
+    .about-photo img {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      object-fit:
+        cover;
+
+      display:
+        block;
 
       filter:
         grayscale(100%)
         contrast(.96);
 
       transition:
-        transform 1.2s cubic-bezier(.16,1,.3,1);
+        transform
+        1.2s
+        cubic-bezier(.16,1,.3,1);
     }
 
+
     .about-photo:hover img {
-      transform: scale(1.035);
+
+      transform:
+        scale(1.035);
     }
 
 
     /* =====================================================
-       ABOUT CONTENT
+       ABOUT DETAILS SECTION
     ===================================================== */
 
     .about-next {
-      position: absolute;
-      inset: 0;
 
-      z-index: 80;
+      position:
+        absolute;
 
-      overflow-y: auto;
-      overflow-x: hidden;
+      inset:
+        0;
+
+      z-index:
+        80;
+
+      overflow-y:
+        auto;
+
+      overflow-x:
+        hidden;
 
       padding:
         7vh 6vw 8vh;
 
-      background: #F6EBDD;
-      color: #3E000C;
+      background:
+        #F6EBDD;
 
-      opacity: 0;
-      visibility: hidden;
+      color:
+        #3E000C;
 
-      transform: translateY(100%);
+      opacity:
+        0;
+
+      visibility:
+        hidden;
+
+      transform:
+        translateY(100%);
 
       transition:
-        transform 1.25s cubic-bezier(.16,1,.3,1),
-        opacity .8s ease,
-        visibility 0s linear 1.25s;
+        transform
+        1.25s
+        cubic-bezier(.16,1,.3,1),
+        opacity
+        .8s ease,
+        visibility
+        0s linear 1.25s;
     }
+
 
     .about-next.active {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+
+      opacity:
+        1;
+
+      visibility:
+        visible;
+
+      transform:
+        translateY(0);
 
       transition:
-        transform 1.25s cubic-bezier(.16,1,.3,1),
-        opacity .8s ease,
-        visibility 0s linear 0s;
+        transform
+        1.25s
+        cubic-bezier(.16,1,.3,1),
+        opacity
+        .8s ease,
+        visibility
+        0s linear 0s;
     }
+
 
     .about-next::-webkit-scrollbar {
-      width: 5px;
+
+      width:
+        5px;
     }
+
 
     .about-next::-webkit-scrollbar-track {
-      background: rgba(62,0,12,.04);
+
+      background:
+        rgba(62,0,12,.04);
     }
+
 
     .about-next::-webkit-scrollbar-thumb {
-      background: rgba(62,0,12,.30);
-      border-radius: 20px;
+
+      background:
+        rgba(62,0,12,.30);
+
+      border-radius:
+        20px;
     }
 
+
     .about-next-inner {
-      width: 100%;
-      max-width: 1350px;
-      margin: 0 auto;
+
+      width:
+        100%;
+
+      max-width:
+        1350px;
+
+      margin:
+        0 auto;
     }
 
 
     /* =====================================================
-       TWO CARDS
-       DIFFERENT BACKGROUNDS
+       HEADER
+    ===================================================== */
+
+    .about-header {
+
+      display:
+        flex;
+
+      align-items:
+        flex-start;
+
+      justify-content:
+        space-between;
+
+      gap:
+        40px;
+
+      margin-bottom:
+        42px;
+
+      opacity:
+        0;
+
+      transform:
+        translateY(35px);
+
+      transition:
+        opacity
+        .8s ease .15s,
+        transform
+        1s
+        cubic-bezier(.16,1,.3,1) .15s;
+    }
+
+
+    .about-next.active
+    .about-header {
+
+      opacity:
+        1;
+
+      transform:
+        translateY(0);
+    }
+
+
+    .about-header-label {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        12px;
+
+      padding-top:
+        8px;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size:
+        9px;
+
+      letter-spacing:
+        3px;
+
+      text-transform:
+        uppercase;
+    }
+
+
+    .about-header-label::before {
+
+      content:
+        "";
+
+      width:
+        28px;
+
+      height:
+        1px;
+
+      background:
+        #3E000C;
+    }
+
+
+    .about-header-title {
+
+      max-width:
+        620px;
+
+      font-family:
+        "Bodoni Moda",
+        serif;
+
+      font-size:
+        clamp(
+          50px,
+          7vw,
+          105px
+        );
+
+      line-height:
+        .78;
+
+      letter-spacing:
+        -.075em;
+
+      font-weight:
+        500;
+
+      text-align:
+        right;
+
+      -webkit-text-stroke:
+        .25px #3E000C;
+    }
+
+
+    /* =====================================================
+       STORY GRID
     ===================================================== */
 
     .story-grid {
-      display: grid;
 
-      grid-template-columns: 1fr 1fr;
+      display:
+        grid;
 
-      gap: 2px;
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        2px;
 
       background:
         rgba(62,0,12,.20);
@@ -487,24 +950,38 @@
         1px solid
         rgba(62,0,12,.20);
 
-      opacity: 0;
+      opacity:
+        0;
 
-      transform: translateY(50px);
+      transform:
+        translateY(50px);
 
       transition:
-        opacity .9s ease .35s,
-        transform 1.1s cubic-bezier(.16,1,.3,1) .35s;
+        opacity
+        .9s ease .35s,
+        transform
+        1.1s
+        cubic-bezier(.16,1,.3,1) .35s;
     }
 
-    .about-next.active .story-grid {
-      opacity: 1;
-      transform: translateY(0);
+
+    .about-next.active
+    .story-grid {
+
+      opacity:
+        1;
+
+      transform:
+        translateY(0);
     }
 
 
-    /* LEFT CARD — WARM BEIGE */
+    /* =====================================================
+       PERSONAL CARD
+    ===================================================== */
 
     .story-card.personal-card {
+
       background:
         linear-gradient(
           135deg,
@@ -514,9 +991,12 @@
     }
 
 
-    /* RIGHT CARD — SOFT BLUSH */
+    /* =====================================================
+       PROFESSIONAL CARD
+    ===================================================== */
 
     .story-card.professional-card {
+
       background:
         linear-gradient(
           135deg,
@@ -527,136 +1007,203 @@
 
 
     .story-card {
-      position: relative;
 
-      min-height: 470px;
+      position:
+        relative;
+
+      min-height:
+        500px;
 
       padding:
-        38px 38px 34px;
+        38px 38px 38px;
 
-      overflow: hidden;
+      overflow:
+        hidden;
     }
 
 
-    /* subtle decorative circle */
-
     .story-card::after {
-      content: "";
 
-      position: absolute;
+      content:
+        "";
 
-      width: 260px;
-      height: 260px;
+      position:
+        absolute;
 
-      border-radius: 50%;
+      width:
+        260px;
 
-      right: -120px;
-      bottom: -120px;
+      height:
+        260px;
+
+      border-radius:
+        50%;
+
+      right:
+        -120px;
+
+      bottom:
+        -120px;
 
       border:
         1px solid
         rgba(62,0,12,.10);
 
-      pointer-events: none;
+      pointer-events:
+        none;
     }
 
 
     .story-card::before {
-      content: "";
 
-      position: absolute;
+      content:
+        "";
 
-      top: 0;
-      left: 0;
+      position:
+        absolute;
 
-      width: 100%;
-      height: 2px;
+      top:
+        0;
 
-      background: #3E000C;
+      left:
+        0;
 
-      transform: scaleX(0);
-      transform-origin: left;
+      width:
+        100%;
+
+      height:
+        2px;
+
+      background:
+        #3E000C;
+
+      transform:
+        scaleX(0);
+
+      transform-origin:
+        left;
 
       transition:
-        transform 1s cubic-bezier(.16,1,.3,1);
+        transform
+        1s
+        cubic-bezier(.16,1,.3,1);
     }
 
+
     .story-card:hover::before {
-      transform: scaleX(1);
+
+      transform:
+        scaleX(1);
     }
 
 
     /* =====================================================
-       CARD NUMBER
+       NUMBER
     ===================================================== */
 
     .story-number {
-      position: absolute;
 
-      top: 28px;
-      right: 32px;
+      position:
+        absolute;
+
+      top:
+        28px;
+
+      right:
+        32px;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size: 9px;
-      letter-spacing: 2px;
+      font-size:
+        9px;
 
-      opacity: .55;
+      letter-spacing:
+        2px;
+
+      opacity:
+        .55;
     }
 
 
     /* =====================================================
-       CARD EYEBROW
+       EYEBROW
     ===================================================== */
 
     .story-eyebrow {
-      position: relative;
-      z-index: 2;
 
-      display: flex;
-      align-items: center;
+      position:
+        relative;
 
-      gap: 12px;
+      z-index:
+        2;
 
-      margin-bottom: 42px;
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        12px;
+
+      margin-bottom:
+        42px;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size: 9px;
-      letter-spacing: 3px;
+      font-size:
+        9px;
 
-      text-transform: uppercase;
+      letter-spacing:
+        3px;
+
+      text-transform:
+        uppercase;
     }
 
+
     .story-eyebrow::before {
-      content: "";
 
-      width: 25px;
-      height: 1px;
+      content:
+        "";
 
-      background: #3E000C;
+      width:
+        25px;
+
+      height:
+        1px;
+
+      background:
+        #3E000C;
     }
 
 
     /* =====================================================
-       CARD TITLE
+       STORY TITLE
     ===================================================== */
 
     .story-title {
-      position: relative;
-      z-index: 2;
 
-      max-width: 540px;
+      position:
+        relative;
 
-      margin-bottom: 25px;
+      z-index:
+        2;
 
-      color: #3E000C;
+      max-width:
+        540px;
+
+      margin-bottom:
+        25px;
+
+      color:
+        #3E000C;
 
       font-family:
         "Bodoni Moda",
@@ -669,10 +1216,14 @@
           64px
         );
 
-      line-height: .91;
-      letter-spacing: -.06em;
+      line-height:
+        .91;
 
-      font-weight: 600;
+      letter-spacing:
+        -.06em;
+
+      font-weight:
+        600;
 
       -webkit-text-stroke:
         .25px #3E000C;
@@ -680,13 +1231,19 @@
 
 
     /*
-      FIRST LETTER BIGGER
+      FIRST LETTER LARGER
     */
 
     .story-title::first-letter {
-      font-size: 1.34em;
-      line-height: .65;
-      font-weight: 600;
+
+      font-size:
+        1.34em;
+
+      line-height:
+        .65;
+
+      font-weight:
+        600;
     }
 
 
@@ -695,23 +1252,32 @@
     ===================================================== */
 
     .story-intro {
-      position: relative;
-      z-index: 2;
 
-      max-width: 560px;
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      max-width:
+        560px;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size: 13px;
-      line-height: 1.75;
+      font-size:
+        13px;
+
+      line-height:
+        1.75;
 
       color:
         rgba(62,0,12,.86);
 
-      margin-bottom: 20px;
+      margin-bottom:
+        20px;
     }
 
 
@@ -720,54 +1286,96 @@
     ===================================================== */
 
     .story-icons {
-      position: relative;
-      z-index: 2;
 
-      display: flex;
-      align-items: center;
+      position:
+        relative;
 
-      gap: 18px;
+      z-index:
+        2;
 
-      margin: 28px 0;
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        18px;
+
+      margin:
+        28px 0;
     }
 
-    .story-icon {
-      width: 38px;
-      height: 38px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .story-icon {
+
+      width:
+        38px;
+
+      height:
+        38px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
 
       border:
         1px solid
         rgba(62,0,12,.35);
 
-      border-radius: 50%;
+      border-radius:
+        50%;
+
+      color:
+        #3E000C;
 
       transition:
-        background .3s ease,
-        color .3s ease,
-        transform .3s ease;
+        background
+        .3s ease,
+        color
+        .3s ease,
+        transform
+        .3s ease;
     }
+
 
     .story-icon svg {
-      width: 17px;
-      height: 17px;
 
-      fill: none;
+      width:
+        17px;
 
-      stroke: currentColor;
+      height:
+        17px;
 
-      stroke-width: 1.4;
+      fill:
+        none;
 
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      stroke:
+        currentColor;
+
+      stroke-width:
+        1.4;
+
+      stroke-linecap:
+        round;
+
+      stroke-linejoin:
+        round;
     }
 
+
     .story-icon:hover {
-      background: #3E000C;
-      color: #F6EBDD;
+
+      background:
+        #3E000C;
+
+      color:
+        #F6EBDD;
 
       transform:
         translateY(-3px);
@@ -779,19 +1387,29 @@
     ===================================================== */
 
     .professional-meta {
-      position: relative;
-      z-index: 2;
 
-      display: flex;
-      flex-wrap: wrap;
+      position:
+        relative;
 
-      gap: 8px;
+      z-index:
+        2;
+
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        8px;
 
       margin:
         28px 0;
     }
 
+
     .meta-pill {
+
       padding:
         8px 12px;
 
@@ -804,7 +1422,8 @@
         Helvetica,
         sans-serif;
 
-      font-size: 8px;
+      font-size:
+        8px;
 
       letter-spacing:
         1.7px;
@@ -819,63 +1438,97 @@
     ===================================================== */
 
     .read-more {
-      position: relative;
-      z-index: 3;
 
-      display: inline-flex;
+      position:
+        relative;
 
-      align-items: center;
+      z-index:
+        3;
 
-      gap: 13px;
+      display:
+        inline-flex;
 
-      padding: 0;
+      align-items:
+        center;
 
-      border: 0;
+      gap:
+        13px;
 
-      background: transparent;
+      padding:
+        0;
 
-      color: #3E000C;
+      border:
+        0;
+
+      background:
+        transparent;
+
+      color:
+        #3E000C;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size: 9px;
+      font-size:
+        9px;
 
-      letter-spacing: 3px;
+      letter-spacing:
+        3px;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
 
-      cursor: pointer;
+      cursor:
+        pointer;
     }
 
+
     .read-more-line {
-      width: 30px;
-      height: 1px;
+
+      width:
+        30px;
+
+      height:
+        1px;
 
       background:
         #3E000C;
 
       transition:
-        width .4s
+        width
+        .4s
         cubic-bezier(.16,1,.3,1);
     }
 
-    .read-more:hover .read-more-line {
-      width: 48px;
+
+    .read-more:hover
+    .read-more-line {
+
+      width:
+        48px;
     }
+
 
     .read-more-arrow {
-      font-size: 13px;
-      line-height: 1;
+
+      font-size:
+        13px;
+
+      line-height:
+        1;
 
       transition:
-        transform .4s
+        transform
+        .4s
         cubic-bezier(.16,1,.3,1);
     }
 
-    .read-more.open .read-more-arrow {
+
+    .read-more.open
+    .read-more-arrow {
+
       transform:
         rotate(45deg);
     }
@@ -886,47 +1539,248 @@
     ===================================================== */
 
     .story-more {
-      position: relative;
-      z-index: 2;
 
-      max-height: 0;
+      position:
+        relative;
 
-      overflow: hidden;
+      z-index:
+        2;
 
-      opacity: 0;
+      max-height:
+        0;
+
+      overflow:
+        hidden;
+
+      opacity:
+        0;
 
       transition:
-        max-height .8s cubic-bezier(.16,1,.3,1),
-        opacity .45s ease;
+        max-height
+        .9s
+        cubic-bezier(.16,1,.3,1),
+        opacity
+        .45s ease;
     }
+
 
     .story-more.open {
-      max-height: 1000px;
 
-      opacity: 1;
+      max-height:
+        3000px;
 
-      margin-top: 22px;
+      opacity:
+        1;
+
+      margin-top:
+        24px;
     }
 
+
     .story-more p {
-      margin-bottom: 15px;
+
+      margin-bottom:
+        17px;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size: 13px;
+      font-size:
+        13px;
 
-      line-height: 1.8;
+      line-height:
+        1.8;
 
       color:
         rgba(62,0,12,.82);
     }
 
+
     .story-more strong {
-      font-weight: 600;
-      color: #3E000C;
+
+      font-weight:
+        600;
+
+      color:
+        #3E000C;
+    }
+
+
+    /* =====================================================
+       BOOK QUOTE
+    ===================================================== */
+
+    .book-quote {
+
+      margin:
+        28px 0 8px;
+
+      padding:
+        22px 24px;
+
+      border-left:
+        1px solid
+        #3E000C;
+
+      font-family:
+        "Bodoni Moda",
+        serif;
+
+      font-size:
+        clamp(
+          18px,
+          1.7vw,
+          25px
+        );
+
+      line-height:
+        1.35;
+
+      letter-spacing:
+        -.025em;
+
+      color:
+        #3E000C;
+
+      font-style:
+        italic;
+    }
+
+
+    .book-caption {
+
+      margin-bottom:
+        22px !important;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif !important;
+
+      font-size:
+        8px !important;
+
+      line-height:
+        1.5 !important;
+
+      letter-spacing:
+        1.5px;
+
+      text-transform:
+        uppercase;
+
+      opacity:
+        .65;
+    }
+
+
+    /* =====================================================
+       SHOPIFY SKILLS
+    ===================================================== */
+
+    .skills-heading {
+
+      margin:
+        30px 0 15px;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size:
+        8px;
+
+      letter-spacing:
+        2.5px;
+
+      text-transform:
+        uppercase;
+
+      opacity:
+        .65;
+    }
+
+
+    .shopify-skills {
+
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        7px;
+
+      margin-bottom:
+        28px;
+    }
+
+
+    .shopify-skills span {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      min-height:
+        29px;
+
+      padding:
+        7px 10px;
+
+      border:
+        1px solid
+        rgba(62,0,12,.25);
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size:
+        7px;
+
+      line-height:
+        1;
+
+      letter-spacing:
+        1.2px;
+
+      text-transform:
+        uppercase;
+
+      color:
+        #3E000C;
+
+      background:
+        rgba(246,235,221,.18);
+
+      transition:
+        background
+        .3s ease,
+        color
+        .3s ease,
+        transform
+        .3s ease;
+    }
+
+
+    .shopify-skills span:hover {
+
+      background:
+        #3E000C;
+
+      color:
+        #F6EBDD;
+
+      transform:
+        translateY(-2px);
     }
 
 
@@ -935,23 +1789,31 @@
     ===================================================== */
 
     .projects-section {
-      margin-top: 8vh;
 
-      opacity: 0;
+      margin-top:
+        8vh;
+
+      opacity:
+        0;
 
       transform:
         translateY(45px);
 
       transition:
-        opacity .9s ease .8s,
+        opacity
+        .9s ease .8s,
         transform
         1.1s
         cubic-bezier(.16,1,.3,1)
         .8s;
     }
 
-    .about-next.active .projects-section {
-      opacity: 1;
+
+    .about-next.active
+    .projects-section {
+
+      opacity:
+        1;
 
       transform:
         translateY(0);
@@ -959,34 +1821,48 @@
 
 
     .projects-heading {
-      display: flex;
 
-      align-items: flex-end;
+      display:
+        flex;
 
-      justify-content: space-between;
+      align-items:
+        flex-end;
 
-      margin-bottom: 24px;
+      justify-content:
+        space-between;
 
-      padding-bottom: 14px;
+      margin-bottom:
+        24px;
+
+      padding-bottom:
+        14px;
 
       border-bottom:
         1px solid
         rgba(62,0,12,.28);
     }
 
+
     .projects-label {
+
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size: 9px;
-      letter-spacing: 3px;
+      font-size:
+        9px;
 
-      text-transform: uppercase;
+      letter-spacing:
+        3px;
+
+      text-transform:
+        uppercase;
     }
 
+
     .projects-title {
+
       font-family:
         "Bodoni Moda",
         serif;
@@ -998,10 +1874,14 @@
           55px
         );
 
-      line-height: .9;
-      letter-spacing: -.05em;
+      line-height:
+        .9;
 
-      font-weight: 600;
+      letter-spacing:
+        -.05em;
+
+      font-weight:
+        600;
 
       -webkit-text-stroke:
         .2px #3E000C;
@@ -1009,76 +1889,103 @@
 
 
     /* =====================================================
-       PROJECT ITEMS
+       PROJECT LIST
     ===================================================== */
 
     .projects-list {
-      display: flex;
-      flex-direction: column;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
     }
 
-    .project-item {
-      position: relative;
 
-      display: grid;
+    .project-item {
+
+      position:
+        relative;
+
+      display:
+        grid;
 
       grid-template-columns:
         90px 1fr 40px;
 
-      align-items: center;
+      align-items:
+        center;
 
-      min-height: 95px;
+      min-height:
+        95px;
 
       border-bottom:
         1px solid
         rgba(62,0,12,.20);
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
-      overflow: hidden;
+      overflow:
+        hidden;
 
       transition:
-        padding .5s
+        padding
+        .5s
         cubic-bezier(.16,1,.3,1);
 
-      opacity: 0;
+      opacity:
+        0;
 
       transform:
         translateY(35px);
     }
 
 
-    /*
-      EACH PROJECT HAS ITS OWN BURGUNDY SHADE
-    */
+    /* =====================================================
+       PROJECT HOVER COLORS
+    ===================================================== */
 
     .project-item:nth-child(1)::before {
-      background: #3E000C;
+      background:
+        #3E000C;
     }
+
 
     .project-item:nth-child(2)::before {
-      background: #6A2936;
+      background:
+        #6A2936;
     }
+
 
     .project-item:nth-child(3)::before {
-      background: #3E000C;
+      background:
+        #3E000C;
     }
+
 
     .project-item:nth-child(4)::before {
-      background: #6A2936;
+      background:
+        #6A2936;
     }
 
+
     .project-item:nth-child(5)::before {
-      background: #3E000C;
+      background:
+        #3E000C;
     }
 
 
     .project-item::before {
-      content: "";
 
-      position: absolute;
+      content:
+        "";
 
-      inset: 0;
+      position:
+        absolute;
+
+      inset:
+        0;
 
       transform:
         translateY(101%);
@@ -1088,44 +1995,57 @@
         .65s
         cubic-bezier(.16,1,.3,1);
 
-      z-index: 0;
+      z-index:
+        0;
     }
 
-
-    /*
-      PROJECT HOVER
-    */
 
     .project-item:hover {
-      padding-left: 15px;
+
+      padding-left:
+        15px;
     }
 
+
     .project-item:hover::before {
+
       transform:
         translateY(0);
     }
 
 
     .project-number {
-      position: relative;
-      z-index: 2;
+
+      position:
+        relative;
+
+      z-index:
+        2;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size: 10px;
+      font-size:
+        10px;
 
-      letter-spacing: 2px;
+      letter-spacing:
+        2px;
 
       transition:
-        color .35s ease;
+        color
+        .35s ease;
     }
 
+
     .project-name {
-      position: relative;
-      z-index: 2;
+
+      position:
+        relative;
+
+      z-index:
+        2;
 
       font-family:
         "Bodoni Moda",
@@ -1138,31 +2058,45 @@
           54px
         );
 
-      line-height: 1;
-      letter-spacing: -.05em;
+      line-height:
+        1;
 
-      font-weight: 500;
+      letter-spacing:
+        -.05em;
+
+      font-weight:
+        500;
 
       transition:
-        color .35s ease,
-        transform .5s
+        color
+        .35s ease,
+        transform
+        .5s
         cubic-bezier(.16,1,.3,1);
     }
 
+
     .project-arrow {
-      position: relative;
-      z-index: 2;
+
+      position:
+        relative;
+
+      z-index:
+        2;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size: 18px;
+      font-size:
+        18px;
 
       transition:
-        color .35s ease,
-        transform .4s
+        color
+        .35s ease,
+        transform
+        .4s
         cubic-bezier(.16,1,.3,1);
     }
 
@@ -1175,28 +2109,35 @@
 
     .project-item:hover
     .project-arrow {
+
       color:
         #F6EBDD;
     }
 
+
     .project-item:hover
     .project-name {
+
       transform:
         translateX(8px);
     }
 
+
     .project-item:hover
     .project-arrow {
+
       transform:
         translateX(5px);
     }
 
 
     /* =====================================================
-       PROJECT REVEAL ANIMATION
+       PROJECT ANIMATION
     ===================================================== */
 
-    .about-next.active .project-item {
+    .about-next.active
+    .project-item {
+
       animation:
         projectReveal
         .85s
@@ -1204,45 +2145,61 @@
         forwards;
     }
 
+
     .about-next.active
     .project-item:nth-child(1) {
-      animation-delay: .95s;
+      animation-delay:
+        .95s;
     }
+
 
     .about-next.active
     .project-item:nth-child(2) {
-      animation-delay: 1.08s;
+      animation-delay:
+        1.08s;
     }
+
 
     .about-next.active
     .project-item:nth-child(3) {
-      animation-delay: 1.21s;
+      animation-delay:
+        1.21s;
     }
+
 
     .about-next.active
     .project-item:nth-child(4) {
-      animation-delay: 1.34s;
+      animation-delay:
+        1.34s;
     }
+
 
     .about-next.active
     .project-item:nth-child(5) {
-      animation-delay: 1.47s;
+      animation-delay:
+        1.47s;
     }
+
 
     @keyframes projectReveal {
 
       from {
-        opacity: 0;
+
+        opacity:
+          0;
+
         transform:
           translateY(35px);
       }
 
       to {
-        opacity: 1;
+
+        opacity:
+          1;
+
         transform:
           translateY(0);
       }
-
     }
 
 
@@ -1251,12 +2208,15 @@
     ===================================================== */
 
     .about-footer {
-      display: flex;
+
+      display:
+        flex;
 
       justify-content:
         space-between;
 
-      gap: 30px;
+      gap:
+        30px;
 
       padding:
         35px 0 60px;
@@ -1266,14 +2226,17 @@
         Helvetica,
         sans-serif;
 
-      font-size: 8px;
+      font-size:
+        8px;
 
-      letter-spacing: 2px;
+      letter-spacing:
+        2px;
 
       text-transform:
         uppercase;
 
-      opacity: .55;
+      opacity:
+        .55;
     }
 
 
@@ -1284,7 +2247,9 @@
     @media (max-width: 768px) {
 
       .letter {
-        font-size: 14vw;
+
+        font-size:
+          14vw;
 
         left:
           calc(
@@ -1297,7 +2262,12 @@
       }
 
 
+      /* -----------------------------------------------
+         ABOUT FIRST SECTION
+      ----------------------------------------------- */
+
       .about-section {
+
         padding:
           5vh 5vw;
 
@@ -1307,7 +2277,8 @@
         flex-direction:
           column;
 
-        gap: 3vh;
+        gap:
+          3vh;
 
         justify-content:
           center;
@@ -1318,67 +2289,117 @@
 
 
       .door-area {
-        width: 100%;
 
-        height: 50vh;
+        width:
+          100%;
 
-        min-height: 300px;
+        height:
+          50vh;
+
+        min-height:
+          300px;
       }
 
 
       .door-title {
+
         font-size:
           18vw;
       }
 
 
       .about-images {
-        width: 100%;
 
-        height: 40vh;
+        width:
+          100%;
 
-        min-height: 260px;
+        height:
+          40vh;
 
-        gap: 2vw;
+        min-height:
+          260px;
+
+        gap:
+          2vw;
       }
 
 
       .about-photo {
-        width: 48%;
 
-        height: 38vh;
+        width:
+          48%;
 
-        min-height: 240px;
+        height:
+          38vh;
+
+        min-height:
+          240px;
       }
 
 
       .about-photo:nth-child(1) {
-        margin-top: 3vh;
+
+        margin-top:
+          3vh;
       }
 
 
       .about-photo:nth-child(2) {
-        margin-bottom: 3vh;
+
+        margin-bottom:
+          3vh;
       }
 
 
-      /* ABOUT CONTENT */
+      /* -----------------------------------------------
+         ABOUT DETAILS
+      ----------------------------------------------- */
 
       .about-next {
+
         padding:
           5vh 5vw 7vh;
       }
 
 
+      .about-header {
+
+        margin-bottom:
+          30px;
+
+        flex-direction:
+          column;
+
+        gap:
+          20px;
+      }
+
+
+      .about-header-title {
+
+        text-align:
+          left;
+
+        font-size:
+          14vw;
+
+        line-height:
+          .8;
+      }
+
+
       .story-grid {
+
         grid-template-columns:
           1fr;
 
-        gap: 1px;
+        gap:
+          1px;
       }
 
 
       .story-card {
+
         min-height:
           auto;
 
@@ -1388,12 +2409,14 @@
 
 
       .story-eyebrow {
+
         margin-bottom:
           30px;
       }
 
 
       .story-title {
+
         font-size:
           12vw;
 
@@ -1403,6 +2426,7 @@
 
 
       .story-title::first-letter {
+
         font-size:
           1.3em;
       }
@@ -1410,6 +2434,7 @@
 
       .story-intro,
       .story-more p {
+
         font-size:
           12px;
 
@@ -1419,26 +2444,67 @@
 
 
       .story-icons {
+
         margin:
           24px 0;
       }
 
 
       .professional-meta {
+
         margin:
           20px 0 25px;
       }
 
 
-      /* PROJECTS */
+      /* -----------------------------------------------
+         BOOK
+      ----------------------------------------------- */
+
+      .book-quote {
+
+        font-size:
+          18px;
+
+        padding:
+          18px;
+      }
+
+
+      /* -----------------------------------------------
+         SKILLS
+      ----------------------------------------------- */
+
+      .shopify-skills {
+
+        gap:
+          6px;
+      }
+
+
+      .shopify-skills span {
+
+        font-size:
+          6.5px;
+
+        padding:
+          7px 8px;
+      }
+
+
+      /* -----------------------------------------------
+         PROJECTS
+      ----------------------------------------------- */
 
       .projects-section {
+
         margin-top:
           6vh;
       }
 
 
       .projects-heading {
+
         align-items:
           flex-start;
 
@@ -1451,12 +2517,14 @@
 
 
       .projects-title {
+
         font-size:
           12vw;
       }
 
 
       .project-item {
+
         grid-template-columns:
           48px 1fr 25px;
 
@@ -1466,24 +2534,28 @@
 
 
       .project-number {
+
         font-size:
           8px;
       }
 
 
       .project-name {
+
         font-size:
           8vw;
       }
 
 
       .project-arrow {
+
         font-size:
           15px;
       }
 
 
       .about-footer {
+
         flex-direction:
           column;
 
@@ -1501,21 +2573,28 @@
     @media (max-width: 390px) {
 
       .door-area {
+
         height:
           47vh;
       }
 
+
       .door-title {
+
         font-size:
           17vw;
       }
 
+
       .about-images {
+
         height:
           39vh;
       }
 
+
       .story-card {
+
         padding:
           26px 21px;
       }
@@ -1534,6 +2613,7 @@
     ) {
 
       .about-section {
+
         grid-template-columns:
           42% 58%;
 
@@ -1541,17 +2621,23 @@
           5vh 5vw;
       }
 
+
       .door-area {
+
         height:
           88vh;
       }
+
 
       .about-images {
+
         height:
           88vh;
       }
 
+
       .about-photo {
+
         height:
           80vh;
       }
@@ -1565,6 +2651,10 @@
 
 <body>
 
+
+  <!-- =====================================================
+       MAIN
+  ===================================================== -->
 
   <main
     class="portfolio-screen stage-1"
@@ -1595,13 +2685,16 @@
 
 
     <!-- ===================================================
-         ABOUT ME — DOOR
+         ABOUT ME — DOOR + PHOTOS
     ==================================================== -->
 
     <section
       class="about-section"
       id="aboutSection"
     >
+
+
+      <!-- LEFT — DOOR -->
 
       <div
         class="door-area"
@@ -1614,6 +2707,7 @@
           alt="About Me"
         >
 
+
         <div class="door-content">
 
           <h1 class="door-title">
@@ -1625,13 +2719,16 @@
       </div>
 
 
+      <!-- RIGHT — PHOTOS -->
+
       <div class="about-images">
+
 
         <div class="about-photo">
 
           <img
             src="image1"
-            alt="Lu"
+            alt="Luiza"
           >
 
         </div>
@@ -1641,18 +2738,20 @@
 
           <img
             src="image2"
-            alt="Lu"
+            alt="Luiza"
           >
 
         </div>
 
+
       </div>
+
 
     </section>
 
 
     <!-- ===================================================
-         ABOUT CONTENT
+         ABOUT ME — DETAILS
     ==================================================== -->
 
     <section
@@ -1664,15 +2763,33 @@
 
 
         <!-- =================================================
-             TWO DIFFERENT CARDS
+             HEADER
+        ================================================== -->
+
+        <div class="about-header">
+
+          <div class="about-header-label">
+            A LITTLE MORE ABOUT ME
+          </div>
+
+          <div class="about-header-title">
+            BEHIND<br>
+            THE WORK
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TWO CARDS
         ================================================== -->
 
         <div class="story-grid">
 
 
-          <!-- =================================================
-               PERSONAL CARD
-          ================================================== -->
+          <!-- ===============================================
+               PERSONAL
+          ================================================ -->
 
           <article
             class="story-card personal-card"
@@ -1704,7 +2821,10 @@
             </p>
 
 
+            <!-- ICONS -->
+
             <div class="story-icons">
+
 
               <!-- ARMENIA -->
 
@@ -1779,8 +2899,11 @@
 
               </div>
 
+
             </div>
 
+
+            <!-- READ MORE -->
 
             <button
               class="read-more"
@@ -1801,63 +2924,208 @@
             </button>
 
 
+            <!-- PERSONAL FULL TEXT -->
+
             <div
               class="story-more"
               id="personalMore"
             >
 
-              <p>
-                I’m 28, I love my life, and I want to
-                live it in a way that gives me plenty
-                to remember when I’m older.
-              </p>
 
               <p>
+
+                I’m 28, I love my life, and I want
+                to live it in a way that gives me
+                plenty to remember when I’m older.
+
+              </p>
+
+
+              <p>
+
                 I love travelling and discovering
                 new places. I have already visited
                 <strong>30+ European cities</strong>,
                 and travelling is one of the things
                 that constantly gives me new
                 perspectives.
+
               </p>
 
+
               <p>
+
                 My favourite place is
                 <strong>Paris</strong>. I love its
-                architecture, narrow historic streets,
-                old buildings and the atmosphere
-                that makes even an ordinary walk
-                feel memorable.
+                architecture, narrow historic
+                streets, old buildings and the
+                atmosphere that makes even an
+                ordinary walk feel memorable.
+
               </p>
 
+
               <p>
+
                 Freelancing, for me, is not only
                 about income. It is about
                 <strong>freedom</strong> — freedom
                 of choice, time, location, speech,
                 spirit and the ability to make my
                 own decisions.
+
               </p>
 
+
               <p>
-                Before freelancing, I worked in the
-                government system with a traditional
-                9–6 schedule. I always wanted to
-                keep learning and educating myself,
-                and freelancing opened the door to
-                continuous learning, international
-                clients and a much more independent
-                way of working.
+
+                Before freelancing, I worked in
+                the government system with a
+                traditional 9–6 schedule.
+
+                I have always wanted to keep
+                learning, growing and educating
+                myself, and freelancing opened
+                the door to continuous learning,
+                international clients and a much
+                more independent way of working.
+
               </p>
+
+
+              <!-- HOBBIES -->
+
+              <p>
+
+                Outside of work, I have quite a few
+                things that make me feel like myself.
+
+              </p>
+
+
+              <p>
+
+                I love cooking — but only when
+                I’m in the mood for it. And when
+                I do cook, I especially enjoy making
+                something for the people I love.
+
+                I have a particular soft spot for
+                <strong>Armenian cuisine</strong>.
+
+              </p>
+
+
+              <p>
+
+                I also love experimenting with
+                new recipes.
+
+                There is something satisfying
+                about starting with an idea and
+                turning it into something real
+                with your own hands.
+
+              </p>
+
+
+              <!-- BOOK -->
+
+              <p>
+
+                Another thing I genuinely enjoy is
+                <strong>reading</strong>.
+
+              </p>
+
+
+              <blockquote class="book-quote">
+
+                “The mind is a wonderful servant,
+                but a terrible master.”
+
+              </blockquote>
+
+
+              <p class="book-caption">
+
+                — Robin Sharma,
+                <em>
+                  The Monk Who Sold His Ferrari
+                </em>
+
+              </p>
+
+
+              <p>
+
+                I also write.
+
+                I like putting my thoughts into
+                words, creating something from
+                an idea and eventually giving
+                that thought to someone else.
+
+                For me, writing is another way
+                of creating.
+
+              </p>
+
+
+              <!-- LIFE PHILOSOPHY -->
+
+              <p>
+
+                I have big expectations from
+                this life, and I want to live it
+                that way every day.
+
+              </p>
+
+
+              <p>
+
+                I don’t want to look back one
+                day and regret the things I
+                didn’t do.
+
+                Life is too short to spend it
+                constantly worrying about things
+                that will not matter in the end.
+
+              </p>
+
+
+              <p>
+
+                I want to enjoy the ordinary
+                days too — the small moments,
+                the people I love, the places
+                I discover, the things I create
+                and the experiences that become
+                memories.
+
+              </p>
+
+
+              <p>
+
+                <strong>
+                  I want to live every day
+                  as if it matters.
+                </strong>
+
+              </p>
+
 
             </div>
 
           </article>
 
 
-          <!-- =================================================
-               PROFESSIONAL CARD
-          ================================================== -->
+          <!-- ===============================================
+               PROFESSIONAL
+          ================================================ -->
 
           <article
             class="story-card professional-card"
@@ -1881,15 +3149,18 @@
 
             <p class="story-intro">
 
-              Shopify Specialist & Designer focused
-              on creating clean, premium and
-              conversion-conscious digital
-              experiences.
+              Shopify Specialist & Designer
+              focused on creating clean,
+              premium and conversion-conscious
+              digital experiences.
 
             </p>
 
 
+            <!-- ICONS -->
+
             <div class="story-icons">
+
 
               <!-- SHOPIFY -->
 
@@ -1943,7 +3214,7 @@
               </div>
 
 
-              <!-- CUSTOMER -->
+              <!-- CUSTOMER EXPERIENCE -->
 
               <div
                 class="story-icon"
@@ -1966,8 +3237,11 @@
 
               </div>
 
+
             </div>
 
+
+            <!-- QUICK SKILLS -->
 
             <div class="professional-meta">
 
@@ -1984,15 +3258,17 @@
               </span>
 
               <span class="meta-pill">
-                UX
+                CRO
               </span>
 
               <span class="meta-pill">
-                CUSTOMER EXPERIENCE
+                UX
               </span>
 
             </div>
 
+
+            <!-- READ MORE -->
 
             <button
               class="read-more"
@@ -2013,66 +3289,308 @@
             </button>
 
 
+            <!-- PROFESSIONAL FULL TEXT -->
+
             <div
               class="story-more"
               id="professionalMore"
             >
 
+
               <p>
+
                 My first profession is
-                <strong>psychology</strong>, and
-                that background continues to help
-                me in my work. It taught me how to
-                communicate, understand people's
-                needs and look for practical
-                solutions to problems.
+                <strong>psychology</strong>,
+                and that background continues
+                to influence the way I work today.
+
+                It taught me how to communicate,
+                understand people's needs and
+                look for practical solutions
+                to problems.
+
               </p>
 
+
               <p>
+
                 I have more than
-                <strong>1 year of hands-on Shopify
-                experience</strong>, building and
-                improving stores from scratch.
+                <strong>
+                  1 year of hands-on Shopify
+                  experience
+                </strong>,
+                building and improving stores
+                from scratch.
+
               </p>
 
-              <p>
-                I work with Shopify store setup and
-                customization, product and collection
-                pages, landing pages, product pages,
-                HTML, CSS and Liquid customization,
-                UX improvements and small technical
-                fixes.
-              </p>
 
               <p>
-                I have worked on
-                <strong>many successful projects</strong>
-                — both through Upwork and outside
-                Upwork, with Armenian clients as well
-                as clients from abroad.
+
+                Over this time, I have worked
+                on many successful projects —
+                both through
+                <strong>Upwork</strong> and
+                outside Upwork, with Armenian
+                clients as well as clients
+                from abroad.
+
               </p>
 
-              <p>
-                My focus is always on creating
-                <strong>clean, premium and trustworthy
-                experiences</strong>: easy navigation,
-                strong visual structure, clear
-                customer flow and a store that feels
-                professional from the first interaction.
-              </p>
 
               <p>
-                I see Shopify not only as a technical
-                platform. I also look at the experience
-                from the customer's perspective —
-                what they see, what they understand,
-                where they hesitate and what helps
-                them move forward.
+
+                My work is not limited to simply
+                setting up a Shopify store.
+
+                I focus on the entire digital
+                experience — how the store looks,
+                how it works, how customers
+                navigate through it and what
+                helps them move toward a purchase.
+
               </p>
+
+
+              <!-- SHOPIFY SKILLS -->
+
+              <div class="skills-heading">
+                WHAT I WORK WITH
+              </div>
+
+
+              <div class="shopify-skills">
+
+
+                <span>
+                  SHOPIFY
+                </span>
+
+                <span>
+                  SHOPIFY STORE SETUP
+                </span>
+
+                <span>
+                  STORE MANAGEMENT
+                </span>
+
+                <span>
+                  THEME CUSTOMIZATION
+                </span>
+
+                <span>
+                  THEME EDITOR
+                </span>
+
+                <span>
+                  EDIT CODE
+                </span>
+
+
+                <span>
+                  LIQUID
+                </span>
+
+                <span>
+                  CUSTOM LIQUID
+                </span>
+
+                <span>
+                  HTML
+                </span>
+
+                <span>
+                  CSS
+                </span>
+
+                <span>
+                  JAVASCRIPT
+                </span>
+
+
+                <span>
+                  RESPONSIVE DESIGN
+                </span>
+
+                <span>
+                  UX / UI
+                </span>
+
+                <span>
+                  CRO
+                </span>
+
+                <span>
+                  PRODUCT PAGES
+                </span>
+
+                <span>
+                  COLLECTION PAGES
+                </span>
+
+
+                <span>
+                  LANDING PAGES
+                </span>
+
+                <span>
+                  CUSTOM SECTIONS
+                </span>
+
+                <span>
+                  CUSTOM TEMPLATES
+                </span>
+
+                <span>
+                  SNIPPETS
+                </span>
+
+                <span>
+                  METAFIELDS
+                </span>
+
+
+                <span>
+                  METAOBJECTS
+                </span>
+
+                <span>
+                  NAVIGATION
+                </span>
+
+                <span>
+                  MEGA MENUS
+                </span>
+
+                <span>
+                  PRODUCT ORGANIZATION
+                </span>
+
+                <span>
+                  COLLECTIONS
+                </span>
+
+
+                <span>
+                  SHOPIFY MARKETS
+                </span>
+
+                <span>
+                  MULTILINGUAL STORES
+                </span>
+
+                <span>
+                  CURRENCY SETUP
+                </span>
+
+                <span>
+                  SHIPPING
+                </span>
+
+                <span>
+                  SEO
+                </span>
+
+
+                <span>
+                  APP INTEGRATION
+                </span>
+
+                <span>
+                  THIRD-PARTY INTEGRATIONS
+                </span>
+
+                <span>
+                  BUG FIXES
+                </span>
+
+                <span>
+                  UX IMPROVEMENTS
+                </span>
+
+                <span>
+                  PERFORMANCE
+                </span>
+
+
+              </div>
+
+
+              <p>
+
+                I also work with
+                <strong>
+                  Custom Liquid, HTML and CSS
+                </strong>
+                when Shopify's standard theme
+                settings are not enough to achieve
+                the exact design or functionality
+                a project needs.
+
+              </p>
+
+
+              <p>
+
+                I work inside
+                <strong>
+                  Edit Code
+                </strong>
+                when a project requires deeper
+                customization — from small styling
+                adjustments to custom sections,
+                templates, components and
+                functionality.
+
+              </p>
+
+
+              <p>
+
+                I care about the details that are
+                easy to overlook: spacing,
+                typography, responsive behaviour,
+                navigation, product presentation,
+                customer flow and the small
+                interactions that make a store
+                feel polished.
+
+              </p>
+
+
+              <p>
+
+                My psychology background is
+                especially useful here.
+
+                I don't only ask whether something
+                looks good — I also think about
+                <strong>
+                  how a customer will perceive it,
+                  understand it and interact with it.
+                </strong>
+
+              </p>
+
+
+              <p>
+
+                My goal is to create Shopify stores
+                that feel
+                <strong>
+                  clean, premium, trustworthy
+                  and easy to use
+                </strong>
+                while also being structured
+                with conversion in mind.
+
+              </p>
+
 
             </div>
 
           </article>
+
 
         </div>
 
@@ -2100,7 +3618,7 @@
           <div class="projects-list">
 
 
-            <!-- 01 -->
+            <!-- PROJECT 01 -->
 
             <div class="project-item">
 
@@ -2119,7 +3637,7 @@
             </div>
 
 
-            <!-- 02 -->
+            <!-- PROJECT 02 -->
 
             <div class="project-item">
 
@@ -2138,7 +3656,7 @@
             </div>
 
 
-            <!-- 03 -->
+            <!-- PROJECT 03 -->
 
             <div class="project-item">
 
@@ -2157,7 +3675,7 @@
             </div>
 
 
-            <!-- 04 -->
+            <!-- PROJECT 04 -->
 
             <div class="project-item">
 
@@ -2176,7 +3694,7 @@
             </div>
 
 
-            <!-- 05 -->
+            <!-- PROJECT 05 -->
 
             <div class="project-item">
 
@@ -2194,6 +3712,7 @@
 
             </div>
 
+
           </div>
 
 
@@ -2209,7 +3728,9 @@
 
           </div>
 
+
         </div>
+
 
       </div>
 
@@ -2230,25 +3751,30 @@
         "portfolioScreen"
       );
 
+
     const portfolioWord =
       document.getElementById(
         "portfolioWord"
       );
+
 
     const aboutSection =
       document.getElementById(
         "aboutSection"
       );
 
+
     const aboutNext =
       document.getElementById(
         "aboutNext"
       );
 
+
     const doorArea =
       document.getElementById(
         "doorArea"
       );
+
 
     const letters =
       document.querySelectorAll(
@@ -2260,17 +3786,24 @@
        STATE
     ===================================================== */
 
-    let currentStep = 1;
+    let currentStep =
+      1;
 
-    let isAnimating = false;
+    let isAnimating =
+      false;
 
-    let aboutOpened = false;
+    let aboutOpened =
+      false;
 
-    let doorOpened = false;
+    let doorOpened =
+      false;
 
-    const totalSteps = 6;
 
-    const animationDuration = 1150;
+    const totalSteps =
+      6;
+
+    const animationDuration =
+      1150;
 
 
     /* =====================================================
@@ -2281,13 +3814,13 @@
 
       1: [0],
 
-      2: [0, 1, 2],
+      2: [0,1,2],
 
-      3: [0, 1, 2, 3, 4],
+      3: [0,1,2,3,4],
 
-      4: [0, 1, 2, 3, 4, 5, 6],
+      4: [0,1,2,3,4,5,6],
 
-      5: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+      5: [0,1,2,3,4,5,6,7,8],
 
       6: []
 
@@ -2295,7 +3828,7 @@
 
 
     /* =====================================================
-       LETTER UPDATE
+       UPDATE LETTERS
     ===================================================== */
 
     function updateLetters() {
@@ -2303,8 +3836,9 @@
       const active =
         visibleLetters[currentStep] || [];
 
+
       letters.forEach(
-        (letter, index) => {
+        (letter,index) => {
 
           if (
             active.includes(index)
@@ -2329,7 +3863,7 @@
 
 
     /* =====================================================
-       BACKGROUND UPDATE
+       UPDATE BACKGROUND
     ===================================================== */
 
     function updateBackground() {
@@ -2410,17 +3944,22 @@
 
     function openAboutSection() {
 
-      aboutOpened = true;
+      aboutOpened =
+        true;
+
 
       aboutSection.classList.add(
         "active"
       );
 
+
       portfolioWord.style.opacity =
         "0";
 
+
       portfolioWord.style.transform =
         "translateY(-8vh)";
+
 
       screen.classList.remove(
         "stage-1",
@@ -2428,6 +3967,7 @@
         "stage-3",
         "stage-4"
       );
+
 
       screen.classList.add(
         "stage-about"
@@ -2451,9 +3991,13 @@
         return;
       }
 
-      doorOpened = true;
 
-      isAnimating = true;
+      doorOpened =
+        true;
+
+      isAnimating =
+        true;
+
 
       doorArea.classList.add(
         "opening"
@@ -2467,13 +4011,16 @@
             "active"
           );
 
-          aboutNext.scrollTop = 0;
+
+          aboutNext.scrollTop =
+            0;
 
 
           setTimeout(
             () => {
 
-              isAnimating = false;
+              isAnimating =
+                false;
 
             },
             850
@@ -2492,7 +4039,9 @@
 
     function closeDoorAndReturn() {
 
-      isAnimating = true;
+      isAnimating =
+        true;
+
 
       aboutNext.classList.remove(
         "active"
@@ -2506,13 +4055,16 @@
             "opening"
           );
 
-          doorOpened = false;
+
+          doorOpened =
+            false;
 
 
           setTimeout(
             () => {
 
-              isAnimating = false;
+              isAnimating =
+                false;
 
             },
             650
@@ -2526,7 +4078,7 @@
 
 
     /* =====================================================
-       NEXT
+       NEXT STEP
     ===================================================== */
 
     function nextStep() {
@@ -2543,9 +4095,12 @@
         currentStep < totalSteps
       ) {
 
-        isAnimating = true;
+        isAnimating =
+          true;
+
 
         currentStep++;
+
 
         updateLetters();
 
@@ -2564,11 +4119,13 @@
         setTimeout(
           () => {
 
-            isAnimating = false;
+            isAnimating =
+              false;
 
           },
           animationDuration
         );
+
 
         return;
       }
@@ -2588,7 +4145,7 @@
 
 
     /* =====================================================
-       PREVIOUS
+       PREVIOUS STEP
     ===================================================== */
 
     function previousStep() {
@@ -2601,10 +4158,9 @@
       }
 
 
-      /*
-        ABOUT CONTENT
-        → if scrolled down, scroll to top first
-      */
+      /* -----------------------------------------------
+         INSIDE ABOUT DETAILS
+      ----------------------------------------------- */
 
       if (
         doorOpened &&
@@ -2618,8 +4174,10 @@
         ) {
 
           aboutNext.scrollTo({
-            top: 0,
-            behavior: "smooth"
+            top:
+              0,
+            behavior:
+              "smooth"
           });
 
           return;
@@ -2632,9 +4190,9 @@
       }
 
 
-      /*
-        DOOR → PORTFOLIO
-      */
+      /* -----------------------------------------------
+         DOOR → PORTFOLIO
+      ----------------------------------------------- */
 
       if (
         currentStep === totalSteps &&
@@ -2642,21 +4200,30 @@
         !doorOpened
       ) {
 
-        isAnimating = true;
+        isAnimating =
+          true;
 
-        currentStep = 5;
 
-        aboutOpened = false;
+        currentStep =
+          5;
+
+
+        aboutOpened =
+          false;
+
 
         aboutSection.classList.remove(
           "active"
         );
 
+
         portfolioWord.style.opacity =
           "1";
 
+
         portfolioWord.style.transform =
           "translateY(0)";
+
 
         updateLetters();
 
@@ -2666,19 +4233,21 @@
         setTimeout(
           () => {
 
-            isAnimating = false;
+            isAnimating =
+              false;
 
           },
           animationDuration
         );
 
+
         return;
       }
 
 
-      /*
-        NORMAL PORTFOLIO
-      */
+      /* -----------------------------------------------
+         NORMAL PORTFOLIO
+      ----------------------------------------------- */
 
       if (
         currentStep <= 1
@@ -2687,9 +4256,13 @@
         return;
       }
 
-      isAnimating = true;
+
+      isAnimating =
+        true;
+
 
       currentStep--;
+
 
       updateLetters();
 
@@ -2699,7 +4272,8 @@
       setTimeout(
         () => {
 
-          isAnimating = false;
+          isAnimating =
+            false;
 
         },
         animationDuration
@@ -2725,15 +4299,19 @@
 
               event.stopPropagation();
 
+
               const targetId =
                 button.dataset.target;
+
 
               const target =
                 document.getElementById(
                   targetId
                 );
 
+
               if (!target) {
+
                 return;
               }
 
@@ -2747,6 +4325,7 @@
               target.classList.toggle(
                 "open"
               );
+
 
               button.classList.toggle(
                 "open"
@@ -2782,9 +4361,8 @@
       event => {
 
         /*
-          Once the detailed About section
-          is open, wheel controls its own
-          internal scroll.
+          When the detailed About section
+          is open, wheel scrolls inside it.
         */
 
         if (
@@ -2797,15 +4375,14 @@
           const atTop =
             aboutNext.scrollTop <= 5;
 
+
           const atBottom =
             aboutNext.scrollTop +
             aboutNext.clientHeight >=
             aboutNext.scrollHeight - 5;
 
 
-          /*
-            DOWN
-          */
+          /* DOWN */
 
           if (
             event.deltaY > 0
@@ -2821,15 +4398,14 @@
               return;
             }
 
+
             event.preventDefault();
 
             return;
           }
 
 
-          /*
-            UP
-          */
+          /* UP */
 
           if (
             event.deltaY < 0
@@ -2844,6 +4420,7 @@
 
               return;
             }
+
 
             event.preventDefault();
 
@@ -2881,7 +4458,8 @@
       },
 
       {
-        passive: false
+        passive:
+          false
       }
 
     );
@@ -2891,9 +4469,11 @@
        TOUCH
     ===================================================== */
 
-    let touchStartY = 0;
+    let touchStartY =
+      0;
 
-    let touchEndY = 0;
+    let touchEndY =
+      0;
 
 
     window.addEventListener(
@@ -2905,7 +4485,8 @@
 
       },
       {
-        passive: true
+        passive:
+          true
       }
     );
 
@@ -2917,8 +4498,10 @@
         touchEndY =
           event.changedTouches[0].clientY;
 
+
         const distance =
-          touchStartY - touchEndY;
+          touchStartY -
+          touchEndY;
 
 
         if (
@@ -2939,21 +4522,21 @@
           const atTop =
             aboutNext.scrollTop <= 5;
 
+
           const atBottom =
             aboutNext.scrollTop +
             aboutNext.clientHeight >=
             aboutNext.scrollHeight - 5;
 
 
-          /*
-            SWIPE UP
-          */
+          /* SWIPE UP */
 
           if (
             distance > 0
           ) {
 
             if (!atBottom) {
+
               return;
             }
 
@@ -2961,17 +4544,17 @@
           }
 
 
-          /*
-            SWIPE DOWN
-          */
+          /* SWIPE DOWN */
 
           if (
             distance < 0
           ) {
 
             if (!atTop) {
+
               return;
             }
+
 
             previousStep();
 
@@ -2995,7 +4578,8 @@
 
       },
       {
-        passive: true
+        passive:
+          true
       }
     );
 
@@ -3015,6 +4599,9 @@
           )
         ) {
 
+
+          /* DOWN */
+
           if (
             event.key === "ArrowDown" ||
             event.key === "PageDown"
@@ -3028,16 +4615,23 @@
 
               event.preventDefault();
 
+
               aboutNext.scrollBy({
-                top: 120,
-                behavior: "smooth"
+                top:
+                  120,
+
+                behavior:
+                  "smooth"
               });
+
 
               return;
             }
 
           }
 
+
+          /* UP */
 
           if (
             event.key === "ArrowUp" ||
@@ -3050,10 +4644,15 @@
 
               event.preventDefault();
 
+
               aboutNext.scrollBy({
-                top: -120,
-                behavior: "smooth"
+                top:
+                  -120,
+
+                behavior:
+                  "smooth"
               });
+
 
               return;
             }
@@ -3067,11 +4666,14 @@
           }
 
 
+          /* SPACE */
+
           if (
             event.key === " "
           ) {
 
             event.preventDefault();
+
 
             if (
               aboutNext.scrollTop +
@@ -3082,17 +4684,21 @@
               aboutNext.scrollBy({
                 top:
                   aboutNext.clientHeight * .75,
+
                 behavior:
                   "smooth"
               });
 
             }
 
+
             return;
           }
 
         }
 
+
+        /* NORMAL DOWN */
 
         if (
           event.key === "ArrowDown" ||
@@ -3106,6 +4712,8 @@
 
         }
 
+
+        /* NORMAL UP */
 
         if (
           event.key === "ArrowUp" ||
@@ -3123,7 +4731,7 @@
 
 
     /* =====================================================
-       INITIAL
+       INITIAL STATE
     ===================================================== */
 
     updateLetters();
@@ -3131,6 +4739,7 @@
     updateBackground();
 
   </script>
+
 
 </body>
 
