@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -12,27 +11,13 @@
 
   <title>Lu — Portfolio</title>
 
-
-  <!-- =====================================================
-       FONTS
-  ====================================================== -->
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Inter:wght@400;500&display=swap"
     rel="stylesheet"
   >
-
 
   <style>
 
@@ -46,7 +31,6 @@
       box-sizing: border-box;
     }
 
-
     html,
     body {
       width: 100%;
@@ -54,21 +38,12 @@
       overflow: hidden;
     }
 
-
     body {
-
       background: #3E000C;
-
       color: #F6EBDD;
-
-      font-family:
-        "Bodoni Moda",
-        serif;
-
+      font-family: "Bodoni Moda", serif;
       -webkit-font-smoothing: antialiased;
-
       overscroll-behavior: none;
-
       user-select: none;
     }
 
@@ -78,32 +53,23 @@
     ===================================================== */
 
     .portfolio-screen {
-
       position: fixed;
-
       inset: 0;
-
       width: 100vw;
       height: 100vh;
       height: 100svh;
-
       overflow: hidden;
-
       background: #3E000C;
-
       transition:
-        background
-        1.15s
-        cubic-bezier(.16,1,.3,1);
+        background 1.15s cubic-bezier(.16,1,.3,1);
     }
 
 
     /* =====================================================
-       BURGUNDY STAGES
+       BURGUNDY PORTFOLIO STAGES
     ===================================================== */
 
     .portfolio-screen.stage-1 {
-
       background:
         radial-gradient(
           circle at 45% 50%,
@@ -113,9 +79,7 @@
         #3E000C;
     }
 
-
     .portfolio-screen.stage-2 {
-
       background:
         radial-gradient(
           circle at 45% 50%,
@@ -125,9 +89,7 @@
         #57101F;
     }
 
-
     .portfolio-screen.stage-3 {
-
       background:
         radial-gradient(
           circle at 45% 50%,
@@ -137,9 +99,7 @@
         #702B35;
     }
 
-
     .portfolio-screen.stage-4 {
-
       background:
         radial-gradient(
           circle at 45% 50%,
@@ -149,9 +109,7 @@
         #874B4A;
     }
 
-
     .portfolio-screen.stage-about {
-
       background: #F6EBDD;
     }
 
@@ -161,17 +119,11 @@
     ===================================================== */
 
     .portfolio-screen::after {
-
       content: "";
-
       position: absolute;
-
       inset: 0;
-
       pointer-events: none;
-
       z-index: 100;
-
       opacity: .035;
 
       background-image:
@@ -182,32 +134,23 @@
 
 
     /* =====================================================
-       PORTFOLIO
+       PORTFOLIO WORD
     ===================================================== */
 
     .portfolio-word {
-
       position: absolute;
-
       inset: 0;
-
       width: 100%;
       height: 100%;
-
       z-index: 10;
 
       transition:
         opacity .9s ease,
-        transform
-        1.1s
-        cubic-bezier(.16,1,.3,1);
+        transform 1.1s cubic-bezier(.16,1,.3,1);
     }
 
-
     .letter {
-
       position: absolute;
-
       top: 50%;
 
       left:
@@ -225,9 +168,7 @@
 
       color: #F6EBDD;
 
-      font-family:
-        "Bodoni Moda",
-        serif;
+      font-family: "Bodoni Moda", serif;
 
       font-size:
         clamp(
@@ -237,144 +178,75 @@
         );
 
       font-weight: 400;
-
       line-height: .75;
-
       letter-spacing: -.08em;
-
       white-space: nowrap;
 
       transition:
-
-        transform
-        1.15s
-        cubic-bezier(.16,1,.3,1),
-
-        opacity
-        .75s ease;
+        transform 1.15s cubic-bezier(.16,1,.3,1),
+        opacity .75s ease;
     }
 
-
     .letter.visible {
-
-      transform:
-        translateY(-50%);
-
+      transform: translateY(-50%);
       opacity: 1;
     }
 
-
-    .letter:nth-child(1) {
-      --index: 0;
-    }
-
-    .letter:nth-child(2) {
-      --index: 1;
-    }
-
-    .letter:nth-child(3) {
-      --index: 2;
-    }
-
-    .letter:nth-child(4) {
-      --index: 3;
-    }
-
-    .letter:nth-child(5) {
-      --index: 4;
-    }
-
-    .letter:nth-child(6) {
-      --index: 5;
-    }
-
-    .letter:nth-child(7) {
-      --index: 6;
-    }
-
-    .letter:nth-child(8) {
-      --index: 7;
-    }
-
-    .letter:nth-child(9) {
-      --index: 8;
-    }
+    .letter:nth-child(1) { --index: 0; }
+    .letter:nth-child(2) { --index: 1; }
+    .letter:nth-child(3) { --index: 2; }
+    .letter:nth-child(4) { --index: 3; }
+    .letter:nth-child(5) { --index: 4; }
+    .letter:nth-child(6) { --index: 5; }
+    .letter:nth-child(7) { --index: 6; }
+    .letter:nth-child(8) { --index: 7; }
+    .letter:nth-child(9) { --index: 8; }
 
 
     /* =====================================================
-       ABOUT ME — FIRST SECTION
+       ABOUT — DOOR SECTION
     ===================================================== */
 
     .about-section {
-
       position: absolute;
-
       inset: 0;
 
       width: 100%;
       height: 100%;
 
-      padding:
-        6vh 5vw;
+      padding: 6vh 5vw;
 
       display: grid;
-
-      grid-template-columns:
-        45% 55%;
-
+      grid-template-columns: 45% 55%;
       gap: 3vw;
-
       align-items: center;
 
       background: #F6EBDD;
-
       color: #3E000C;
 
       opacity: 0;
-
       visibility: hidden;
 
-      transform:
-        translateY(100vh);
+      transform: translateY(100vh);
 
       transition:
-
-        transform
-        1.15s
-        cubic-bezier(.16,1,.3,1),
-
-        opacity
-        .9s ease,
-
-        visibility
-        0s linear 1.15s;
+        transform 1.15s cubic-bezier(.16,1,.3,1),
+        opacity .9s ease,
+        visibility 0s linear 1.15s;
 
       z-index: 20;
-
       overflow: hidden;
     }
 
-
     .about-section.active {
-
       opacity: 1;
-
       visibility: visible;
-
-      transform:
-        translateY(0);
+      transform: translateY(0);
 
       transition:
-
-        transform
-        1.15s
-        cubic-bezier(.16,1,.3,1),
-
-        opacity
-        .9s ease,
-
-        visibility
-        0s linear 0s;
+        transform 1.15s cubic-bezier(.16,1,.3,1),
+        opacity .9s ease,
+        visibility 0s linear 0s;
     }
 
 
@@ -383,76 +255,52 @@
     ===================================================== */
 
     .door-area {
-
       position: relative;
-
       width: 100%;
       height: 88vh;
 
       overflow: hidden;
-
       background: #3E000C;
 
       perspective: 1400px;
     }
 
-
     .door-image {
-
       position: absolute;
-
       inset: 0;
 
       width: 100%;
       height: 100%;
 
       object-fit: cover;
-
       display: block;
 
       transform-origin: right center;
 
       transition:
-
-        transform
-        1.35s
-        cubic-bezier(.16,1,.3,1),
-
-        filter
-        1.1s ease,
-
-        opacity
-        1s ease;
+        transform 1.35s cubic-bezier(.16,1,.3,1),
+        filter 1.1s ease,
+        opacity 1s ease;
     }
 
-
     .door-content {
-
       position: absolute;
-
       inset: 0;
 
       display: flex;
-
       align-items: center;
-
       justify-content: center;
 
       z-index: 5;
 
       color: #F6EBDD;
-
       text-align: center;
 
       pointer-events: none;
     }
 
-
     .door-title {
-
-      font-family:
-        "Bodoni Moda",
-        serif;
+      font-family: "Bodoni Moda", serif;
 
       font-size:
         clamp(
@@ -462,43 +310,25 @@
         );
 
       line-height: .8;
-
       letter-spacing: -.06em;
-
       font-weight: 500;
 
       transition:
-
-        opacity
-        .6s ease,
-
-        transform
-        .8s
-        cubic-bezier(.16,1,.3,1);
+        opacity .6s ease,
+        transform .8s cubic-bezier(.16,1,.3,1);
     }
 
-
-    /* =====================================================
-       DOOR OPEN
-    ===================================================== */
-
-    .door-area.opening
-    .door-image {
-
+    .door-area.opening .door-image {
       transform:
         perspective(1400px)
         rotateY(-62deg)
         translateX(25%)
         scale(1.08);
 
-      filter:
-        brightness(.55);
+      filter: brightness(.55);
     }
 
-
-    .door-area.opening
-    .door-title {
-
+    .door-area.opening .door-title {
       opacity: 0;
 
       transform:
@@ -508,54 +338,36 @@
 
 
     /* =====================================================
-       RIGHT PHOTOS
+       ABOUT PHOTOS
     ===================================================== */
 
     .about-images {
-
       position: relative;
 
       width: 100%;
       height: 86vh;
 
       display: flex;
-
       align-items: center;
-
       justify-content: center;
 
       gap: 1.2vw;
 
       opacity: 0;
 
-      transform:
-        translateY(80px);
+      transform: translateY(80px);
 
       transition:
-
-        transform
-        1.1s
-        cubic-bezier(.16,1,.3,1)
-        .15s,
-
-        opacity
-        .9s ease
-        .15s;
+        transform 1.1s cubic-bezier(.16,1,.3,1) .15s,
+        opacity .9s ease .15s;
     }
 
-
-    .about-section.active
-    .about-images {
-
+    .about-section.active .about-images {
       opacity: 1;
-
-      transform:
-        translateY(0);
+      transform: translateY(0);
     }
-
 
     .about-photo {
-
       position: relative;
 
       width: 46%;
@@ -564,30 +376,22 @@
       overflow: hidden;
 
       background: #D8CBB9;
-
       flex-shrink: 0;
     }
 
-
     .about-photo:nth-child(1) {
-
       margin-top: 7vh;
     }
 
-
     .about-photo:nth-child(2) {
-
       margin-bottom: 7vh;
     }
 
-
     .about-photo img {
-
       width: 100%;
       height: 100%;
 
       object-fit: cover;
-
       display: block;
 
       filter:
@@ -595,16 +399,11 @@
         contrast(.96);
 
       transition:
-        transform
-        1.2s
-        cubic-bezier(.16,1,.3,1);
+        transform 1.2s cubic-bezier(.16,1,.3,1);
     }
 
-
     .about-photo:hover img {
-
-      transform:
-        scale(1.035);
+      transform: scale(1.035);
     }
 
 
@@ -613,9 +412,7 @@
     ===================================================== */
 
     .about-next {
-
       position: absolute;
-
       inset: 0;
 
       z-index: 80;
@@ -627,185 +424,109 @@
         7vh 6vw 8vh;
 
       background: #F6EBDD;
-
       color: #3E000C;
 
       opacity: 0;
-
       visibility: hidden;
 
-      transform:
-        translateY(100%);
+      transform: translateY(100%);
 
       transition:
-
-        transform
-        1.25s
-        cubic-bezier(.16,1,.3,1),
-
-        opacity
-        .8s ease,
-
-        visibility
-        0s linear 1.25s;
+        transform 1.25s cubic-bezier(.16,1,.3,1),
+        opacity .8s ease,
+        visibility 0s linear 1.25s;
     }
-
 
     .about-next.active {
-
       opacity: 1;
-
       visibility: visible;
-
-      transform:
-        translateY(0);
+      transform: translateY(0);
 
       transition:
-
-        transform
-        1.25s
-        cubic-bezier(.16,1,.3,1),
-
-        opacity
-        .8s ease,
-
-        visibility
-        0s linear 0s;
+        transform 1.25s cubic-bezier(.16,1,.3,1),
+        opacity .8s ease,
+        visibility 0s linear 0s;
     }
 
-
-    /* =====================================================
-       CUSTOM SCROLLBAR
-    ===================================================== */
-
     .about-next::-webkit-scrollbar {
-
       width: 5px;
     }
 
-
     .about-next::-webkit-scrollbar-track {
-
-      background:
-        rgba(62,0,12,.05);
+      background: rgba(62,0,12,.04);
     }
-
 
     .about-next::-webkit-scrollbar-thumb {
-
-      background:
-        rgba(62,0,12,.28);
-
-      border-radius:
-        20px;
+      background: rgba(62,0,12,.30);
+      border-radius: 20px;
     }
 
-
     .about-next-inner {
-
       width: 100%;
-
       max-width: 1350px;
-
       margin: 0 auto;
     }
 
 
     /* =====================================================
-       STORY HEADER
-       NO LARGE BEHIND THE WORK TITLE
-    ===================================================== */
-
-    .about-header {
-
-      margin-bottom:
-        5vh;
-
-      opacity: 0;
-
-      transform:
-        translateY(35px);
-
-      transition:
-        opacity .8s ease .35s,
-        transform
-        1s
-        cubic-bezier(.16,1,.3,1)
-        .35s;
-    }
-
-
-    .about-next.active
-    .about-header {
-
-      opacity: 1;
-
-      transform:
-        translateY(0);
-    }
-
-
-    .about-header-label {
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-      font-size: 9px;
-
-      letter-spacing: 4px;
-
-      text-transform: uppercase;
-    }
-
-
-    /* =====================================================
-       TWO STORY WINDOWS
+       TWO CARDS
+       DIFFERENT BACKGROUNDS
     ===================================================== */
 
     .story-grid {
-
       display: grid;
 
-      grid-template-columns:
-        1fr 1fr;
+      grid-template-columns: 1fr 1fr;
 
       gap: 2px;
 
       background:
-        rgba(62,0,12,.22);
+        rgba(62,0,12,.20);
 
       border:
         1px solid
-        rgba(62,0,12,.22);
+        rgba(62,0,12,.20);
 
       opacity: 0;
 
-      transform:
-        translateY(50px);
+      transform: translateY(50px);
 
       transition:
-        opacity .9s ease .55s,
-        transform
-        1.1s
-        cubic-bezier(.16,1,.3,1)
-        .55s;
+        opacity .9s ease .35s,
+        transform 1.1s cubic-bezier(.16,1,.3,1) .35s;
+    }
+
+    .about-next.active .story-grid {
+      opacity: 1;
+      transform: translateY(0);
     }
 
 
-    .about-next.active
-    .story-grid {
+    /* LEFT CARD — WARM BEIGE */
 
-      opacity: 1;
+    .story-card.personal-card {
+      background:
+        linear-gradient(
+          135deg,
+          #F4E6D6 0%,
+          #EBD8C5 100%
+        );
+    }
 
-      transform:
-        translateY(0);
+
+    /* RIGHT CARD — SOFT BLUSH */
+
+    .story-card.professional-card {
+      background:
+        linear-gradient(
+          135deg,
+          #EFE0D5 0%,
+          #E2C9C0 100%
+        );
     }
 
 
     .story-card {
-
       position: relative;
 
       min-height: 470px;
@@ -813,15 +534,34 @@
       padding:
         38px 38px 34px;
 
-      background:
-        rgba(246,235,221,.97);
-
       overflow: hidden;
     }
 
 
-    .story-card::before {
+    /* subtle decorative circle */
 
+    .story-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      border-radius: 50%;
+
+      right: -120px;
+      bottom: -120px;
+
+      border:
+        1px solid
+        rgba(62,0,12,.10);
+
+      pointer-events: none;
+    }
+
+
+    .story-card::before {
       content: "";
 
       position: absolute;
@@ -832,26 +572,17 @@
       width: 100%;
       height: 2px;
 
-      background:
-        #3E000C;
+      background: #3E000C;
 
-      transform:
-        scaleX(0);
-
-      transform-origin:
-        left;
+      transform: scaleX(0);
+      transform-origin: left;
 
       transition:
-        transform
-        1s
-        cubic-bezier(.16,1,.3,1);
+        transform 1s cubic-bezier(.16,1,.3,1);
     }
 
-
     .story-card:hover::before {
-
-      transform:
-        scaleX(1);
+      transform: scaleX(1);
     }
 
 
@@ -860,7 +591,6 @@
     ===================================================== */
 
     .story-number {
-
       position: absolute;
 
       top: 28px;
@@ -872,7 +602,6 @@
         sans-serif;
 
       font-size: 9px;
-
       letter-spacing: 2px;
 
       opacity: .55;
@@ -880,13 +609,14 @@
 
 
     /* =====================================================
-       EYEBROW
+       CARD EYEBROW
     ===================================================== */
 
     .story-eyebrow {
+      position: relative;
+      z-index: 2;
 
       display: flex;
-
       align-items: center;
 
       gap: 12px;
@@ -899,37 +629,34 @@
         sans-serif;
 
       font-size: 9px;
-
       letter-spacing: 3px;
 
       text-transform: uppercase;
     }
 
-
     .story-eyebrow::before {
-
       content: "";
 
       width: 25px;
       height: 1px;
 
-      background:
-        #3E000C;
+      background: #3E000C;
     }
 
 
     /* =====================================================
-       MAIN CARD TITLES
+       CARD TITLE
     ===================================================== */
 
     .story-title {
+      position: relative;
+      z-index: 2;
 
       max-width: 540px;
 
       margin-bottom: 25px;
 
-      color:
-        #3E000C;
+      color: #3E000C;
 
       font-family:
         "Bodoni Moda",
@@ -943,7 +670,6 @@
         );
 
       line-height: .91;
-
       letter-spacing: -.06em;
 
       font-weight: 600;
@@ -954,18 +680,13 @@
 
 
     /*
-      FIRST LETTER — LARGER
+      FIRST LETTER BIGGER
     */
 
     .story-title::first-letter {
-
-      font-size:
-        1.32em;
-
+      font-size: 1.34em;
       line-height: .65;
-
-      font-weight:
-        600;
+      font-weight: 600;
     }
 
 
@@ -974,6 +695,8 @@
     ===================================================== */
 
     .story-intro {
+      position: relative;
+      z-index: 2;
 
       max-width: 560px;
 
@@ -983,11 +706,10 @@
         sans-serif;
 
       font-size: 13px;
-
       line-height: 1.75;
 
       color:
-        rgba(62,0,12,.84);
+        rgba(62,0,12,.86);
 
       margin-bottom: 20px;
     }
@@ -998,27 +720,23 @@
     ===================================================== */
 
     .story-icons {
+      position: relative;
+      z-index: 2;
 
       display: flex;
-
       align-items: center;
 
       gap: 18px;
 
-      margin:
-        28px 0;
+      margin: 28px 0;
     }
 
-
     .story-icon {
-
       width: 38px;
       height: 38px;
 
       display: flex;
-
       align-items: center;
-
       justify-content: center;
 
       border:
@@ -1033,35 +751,66 @@
         transform .3s ease;
     }
 
-
     .story-icon svg {
-
       width: 17px;
       height: 17px;
 
       fill: none;
 
-      stroke:
-        currentColor;
+      stroke: currentColor;
 
       stroke-width: 1.4;
 
       stroke-linecap: round;
-
       stroke-linejoin: round;
     }
 
-
     .story-icon:hover {
-
-      background:
-        #3E000C;
-
-      color:
-        #F6EBDD;
+      background: #3E000C;
+      color: #F6EBDD;
 
       transform:
         translateY(-3px);
+    }
+
+
+    /* =====================================================
+       PROFESSIONAL TAGS
+    ===================================================== */
+
+    .professional-meta {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin:
+        28px 0;
+    }
+
+    .meta-pill {
+      padding:
+        8px 12px;
+
+      border:
+        1px solid
+        rgba(62,0,12,.25);
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 8px;
+
+      letter-spacing:
+        1.7px;
+
+      text-transform:
+        uppercase;
     }
 
 
@@ -1070,6 +819,8 @@
     ===================================================== */
 
     .read-more {
+      position: relative;
+      z-index: 3;
 
       display: inline-flex;
 
@@ -1083,8 +834,7 @@
 
       background: transparent;
 
-      color:
-        #3E000C;
+      color: #3E000C;
 
       font-family:
         Arial,
@@ -1098,13 +848,9 @@
       text-transform: uppercase;
 
       cursor: pointer;
-
-      user-select: none;
     }
 
-
     .read-more-line {
-
       width: 30px;
       height: 1px;
 
@@ -1116,18 +862,12 @@
         cubic-bezier(.16,1,.3,1);
     }
 
-
-    .read-more:hover
-    .read-more-line {
-
+    .read-more:hover .read-more-line {
       width: 48px;
     }
 
-
     .read-more-arrow {
-
       font-size: 13px;
-
       line-height: 1;
 
       transition:
@@ -1135,20 +875,19 @@
         cubic-bezier(.16,1,.3,1);
     }
 
-
-    .read-more.open
-    .read-more-arrow {
-
+    .read-more.open .read-more-arrow {
       transform:
         rotate(45deg);
     }
 
 
     /* =====================================================
-       HIDDEN TEXT
+       EXPANDED TEXT
     ===================================================== */
 
     .story-more {
+      position: relative;
+      z-index: 2;
 
       max-height: 0;
 
@@ -1157,101 +896,37 @@
       opacity: 0;
 
       transition:
-
-        max-height
-        .8s
-        cubic-bezier(.16,1,.3,1),
-
-        opacity
-        .45s ease;
+        max-height .8s cubic-bezier(.16,1,.3,1),
+        opacity .45s ease;
     }
 
-
     .story-more.open {
-
-      max-height:
-        900px;
+      max-height: 1000px;
 
       opacity: 1;
 
-      margin-top:
-        22px;
+      margin-top: 22px;
     }
 
-
     .story-more p {
-
-      margin-bottom:
-        15px;
+      margin-bottom: 15px;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size:
-        13px;
+      font-size: 13px;
 
-      line-height:
-        1.8;
+      line-height: 1.8;
 
       color:
         rgba(62,0,12,.82);
     }
 
-
     .story-more strong {
-
-      font-weight:
-        600;
-
-      color:
-        #3E000C;
-    }
-
-
-    /* =====================================================
-       PROFESSIONAL META
-    ===================================================== */
-
-    .professional-meta {
-
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 8px;
-
-      margin-top:
-        28px;
-
-      margin-bottom:
-        28px;
-    }
-
-
-    .meta-pill {
-
-      padding:
-        8px 12px;
-
-      border:
-        1px solid
-        rgba(62,0,12,.25);
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-      font-size:
-        8px;
-
-      letter-spacing:
-        1.7px;
-
-      text-transform:
-        uppercase;
+      font-weight: 600;
+      color: #3E000C;
     }
 
 
@@ -1260,9 +935,7 @@
     ===================================================== */
 
     .projects-section {
-
-      margin-top:
-        8vh;
+      margin-top: 8vh;
 
       opacity: 0;
 
@@ -1277,10 +950,7 @@
         .8s;
     }
 
-
-    .about-next.active
-    .projects-section {
-
+    .about-next.active .projects-section {
       opacity: 1;
 
       transform:
@@ -1289,45 +959,34 @@
 
 
     .projects-heading {
-
       display: flex;
 
       align-items: flex-end;
 
       justify-content: space-between;
 
-      margin-bottom:
-        24px;
+      margin-bottom: 24px;
 
-      padding-bottom:
-        14px;
+      padding-bottom: 14px;
 
       border-bottom:
         1px solid
         rgba(62,0,12,.28);
     }
 
-
     .projects-label {
-
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size:
-        9px;
+      font-size: 9px;
+      letter-spacing: 3px;
 
-      letter-spacing:
-        3px;
-
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
-
     .projects-title {
-
       font-family:
         "Bodoni Moda",
         serif;
@@ -1339,146 +998,134 @@
           55px
         );
 
-      line-height:
-        .9;
+      line-height: .9;
+      letter-spacing: -.05em;
 
-      letter-spacing:
-        -.05em;
-
-      font-weight:
-        600;
+      font-weight: 600;
 
       -webkit-text-stroke:
         .2px #3E000C;
     }
 
 
-    .projects-title::first-letter {
-
-      font-size:
-        1.3em;
-    }
-
-
     /* =====================================================
-       PROJECT LIST
+       PROJECT ITEMS
     ===================================================== */
 
     .projects-list {
-
-      display:
-        flex;
-
-      flex-direction:
-        column;
+      display: flex;
+      flex-direction: column;
     }
 
-
     .project-item {
+      position: relative;
 
-      position:
-        relative;
-
-      display:
-        grid;
+      display: grid;
 
       grid-template-columns:
         90px 1fr 40px;
 
-      align-items:
-        center;
+      align-items: center;
 
-      min-height:
-        95px;
+      min-height: 95px;
 
       border-bottom:
         1px solid
         rgba(62,0,12,.20);
 
-      cursor:
-        pointer;
+      cursor: pointer;
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
       transition:
         padding .5s
         cubic-bezier(.16,1,.3,1);
+
+      opacity: 0;
+
+      transform:
+        translateY(35px);
+    }
+
+
+    /*
+      EACH PROJECT HAS ITS OWN BURGUNDY SHADE
+    */
+
+    .project-item:nth-child(1)::before {
+      background: #3E000C;
+    }
+
+    .project-item:nth-child(2)::before {
+      background: #6A2936;
+    }
+
+    .project-item:nth-child(3)::before {
+      background: #3E000C;
+    }
+
+    .project-item:nth-child(4)::before {
+      background: #6A2936;
+    }
+
+    .project-item:nth-child(5)::before {
+      background: #3E000C;
     }
 
 
     .project-item::before {
+      content: "";
 
-      content:
-        "";
+      position: absolute;
 
-      position:
-        absolute;
-
-      inset:
-        0;
-
-      background:
-        #3E000C;
+      inset: 0;
 
       transform:
         translateY(101%);
 
       transition:
         transform
-        .6s
+        .65s
         cubic-bezier(.16,1,.3,1);
 
-      z-index:
-        0;
+      z-index: 0;
     }
 
+
+    /*
+      PROJECT HOVER
+    */
 
     .project-item:hover {
-
-      padding-left:
-        15px;
+      padding-left: 15px;
     }
 
-
     .project-item:hover::before {
-
       transform:
         translateY(0);
     }
 
 
     .project-number {
-
-      position:
-        relative;
-
-      z-index:
-        2;
+      position: relative;
+      z-index: 2;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size:
-        10px;
+      font-size: 10px;
 
-      letter-spacing:
-        2px;
+      letter-spacing: 2px;
 
       transition:
         color .35s ease;
     }
 
-
     .project-name {
-
-      position:
-        relative;
-
-      z-index:
-        2;
+      position: relative;
+      z-index: 2;
 
       font-family:
         "Bodoni Moda",
@@ -1491,14 +1138,10 @@
           54px
         );
 
-      line-height:
-        1;
+      line-height: 1;
+      letter-spacing: -.05em;
 
-      letter-spacing:
-        -.05em;
-
-      font-weight:
-        500;
+      font-weight: 500;
 
       transition:
         color .35s ease,
@@ -1506,22 +1149,16 @@
         cubic-bezier(.16,1,.3,1);
     }
 
-
     .project-arrow {
-
-      position:
-        relative;
-
-      z-index:
-        2;
+      position: relative;
+      z-index: 2;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size:
-        18px;
+      font-size: 18px;
 
       transition:
         color .35s ease,
@@ -1538,45 +1175,28 @@
 
     .project-item:hover
     .project-arrow {
-
       color:
         #F6EBDD;
     }
 
-
     .project-item:hover
     .project-name {
-
       transform:
         translateX(8px);
     }
 
-
     .project-item:hover
     .project-arrow {
-
       transform:
         translateX(5px);
     }
 
 
     /* =====================================================
-       PROJECT REVEAL
+       PROJECT REVEAL ANIMATION
     ===================================================== */
 
-    .project-item {
-
-      opacity:
-        0;
-
-      transform:
-        translateY(35px);
-    }
-
-
-    .about-next.active
-    .project-item {
-
+    .about-next.active .project-item {
       animation:
         projectReveal
         .85s
@@ -1584,54 +1204,41 @@
         forwards;
     }
 
-
     .about-next.active
     .project-item:nth-child(1) {
-      animation-delay:
-        .95s;
+      animation-delay: .95s;
     }
 
     .about-next.active
     .project-item:nth-child(2) {
-      animation-delay:
-        1.08s;
+      animation-delay: 1.08s;
     }
 
     .about-next.active
     .project-item:nth-child(3) {
-      animation-delay:
-        1.21s;
+      animation-delay: 1.21s;
     }
 
     .about-next.active
     .project-item:nth-child(4) {
-      animation-delay:
-        1.34s;
+      animation-delay: 1.34s;
     }
 
     .about-next.active
     .project-item:nth-child(5) {
-      animation-delay:
-        1.47s;
+      animation-delay: 1.47s;
     }
-
 
     @keyframes projectReveal {
 
       from {
-
-        opacity:
-          0;
-
+        opacity: 0;
         transform:
           translateY(35px);
       }
 
       to {
-
-        opacity:
-          1;
-
+        opacity: 1;
         transform:
           translateY(0);
       }
@@ -1644,15 +1251,12 @@
     ===================================================== */
 
     .about-footer {
-
-      display:
-        flex;
+      display: flex;
 
       justify-content:
         space-between;
 
-      gap:
-        30px;
+      gap: 30px;
 
       padding:
         35px 0 60px;
@@ -1662,17 +1266,14 @@
         Helvetica,
         sans-serif;
 
-      font-size:
-        8px;
+      font-size: 8px;
 
-      letter-spacing:
-        2px;
+      letter-spacing: 2px;
 
       text-transform:
         uppercase;
 
-      opacity:
-        .55;
+      opacity: .55;
     }
 
 
@@ -1683,9 +1284,7 @@
     @media (max-width: 768px) {
 
       .letter {
-
-        font-size:
-          14vw;
+        font-size: 14vw;
 
         left:
           calc(
@@ -1699,7 +1298,6 @@
 
 
       .about-section {
-
         padding:
           5vh 5vw;
 
@@ -1709,8 +1307,7 @@
         flex-direction:
           column;
 
-        gap:
-          3vh;
+        gap: 3vh;
 
         justify-content:
           center;
@@ -1721,106 +1318,67 @@
 
 
       .door-area {
+        width: 100%;
 
-        width:
-          100%;
+        height: 50vh;
 
-        height:
-          50vh;
-
-        min-height:
-          300px;
+        min-height: 300px;
       }
 
 
       .door-title {
-
         font-size:
           18vw;
       }
 
 
       .about-images {
+        width: 100%;
 
-        width:
-          100%;
+        height: 40vh;
 
-        height:
-          40vh;
+        min-height: 260px;
 
-        min-height:
-          260px;
-
-        gap:
-          2vw;
+        gap: 2vw;
       }
 
 
       .about-photo {
+        width: 48%;
 
-        width:
-          48%;
+        height: 38vh;
 
-        height:
-          38vh;
-
-        min-height:
-          240px;
+        min-height: 240px;
       }
 
 
       .about-photo:nth-child(1) {
-
-        margin-top:
-          3vh;
+        margin-top: 3vh;
       }
 
 
       .about-photo:nth-child(2) {
-
-        margin-bottom:
-          3vh;
+        margin-bottom: 3vh;
       }
 
 
       /* ABOUT CONTENT */
 
       .about-next {
-
         padding:
           5vh 5vw 7vh;
       }
 
 
-      .about-header {
-
-        margin-bottom:
-          4vh;
-      }
-
-
-      .about-header-label {
-
-        font-size:
-          8px;
-
-        letter-spacing:
-          3px;
-      }
-
-
       .story-grid {
-
         grid-template-columns:
           1fr;
 
-        gap:
-          1px;
+        gap: 1px;
       }
 
 
       .story-card {
-
         min-height:
           auto;
 
@@ -1830,14 +1388,12 @@
 
 
       .story-eyebrow {
-
         margin-bottom:
           30px;
       }
 
 
       .story-title {
-
         font-size:
           12vw;
 
@@ -1847,7 +1403,6 @@
 
 
       .story-title::first-letter {
-
         font-size:
           1.3em;
       }
@@ -1855,7 +1410,6 @@
 
       .story-intro,
       .story-more p {
-
         font-size:
           12px;
 
@@ -1865,33 +1419,26 @@
 
 
       .story-icons {
-
         margin:
           24px 0;
       }
 
 
       .professional-meta {
-
-        margin-top:
-          20px;
-
-        margin-bottom:
-          25px;
+        margin:
+          20px 0 25px;
       }
 
 
       /* PROJECTS */
 
       .projects-section {
-
         margin-top:
           6vh;
       }
 
 
       .projects-heading {
-
         align-items:
           flex-start;
 
@@ -1904,14 +1451,12 @@
 
 
       .projects-title {
-
         font-size:
           12vw;
       }
 
 
       .project-item {
-
         grid-template-columns:
           48px 1fr 25px;
 
@@ -1921,28 +1466,24 @@
 
 
       .project-number {
-
         font-size:
           8px;
       }
 
 
       .project-name {
-
         font-size:
           8vw;
       }
 
 
       .project-arrow {
-
         font-size:
           15px;
       }
 
 
       .about-footer {
-
         flex-direction:
           column;
 
@@ -1960,28 +1501,21 @@
     @media (max-width: 390px) {
 
       .door-area {
-
         height:
           47vh;
       }
 
-
       .door-title {
-
         font-size:
           17vw;
       }
 
-
       .about-images {
-
         height:
           39vh;
       }
 
-
       .story-card {
-
         padding:
           26px 21px;
       }
@@ -2000,7 +1534,6 @@
     ) {
 
       .about-section {
-
         grid-template-columns:
           42% 58%;
 
@@ -2008,23 +1541,17 @@
           5vh 5vw;
       }
 
-
       .door-area {
-
         height:
           88vh;
       }
-
 
       .about-images {
-
         height:
           88vh;
       }
 
-
       .about-photo {
-
         height:
           80vh;
       }
@@ -2068,7 +1595,7 @@
 
 
     <!-- ===================================================
-         ABOUT ME — DOOR + PHOTOS
+         ABOUT ME — DOOR
     ==================================================== -->
 
     <section
@@ -2086,7 +1613,6 @@
           src="image3"
           alt="About Me"
         >
-
 
         <div class="door-content">
 
@@ -2126,7 +1652,7 @@
 
 
     <!-- ===================================================
-         ABOUT ME — FULL CONTENT
+         ABOUT CONTENT
     ==================================================== -->
 
     <section
@@ -2138,17 +1664,19 @@
 
 
         <!-- =================================================
-             PERSONAL + PROFESSIONAL
+             TWO DIFFERENT CARDS
         ================================================== -->
 
         <div class="story-grid">
 
 
           <!-- =================================================
-               PERSONAL
+               PERSONAL CARD
           ================================================== -->
 
-          <article class="story-card">
+          <article
+            class="story-card personal-card"
+          >
 
             <div class="story-number">
               01
@@ -2177,7 +1705,6 @@
 
 
             <div class="story-icons">
-
 
               <!-- ARMENIA -->
 
@@ -2280,52 +1807,39 @@
             >
 
               <p>
-
                 I’m 28, I love my life, and I want to
                 live it in a way that gives me plenty
                 to remember when I’m older.
-
               </p>
 
-
               <p>
-
                 I love travelling and discovering
                 new places. I have already visited
                 <strong>30+ European cities</strong>,
                 and travelling is one of the things
                 that constantly gives me new
                 perspectives.
-
               </p>
 
-
               <p>
-
                 My favourite place is
                 <strong>Paris</strong>. I love its
                 architecture, narrow historic streets,
                 old buildings and the atmosphere
                 that makes even an ordinary walk
                 feel memorable.
-
               </p>
 
-
               <p>
-
                 Freelancing, for me, is not only
                 about income. It is about
                 <strong>freedom</strong> — freedom
                 of choice, time, location, speech,
                 spirit and the ability to make my
                 own decisions.
-
               </p>
 
-
               <p>
-
                 Before freelancing, I worked in the
                 government system with a traditional
                 9–6 schedule. I always wanted to
@@ -2334,7 +1848,6 @@
                 continuous learning, international
                 clients and a much more independent
                 way of working.
-
               </p>
 
             </div>
@@ -2343,10 +1856,12 @@
 
 
           <!-- =================================================
-               PROFESSIONAL
+               PROFESSIONAL CARD
           ================================================== -->
 
-          <article class="story-card">
+          <article
+            class="story-card professional-card"
+          >
 
             <div class="story-number">
               02
@@ -2375,7 +1890,6 @@
 
 
             <div class="story-icons">
-
 
               <!-- SHOPIFY -->
 
@@ -2505,7 +2019,6 @@
             >
 
               <p>
-
                 My first profession is
                 <strong>psychology</strong>, and
                 that background continues to help
@@ -2513,64 +2026,48 @@
                 communicate, understand people's
                 needs and look for practical
                 solutions to problems.
-
               </p>
 
-
               <p>
-
                 I have more than
                 <strong>1 year of hands-on Shopify
                 experience</strong>, building and
                 improving stores from scratch.
-
               </p>
 
-
               <p>
-
                 I work with Shopify store setup and
                 customization, product and collection
                 pages, landing pages, product pages,
                 HTML, CSS and Liquid customization,
                 UX improvements and small technical
                 fixes.
-
               </p>
 
-
               <p>
-
                 I have worked on
                 <strong>many successful projects</strong>
                 — both through Upwork and outside
                 Upwork, with Armenian clients as well
                 as clients from abroad.
-
               </p>
 
-
               <p>
-
                 My focus is always on creating
                 <strong>clean, premium and trustworthy
                 experiences</strong>: easy navigation,
                 strong visual structure, clear
                 customer flow and a store that feels
                 professional from the first interaction.
-
               </p>
 
-
               <p>
-
                 I see Shopify not only as a technical
                 platform. I also look at the experience
                 from the customer's perspective —
                 what they see, what they understand,
                 where they hesitate and what helps
                 them move forward.
-
               </p>
 
             </div>
@@ -2603,7 +2100,7 @@
           <div class="projects-list">
 
 
-            <!-- PROJECT 01 -->
+            <!-- 01 -->
 
             <div class="project-item">
 
@@ -2622,7 +2119,7 @@
             </div>
 
 
-            <!-- PROJECT 02 -->
+            <!-- 02 -->
 
             <div class="project-item">
 
@@ -2641,7 +2138,7 @@
             </div>
 
 
-            <!-- PROJECT 03 -->
+            <!-- 03 -->
 
             <div class="project-item">
 
@@ -2660,7 +2157,7 @@
             </div>
 
 
-            <!-- PROJECT 04 -->
+            <!-- 04 -->
 
             <div class="project-item">
 
@@ -2679,7 +2176,7 @@
             </div>
 
 
-            <!-- PROJECT 05 -->
+            <!-- 05 -->
 
             <div class="project-item">
 
@@ -2696,7 +2193,6 @@
               </div>
 
             </div>
-
 
           </div>
 
@@ -2734,30 +2230,25 @@
         "portfolioScreen"
       );
 
-
     const portfolioWord =
       document.getElementById(
         "portfolioWord"
       );
-
 
     const aboutSection =
       document.getElementById(
         "aboutSection"
       );
 
-
     const aboutNext =
       document.getElementById(
         "aboutNext"
       );
 
-
     const doorArea =
       document.getElementById(
         "doorArea"
       );
-
 
     const letters =
       document.querySelectorAll(
@@ -2776,7 +2267,6 @@
     let aboutOpened = false;
 
     let doorOpened = false;
-
 
     const totalSteps = 6;
 
@@ -2805,14 +2295,13 @@
 
 
     /* =====================================================
-       UPDATE LETTERS
+       LETTER UPDATE
     ===================================================== */
 
     function updateLetters() {
 
       const active =
         visibleLetters[currentStep] || [];
-
 
       letters.forEach(
         (letter, index) => {
@@ -2840,23 +2329,23 @@
 
 
     /* =====================================================
-       UPDATE BACKGROUND
+       BACKGROUND UPDATE
     ===================================================== */
 
     function updateBackground() {
 
       screen.classList.remove(
-
         "stage-1",
         "stage-2",
         "stage-3",
         "stage-4",
         "stage-about"
-
       );
 
 
-      if (currentStep === 1) {
+      if (
+        currentStep === 1
+      ) {
 
         screen.classList.add(
           "stage-1"
@@ -2864,7 +2353,9 @@
 
       }
 
-      else if (currentStep === 2) {
+      else if (
+        currentStep === 2
+      ) {
 
         screen.classList.add(
           "stage-2"
@@ -2872,7 +2363,9 @@
 
       }
 
-      else if (currentStep === 3) {
+      else if (
+        currentStep === 3
+      ) {
 
         screen.classList.add(
           "stage-3"
@@ -2880,7 +2373,9 @@
 
       }
 
-      else if (currentStep === 4) {
+      else if (
+        currentStep === 4
+      ) {
 
         screen.classList.add(
           "stage-3"
@@ -2888,7 +2383,9 @@
 
       }
 
-      else if (currentStep === 5) {
+      else if (
+        currentStep === 5
+      ) {
 
         screen.classList.add(
           "stage-4"
@@ -2908,26 +2405,22 @@
 
 
     /* =====================================================
-       SHOW ABOUT
+       OPEN ABOUT
     ===================================================== */
 
     function openAboutSection() {
 
       aboutOpened = true;
 
-
       aboutSection.classList.add(
         "active"
       );
 
-
       portfolioWord.style.opacity =
         "0";
 
-
       portfolioWord.style.transform =
         "translateY(-8vh)";
-
 
       screen.classList.remove(
         "stage-1",
@@ -2935,7 +2428,6 @@
         "stage-3",
         "stage-4"
       );
-
 
       screen.classList.add(
         "stage-about"
@@ -2959,11 +2451,9 @@
         return;
       }
 
-
       doorOpened = true;
 
       isAnimating = true;
-
 
       doorArea.classList.add(
         "opening"
@@ -2976,12 +2466,6 @@
           aboutNext.classList.add(
             "active"
           );
-
-
-          /*
-            Always start the About content
-            from the top.
-          */
 
           aboutNext.scrollTop = 0;
 
@@ -3010,7 +2494,6 @@
 
       isAnimating = true;
 
-
       aboutNext.classList.remove(
         "active"
       );
@@ -3022,7 +2505,6 @@
           doorArea.classList.remove(
             "opening"
           );
-
 
           doorOpened = false;
 
@@ -3044,7 +2526,7 @@
 
 
     /* =====================================================
-       NEXT STEP
+       NEXT
     ===================================================== */
 
     function nextStep() {
@@ -3063,9 +2545,7 @@
 
         isAnimating = true;
 
-
         currentStep++;
-
 
         updateLetters();
 
@@ -3090,7 +2570,6 @@
           animationDuration
         );
 
-
         return;
       }
 
@@ -3109,7 +2588,7 @@
 
 
     /* =====================================================
-       PREVIOUS STEP
+       PREVIOUS
     ===================================================== */
 
     function previousStep() {
@@ -3123,7 +2602,8 @@
 
 
       /*
-        ABOUT CONTENT → DOOR
+        ABOUT CONTENT
+        → if scrolled down, scroll to top first
       */
 
       if (
@@ -3133,23 +2613,13 @@
         )
       ) {
 
-        /*
-          If we are still inside the
-          About content and have scrolled
-          down, first scroll upward.
-        */
-
         if (
           aboutNext.scrollTop > 5
         ) {
 
           aboutNext.scrollTo({
-
             top: 0,
-
-            behavior:
-              "smooth"
-
+            behavior: "smooth"
           });
 
           return;
@@ -3174,25 +2644,19 @@
 
         isAnimating = true;
 
-
         currentStep = 5;
 
-
         aboutOpened = false;
-
 
         aboutSection.classList.remove(
           "active"
         );
 
-
         portfolioWord.style.opacity =
           "1";
 
-
         portfolioWord.style.transform =
           "translateY(0)";
-
 
         updateLetters();
 
@@ -3207,7 +2671,6 @@
           },
           animationDuration
         );
-
 
         return;
       }
@@ -3224,12 +2687,9 @@
         return;
       }
 
-
       isAnimating = true;
 
-
       currentStep--;
-
 
       updateLetters();
 
@@ -3253,117 +2713,66 @@
     ===================================================== */
 
     document
-      .querySelectorAll(".read-more")
-      .forEach(button => {
+      .querySelectorAll(
+        ".read-more"
+      )
+      .forEach(
+        button => {
 
-        button.addEventListener(
-          "click",
-          event => {
+          button.addEventListener(
+            "click",
+            event => {
 
-            event.stopPropagation();
+              event.stopPropagation();
+
+              const targetId =
+                button.dataset.target;
+
+              const target =
+                document.getElementById(
+                  targetId
+                );
+
+              if (!target) {
+                return;
+              }
 
 
-            const targetId =
-              button.dataset.target;
+              const isOpen =
+                target.classList.contains(
+                  "open"
+                );
 
 
-            const target =
-              document.getElementById(
-                targetId
+              target.classList.toggle(
+                "open"
               );
 
-
-            if (!target) {
-
-              return;
-            }
-
-
-            const isOpen =
-              target.classList.contains(
+              button.classList.toggle(
                 "open"
               );
 
 
-            target.classList.toggle(
-              "open"
-            );
+              const text =
+                button.querySelector(
+                  ".read-more-text"
+                );
 
-
-            button.classList.toggle(
-              "open"
-            );
-
-
-            const text =
-              button.querySelector(
-                ".read-more-text"
-              );
-
-
-            if (isOpen) {
 
               text.textContent =
-                "READ MORE";
-
-            } else {
-
-              text.textContent =
-                "READ LESS";
-
-
-              /*
-                When opening a long text,
-                gently move enough to reveal
-                the expanded content.
-              */
-
-              setTimeout(
-                () => {
-
-                  const card =
-                    button.closest(
-                      ".story-card"
-                    );
-
-
-                  if (
-                    card &&
-                    aboutNext.scrollTop <
-                      card.offsetTop - 40
-                  ) {
-
-                    aboutNext.scrollTo({
-
-                      top:
-                        Math.max(
-                          0,
-                          card.offsetTop - 30
-                        ),
-
-                      behavior:
-                        "smooth"
-
-                    });
-
-                  }
-
-                },
-                250
-              );
+                isOpen
+                  ? "READ MORE"
+                  : "READ LESS";
 
             }
+          );
 
-          }
-        );
-
-      });
+        }
+      );
 
 
     /* =====================================================
        WHEEL
-       IMPORTANT:
-       ABOUT CONTENT HAS ITS OWN SCROLL
     ===================================================== */
 
     window.addEventListener(
@@ -3373,8 +2782,9 @@
       event => {
 
         /*
-          If the detailed About section
-          is open, allow it to scroll.
+          Once the detailed About section
+          is open, wheel controls its own
+          internal scroll.
         */
 
         if (
@@ -3387,15 +2797,14 @@
           const atTop =
             aboutNext.scrollTop <= 5;
 
-
           const atBottom =
             aboutNext.scrollTop +
-              aboutNext.clientHeight >=
-              aboutNext.scrollHeight - 5;
+            aboutNext.clientHeight >=
+            aboutNext.scrollHeight - 5;
 
 
           /*
-            SCROLL DOWN
+            DOWN
           */
 
           if (
@@ -3412,12 +2821,6 @@
               return;
             }
 
-
-            /*
-              At the bottom:
-              stay here.
-            */
-
             event.preventDefault();
 
             return;
@@ -3425,7 +2828,7 @@
 
 
           /*
-            SCROLL UP
+            UP
           */
 
           if (
@@ -3441,12 +2844,6 @@
 
               return;
             }
-
-
-            /*
-              At the top:
-              close About and return.
-            */
 
             event.preventDefault();
 
@@ -3500,32 +2897,25 @@
 
 
     window.addEventListener(
-
       "touchstart",
-
       event => {
 
         touchStartY =
           event.touches[0].clientY;
 
       },
-
       {
         passive: true
       }
-
     );
 
 
     window.addEventListener(
-
       "touchend",
-
       event => {
 
         touchEndY =
           event.changedTouches[0].clientY;
-
 
         const distance =
           touchStartY - touchEndY;
@@ -3539,10 +2929,6 @@
         }
 
 
-        /*
-          ABOUT CONTENT TOUCH SCROLL
-        */
-
         if (
           doorOpened &&
           aboutNext.classList.contains(
@@ -3553,15 +2939,14 @@
           const atTop =
             aboutNext.scrollTop <= 5;
 
-
           const atBottom =
             aboutNext.scrollTop +
-              aboutNext.clientHeight >=
-              aboutNext.scrollHeight - 5;
+            aboutNext.clientHeight >=
+            aboutNext.scrollHeight - 5;
 
 
           /*
-            Swipe UP
+            SWIPE UP
           */
 
           if (
@@ -3569,7 +2954,6 @@
           ) {
 
             if (!atBottom) {
-
               return;
             }
 
@@ -3578,7 +2962,7 @@
 
 
           /*
-            Swipe DOWN
+            SWIPE DOWN
           */
 
           if (
@@ -3586,10 +2970,8 @@
           ) {
 
             if (!atTop) {
-
               return;
             }
-
 
             previousStep();
 
@@ -3598,10 +2980,6 @@
 
         }
 
-
-        /*
-          NORMAL TOUCH NAVIGATION
-        */
 
         if (
           distance > 0
@@ -3616,11 +2994,9 @@
         }
 
       },
-
       {
         passive: true
       }
-
     );
 
 
@@ -3629,14 +3005,8 @@
     ===================================================== */
 
     window.addEventListener(
-
       "keydown",
-
       event => {
-
-        /*
-          ABOUT CONTENT
-        */
 
         if (
           doorOpened &&
@@ -3652,20 +3022,15 @@
 
             if (
               aboutNext.scrollTop +
-                aboutNext.clientHeight <
+              aboutNext.clientHeight <
               aboutNext.scrollHeight - 5
             ) {
 
               event.preventDefault();
 
               aboutNext.scrollBy({
-
-                top:
-                  120,
-
-                behavior:
-                  "smooth"
-
+                top: 120,
+                behavior: "smooth"
               });
 
               return;
@@ -3686,13 +3051,8 @@
               event.preventDefault();
 
               aboutNext.scrollBy({
-
-                top:
-                  -120,
-
-                behavior:
-                  "smooth"
-
+                top: -120,
+                behavior: "smooth"
               });
 
               return;
@@ -3715,18 +3075,15 @@
 
             if (
               aboutNext.scrollTop +
-                aboutNext.clientHeight <
+              aboutNext.clientHeight <
               aboutNext.scrollHeight - 5
             ) {
 
               aboutNext.scrollBy({
-
                 top:
                   aboutNext.clientHeight * .75,
-
                 behavior:
                   "smooth"
-
               });
 
             }
@@ -3736,10 +3093,6 @@
 
         }
 
-
-        /*
-          NORMAL NAVIGATION
-        */
 
         if (
           event.key === "ArrowDown" ||
@@ -3766,12 +3119,11 @@
         }
 
       }
-
     );
 
 
     /* =====================================================
-       INITIAL STATE
+       INITIAL
     ===================================================== */
 
     updateLetters();
@@ -3779,7 +3131,6 @@
     updateBackground();
 
   </script>
-
 
 </body>
 
