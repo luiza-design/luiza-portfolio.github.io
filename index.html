@@ -13,7 +13,9 @@
   <title>Lu — Portfolio</title>
 
 
-  <!-- FONT -->
+  <!-- =====================================================
+       FONTS
+  ====================================================== -->
 
   <link
     rel="preconnect"
@@ -27,7 +29,7 @@
   >
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Inter:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Inter:wght@400;500&display=swap"
     rel="stylesheet"
   >
 
@@ -463,7 +465,7 @@
 
       letter-spacing: -.06em;
 
-      font-weight: 400;
+      font-weight: 500;
 
       transition:
 
@@ -619,9 +621,10 @@
       z-index: 80;
 
       overflow-y: auto;
+      overflow-x: hidden;
 
       padding:
-        7vh 6vw;
+        7vh 6vw 8vh;
 
       background: #F6EBDD;
 
@@ -671,6 +674,33 @@
     }
 
 
+    /* =====================================================
+       CUSTOM SCROLLBAR
+    ===================================================== */
+
+    .about-next::-webkit-scrollbar {
+
+      width: 5px;
+    }
+
+
+    .about-next::-webkit-scrollbar-track {
+
+      background:
+        rgba(62,0,12,.05);
+    }
+
+
+    .about-next::-webkit-scrollbar-thumb {
+
+      background:
+        rgba(62,0,12,.28);
+
+      border-radius:
+        20px;
+    }
+
+
     .about-next-inner {
 
       width: 100%;
@@ -682,20 +712,14 @@
 
 
     /* =====================================================
-       ABOUT HEADER
+       STORY HEADER
+       NO LARGE BEHIND THE WORK TITLE
     ===================================================== */
 
     .about-header {
 
-      display: flex;
-
-      align-items: flex-end;
-
-      justify-content: space-between;
-
-      gap: 30px;
-
-      margin-bottom: 5vh;
+      margin-bottom:
+        5vh;
 
       opacity: 0;
 
@@ -733,29 +757,6 @@
       letter-spacing: 4px;
 
       text-transform: uppercase;
-    }
-
-
-    .about-header-title {
-
-      font-family:
-        "Bodoni Moda",
-        serif;
-
-      font-size:
-        clamp(
-          55px,
-          8vw,
-          120px
-        );
-
-      line-height: .82;
-
-      letter-spacing: -.065em;
-
-      font-weight: 400;
-
-      text-align: right;
     }
 
 
@@ -813,7 +814,7 @@
         38px 38px 34px;
 
       background:
-        rgba(246,235,221,.96);
+        rgba(246,235,221,.97);
 
       overflow: hidden;
     }
@@ -854,6 +855,10 @@
     }
 
 
+    /* =====================================================
+       CARD NUMBER
+    ===================================================== */
+
     .story-number {
 
       position: absolute;
@@ -873,6 +878,10 @@
       opacity: .55;
     }
 
+
+    /* =====================================================
+       EYEBROW
+    ===================================================== */
 
     .story-eyebrow {
 
@@ -909,11 +918,18 @@
     }
 
 
+    /* =====================================================
+       MAIN CARD TITLES
+    ===================================================== */
+
     .story-title {
 
-      max-width: 470px;
+      max-width: 540px;
 
       margin-bottom: 25px;
+
+      color:
+        #3E000C;
 
       font-family:
         "Bodoni Moda",
@@ -921,18 +937,41 @@
 
       font-size:
         clamp(
-          35px,
-          4vw,
-          58px
+          38px,
+          4.3vw,
+          64px
         );
 
-      line-height: .93;
+      line-height: .91;
 
-      letter-spacing: -.055em;
+      letter-spacing: -.06em;
 
-      font-weight: 400;
+      font-weight: 600;
+
+      -webkit-text-stroke:
+        .25px #3E000C;
     }
 
+
+    /*
+      FIRST LETTER — LARGER
+    */
+
+    .story-title::first-letter {
+
+      font-size:
+        1.32em;
+
+      line-height: .65;
+
+      font-weight:
+        600;
+    }
+
+
+    /* =====================================================
+       INTRO
+    ===================================================== */
 
     .story-intro {
 
@@ -948,14 +987,14 @@
       line-height: 1.75;
 
       color:
-        rgba(62,0,12,.82);
+        rgba(62,0,12,.84);
 
       margin-bottom: 20px;
     }
 
 
     /* =====================================================
-       STORY ICONS
+       ICONS
     ===================================================== */
 
     .story-icons {
@@ -1106,7 +1145,7 @@
 
 
     /* =====================================================
-       HIDDEN STORY
+       HIDDEN TEXT
     ===================================================== */
 
     .story-more {
@@ -1130,26 +1169,31 @@
 
     .story-more.open {
 
-      max-height: 700px;
+      max-height:
+        900px;
 
       opacity: 1;
 
-      margin-top: 22px;
+      margin-top:
+        22px;
     }
 
 
     .story-more p {
 
-      margin-bottom: 15px;
+      margin-bottom:
+        15px;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size: 13px;
+      font-size:
+        13px;
 
-      line-height: 1.8;
+      line-height:
+        1.8;
 
       color:
         rgba(62,0,12,.82);
@@ -1158,7 +1202,8 @@
 
     .story-more strong {
 
-      font-weight: 500;
+      font-weight:
+        600;
 
       color:
         #3E000C;
@@ -1177,7 +1222,11 @@
 
       gap: 8px;
 
-      margin-top: 28px;
+      margin-top:
+        28px;
+
+      margin-bottom:
+        28px;
     }
 
 
@@ -1195,11 +1244,14 @@
         Helvetica,
         sans-serif;
 
-      font-size: 8px;
+      font-size:
+        8px;
 
-      letter-spacing: 1.7px;
+      letter-spacing:
+        1.7px;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
     }
 
 
@@ -1209,7 +1261,8 @@
 
     .projects-section {
 
-      margin-top: 7vh;
+      margin-top:
+        8vh;
 
       opacity: 0;
 
@@ -1243,9 +1296,11 @@
 
       justify-content: space-between;
 
-      margin-bottom: 24px;
+      margin-bottom:
+        24px;
 
-      padding-bottom: 14px;
+      padding-bottom:
+        14px;
 
       border-bottom:
         1px solid
@@ -1260,11 +1315,14 @@
         Helvetica,
         sans-serif;
 
-      font-size: 9px;
+      font-size:
+        9px;
 
-      letter-spacing: 3px;
+      letter-spacing:
+        3px;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
     }
 
 
@@ -1281,9 +1339,24 @@
           55px
         );
 
-      line-height: .9;
+      line-height:
+        .9;
 
-      letter-spacing: -.05em;
+      letter-spacing:
+        -.05em;
+
+      font-weight:
+        600;
+
+      -webkit-text-stroke:
+        .2px #3E000C;
+    }
+
+
+    .projects-title::first-letter {
+
+      font-size:
+        1.3em;
     }
 
 
@@ -1293,32 +1366,40 @@
 
     .projects-list {
 
-      display: flex;
+      display:
+        flex;
 
-      flex-direction: column;
+      flex-direction:
+        column;
     }
 
 
     .project-item {
 
-      position: relative;
+      position:
+        relative;
 
-      display: grid;
+      display:
+        grid;
 
       grid-template-columns:
         90px 1fr 40px;
 
-      align-items: center;
+      align-items:
+        center;
 
-      min-height: 95px;
+      min-height:
+        95px;
 
       border-bottom:
         1px solid
         rgba(62,0,12,.20);
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
-      overflow: hidden;
+      overflow:
+        hidden;
 
       transition:
         padding .5s
@@ -1328,11 +1409,14 @@
 
     .project-item::before {
 
-      content: "";
+      content:
+        "";
 
-      position: absolute;
+      position:
+        absolute;
 
-      inset: 0;
+      inset:
+        0;
 
       background:
         #3E000C;
@@ -1345,13 +1429,15 @@
         .6s
         cubic-bezier(.16,1,.3,1);
 
-      z-index: 0;
+      z-index:
+        0;
     }
 
 
     .project-item:hover {
 
-      padding-left: 15px;
+      padding-left:
+        15px;
     }
 
 
@@ -1364,18 +1450,22 @@
 
     .project-number {
 
-      position: relative;
+      position:
+        relative;
 
-      z-index: 2;
+      z-index:
+        2;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size: 10px;
+      font-size:
+        10px;
 
-      letter-spacing: 2px;
+      letter-spacing:
+        2px;
 
       transition:
         color .35s ease;
@@ -1384,9 +1474,11 @@
 
     .project-name {
 
-      position: relative;
+      position:
+        relative;
 
-      z-index: 2;
+      z-index:
+        2;
 
       font-family:
         "Bodoni Moda",
@@ -1399,9 +1491,14 @@
           54px
         );
 
-      line-height: 1;
+      line-height:
+        1;
 
-      letter-spacing: -.05em;
+      letter-spacing:
+        -.05em;
+
+      font-weight:
+        500;
 
       transition:
         color .35s ease,
@@ -1412,16 +1509,19 @@
 
     .project-arrow {
 
-      position: relative;
+      position:
+        relative;
 
-      z-index: 2;
+      z-index:
+        2;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size: 18px;
+      font-size:
+        18px;
 
       transition:
         color .35s ease,
@@ -1461,12 +1561,13 @@
 
 
     /* =====================================================
-       PROJECT ANIMATION
+       PROJECT REVEAL
     ===================================================== */
 
     .project-item {
 
-      opacity: 0;
+      opacity:
+        0;
 
       transform:
         translateY(35px);
@@ -1486,27 +1587,32 @@
 
     .about-next.active
     .project-item:nth-child(1) {
-      animation-delay: .95s;
+      animation-delay:
+        .95s;
     }
 
     .about-next.active
     .project-item:nth-child(2) {
-      animation-delay: 1.08s;
+      animation-delay:
+        1.08s;
     }
 
     .about-next.active
     .project-item:nth-child(3) {
-      animation-delay: 1.21s;
+      animation-delay:
+        1.21s;
     }
 
     .about-next.active
     .project-item:nth-child(4) {
-      animation-delay: 1.34s;
+      animation-delay:
+        1.34s;
     }
 
     .about-next.active
     .project-item:nth-child(5) {
-      animation-delay: 1.47s;
+      animation-delay:
+        1.47s;
     }
 
 
@@ -1514,7 +1620,8 @@
 
       from {
 
-        opacity: 0;
+        opacity:
+          0;
 
         transform:
           translateY(35px);
@@ -1522,7 +1629,8 @@
 
       to {
 
-        opacity: 1;
+        opacity:
+          1;
 
         transform:
           translateY(0);
@@ -1532,16 +1640,19 @@
 
 
     /* =====================================================
-       FOOTER NOTE
+       FOOTER
     ===================================================== */
 
     .about-footer {
 
-      display: flex;
+      display:
+        flex;
 
-      justify-content: space-between;
+      justify-content:
+        space-between;
 
-      gap: 30px;
+      gap:
+        30px;
 
       padding:
         35px 0 60px;
@@ -1551,13 +1662,17 @@
         Helvetica,
         sans-serif;
 
-      font-size: 8px;
+      font-size:
+        8px;
 
-      letter-spacing: 2px;
+      letter-spacing:
+        2px;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
 
-      opacity: .55;
+      opacity:
+        .55;
     }
 
 
@@ -1569,7 +1684,8 @@
 
       .letter {
 
-        font-size: 14vw;
+        font-size:
+          14vw;
 
         left:
           calc(
@@ -1577,7 +1693,8 @@
             (var(--index) * 10.3vw)
           );
 
-        letter-spacing: -.10em;
+        letter-spacing:
+          -.10em;
       }
 
 
@@ -1586,25 +1703,33 @@
         padding:
           5vh 5vw;
 
-        display: flex;
+        display:
+          flex;
 
-        flex-direction: column;
+        flex-direction:
+          column;
 
-        gap: 3vh;
+        gap:
+          3vh;
 
-        justify-content: center;
+        justify-content:
+          center;
 
-        overflow: hidden;
+        overflow:
+          hidden;
       }
 
 
       .door-area {
 
-        width: 100%;
+        width:
+          100%;
 
-        height: 50vh;
+        height:
+          50vh;
 
-        min-height: 300px;
+        min-height:
+          300px;
       }
 
 
@@ -1617,67 +1742,70 @@
 
       .about-images {
 
-        width: 100%;
+        width:
+          100%;
 
-        height: 40vh;
+        height:
+          40vh;
 
-        min-height: 260px;
+        min-height:
+          260px;
 
-        gap: 2vw;
+        gap:
+          2vw;
       }
 
 
       .about-photo {
 
-        width: 48%;
+        width:
+          48%;
 
-        height: 38vh;
+        height:
+          38vh;
 
-        min-height: 240px;
+        min-height:
+          240px;
       }
 
 
       .about-photo:nth-child(1) {
 
-        margin-top: 3vh;
+        margin-top:
+          3vh;
       }
 
 
       .about-photo:nth-child(2) {
 
-        margin-bottom: 3vh;
+        margin-bottom:
+          3vh;
       }
 
+
+      /* ABOUT CONTENT */
 
       .about-next {
 
         padding:
-          6vh 5vw;
+          5vh 5vw 7vh;
       }
 
 
       .about-header {
-
-        align-items:
-          flex-start;
-
-        flex-direction:
-          column;
-
-        gap: 20px;
 
         margin-bottom:
           4vh;
       }
 
 
-      .about-header-title {
-
-        text-align:
-          left;
+      .about-header-label {
 
         font-size:
-          17vw;
+          8px;
+
+        letter-spacing:
+          3px;
       }
 
 
@@ -1686,7 +1814,8 @@
         grid-template-columns:
           1fr;
 
-        gap: 1px;
+        gap:
+          1px;
       }
 
 
@@ -1696,7 +1825,7 @@
           auto;
 
         padding:
-          30px 25px 30px;
+          30px 25px 34px;
       }
 
 
@@ -1711,6 +1840,16 @@
 
         font-size:
           12vw;
+
+        line-height:
+          .9;
+      }
+
+
+      .story-title::first-letter {
+
+        font-size:
+          1.3em;
       }
 
 
@@ -1725,12 +1864,24 @@
       }
 
 
+      .story-icons {
+
+        margin:
+          24px 0;
+      }
+
+
       .professional-meta {
 
         margin-top:
-          22px;
+          20px;
+
+        margin-bottom:
+          25px;
       }
 
+
+      /* PROJECTS */
 
       .projects-section {
 
@@ -1747,7 +1898,8 @@
         flex-direction:
           column;
 
-        gap: 15px;
+        gap:
+          15px;
       }
 
 
@@ -1809,7 +1961,8 @@
 
       .door-area {
 
-        height: 47vh;
+        height:
+          47vh;
       }
 
 
@@ -1822,7 +1975,8 @@
 
       .about-images {
 
-        height: 39vh;
+        height:
+          39vh;
       }
 
 
@@ -1857,19 +2011,22 @@
 
       .door-area {
 
-        height: 88vh;
+        height:
+          88vh;
       }
 
 
       .about-images {
 
-        height: 88vh;
+        height:
+          88vh;
       }
 
 
       .about-photo {
 
-        height: 80vh;
+        height:
+          80vh;
       }
 
     }
@@ -1969,7 +2126,7 @@
 
 
     <!-- ===================================================
-         ABOUT ME — PERSONAL + PROFESSIONAL
+         ABOUT ME — FULL CONTENT
     ==================================================== -->
 
     <section
@@ -1980,23 +2137,9 @@
       <div class="about-next-inner">
 
 
-        <!-- HEADER -->
-
-        <div class="about-header">
-
-          <div class="about-header-label">
-            A LITTLE MORE ABOUT ME
-          </div>
-
-          <h2 class="about-header-title">
-            BEHIND<br>
-            THE WORK
-          </h2>
-
-        </div>
-
-
-        <!-- TWO STORY WINDOWS -->
+        <!-- =================================================
+             PERSONAL + PROFESSIONAL
+        ================================================== -->
 
         <div class="story-grid">
 
@@ -2017,10 +2160,10 @@
             </div>
 
 
-            <h3 class="story-title">
+            <h2 class="story-title">
               THE PERSON<br>
               BEHIND THE WORK
-            </h3>
+            </h2>
 
 
             <p class="story-intro">
@@ -2080,7 +2223,7 @@
               </div>
 
 
-              <!-- PARIS / ARCHITECTURE -->
+              <!-- PARIS -->
 
               <div
                 class="story-icon"
@@ -2144,6 +2287,7 @@
 
               </p>
 
+
               <p>
 
                 I love travelling and discovering
@@ -2154,6 +2298,7 @@
                 perspectives.
 
               </p>
+
 
               <p>
 
@@ -2166,6 +2311,7 @@
 
               </p>
 
+
               <p>
 
                 Freelancing, for me, is not only
@@ -2176,6 +2322,7 @@
                 own decisions.
 
               </p>
+
 
               <p>
 
@@ -2211,10 +2358,10 @@
             </div>
 
 
-            <h3 class="story-title">
+            <h2 class="story-title">
               WHAT<br>
               I DO
-            </h3>
+            </h2>
 
 
             <p class="story-intro">
@@ -2230,7 +2377,7 @@
             <div class="story-icons">
 
 
-              <!-- SHOPIFY / STORE -->
+              <!-- SHOPIFY -->
 
               <div
                 class="story-icon"
@@ -2282,7 +2429,7 @@
               </div>
 
 
-              <!-- CLIENT EXPERIENCE -->
+              <!-- CUSTOMER -->
 
               <div
                 class="story-icon"
@@ -2369,6 +2516,7 @@
 
               </p>
 
+
               <p>
 
                 I have more than
@@ -2377,6 +2525,7 @@
                 improving stores from scratch.
 
               </p>
+
 
               <p>
 
@@ -2389,6 +2538,7 @@
 
               </p>
 
+
               <p>
 
                 I have worked on
@@ -2398,6 +2548,7 @@
                 as clients from abroad.
 
               </p>
+
 
               <p>
 
@@ -2409,6 +2560,7 @@
                 professional from the first interaction.
 
               </p>
+
 
               <p>
 
@@ -2756,7 +2908,7 @@
 
 
     /* =====================================================
-       SHOW ABOUT ME
+       SHOW ABOUT
     ===================================================== */
 
     function openAboutSection() {
@@ -2826,6 +2978,14 @@
           );
 
 
+          /*
+            Always start the About content
+            from the top.
+          */
+
+          aboutNext.scrollTop = 0;
+
+
           setTimeout(
             () => {
 
@@ -2884,7 +3044,7 @@
 
 
     /* =====================================================
-       NEXT
+       NEXT STEP
     ===================================================== */
 
     function nextStep() {
@@ -2949,7 +3109,7 @@
 
 
     /* =====================================================
-       PREVIOUS
+       PREVIOUS STEP
     ===================================================== */
 
     function previousStep() {
@@ -2962,7 +3122,9 @@
       }
 
 
-      /* ABOUT CONTENT → DOOR */
+      /*
+        ABOUT CONTENT → DOOR
+      */
 
       if (
         doorOpened &&
@@ -2971,13 +3133,38 @@
         )
       ) {
 
+        /*
+          If we are still inside the
+          About content and have scrolled
+          down, first scroll upward.
+        */
+
+        if (
+          aboutNext.scrollTop > 5
+        ) {
+
+          aboutNext.scrollTo({
+
+            top: 0,
+
+            behavior:
+              "smooth"
+
+          });
+
+          return;
+        }
+
+
         closeDoorAndReturn();
 
         return;
       }
 
 
-      /* DOOR → PORTFOLIO */
+      /*
+        DOOR → PORTFOLIO
+      */
 
       if (
         currentStep === totalSteps &&
@@ -3026,7 +3213,9 @@
       }
 
 
-      /* NORMAL PORTFOLIO */
+      /*
+        NORMAL PORTFOLIO
+      */
 
       if (
         currentStep <= 1
@@ -3060,7 +3249,7 @@
 
 
     /* =====================================================
-       READ MORE / READ LESS
+       READ MORE
     ===================================================== */
 
     document
@@ -3085,6 +3274,7 @@
 
 
             if (!target) {
+
               return;
             }
 
@@ -3121,6 +3311,47 @@
               text.textContent =
                 "READ LESS";
 
+
+              /*
+                When opening a long text,
+                gently move enough to reveal
+                the expanded content.
+              */
+
+              setTimeout(
+                () => {
+
+                  const card =
+                    button.closest(
+                      ".story-card"
+                    );
+
+
+                  if (
+                    card &&
+                    aboutNext.scrollTop <
+                      card.offsetTop - 40
+                  ) {
+
+                    aboutNext.scrollTo({
+
+                      top:
+                        Math.max(
+                          0,
+                          card.offsetTop - 30
+                        ),
+
+                      behavior:
+                        "smooth"
+
+                    });
+
+                  }
+
+                },
+                250
+              );
+
             }
 
           }
@@ -3131,6 +3362,8 @@
 
     /* =====================================================
        WHEEL
+       IMPORTANT:
+       ABOUT CONTENT HAS ITS OWN SCROLL
     ===================================================== */
 
     window.addEventListener(
@@ -3138,6 +3371,92 @@
       "wheel",
 
       event => {
+
+        /*
+          If the detailed About section
+          is open, allow it to scroll.
+        */
+
+        if (
+          doorOpened &&
+          aboutNext.classList.contains(
+            "active"
+          )
+        ) {
+
+          const atTop =
+            aboutNext.scrollTop <= 5;
+
+
+          const atBottom =
+            aboutNext.scrollTop +
+              aboutNext.clientHeight >=
+              aboutNext.scrollHeight - 5;
+
+
+          /*
+            SCROLL DOWN
+          */
+
+          if (
+            event.deltaY > 0
+          ) {
+
+            if (!atBottom) {
+
+              event.preventDefault();
+
+              aboutNext.scrollTop +=
+                event.deltaY;
+
+              return;
+            }
+
+
+            /*
+              At the bottom:
+              stay here.
+            */
+
+            event.preventDefault();
+
+            return;
+          }
+
+
+          /*
+            SCROLL UP
+          */
+
+          if (
+            event.deltaY < 0
+          ) {
+
+            if (!atTop) {
+
+              event.preventDefault();
+
+              aboutNext.scrollTop +=
+                event.deltaY;
+
+              return;
+            }
+
+
+            /*
+              At the top:
+              close About and return.
+            */
+
+            event.preventDefault();
+
+            previousStep();
+
+            return;
+          }
+
+        }
+
 
         event.preventDefault();
 
@@ -3156,9 +3475,7 @@
 
           nextStep();
 
-        }
-
-        else {
+        } else {
 
           previousStep();
 
@@ -3222,15 +3539,77 @@
         }
 
 
+        /*
+          ABOUT CONTENT TOUCH SCROLL
+        */
+
+        if (
+          doorOpened &&
+          aboutNext.classList.contains(
+            "active"
+          )
+        ) {
+
+          const atTop =
+            aboutNext.scrollTop <= 5;
+
+
+          const atBottom =
+            aboutNext.scrollTop +
+              aboutNext.clientHeight >=
+              aboutNext.scrollHeight - 5;
+
+
+          /*
+            Swipe UP
+          */
+
+          if (
+            distance > 0
+          ) {
+
+            if (!atBottom) {
+
+              return;
+            }
+
+            return;
+          }
+
+
+          /*
+            Swipe DOWN
+          */
+
+          if (
+            distance < 0
+          ) {
+
+            if (!atTop) {
+
+              return;
+            }
+
+
+            previousStep();
+
+            return;
+          }
+
+        }
+
+
+        /*
+          NORMAL TOUCH NAVIGATION
+        */
+
         if (
           distance > 0
         ) {
 
           nextStep();
 
-        }
-
-        else {
+        } else {
 
           previousStep();
 
@@ -3254,6 +3633,113 @@
       "keydown",
 
       event => {
+
+        /*
+          ABOUT CONTENT
+        */
+
+        if (
+          doorOpened &&
+          aboutNext.classList.contains(
+            "active"
+          )
+        ) {
+
+          if (
+            event.key === "ArrowDown" ||
+            event.key === "PageDown"
+          ) {
+
+            if (
+              aboutNext.scrollTop +
+                aboutNext.clientHeight <
+              aboutNext.scrollHeight - 5
+            ) {
+
+              event.preventDefault();
+
+              aboutNext.scrollBy({
+
+                top:
+                  120,
+
+                behavior:
+                  "smooth"
+
+              });
+
+              return;
+            }
+
+          }
+
+
+          if (
+            event.key === "ArrowUp" ||
+            event.key === "PageUp"
+          ) {
+
+            if (
+              aboutNext.scrollTop > 5
+            ) {
+
+              event.preventDefault();
+
+              aboutNext.scrollBy({
+
+                top:
+                  -120,
+
+                behavior:
+                  "smooth"
+
+              });
+
+              return;
+            }
+
+
+            event.preventDefault();
+
+            previousStep();
+
+            return;
+          }
+
+
+          if (
+            event.key === " "
+          ) {
+
+            event.preventDefault();
+
+            if (
+              aboutNext.scrollTop +
+                aboutNext.clientHeight <
+              aboutNext.scrollHeight - 5
+            ) {
+
+              aboutNext.scrollBy({
+
+                top:
+                  aboutNext.clientHeight * .75,
+
+                behavior:
+                  "smooth"
+
+              });
+
+            }
+
+            return;
+          }
+
+        }
+
+
+        /*
+          NORMAL NAVIGATION
+        */
 
         if (
           event.key === "ArrowDown" ||
