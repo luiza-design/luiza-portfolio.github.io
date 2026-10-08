@@ -93,8 +93,7 @@
 
 
     /* =====================================================
-       BACKGROUND 01
-       DEEP BURGUNDY
+       BURGUNDY BACKGROUNDS
     ===================================================== */
 
     .portfolio-screen.stage-1 {
@@ -109,11 +108,6 @@
     }
 
 
-    /* =====================================================
-       BACKGROUND 02
-       LIGHTER BURGUNDY
-    ===================================================== */
-
     .portfolio-screen.stage-2 {
 
       background:
@@ -125,11 +119,6 @@
         #57101F;
     }
 
-
-    /* =====================================================
-       BACKGROUND 03
-       DUSTY BURGUNDY
-    ===================================================== */
 
     .portfolio-screen.stage-3 {
 
@@ -143,11 +132,6 @@
     }
 
 
-    /* =====================================================
-       BACKGROUND 04
-       LIGHT WINE / BURGUNDY
-    ===================================================== */
-
     .portfolio-screen.stage-4 {
 
       background:
@@ -157,6 +141,16 @@
           transparent 62%
         ),
         #874B4A;
+    }
+
+
+    /* =====================================================
+       ABOUT ME BACKGROUND
+    ===================================================== */
+
+    .portfolio-screen.stage-about {
+
+      background: #F6EBDD;
     }
 
 
@@ -174,19 +168,22 @@
 
       pointer-events: none;
 
-      z-index: 30;
+      z-index: 50;
 
       opacity: 0.035;
 
       background-image:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
 
-      mix-blend-mode: screen;
+      mix-blend-mode: multiply;
+
+      transition:
+        opacity 1s ease;
     }
 
 
     /* =====================================================
-       LETTER AREA
+       PORTFOLIO LETTER AREA
     ===================================================== */
 
     .portfolio-word {
@@ -199,6 +196,10 @@
       height: 100%;
 
       z-index: 10;
+
+      transition:
+        opacity 0.9s ease,
+        transform 1.1s cubic-bezier(.16, 1, .3, 1);
     }
 
 
@@ -262,7 +263,7 @@
 
 
     /* =====================================================
-       FINAL LETTER POSITION
+       VISIBLE LETTER
     ===================================================== */
 
     .letter.visible {
@@ -316,21 +317,340 @@
 
 
     /* =====================================================
-       MOBILE
+       ABOUT ME SECTION
+    ===================================================== */
+
+    .about-section {
+
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      padding: 7vh 6vw;
+
+      display: grid;
+
+      grid-template-columns:
+        45% 55%;
+
+      align-items: center;
+
+      gap: 3vw;
+
+      background: #F6EBDD;
+
+      color: #3E000C;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transform:
+        translateY(100vh);
+
+      transition:
+
+        transform
+        1.15s
+        cubic-bezier(.16, 1, .3, 1),
+
+        opacity
+        0.9s
+        ease,
+
+        visibility
+        0s linear 1.15s;
+
+      z-index: 20;
+
+      overflow: hidden;
+    }
+
+
+    /* =====================================================
+       ABOUT ME ACTIVE
+    ===================================================== */
+
+    .about-section.active {
+
+      opacity: 1;
+
+      visibility: visible;
+
+      transform:
+        translateY(0);
+
+      transition:
+
+        transform
+        1.15s
+        cubic-bezier(.16, 1, .3, 1),
+
+        opacity
+        0.9s
+        ease,
+
+        visibility
+        0s linear 0s;
+    }
+
+
+    /* =====================================================
+       ABOUT TITLE
+    ===================================================== */
+
+    .about-title {
+
+      position: relative;
+
+      z-index: 2;
+
+      align-self: center;
+
+      color: #3E000C;
+
+      font-family:
+        "Bodoni Moda",
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(
+          85px,
+          12vw,
+          210px
+        );
+
+      font-weight: 400;
+
+      line-height: 0.78;
+
+      letter-spacing: -0.07em;
+
+      text-transform: uppercase;
+
+      max-width: 100%;
+
+      opacity: 0;
+
+      transform:
+        translateY(70px);
+
+      transition:
+
+        transform
+        1s
+        cubic-bezier(.16, 1, .3, 1)
+        0.25s,
+
+        opacity
+        0.8s
+        ease
+        0.25s;
+    }
+
+
+    .about-section.active
+    .about-title {
+
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+
+
+    /* =====================================================
+       PHOTO AREA
+    ===================================================== */
+
+    .about-images {
+
+      position: relative;
+
+      width: 100%;
+
+      height: 86vh;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 1.2vw;
+
+      opacity: 0;
+
+      transform:
+        translateY(80px);
+
+      transition:
+
+        transform
+        1.1s
+        cubic-bezier(.16, 1, .3, 1)
+        0.15s,
+
+        opacity
+        0.9s
+        ease
+        0.15s;
+    }
+
+
+    .about-section.active
+    .about-images {
+
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+
+
+    /* =====================================================
+       INDIVIDUAL PHOTO
+    ===================================================== */
+
+    .about-photo {
+
+      position: relative;
+
+      width: 46%;
+
+      height: 78vh;
+
+      overflow: hidden;
+
+      background: #D8CBB9;
+
+      flex-shrink: 0;
+    }
+
+
+    .about-photo:nth-child(1) {
+
+      margin-top: 7vh;
+    }
+
+
+    .about-photo:nth-child(2) {
+
+      margin-bottom: 7vh;
+    }
+
+
+    .about-photo img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      filter:
+        grayscale(100%)
+        contrast(0.96);
+
+      transition:
+        transform 1.2s
+        cubic-bezier(.16, 1, .3, 1);
+    }
+
+
+    .about-photo:hover img {
+
+      transform:
+        scale(1.035);
+    }
+
+
+    /* =====================================================
+       MOBILE ABOUT
     ===================================================== */
 
     @media (max-width: 768px) {
 
-      .letter {
+      .about-section {
 
-        font-size: 14vw;
+        padding:
+          8vh
+          7vw;
 
-        left: calc(
-          4vw + (var(--index) * 10.3vw)
-        );
+        display: flex;
 
-        letter-spacing: -0.10em;
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: stretch;
+
+        gap: 4vh;
+
+        overflow-y: auto;
       }
+
+
+      .about-title {
+
+        font-size:
+          clamp(
+            65px,
+            20vw,
+            120px
+          );
+
+        line-height: 0.8;
+
+        max-width: 90%;
+
+        flex-shrink: 0;
+      }
+
+
+      .about-images {
+
+        width: 100%;
+
+        height: 58vh;
+
+        min-height: 380px;
+
+        gap: 3vw;
+
+        align-items: center;
+
+        flex-shrink: 0;
+      }
+
+
+      .about-photo {
+
+        width: 48%;
+
+        height: 52vh;
+
+        min-height: 350px;
+      }
+
+
+      .about-photo:nth-child(1) {
+
+        margin-top: 4vh;
+      }
+
+
+      .about-photo:nth-child(2) {
+
+        margin-bottom: 4vh;
+      }
+
     }
 
 
@@ -340,14 +660,38 @@
 
     @media (max-width: 390px) {
 
-      .letter {
+      .about-section {
 
-        font-size: 13.5vw;
+        padding:
+          7vh
+          5vw;
 
-        left: calc(
-          3vw + (var(--index) * 10.45vw)
-        );
+        gap: 3vh;
       }
+
+
+      .about-title {
+
+        font-size:
+          19vw;
+      }
+
+
+      .about-images {
+
+        height: 54vh;
+
+        min-height: 330px;
+      }
+
+
+      .about-photo {
+
+        height: 48vh;
+
+        min-height: 310px;
+      }
+
     }
 
 
@@ -361,10 +705,33 @@
       orientation: landscape
     ) {
 
-      .letter {
+      .about-section {
 
-        font-size: 17vh;
+        grid-template-columns:
+          40% 60%;
+
+        padding:
+          5vh 5vw;
       }
+
+
+      .about-title {
+
+        font-size: 13vh;
+      }
+
+
+      .about-images {
+
+        height: 90vh;
+      }
+
+
+      .about-photo {
+
+        height: 82vh;
+      }
+
     }
 
   </style>
@@ -376,7 +743,7 @@
 
 
   <!-- =====================================================
-       PORTFOLIO
+       MAIN PORTFOLIO SCREEN
   ===================================================== -->
 
   <main
@@ -384,73 +751,85 @@
     id="portfolioScreen"
   >
 
-    <div class="portfolio-word">
 
+    <!-- ===================================================
+         PORTFOLIO
+    ==================================================== -->
 
-      <!-- P -->
+    <div
+      class="portfolio-word"
+      id="portfolioWord"
+    >
 
-      <span class="letter">
-        P
-      </span>
+      <span class="letter">P</span>
 
+      <span class="letter">O</span>
 
-      <!-- O -->
+      <span class="letter">R</span>
 
-      <span class="letter">
-        O
-      </span>
+      <span class="letter">T</span>
 
+      <span class="letter">F</span>
 
-      <!-- R -->
+      <span class="letter">O</span>
 
-      <span class="letter">
-        R
-      </span>
+      <span class="letter">L</span>
 
+      <span class="letter">I</span>
 
-      <!-- T -->
-
-      <span class="letter">
-        T
-      </span>
-
-
-      <!-- F -->
-
-      <span class="letter">
-        F
-      </span>
-
-
-      <!-- O -->
-
-      <span class="letter">
-        O
-      </span>
-
-
-      <!-- L -->
-
-      <span class="letter">
-        L
-      </span>
-
-
-      <!-- I -->
-
-      <span class="letter">
-        I
-      </span>
-
-
-      <!-- O -->
-
-      <span class="letter">
-        O
-      </span>
-
+      <span class="letter">O</span>
 
     </div>
+
+
+    <!-- ===================================================
+         ABOUT ME
+    ==================================================== -->
+
+    <section
+      class="about-section"
+      id="aboutSection"
+    >
+
+
+      <!-- LEFT -->
+
+      <h1 class="about-title">
+        ABOUT<br>
+        ME
+      </h1>
+
+
+      <!-- RIGHT -->
+
+      <div class="about-images">
+
+
+        <div class="about-photo">
+
+          <img
+            src="image1"
+            alt="Lu — Shopify Specialist"
+          >
+
+        </div>
+
+
+        <div class="about-photo">
+
+          <img
+            src="image2"
+            alt="Lu — Shopify Specialist"
+          >
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
 
   </main>
 
@@ -464,6 +843,18 @@
     const screen =
       document.getElementById(
         "portfolioScreen"
+      );
+
+
+    const portfolioWord =
+      document.getElementById(
+        "portfolioWord"
+      );
+
+
+    const aboutSection =
+      document.getElementById(
+        "aboutSection"
       );
 
 
@@ -482,30 +873,27 @@
     let isAnimating = false;
 
 
-    const totalSteps = 5;
+    /*
+      1 = P
+
+      2 = POR
+
+      3 = PORTF
+
+      4 = PORTFOL
+
+      5 = PORTFOLIO
+
+      6 = ABOUT ME
+    */
+
+    const totalSteps = 6;
 
     const animationDuration = 1150;
 
 
     /* =====================================================
-       WHAT IS VISIBLE AT EACH STEP
-    =====================================================
-
-       STEP 1
-       P
-
-       STEP 2
-       P O R
-
-       STEP 3
-       P O R T F
-
-       STEP 4
-       P O R T F O L
-
-       STEP 5
-       P O R T F O L I O
-
+       LETTER STATES
     ===================================================== */
 
     const visibleLetters = {
@@ -518,7 +906,9 @@
 
       4: [0, 1, 2, 3, 4, 5, 6],
 
-      5: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+      5: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+
+      6: []
 
     };
 
@@ -530,7 +920,7 @@
     function updateLetters() {
 
       const active =
-        visibleLetters[currentStep];
+        visibleLetters[currentStep] || [];
 
 
       letters.forEach(
@@ -554,30 +944,12 @@
 
         }
       );
+
     }
 
 
     /* =====================================================
        UPDATE BACKGROUND
-    =====================================================
-
-       IMPORTANT:
-
-       1 = P
-           deep burgundy
-
-       2 = POR
-           burgundy
-
-       3 = PORTF
-           darker/lighter burgundy
-
-       4 = PORTFOL
-           dusty burgundy
-
-       5 = PORTFOLIO
-           FINAL NEW BACKGROUND
-
     ===================================================== */
 
     function updateBackground() {
@@ -587,71 +959,127 @@
         "stage-1",
         "stage-2",
         "stage-3",
-        "stage-4"
+        "stage-4",
+        "stage-about"
 
       );
-
-
-      let backgroundStage;
 
 
       if (currentStep === 1) {
 
-        backgroundStage = 1;
+        screen.classList.add(
+          "stage-1"
+        );
 
       }
-
 
       else if (currentStep === 2) {
 
-        backgroundStage = 2;
+        screen.classList.add(
+          "stage-2"
+        );
 
       }
-
 
       else if (currentStep === 3) {
 
-        backgroundStage = 3;
+        screen.classList.add(
+          "stage-3"
+        );
 
       }
-
 
       else if (currentStep === 4) {
 
-        backgroundStage = 3;
+        screen.classList.add(
+          "stage-3"
+        );
 
       }
 
+      else if (currentStep === 5) {
+
+        screen.classList.add(
+          "stage-4"
+        );
+
+      }
 
       else {
 
-        /*
-          FINAL IO PAIR
-
-          gets its OWN
-          new background.
-        */
-
-        backgroundStage = 4;
+        screen.classList.add(
+          "stage-about"
+        );
 
       }
-
-
-      screen.classList.add(
-        `stage-${backgroundStage}`
-      );
 
     }
 
 
     /* =====================================================
-       NEXT
+       UPDATE ABOUT SECTION
+    ===================================================== */
+
+    function updateAbout() {
+
+      if (
+        currentStep === 6
+      ) {
+
+        aboutSection.classList.add(
+          "active"
+        );
+
+
+        portfolioWord.style.opacity = "0";
+
+        portfolioWord.style.transform =
+          "translateY(-8vh)";
+
+      }
+
+      else {
+
+        aboutSection.classList.remove(
+          "active"
+        );
+
+
+        portfolioWord.style.opacity = "1";
+
+        portfolioWord.style.transform =
+          "translateY(0)";
+
+      }
+
+    }
+
+
+    /* =====================================================
+       UPDATE EVERYTHING
+    ===================================================== */
+
+    function updateScreen() {
+
+      updateLetters();
+
+      updateBackground();
+
+      updateAbout();
+
+    }
+
+
+    /* =====================================================
+       NEXT STEP
     ===================================================== */
 
     function nextStep() {
 
       if (isAnimating) {
+
         return;
+
       }
 
 
@@ -660,6 +1088,7 @@
       ) {
 
         return;
+
       }
 
 
@@ -669,9 +1098,7 @@
       currentStep++;
 
 
-      updateLetters();
-
-      updateBackground();
+      updateScreen();
 
 
       setTimeout(
@@ -687,18 +1114,24 @@
 
 
     /* =====================================================
-       PREVIOUS
+       PREVIOUS STEP
     ===================================================== */
 
     function previousStep() {
 
       if (isAnimating) {
+
         return;
+
       }
 
 
-      if (currentStep <= 1) {
+      if (
+        currentStep <= 1
+      ) {
+
         return;
+
       }
 
 
@@ -708,9 +1141,7 @@
       currentStep--;
 
 
-      updateLetters();
-
-      updateBackground();
+      updateScreen();
 
 
       setTimeout(
@@ -741,6 +1172,7 @@
         ) {
 
           return;
+
         }
 
 
@@ -805,6 +1237,7 @@
         ) {
 
           return;
+
         }
 
 
@@ -869,9 +1302,7 @@
        INITIAL STATE
     ===================================================== */
 
-    updateLetters();
-
-    updateBackground();
+    updateScreen();
 
   </script>
 
