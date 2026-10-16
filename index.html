@@ -91,6 +91,135 @@ button:focus-visible, a:focus-visible {
   background: currentColor;
 }
 
+/* INTRODUCTION PORTRAIT */
+.intro-portrait {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 90px 7%;
+  isolation: isolate;
+  background: linear-gradient(135deg, #F6EBDD 0%, #F0DED4 55%, #E7C9C2 100%);
+}
+.intro-portrait::before,
+.intro-portrait::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border: 1px solid rgba(62,0,12,.22);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.intro-portrait::before {
+  width: min(72vw, 850px);
+  aspect-ratio: 1;
+  right: -18%;
+  top: -42%;
+}
+.intro-portrait::after {
+  width: min(54vw, 640px);
+  aspect-ratio: 1;
+  left: -22%;
+  bottom: -40%;
+}
+.portrait-layout {
+  width: min(1320px, 100%);
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 440px) 1fr;
+  align-items: center;
+  gap: clamp(18px, 3vw, 52px);
+}
+.portrait-word {
+  font-family: "Bodoni Moda", serif;
+  font-weight: 400;
+  line-height: .82;
+  letter-spacing: -.075em;
+  text-transform: uppercase;
+  font-size: clamp(62px, 9.4vw, 150px);
+  opacity: 0;
+  transition: transform 1.15s cubic-bezier(.16,1,.3,1), opacity .9s ease;
+  will-change: transform, opacity;
+}
+.portrait-word-left {
+  color: var(--burgundy);
+  transform: translateX(-100px);
+  text-align: right;
+}
+.portrait-word-right {
+  color: #B97B82;
+  transform: translateX(100px);
+  text-align: left;
+}
+.portrait-word .accent {
+  color: #B97B82;
+  font-style: italic;
+}
+.portrait-word-right .accent { color: var(--burgundy); }
+.portrait-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5.4;
+  max-height: 650px;
+  overflow: hidden;
+  border-radius: 48% 48% 44% 44% / 38% 38% 30% 30%;
+  background: linear-gradient(160deg, #E7C9C2, #D8B0AA 60%, #7A2437);
+  box-shadow: 0 24px 70px rgba(62,0,12,.14);
+  opacity: 0;
+  transform: translateY(55px) scale(.96);
+  transition: transform 1.25s cubic-bezier(.16,1,.3,1), opacity 1s ease;
+  will-change: transform, opacity;
+}
+.portrait-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(246,235,221,.6);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.portrait-image-wrap img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+.portrait-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cream);
+  z-index: 1;
+  text-shadow: 0 1px 8px rgba(62,0,12,.5);
+}
+.intro-portrait.in-view .portrait-word-left,
+.intro-portrait.in-view .portrait-word-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+.intro-portrait.in-view .portrait-image-wrap {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.intro-portrait.in-view .portrait-word-right { transition-delay: .12s; }
+.intro-portrait.in-view .portrait-image-wrap { transition-delay: .18s; }
+.portrait-side-note {
+  display: block;
+  margin-top: 22px;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 9px;
+  line-height: 1.8;
+  letter-spacing: 2px;
+  color: #8C5D5E;
+  text-transform: uppercase;
+}
+
 /* ABOUT */
 .about {
   padding: 110px 10%;
@@ -561,6 +690,57 @@ button:focus-visible, a:focus-visible {
   .intro-inner { padding: 18px; }
   .intro-word { font-size: clamp(42px,14vw,100px); letter-spacing: -.09em; }
   .intro-note { bottom: 25px; font-size: 7px; letter-spacing: 1.5px; }
+
+  .intro-portrait {
+    min-height: auto;
+    padding: 85px 6% 95px;
+  }
+  .portrait-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 12px;
+  }
+  .portrait-image-wrap {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: min(72%, 360px);
+    justify-self: center;
+    aspect-ratio: 4 / 5.2;
+  }
+  .portrait-word {
+    font-size: clamp(50px, 12vw, 82px);
+    align-self: start;
+  }
+  .portrait-word-left {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: left;
+  }
+  .portrait-word-right {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: right;
+  }
+  .portrait-side-note {
+    font-size: 7px;
+    letter-spacing: 1px;
+    margin-top: 14px;
+  }
+  .portrait-caption {
+    bottom: 22px;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+  }
+  .intro-portrait::before {
+    width: 95vw;
+    right: -40%;
+    top: -10%;
+  }
+  .intro-portrait::after {
+    width: 75vw;
+    left: -40%;
+    bottom: -12%;
+  }
+
   .about { padding: 75px 6%; }
   .about-heading { margin: 35px 0 40px; font-size: clamp(43px,11vw,82px); }
   .about-grid { grid-template-columns: 1fr; }
@@ -614,6 +794,41 @@ button:focus-visible, a:focus-visible {
       <span class="intro-group intro-port is-visible">PORT</span><span class="intro-group intro-fol">FOL</span><span class="intro-group intro-io">IO</span>
     </h1>
     <div class="intro-note">Scroll to reveal · Shopify · Design · Customer experience</div>
+  </div>
+</section>
+
+<!-- INTRODUCTION PORTRAIT -->
+<section class="intro-portrait" id="hello" aria-label="Introduction">
+  <div class="portrait-layout">
+
+    <div class="portrait-word portrait-word-left">
+      Hey<span class="accent">,</span>
+      <span class="portrait-side-note">
+        Creative mind<br>
+        with an eye for detail
+      </span>
+    </div>
+
+    <figure class="portrait-image-wrap">
+      <img
+        src="image5"
+        alt="Portrait of Luiza Sargsyan"
+        loading="lazy"
+      >
+      <figcaption class="portrait-caption">
+        Shopify · Design · Digital experience
+      </figcaption>
+    </figure>
+
+    <div class="portrait-word portrait-word-right">
+      I am<br>
+      <span class="accent">Luiza</span>
+      <span class="portrait-side-note">
+        Building thoughtful<br>
+        digital experiences
+      </span>
+    </div>
+
   </div>
 </section>
 
@@ -776,7 +991,7 @@ updateIntroReveal();
 
 /* Repeat animations when scrolling into or away from sections */
 const replaySections = document.querySelectorAll(
-  '.about-heading, .about-grid, .motivation-section'
+  '.intro-portrait, .about-heading, .about-grid, .motivation-section'
 );
 
 const replayObserver = new IntersectionObserver(entries => {
