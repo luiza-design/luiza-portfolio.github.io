@@ -643,7 +643,7 @@ a:focus-visible {
 }
 
 /* ==================================================
-   04 — NEW INTERACTIVE FOUNDATION SECTION
+   04 — INTERACTIVE FOUNDATION SECTION
 ================================================== */
 
 .foundation-section {
@@ -700,8 +700,6 @@ a:focus-visible {
   gap: clamp(45px,8vw,130px);
   align-items: center;
 }
-
-/* Left: three numbered circles and titles */
 
 .foundation-list {
   display: flex;
@@ -765,7 +763,7 @@ a:focus-visible {
   transform: translateX(5px);
 }
 
-/* Right: decorative animated visual */
+/* Right: animated freelance workspace orbit */
 
 .foundation-visual {
   position: relative;
@@ -774,15 +772,18 @@ a:focus-visible {
   place-items: center;
   overflow: hidden;
   border: 1px solid rgba(246,235,223,.22);
-  background: rgba(39,0,8,.12);
+  background:
+    radial-gradient(ellipse at center, rgba(246,235,223,.09), transparent 58%),
+    rgba(39,0,8,.12);
   perspective: 1000px;
+  isolation: isolate;
 }
 
 .foundation-visual::before,
 .foundation-visual::after {
   content: "";
   position: absolute;
-  width: 70%;
+  width: 76%;
   aspect-ratio: 1;
   border: 1px solid rgba(246,235,223,.15);
   border-radius: 50%;
@@ -821,94 +822,138 @@ a:focus-visible {
   transform: translate(16%,-8%) rotate(-80deg) scale(1.16);
 }
 
-.visual-orbit {
+/* Circular tracks */
+
+.freelance-orbit {
   position: absolute;
-  width: 63%;
+  z-index: 2;
+  width: min(70%,330px);
   aspect-ratio: 1;
-  border: 1px solid rgba(246,235,223,.28);
+  border: 1px solid rgba(246,235,223,.34);
   border-radius: 50%;
-  animation: orbitSpin 24s linear infinite;
+  animation: workspaceOrbit 22s linear infinite;
 }
 
-.visual-orbit::before,
-.visual-orbit::after {
-  content: "";
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--cream);
-  box-shadow: 0 0 22px rgba(246,235,223,.3);
-}
-
-.visual-orbit::before {
-  top: 12%;
-  left: 16%;
-}
-
-.visual-orbit::after {
-  right: 7%;
-  bottom: 24%;
-  width: 6px;
-  height: 6px;
-  background: #d6a0a4;
-}
-
-.visual-orbit.orbit-two {
-  width: 43%;
+.freelance-orbit.orbit-outer {
+  width: min(92%,430px);
   border-style: dashed;
+  border-color: rgba(246,235,223,.2);
   animation-duration: 32s;
   animation-direction: reverse;
 }
 
-.visual-orbit.orbit-two::before {
-  top: 70%;
-  left: 4%;
-  width: 7px;
-  height: 7px;
+@keyframes workspaceOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Freelance objects */
+
+.freelance-item {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 17px;
+  border: 1px solid rgba(62,0,12,.22);
+  box-shadow: 0 12px 28px rgba(39,0,8,.22);
+  font-family: var(--sans);
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 1;
+  animation: counterOrbit 22s linear infinite;
+}
+
+@keyframes counterOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.laptop-item {
+  top: -22px;
+  left: calc(50% - 29px);
+  width: 64px;
+  height: 54px;
+  border-radius: 12px;
+  color: #3e000c;
+  background: #ead6c8;
+  font-size: 22px;
+}
+
+.notebook-item {
+  right: -23px;
+  top: calc(50% - 29px);
+  color: #3e000c;
+  background: #c18489;
+  transform: rotate(8deg);
+}
+
+.pencil-item {
+  left: calc(50% - 29px);
+  bottom: -23px;
+  color: #3e000c;
+  background: #d9b58f;
+  font-size: 31px;
+}
+
+.headphones-item {
+  left: -23px;
+  top: calc(50% - 29px);
+  color: #f6ebdf;
+  background: #79243a;
+  border-color: rgba(246,235,223,.35);
+  font-size: 25px;
+}
+
+.mouse-item {
+  top: 9%;
+  right: 8%;
+  color: #3e000c;
+  background: #f6ebdf;
+  animation-duration: 32s;
+}
+
+.coffee-item {
+  left: 8%;
+  bottom: 9%;
+  color: #3e000c;
   background: #d6a0a4;
-}
-
-.visual-orbit.orbit-two::after {
-  right: 17%;
-  bottom: auto;
-  top: 3%;
-  width: 5px;
-  height: 5px;
-}
-
-@keyframes orbitSpin {
-  from { rotate: 0deg; }
-  to { rotate: 360deg; }
+  animation-duration: 32s;
 }
 
 .visual-core {
   position: relative;
-  z-index: 2;
-  width: clamp(140px,19vw,250px);
+  z-index: 3;
+  width: clamp(150px,20vw,235px);
   aspect-ratio: 1;
   display: grid;
   place-items: center;
   border: 1px solid rgba(246,235,223,.55);
   border-radius: 50%;
-  background: linear-gradient(145deg,rgba(246,235,223,.12),rgba(39,0,8,.12));
+  background: linear-gradient(145deg,rgba(246,235,223,.15),rgba(39,0,8,.3));
   box-shadow:
-    inset 0 0 35px rgba(246,235,223,.04),
-    0 0 60px rgba(39,0,8,.1);
+    inset 0 0 35px rgba(246,235,223,.06),
+    0 0 60px rgba(39,0,8,.2);
   transition: transform .7s, background .7s, border-color .7s;
 }
 
 .visual-core-inner {
-  width: 72%;
+  width: 78%;
   aspect-ratio: 1;
   display: grid;
   place-items: center;
   border: 1px solid rgba(246,235,223,.3);
   border-radius: 50%;
-  font-family: var(--serif);
-  font-size: clamp(50px,7vw,95px);
   color: var(--cream);
   transition: transform .6s;
+}
+
+.laptop-word {
+  font-family: var(--sans);
+  font-size: clamp(14px,2vw,21px);
+  font-weight: 600;
+  letter-spacing: .16em;
 }
 
 .foundation-visual[data-active="skills"] .visual-core {
@@ -932,7 +977,7 @@ a:focus-visible {
 
 .visual-corner {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   left: 24px;
   bottom: 23px;
   color: rgba(246,235,223,.7);
@@ -943,7 +988,7 @@ a:focus-visible {
 
 .visual-index {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   top: 23px;
   right: 24px;
   color: rgba(246,235,223,.8);
@@ -1039,8 +1084,7 @@ a:focus-visible {
 }
 
 .foundation-close:hover::before { width: 38px; }
-
-/* ==================================================
+  /* ==================================================
    05 — QUOTE
 ================================================== */
 
@@ -1621,8 +1665,63 @@ a:focus-visible {
     min-height: 320px;
   }
 
-  .visual-core { width: 175px; }
-  .visual-core-inner { font-size: 68px; }
+  .freelance-orbit {
+    width: min(70%,235px);
+  }
+
+  .freelance-orbit.orbit-outer {
+    width: min(90%,285px);
+  }
+
+  .freelance-item {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    font-size: 22px;
+  }
+
+  .laptop-item {
+    width: 52px;
+    height: 44px;
+    left: calc(50% - 26px);
+    top: -18px;
+  }
+
+  .notebook-item {
+    right: -18px;
+    top: calc(50% - 23px);
+  }
+
+  .pencil-item {
+    left: calc(50% - 23px);
+    bottom: -18px;
+  }
+
+  .headphones-item {
+    left: -18px;
+    top: calc(50% - 23px);
+  }
+
+  .mouse-item,
+  .coffee-item {
+    width: 40px;
+    height: 40px;
+  }
+
+  .visual-core { width: 155px; }
+  .laptop-word { font-size: 14px; }
+
+  .visual-corner {
+    left: 15px;
+    bottom: 15px;
+    font-size: 7px;
+  }
+
+  .visual-index {
+    top: 15px;
+    right: 15px;
+    font-size: 19px;
+  }
 
   .foundation-detail.open { margin-top: 15px; }
 
@@ -1792,7 +1891,37 @@ a:focus-visible {
 
   .foundation-title { font-size: 29px; }
   .foundation-visual { min-height: 280px; }
-  .visual-core { width: 145px; }
+  .visual-core { width: 135px; }
+
+  .freelance-orbit { width: 68%; }
+  .freelance-orbit.orbit-outer { width: 88%; }
+
+  .freelance-item {
+    width: 40px;
+    height: 40px;
+    font-size: 19px;
+  }
+
+  .laptop-item {
+    width: 46px;
+    height: 39px;
+    left: calc(50% - 23px);
+  }
+
+  .notebook-item {
+    right: -16px;
+    top: calc(50% - 20px);
+  }
+
+  .pencil-item {
+    left: calc(50% - 20px);
+    bottom: -16px;
+  }
+
+  .headphones-item {
+    left: -16px;
+    top: calc(50% - 20px);
+  }
 
   .project-item {
     grid-template-columns: 22px 1fr 29px;
@@ -1825,7 +1954,6 @@ a:focus-visible {
 }
 </style>
 </head>
-
 <body>
 
 <!-- 01 — PORTFOLIO INTRO -->
@@ -1890,25 +2018,23 @@ a:focus-visible {
     class="door-button"
     id="doorButton"
     type="button"
-    aria-label="Discover what's inside"
+    aria-label="Open the door and discover more about Luiza"
   >
     <div class="door-inside">
       <img
         class="door-inside-image"
         src="./image3(red%20door)"
         alt=""
-        loading="lazy"
       >
     </div>
 
+    <div class="door-leaf"></div>
     <div class="door-frame"></div>
 
     <span class="door-label">
-      Discover what's inside
+      Discover what’s inside
       <small>Click to enter</small>
     </span>
-
-    <div class="door-leaf"></div>
   </button>
 
 </section>
@@ -1918,21 +2044,30 @@ a:focus-visible {
 <!-- 03 — ABOUT -->
 
 <section class="about-section" id="aboutSection">
+
   <div class="section-shell">
 
-    <header class="about-heading reveal">
-      <h2>A LITTLE MORE <span>ABOUT ME</span></h2>
-    </header>
+    <div class="about-heading reveal">
+      <h2>
+        A little more
+        <span>about me</span>
+      </h2>
+    </div>
 
     <div class="about-grid">
 
+      <!-- PERSONAL CARD -->
+
       <article class="about-card reveal">
-        <div class="card-label">Personal</div>
-        <h3>Personal</h3>
+        <div class="card-label">01 / Personal</div>
+
+        <h3>Beyond<br>the screen.</h3>
 
         <p>
-          I’m Luiza Sargsyan — Armenian, based in Yerevan. I value personal
-          freedom, having my own space, and being independent.
+          I’m Luiza Sargsyan — Armenian, based in Yerevan. Ես մարդ ով սիրում և
+          գնահատում է անձնական ազատությունը, սեփական տարածքը և ինքնուրույն
+          լինելը։ Ազատությունը մարդուն տալիս է թևեր՝ մտածելու, գործելու և
+          ինքնուրույն իր որոշումները կայացնելու հնարավորություն։
         </p>
 
         <button
@@ -1945,9 +2080,12 @@ a:focus-visible {
         </button>
       </article>
 
+      <!-- PROFESSIONAL CARD -->
+
       <article class="about-card reveal">
-        <div class="card-label">Professional</div>
-        <h3>Professional</h3>
+        <div class="card-label">02 / Professional</div>
+
+        <h3>Design<br>with purpose.</h3>
 
         <p>
           Shopify Specialist &amp; Designer focused on creating clean, premium
@@ -1969,102 +2107,107 @@ a:focus-visible {
 
     </div>
 
-    <div class="details-panel" id="personalDetails">
+    <!-- PERSONAL DETAILS -->
+
+    <div class="details-panel" id="personalDetails" aria-hidden="true">
       <div class="details-inner">
         <div class="details-content">
 
-          <h4>Beyond the screen</h4>
+          <h4>A little more about me</h4>
 
           <p>
-            I’m someone who enjoys calm surroundings. I’m not particularly drawn
-            to loud events or crowded places; I feel most comfortable in peaceful
-            spaces where I can relax and enjoy the moment.
+            I enjoy calm environments much more than crowded or noisy events.
+            I appreciate having space to think, recharge and enjoy the moment
+            without too much noise around me.
           </p>
 
           <p>
-            I love nature and, whenever I can, I like to escape into it, listen
-            to the birds and breathe fresh air. Spending time surrounded by
-            nature helps me slow down and appreciate the simple things.
+            Nature is one of the things I genuinely enjoy. I love spending time
+            outdoors, listening to birdsong and breathing fresh air. Simple,
+            quiet moments often mean more to me than busy places.
           </p>
 
           <p>
-            I have a strong love for exploring the world and have visited more
-            than 20 European cities. Paris is one of my favourite places. I love
-            its historic architecture, elegant buildings, charming narrow streets,
-            beautiful facades, little cafés and the feeling of discovering
-            something special around every corner. The city has a timeless
-            atmosphere that makes even a simple walk feel memorable.
+            I have visited more than 20 cities across Europe. Paris has a
+            special place in my heart because of its historic architecture,
+            beautiful buildings and streets that feel full of character.
           </p>
 
           <p>
-            I also love food. Armenian cuisine will always be my favourite, but
-            I enjoy Chinese cuisine too. I like preparing different dishes,
-            experimenting in the kitchen and discovering new flavours.
+            I love cooking, especially Armenian and Chinese food. I also enjoy
+            trying new dishes and flavours and discovering different ways of
+            preparing familiar ingredients.
           </p>
 
           <p>
-            Friendship is an important part of my life. I believe it is better
-            to have a small circle of genuine, honest friends than a large number
-            of superficial connections. For me, trust and sincerity matter most.
+            I value having a small circle of genuine, sincere friends. For me,
+            the quality of a connection matters more than the number of people
+            around me.
           </p>
 
           <p>
-            I’m an animal lover and have a dog whom I treat like a little child.
-            I believe that if someone cannot give a pet the care, attention and
-            affection it needs, it is better not to keep one. Animals, especially
-            dogs, need warmth, attention and closeness just as people do.
+            I love animals and have a dog whom I treat like a small child.
+            Animals need care, attention and affection, and I believe those
+            responsibilities are part of loving them.
           </p>
 
           <p>
-            I consider myself goal-oriented. When I have an idea in mind and
-            truly want to achieve it, I keep working towards it, even when it
-            seems difficult. I believe determination is one of my strongest
-            qualities: if I really want something, I do my best to make it happen.
+            I am goal-oriented and willing to do difficult things to reach my
+            goals. When I decide that something matters to me, I try to stay
+            consistent and find a way forward, even when the process is not easy.
           </p>
 
-          <button class="close-details" type="button">Close −</button>
+          <button class="close-details" type="button">Close</button>
+
         </div>
       </div>
     </div>
 
-    <div class="details-panel" id="professionalDetails">
+    <!-- PROFESSIONAL DETAILS -->
+
+    <div class="details-panel" id="professionalDetails" aria-hidden="true">
       <div class="details-inner">
         <div class="details-content">
 
-          <h4>How I approach my work</h4>
+          <h4>How I work</h4>
 
           <p>
-            I have more than one year of hands-on Shopify experience building
-            and improving stores from scratch. My work includes Shopify store
-            setup and customization, product and collection organization,
-            landing pages, product pages, theme sections, custom Liquid, HTML
-            and CSS customization, responsive layouts, and fixing smaller
-            store issues.
+            I have more than one year of hands-on experience working with
+            Shopify stores, helping businesses build, improve and maintain
+            digital storefronts that reflect their brand and serve their
+            customers.
           </p>
 
           <p>
-            I can help organize products and collections, maintain clean and
-            structured store content, and improve the overall shopping
-            experience. I also understand the importance of customer
-            communication, handling inquiries, resolving issues and keeping
-            workflows organized.
+            My work includes Shopify store setup, product and collection pages,
+            landing pages, theme customization, product uploads and organization,
+            custom Liquid, HTML and CSS, responsive layouts, and updates to
+            existing storefronts.
           </p>
 
           <p>
-            My background in psychology helps me think about how customers
-            interact with a store, what builds trust, and how navigation and
-            content can make the customer journey feel more natural. I aim to
-            create stores that are visually consistent, easy to use, trustworthy
-            and structured to support conversions.
+            I focus on the relationship between design and functionality. A
+            visually attractive store should also be easy to navigate, clear
+            to understand and comfortable to use on both desktop and mobile.
           </p>
 
           <p>
-            My goal is to combine Shopify's technical side with an understanding
-            of customer behaviour—balancing clean design, functionality,
-            usability and a consistent brand identity across desktop and mobile.
+            My background in psychology helps me think about customer behaviour,
+            trust and the way people interact with digital experiences. I pay
+            attention to content hierarchy, navigation, consistency and the
+            details that can make a customer journey feel more natural.
           </p>
 
-          <button class="close-details" type="button">Close −</button>
+          <p>
+            I can work with existing themes and customize sections to meet
+            specific design requirements while preserving the store’s existing
+            functionality. My goal is to create a professional, cohesive result
+            that balances the brand’s visual identity with practical business
+            needs.
+          </p>
+
+          <button class="close-details" type="button">Close</button>
+
         </div>
       </div>
     </div>
@@ -2072,19 +2215,24 @@ a:focus-visible {
   </div>
 </section>
 
-<!-- 04 — FOUNDATION: SKILLS / MY APPROACH / WHAT DRIVES ME -->
+<!-- 04 — THE FOUNDATION -->
 
 <section class="foundation-section" id="foundationSection">
+
   <div class="foundation-shell">
 
-    <header class="foundation-heading reveal">
+    <div class="foundation-heading reveal">
       <div class="eyebrow">What shapes my work</div>
-      <h2>The <span>Foundation</span></h2>
-    </header>
+
+      <h2>
+        The
+        <span>foundation.</span>
+      </h2>
+    </div>
 
     <div class="foundation-layout">
 
-      <!-- Left: interactive numbered circles -->
+      <!-- LEFT: INTERACTIVE ITEMS -->
 
       <div class="foundation-left">
 
@@ -2095,7 +2243,6 @@ a:focus-visible {
             type="button"
             data-foundation="skills"
             aria-expanded="false"
-            aria-controls="foundationDetail"
           >
             <span class="foundation-number">01</span>
             <span class="foundation-title">Skills</span>
@@ -2106,7 +2253,6 @@ a:focus-visible {
             type="button"
             data-foundation="approach"
             aria-expanded="false"
-            aria-controls="foundationDetail"
           >
             <span class="foundation-number">02</span>
             <span class="foundation-title">My Approach</span>
@@ -2117,7 +2263,6 @@ a:focus-visible {
             type="button"
             data-foundation="drives"
             aria-expanded="false"
-            aria-controls="foundationDetail"
           >
             <span class="foundation-number">03</span>
             <span class="foundation-title">What Drives Me</span>
@@ -2125,12 +2270,11 @@ a:focus-visible {
 
         </div>
 
-        <!-- The selected description expands below the numbered list -->
+        <!-- DETAILS PANEL -->
 
         <div
           class="foundation-detail"
           id="foundationDetail"
-          aria-live="polite"
           aria-hidden="true"
         >
           <div class="foundation-detail-inner">
@@ -2142,8 +2286,8 @@ a:focus-visible {
 
               <button
                 class="foundation-close"
-                type="button"
                 id="foundationClose"
+                type="button"
               >
                 Close
               </button>
@@ -2154,7 +2298,7 @@ a:focus-visible {
 
       </div>
 
-      <!-- Right: animated decorative visual changes with selection -->
+      <!-- RIGHT: ANIMATED FREELANCE WORKSPACE -->
 
       <div
         class="foundation-visual reveal"
@@ -2164,11 +2308,22 @@ a:focus-visible {
       >
         <span class="visual-index" id="visualIndex">01 / 03</span>
 
-        <div class="visual-orbit"></div>
-        <div class="visual-orbit orbit-two"></div>
+        <div class="freelance-orbit" aria-hidden="true">
+          <span class="freelance-item laptop-item" title="MacBook">⌘</span>
+          <span class="freelance-item notebook-item" title="Notebook">▤</span>
+          <span class="freelance-item pencil-item" title="Pencil">✎</span>
+          <span class="freelance-item headphones-item" title="Headphones">♫</span>
+        </div>
 
-        <div class="visual-core">
-          <div class="visual-core-inner" id="visualSymbol">S</div>
+        <div class="freelance-orbit orbit-outer" aria-hidden="true">
+          <span class="freelance-item mouse-item" title="Mouse">◖</span>
+          <span class="freelance-item coffee-item" title="Coffee">▱</span>
+        </div>
+
+        <div class="visual-core" aria-hidden="true">
+          <div class="visual-core-inner" id="visualSymbol">
+            <span class="laptop-word">MACBOOK</span>
+          </div>
         </div>
 
         <span class="visual-corner" id="visualCorner">
@@ -2180,7 +2335,6 @@ a:focus-visible {
 
   </div>
 </section>
-
 <!-- 05 — QUOTE -->
 
 <section class="quote-section" id="quoteSection">
@@ -2193,11 +2347,7 @@ a:focus-visible {
     <div class="quote-art" id="quoteArt">
       <img src="./image6(tuxt)" alt="" loading="lazy">
 
-      <div
-        class="quote-text"
-        id="quoteText"
-        aria-label="If you can imagine it. You can do it!"
-      >
+      <div class="quote-text" aria-label="If you can imagine it, you can do it!">
         <span class="quote-line" id="quoteLineOne"></span>
         <span class="quote-line" id="quoteLineTwo"></span>
       </div>
@@ -2314,7 +2464,11 @@ a:focus-visible {
 <section class="motivation-section" id="motivationSection">
 
   <div class="motivation-image">
-    <img src="./image4(nstac%20teqvac%20depi%20camera)" alt="" loading="lazy">
+    <img
+      src="./image4(nstac%20teqvac%20depi%20camera)"
+      alt=""
+      loading="lazy"
+    >
   </div>
 
   <div class="motivation-content reveal">
@@ -2354,7 +2508,6 @@ a:focus-visible {
   </div>
 
 </footer>
-
 <script>
 (() => {
   "use strict";
@@ -2657,7 +2810,7 @@ a:focus-visible {
 
     foundationVisual.dataset.active = key;
     visualIndex.textContent = content.index;
-    visualSymbol.textContent = content.symbol;
+    visualSymbol.innerHTML = '<span class="laptop-word">MACBOOK</span>';
     visualCorner.textContent = content.corner;
   }
 
@@ -2707,8 +2860,7 @@ a:focus-visible {
   });
 
   foundationClose.addEventListener("click", closeFoundation);
-
-  /* ==================================================
+    /* ==================================================
      QUOTE TYPEWRITER
   ================================================== */
 
@@ -2831,6 +2983,7 @@ a:focus-visible {
       const isOpen = panel.classList.contains("open");
 
       panel.classList.toggle("open", !isOpen);
+      panel.setAttribute("aria-hidden", String(isOpen));
       button.setAttribute("aria-expanded", String(!isOpen));
 
       const label = button.querySelector("span");
@@ -2851,6 +3004,7 @@ a:focus-visible {
     button.addEventListener("click", () => {
       const panel = button.closest(".details-panel");
       panel.classList.remove("open");
+      panel.setAttribute("aria-hidden", "true");
 
       const relatedButton = document.querySelector(
         `[data-details="${panel.id}"]`
