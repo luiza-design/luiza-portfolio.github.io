@@ -69,6 +69,7 @@ img { display: block; max-width: 100%; }
   overflow: hidden;
   isolation: isolate;
   background: var(--wine);
+  transition: background-color .35s ease;
 }
 
 .intro-caption {
@@ -204,13 +205,13 @@ img { display: block; max-width: 100%; }
 .intro.is-light .intro-signature { color: var(--wine); }
 
 /* =========================================
-   2. DOOR SECTION — UPDATED
+   2. DOOR SECTION
 ========================================= */
 
 .door-section {
   position: relative;
+  min-height: 100svh;
   height: 100svh;
-  min-height: 600px;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -228,8 +229,6 @@ img { display: block; max-width: 100%; }
     radial-gradient(ellipse at center, rgba(126,31,51,.28), transparent 65%),
     var(--wine);
 }
-
-/* Side images */
 
 .door-side {
   position: absolute;
@@ -253,15 +252,12 @@ img { display: block; max-width: 100%; }
   object-position: center;
 }
 
-.door-section.in-view .door-side-left {
-  transform: translateY(-50%) translateX(0);
-}
-
+.door-section.in-view .door-side-left,
 .door-section.in-view .door-side-right {
   transform: translateY(-50%) translateX(0);
 }
 
-/* Center door */
+/* Central clickable door */
 
 .door-button {
   position: relative;
@@ -354,8 +350,6 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
 }
 
-/* Door leaf overlays the image and opens on click */
-
 .door-leaf {
   position: absolute;
   z-index: 3;
@@ -425,7 +419,7 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
 }
 
-/* Full-screen transition after clicking the door */
+/* Transition overlay */
 
 .door-overlay {
   position: fixed;
@@ -480,7 +474,6 @@ img { display: block; max-width: 100%; }
 
 /* =========================================
    3. A LITTLE MORE ABOUT ME
-   Small eyebrow removed; main heading remains.
 ========================================= */
 
 .about-section {
@@ -1058,8 +1051,6 @@ img { display: block; max-width: 100%; }
   .intro-signature span { font-size: 9px; }
   .intro-signature strong { font-size: 25px; }
 
-  /* Mobile door layout: centered door with two side images */
-
   .door-section {
     min-height: 650px;
     height: 92svh;
@@ -1079,6 +1070,11 @@ img { display: block; max-width: 100%; }
 
   .door-side-left { left: 5%; }
   .door-side-right { right: 5%; }
+
+  .door-section.in-view .door-side-left,
+  .door-section.in-view .door-side-right {
+    transform: none;
+  }
 
   .door-button {
     width: min(64vw,330px);
@@ -1319,32 +1315,40 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-<!-- 2. DOOR SECTION: IMAGE 3 AS THE DOOR, IMAGES 1 AND 2 ON SIDES -->
+<!-- 2. DOOR SECTION -->
 
 <section class="door-section" id="doorSection">
   <div class="door-backdrop"></div>
 
-  <div class="door-instruction">
-    A different side of the story
-  </div>
+  <div class="door-instruction">A different side of the story</div>
 
-  <img class="door-side door-side-left"
-       src="image1"
-       alt=""
-       loading="lazy">
+  <img
+    class="door-side door-side-left"
+    src="./image1(akncocov)"
+    alt=""
+    loading="lazy"
+  >
 
-  <img class="door-side door-side-right"
-       src="image2"
-       alt=""
-       loading="lazy">
+  <img
+    class="door-side door-side-right"
+    src="./image2(mac-i%20dimac)"
+    alt=""
+    loading="lazy"
+  >
 
-  <button class="door-button" id="doorButton" type="button"
-          aria-label="Discover what's inside">
+  <button
+    class="door-button"
+    id="doorButton"
+    type="button"
+    aria-label="Discover what's inside"
+  >
     <div class="door-inside">
-      <img class="door-inside-image"
-           src="image3"
-           alt=""
-           loading="lazy">
+      <img
+        class="door-inside-image"
+        src="./image3(red%20door)"
+        alt=""
+        loading="lazy"
+      >
     </div>
 
     <div class="door-frame"></div>
@@ -1387,8 +1391,12 @@ img { display: block; max-width: 100%; }
           <span class="icon-circle" aria-hidden="true">⌂</span>
         </div>
 
-        <button class="read-more" type="button"
-                data-details="personalDetails" aria-expanded="false">
+        <button
+          class="read-more"
+          type="button"
+          data-details="personalDetails"
+          aria-expanded="false"
+        >
           Read more <span>+</span>
         </button>
       </article>
@@ -1419,8 +1427,12 @@ img { display: block; max-width: 100%; }
           <span>UX</span>
         </div>
 
-        <button class="read-more" type="button"
-                data-details="professionalDetails" aria-expanded="false">
+        <button
+          class="read-more"
+          type="button"
+          data-details="professionalDetails"
+          aria-expanded="false"
+        >
           Read more <span>+</span>
         </button>
       </article>
@@ -1461,468 +1473,4 @@ img { display: block; max-width: 100%; }
 <!-- 4. QUOTE IMAGE AND TYPEWRITER -->
 
 <section class="quote-section" id="quoteSection">
-  <div class="quote-layout">
-    <div class="quote-side-note reveal">
-      A thought to keep<br>moving forward
-    </div>
-
-    <div class="quote-art" id="quoteArt">
-      <img src="image6" alt="" loading="lazy">
-
-      <div class="quote-text" id="quoteText"
-           aria-label="If you can imagine it. You can do it!">
-        <span class="quote-line" id="quoteLineOne"></span>
-        <span class="quote-line" id="quoteLineTwo"></span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 5. PORTRAIT -->
-
-<section class="portrait-section" id="portraitSection">
-  <div class="portrait-image-wrap reveal">
-    <img src="image5" alt="Portrait of Luiza Sargsyan" loading="lazy">
-  </div>
-
-  <div class="portrait-copy reveal">
-    <div class="eyebrow">The person behind the portfolio</div>
-    <h2>Curiosity<br>into creation.</h2>
-    <p>
-      I enjoy exploring ideas, learning new skills and building digital
-      experiences with intention. Every project is an opportunity to combine
-      design, functionality and a clear understanding of the people who will
-      use it.
-    </p>
-    <div class="portrait-signature">Luiza Sargsyan</div>
-  </div>
-</section>
-
-<!-- 6. PROJECTS -->
-
-<section class="projects-section" id="projectsSection">
-  <div class="section-shell">
-    <div class="projects-heading reveal">
-      <div>
-        <div class="eyebrow">Selected work</div>
-        <h2>Projects</h2>
-      </div>
-      <p>
-        A selection of digital experiences, e-commerce concepts and creative
-        work shaped by design and functionality.
-      </p>
-    </div>
-
-    <div class="project-list">
-      <a class="project-item reveal" href="https://facedunk.com/" target="_blank" rel="noreferrer">
-        <span class="project-number">01</span>
-        <span class="project-name">Facedunk
-          <span class="project-type">Beauty · E-commerce</span>
-        </span>
-        <span class="project-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <a class="project-item reveal" href="https://gotcha.am/" target="_blank" rel="noreferrer">
-        <span class="project-number">02</span>
-        <span class="project-name">Gotcha
-          <span class="project-type">E-commerce · Store experience</span>
-        </span>
-        <span class="project-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <a class="project-item reveal" href="https://sloenka.am/" target="_blank" rel="noreferrer">
-        <span class="project-number">03</span>
-        <span class="project-name">Sloenka
-          <span class="project-type">Bakery · Brand experience</span>
-        </span>
-        <span class="project-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <a class="project-item reveal" href="https://whitestore.am/" target="_blank" rel="noreferrer">
-        <span class="project-number">04</span>
-        <span class="project-name">White Store
-          <span class="project-type">Retail · E-commerce</span>
-        </span>
-        <span class="project-arrow" aria-hidden="true">↗</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- 7. MOTIVATION -->
-
-<section class="motivation-section" id="motivationSection">
-  <div class="motivation-image">
-    <img src="image4" alt="" loading="lazy">
-  </div>
-
-  <div class="motivation-content reveal">
-    <div class="eyebrow">Keep creating</div>
-    <h2>Make ideas<br>feel real.</h2>
-    <p>Thoughtful design. Clear purpose. Meaningful digital experiences.</p>
-  </div>
-</section>
-
-<!-- 8. FOOTER -->
-
-<footer class="footer" id="contactSection">
-  <div class="footer-top">
-    <div>
-      <div class="eyebrow">Have a project in mind?</div>
-      <div class="footer-title">Let's create.</div>
-    </div>
-
-    <div class="footer-contact">
-      <div>Luiza Sargsyan</div>
-      <div>Shopify Specialist &amp; Designer</div>
-      <a href="#portfolioIntro">Back to top ↑</a>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <span>© <span id="currentYear"></span> Luiza Sargsyan</span>
-    <span>Designed with intention</span>
-  </div>
-</footer>
-
-<script>
-(() => {
-  "use strict";
-
-  const reduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  const clamp = (value, min, max) =>
-    Math.max(min, Math.min(max, value));
-
-  /* =====================================
-     PORTFOLIO INTRO ANIMATION
-  ===================================== */
-
-  const intro = document.getElementById("portfolioIntro");
-  const introSticky = document.getElementById("introSticky");
-  const introWord = document.querySelector(".intro-word");
-  const letters = [...document.querySelectorAll(".intro-letter")];
-  const progressBar = document.getElementById("introProgressBar");
-  const signature = document.getElementById("introSignature");
-  const scrollLabel = document.getElementById("introScrollLabel");
-
-  let ticking = false;
-
-  function updateIntro() {
-    const rect = intro.getBoundingClientRect();
-    const scrollable = Math.max(
-      1,
-      intro.offsetHeight - window.innerHeight
-    );
-
-    const travelled = clamp(-rect.top, 0, scrollable);
-    const progress = travelled / scrollable;
-
-    const revealPoints = [
-      0.025, 0.065, 0.105,
-      0.20, 0.245, 0.29,
-      0.39, 0.435, 0.48
-    ];
-
-    letters.forEach((letter, index) => {
-      letter.classList.toggle(
-        "visible",
-        progress >= revealPoints[index]
-      );
-    });
-
-    const lightPhase = progress >= 0.22 && progress < 0.40;
-    intro.classList.toggle("is-light", lightPhase);
-
-    if (progress < 0.22) {
-      introSticky.style.backgroundColor = "#3e000c";
-    } else if (progress < 0.40) {
-      introSticky.style.backgroundColor = "#f6ebdf";
-    } else {
-      introSticky.style.backgroundColor = "#3e000c";
-    }
-
-    let shiftY = 0;
-
-    if (progress > 0.70) {
-      const exitProgress = clamp(
-        (progress - 0.70) / 0.30,
-        0,
-        1
-      );
-
-      shiftY = -window.innerHeight * 0.85 * exitProgress;
-    }
-
-    introWord.style.transform =
-      `translate3d(0, ${shiftY}px, 0)`;
-
-    progressBar.style.width = `${progress * 100}%`;
-    signature.classList.toggle("show", progress >= 0.56);
-    scrollLabel.style.opacity = progress >= 0.88 ? "0" : ".7";
-
-    ticking = false;
-  }
-
-  function requestIntroUpdate() {
-    if (!ticking) {
-      window.requestAnimationFrame(updateIntro);
-      ticking = true;
-    }
-  }
-
-  window.addEventListener("scroll", requestIntroUpdate, {
-    passive: true
-  });
-
-  window.addEventListener("resize", requestIntroUpdate);
-  updateIntro();
-
-  /* =====================================
-     REVEAL ANIMATIONS
-  ===================================== */
-
-  const revealElements = document.querySelectorAll(".reveal");
-
-  if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle(
-          "in-view",
-          entry.isIntersecting
-        );
-      });
-    }, {
-      threshold: 0.12,
-      rootMargin: "0px 0px -4% 0px"
-    });
-
-    revealElements.forEach((element) => {
-      revealObserver.observe(element);
-    });
-  } else {
-    revealElements.forEach((element) => {
-      element.classList.add("in-view");
-    });
-  }
-
-  /* =====================================
-     DOOR SECTION REVEAL ON SCROLL
-  ===================================== */
-
-  const doorSection = document.getElementById("doorSection");
-  const doorButton = document.getElementById("doorButton");
-  const doorOverlay = document.getElementById("doorOverlay");
-  const aboutSection = document.getElementById("aboutSection");
-
-  if ("IntersectionObserver" in window) {
-    const doorObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        doorSection.classList.toggle(
-          "in-view",
-          entry.isIntersecting
-        );
-      });
-    }, {
-      threshold: 0.15
-    });
-
-    doorObserver.observe(doorSection);
-  } else {
-    doorSection.classList.add("in-view");
-  }
-
-  /* =====================================
-     CLICK DOOR → OPEN → SCROLL TO ABOUT
-  ===================================== */
-
-  let doorAnimating = false;
-
-  doorButton.addEventListener("click", () => {
-    if (doorAnimating) return;
-
-    doorAnimating = true;
-    doorButton.classList.add("opening");
-    doorOverlay.classList.add("active");
-
-    window.setTimeout(() => {
-      aboutSection.scrollIntoView({
-        behavior: reduceMotion ? "auto" : "smooth",
-        block: "start"
-      });
-    }, reduceMotion ? 50 : 750);
-
-    window.setTimeout(() => {
-      doorOverlay.classList.add("leave");
-    }, reduceMotion ? 80 : 1350);
-
-    window.setTimeout(() => {
-      doorOverlay.classList.remove("active", "leave");
-      doorButton.classList.remove("opening");
-      doorAnimating = false;
-    }, reduceMotion ? 150 : 2500);
-  });
-
-  /* =====================================
-     QUOTE TYPEWRITER
-  ===================================== */
-
-  const quoteArt = document.getElementById("quoteArt");
-  const quoteLineOne = document.getElementById("quoteLineOne");
-  const quoteLineTwo = document.getElementById("quoteLineTwo");
-
-  const quoteFirst = "If you can imagine it.";
-  const quoteSecond = "You can do it!";
-
-  let typingTimer = null;
-  let typingRun = 0;
-
-  function stopTyping() {
-    typingRun++;
-
-    if (typingTimer !== null) {
-      window.clearTimeout(typingTimer);
-      typingTimer = null;
-    }
-
-    quoteLineOne.textContent = "";
-    quoteLineTwo.textContent = "";
-
-    const cursor = document.getElementById("quoteCursor");
-    if (cursor) cursor.remove();
-  }
-
-  function typeText() {
-    stopTyping();
-
-    if (reduceMotion) {
-      quoteLineOne.textContent = quoteFirst;
-      quoteLineTwo.textContent = quoteSecond;
-      return;
-    }
-
-    const thisRun = typingRun;
-    let firstIndex = 0;
-    let secondIndex = 0;
-
-    const cursor = document.createElement("span");
-    cursor.className = "quote-cursor";
-    cursor.id = "quoteCursor";
-    cursor.setAttribute("aria-hidden", "true");
-
-    quoteLineOne.appendChild(cursor);
-
-    function typeFirstLine() {
-      if (thisRun !== typingRun) return;
-
-      if (firstIndex < quoteFirst.length) {
-        firstIndex++;
-
-        quoteLineOne.textContent =
-          quoteFirst.slice(0, firstIndex);
-
-        quoteLineOne.appendChild(cursor);
-        typingTimer = window.setTimeout(typeFirstLine, 58);
-      } else {
-        quoteLineOne.textContent = quoteFirst;
-        quoteLineTwo.appendChild(cursor);
-        typingTimer = window.setTimeout(typeSecondLine, 220);
-      }
-    }
-
-    function typeSecondLine() {
-      if (thisRun !== typingRun) return;
-
-      if (secondIndex < quoteSecond.length) {
-        secondIndex++;
-
-        quoteLineTwo.textContent =
-          quoteSecond.slice(0, secondIndex);
-
-        quoteLineTwo.appendChild(cursor);
-        typingTimer = window.setTimeout(typeSecondLine, 65);
-      } else {
-        quoteLineTwo.textContent = quoteSecond;
-        cursor.classList.add("done");
-        typingTimer = null;
-      }
-    }
-
-    typingTimer = window.setTimeout(typeFirstLine, 500);
-  }
-
-  if ("IntersectionObserver" in window) {
-    const quoteObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          quoteArt.classList.add("in-view");
-          typeText();
-        } else {
-          quoteArt.classList.remove("in-view");
-          stopTyping();
-        }
-      });
-    }, {
-      threshold: 0.38
-    });
-
-    quoteObserver.observe(quoteArt);
-  } else {
-    quoteArt.classList.add("in-view");
-    typeText();
-  }
-
-  /* =====================================
-     READ MORE ACCORDIONS
-  ===================================== */
-
-  document.querySelectorAll("[data-details]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const panel = document.getElementById(button.dataset.details);
-      const isOpen = panel.classList.contains("open");
-
-      panel.classList.toggle("open", !isOpen);
-      button.setAttribute("aria-expanded", String(!isOpen));
-
-      const label = button.querySelector("span");
-      if (label) label.textContent = isOpen ? "+" : "−";
-
-      if (!isOpen) {
-        window.setTimeout(() => {
-          panel.scrollIntoView({
-            behavior: reduceMotion ? "auto" : "smooth",
-            block: "nearest"
-          });
-        }, 150);
-      }
-    });
-  });
-
-  document.querySelectorAll(".close-details").forEach((button) => {
-    button.addEventListener("click", () => {
-      const panel = button.closest(".details-panel");
-      panel.classList.remove("open");
-
-      const relatedButton = document.querySelector(
-        `[data-details="${panel.id}"]`
-      );
-
-      if (relatedButton) {
-        relatedButton.setAttribute("aria-expanded", "false");
-
-        const label = relatedButton.querySelector("span");
-        if (label) label.textContent = "+";
-      }
-    });
-  });
-
-  document.getElementById("currentYear").textContent =
-    new Date().getFullYear();
-
-})();
-</script>
-
-</body>
-</html>
+  <div class="quote-layout
