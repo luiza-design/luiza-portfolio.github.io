@@ -71,7 +71,7 @@ a {
 }
 
 /* =========================================
-   1. SCROLL INTRO — POR / TFO / LIO
+   1. PORTFOLIO SCROLL INTRO
 ========================================= */
 
 .intro {
@@ -104,18 +104,22 @@ a {
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: .015em;
-  width: 100%;
+  gap: 0;
+  width: max-content;
+  max-width: 96vw;
+  margin: 0 auto;
   font-family: var(--serif);
-  font-size: clamp(5.5rem, 22vw, 24rem);
-  line-height: .8;
+  font-size: clamp(3rem, 12vw, 12rem);
+  line-height: .9;
   letter-spacing: -.075em;
   white-space: nowrap;
   user-select: none;
+  will-change: transform;
 }
 
 .intro-letter {
   display: inline-block;
+  flex: 0 0 auto;
   opacity: 0;
   transform: translateY(35px);
   transition:
@@ -141,6 +145,22 @@ a {
   color: #fff9f2;
 }
 
+.intro.is-light .intro-letter.por,
+.intro.is-light .intro-letter.tfo,
+.intro.is-light .intro-letter.lio {
+  color: var(--wine);
+}
+
+.intro-caption {
+  position: absolute;
+  left: 5%;
+  top: 34px;
+  font-size: 9px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  opacity: .68;
+}
+
 .intro-progress {
   position: absolute;
   left: 5%;
@@ -157,14 +177,12 @@ a {
   transform-origin: left;
 }
 
-.intro-caption {
-  position: absolute;
-  left: 5%;
-  top: 34px;
-  font-size: 9px;
-  letter-spacing: .28em;
-  text-transform: uppercase;
-  opacity: .68;
+.intro.is-light .intro-progress {
+  background: rgba(62, 0, 12, .18);
+}
+
+.intro.is-light .intro-progress-bar {
+  background: var(--wine);
 }
 
 .intro-signature {
@@ -209,32 +227,12 @@ a {
   text-transform: uppercase;
   white-space: nowrap;
   opacity: .7;
-  transition: opacity .3s ease;
-}
-
-.intro.is-light .intro-sticky {
-  background: var(--cream);
 }
 
 .intro.is-light .intro-caption,
-.intro.is-light .intro-scroll-label {
-  color: var(--wine);
-}
-
-.intro.is-light .intro-progress {
-  background: rgba(62, 0, 12, .18);
-}
-
-.intro.is-light .intro-progress-bar {
-  background: var(--wine);
-}
-
+.intro.is-light .intro-scroll-label,
 .intro.is-light .intro-signature {
   color: var(--wine);
-}
-
-.intro.is-light .intro-scroll-label {
-  opacity: .5;
 }
 
 /* =========================================
@@ -266,12 +264,12 @@ a {
   top: 34px;
   left: 50%;
   transform: translateX(-50%);
+  width: 90%;
   font-size: 9px;
   letter-spacing: .25em;
   text-transform: uppercase;
   color: rgba(246, 235, 223, .7);
   text-align: center;
-  white-space: nowrap;
 }
 
 .door-button {
@@ -303,9 +301,7 @@ a {
   inset: 10px;
   display: grid;
   place-items: center;
-  background:
-    linear-gradient(135deg, rgba(246, 235, 223, .06), transparent 45%),
-    #270008;
+  background: #270008;
   overflow: hidden;
 }
 
@@ -368,20 +364,10 @@ a {
   height: 9px;
   border-radius: 50%;
   background: #c6a17d;
-  box-shadow: 0 0 0 3px rgba(198,161,125,.12);
 }
 
 .door-button:hover .door-leaf {
   transform: perspective(1500px) rotateY(-9deg);
-}
-
-.door-button:hover .door-inside::before {
-  transform: scale(1.04);
-}
-
-.door-button:focus-visible {
-  outline: 2px solid var(--cream);
-  outline-offset: 10px;
 }
 
 .door-button.opening {
@@ -421,7 +407,7 @@ a {
 }
 
 /* =========================================
-   SHARED SECTION STYLES
+   SHARED STYLES
 ========================================= */
 
 .section-shell {
@@ -447,16 +433,6 @@ a {
   background: currentColor;
 }
 
-.section-title {
-  margin: 32px 0 0;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(54px, 10vw, 150px);
-  line-height: .8;
-  letter-spacing: -.055em;
-  text-transform: uppercase;
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(65px);
@@ -471,8 +447,7 @@ a {
 }
 
 /* =========================================
-   3. FIRST IMAGE-INSPIRED SECTION
-   A LITTLE MORE ABOUT ME
+   3. ABOUT ME SECTION
 ========================================= */
 
 .about-section {
@@ -670,8 +645,7 @@ a {
 }
 
 /* =========================================
-   4. SECOND IMAGE-INSPIRED SECTION
-   QUOTE ON BURGUNDY
+   4. QUOTE SECTION
 ========================================= */
 
 .quote-section {
@@ -919,7 +893,7 @@ a {
 }
 
 /* =========================================
-   7. MOTIVATION / IMAGE SECTION
+   7. MOTIVATION SECTION
 ========================================= */
 
 .motivation-section {
@@ -1018,12 +992,12 @@ a {
 }
 
 /* =========================================
-   RESPONSIVE
+   MOBILE RESPONSIVE
 ========================================= */
 
 @media (max-width: 768px) {
   .intro {
-    height: 300svh;
+    height: 330svh;
   }
 
   .intro-sticky {
@@ -1031,8 +1005,9 @@ a {
   }
 
   .intro-word {
-    font-size: clamp(4.2rem, 21vw, 10rem);
-    letter-spacing: -.085em;
+    font-size: clamp(2.7rem, 11.2vw, 5.5rem);
+    letter-spacing: -.08em;
+    max-width: 98vw;
   }
 
   .intro-caption {
@@ -1074,7 +1049,6 @@ a {
 
   .door-instruction {
     top: 25px;
-    width: 90%;
     white-space: normal;
     line-height: 1.8;
   }
@@ -1229,7 +1203,8 @@ a {
 
 @media (max-width: 380px) {
   .intro-word {
-    font-size: 19vw;
+    font-size: 10.5vw;
+    letter-spacing: -.075em;
   }
 
   .about-heading h2 {
@@ -1353,8 +1328,15 @@ a {
         <div class="card-label">Personal</div>
         <h3>Personal</h3>
         <p>
-          I'm Luiza Sargsyan — Armenian, based in Yerevan, and someone who
-          believes in building a life filled with experiences worth remembering.
+          I’m Luiza Sargsyan — Armenian, based in Yerevan, 28 years old,
+          and someone who believes that life is meant to be experienced,
+          explored, and remembered. I’ve visited more than 30 European
+          cities, and Paris remains my favourite place. I value freedom,
+          meaningful experiences, and the opportunity to build a life
+          that feels true to me. Before freelancing, I worked in the
+          government system with a traditional 9–6 schedule. Choosing
+          freelancing gave me the freedom to shape my own path, keep
+          learning, and create a lifestyle that reflects who I am.
         </p>
 
         <div class="icon-row" aria-label="Personal interests">
@@ -1373,8 +1355,17 @@ a {
         <div class="card-label">Professional</div>
         <h3>Professional</h3>
         <p>
-          Shopify Specialist &amp; Designer focused on creating clean, premium
-          and conversion-conscious digital experiences.
+          Shopify Specialist &amp; Designer focused on creating clean,
+          premium and conversion-conscious digital experiences. With a
+          background in psychology and over a year of hands-on Shopify
+          experience, I work on store setup, theme customization,
+          product and collection pages, landing pages, and responsive
+          design. I use HTML, CSS, and Liquid to build tailored sections,
+          refine user experience, and solve design and functionality
+          challenges. Through projects for Armenian and international
+          clients, I focus on creating stores that combine a distinctive
+          visual identity with intuitive navigation, practical
+          functionality, and a smoother customer journey.
         </p>
 
         <div class="icon-row" aria-label="Professional skills">
@@ -1432,7 +1423,7 @@ a {
 </section>
 
 <!-- =====================================
-     4. QUOTE SECTION — SECOND REFERENCE
+     4. QUOTE SECTION
 ===================================== -->
 
 <section class="quote-section" id="quoteSection">
@@ -1442,7 +1433,7 @@ a {
       moving forward
     </div>
 
-    <div class="quote-art" id="quoteArt">
+    <div class="quote-art reveal" id="quoteArt">
       <img src="image6" alt="" loading="lazy">
       <div class="quote-text">
         If you can imagine it.
@@ -1453,7 +1444,7 @@ a {
 </section>
 
 <!-- =====================================
-     5. PORTRAIT / INTRODUCTION
+     5. PORTRAIT SECTION
 ===================================== -->
 
 <section class="portrait-section" id="portraitSection">
@@ -1581,13 +1572,9 @@ a {
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
-  /* =====================================
-     PORTFOLIO SCROLL ANIMATION
-     POR -> TFO -> LIO
-  ===================================== */
-
   const intro = document.getElementById("portfolioIntro");
   const introSticky = document.getElementById("introSticky");
+  const introWord = document.querySelector(".intro-word");
   const letters = [...document.querySelectorAll(".intro-letter")];
   const progressBar = document.getElementById("introProgressBar");
   const signature = document.getElementById("introSignature");
@@ -1600,46 +1587,76 @@ a {
     return Math.max(min, Math.min(max, value));
   }
 
+  /*
+    PORT appears first.
+    TFO appears while POR remains visible.
+    LIO appears while the previous letters remain visible.
+    The whole word then moves upward near the end.
+    All states reverse naturally when scrolling back.
+  */
+
   function updateIntro() {
     const rect = intro.getBoundingClientRect();
-    const scrollable = Math.max(1, intro.offsetHeight - window.innerHeight);
+
+    const scrollable = Math.max(
+      1,
+      intro.offsetHeight - window.innerHeight
+    );
+
     const travelled = clamp(-rect.top, 0, scrollable);
     introProgress = travelled / scrollable;
 
-    const porProgress = clamp(introProgress / 0.28, 0, 1);
-    const tfoProgress = clamp((introProgress - 0.27) / 0.34, 0, 1);
-    const lioProgress = clamp((introProgress - 0.60) / 0.30, 0, 1);
+    const revealPoints = [
+      0.04, 0.09, 0.14,
+      0.25, 0.31, 0.37,
+      0.49, 0.55, 0.61
+    ];
 
     letters.forEach((letter, index) => {
-      let visible = false;
-
-      if (index < 3) {
-        visible = porProgress > index * 0.12 + 0.08;
-      } else if (index < 6) {
-        visible = tfoProgress > (index - 3) * 0.12 + 0.08;
-      } else {
-        visible = lioProgress > (index - 6) * 0.12 + 0.08;
-      }
-
-      letter.classList.toggle("visible", visible);
+      const shouldShow = introProgress >= revealPoints[index];
+      letter.classList.toggle("visible", shouldShow);
     });
 
-    const isLight = introProgress > 0.29 && introProgress < 0.64;
+    const isLight =
+      introProgress >= 0.27 &&
+      introProgress < 0.59;
+
     intro.classList.toggle("is-light", isLight);
 
-    progressBar.style.width = `${introProgress * 100}%`;
-
-    const complete = introProgress > 0.88;
-    signature.classList.toggle("show", complete);
-    scrollLabel.style.opacity = complete ? "0" : ".7";
-
-    if (introProgress < 0.28) {
+    if (introProgress < 0.27) {
       introSticky.style.backgroundColor = "var(--wine)";
-    } else if (introProgress < 0.63) {
+    } else if (introProgress < 0.59) {
       introSticky.style.backgroundColor = "var(--cream)";
     } else {
       introSticky.style.backgroundColor = "var(--wine)";
     }
+
+    /*
+      Keep the word centered while it is being revealed.
+      Move the complete word upward as the intro finishes.
+    */
+
+    let wordShift = 0;
+
+    if (introProgress > 0.72) {
+      const exitProgress = clamp(
+        (introProgress - 0.72) / 0.28,
+        0,
+        1
+      );
+
+      wordShift = -window.innerHeight * 0.75 * exitProgress;
+    }
+
+    introWord.style.transform = `translateY(${wordShift}px)`;
+
+    progressBar.style.width = `${introProgress * 100}%`;
+
+    const complete = introProgress >= 0.68;
+
+    signature.classList.toggle("show", complete);
+    scrollLabel.style.opacity =
+      introProgress >= 0.85 ? "0" : ".7";
 
     ticking = false;
   }
@@ -1651,30 +1668,45 @@ a {
     }
   }
 
-  window.addEventListener("scroll", requestIntroUpdate, { passive: true });
+  window.addEventListener("scroll", requestIntroUpdate, {
+    passive: true
+  });
+
   window.addEventListener("resize", requestIntroUpdate);
+
   updateIntro();
 
   /* =====================================
-     SCROLL REVEALS
-     Reversible when scrolling back up
+     SCROLL REVEALS — REVERSE ON SCROLL UP
   ===================================== */
 
-  const revealElements = document.querySelectorAll(".reveal, .quote-art");
+  const revealElements = document.querySelectorAll(
+    ".reveal"
+  );
 
   if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle("in-view", entry.isIntersecting);
-      });
-    }, {
-      threshold: 0.12,
-      rootMargin: "0px 0px -5% 0px"
-    });
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle(
+            "in-view",
+            entry.isIntersecting
+          );
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -5% 0px"
+      }
+    );
 
-    revealElements.forEach((element) => revealObserver.observe(element));
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
   } else {
-    revealElements.forEach((element) => element.classList.add("in-view"));
+    revealElements.forEach((element) => {
+      element.classList.add("in-view");
+    });
   }
 
   /* =====================================
@@ -1689,8 +1721,8 @@ a {
 
   doorButton.addEventListener("click", () => {
     if (doorAnimating) return;
-    doorAnimating = true;
 
+    doorAnimating = true;
     doorButton.classList.add("opening");
     doorOverlay.classList.add("active");
 
@@ -1718,14 +1750,20 @@ a {
 
   document.querySelectorAll("[data-details]").forEach((button) => {
     button.addEventListener("click", () => {
-      const panel = document.getElementById(button.dataset.details);
+      const panel = document.getElementById(
+        button.dataset.details
+      );
+
       const isOpen = panel.classList.contains("open");
 
       panel.classList.toggle("open", !isOpen);
       button.setAttribute("aria-expanded", String(!isOpen));
 
       const label = button.querySelector("span");
-      if (label) label.textContent = isOpen ? "+" : "−";
+
+      if (label) {
+        label.textContent = isOpen ? "+" : "−";
+      }
 
       if (!isOpen) {
         window.setTimeout(() => {
@@ -1749,8 +1787,12 @@ a {
 
       if (relatedButton) {
         relatedButton.setAttribute("aria-expanded", "false");
+
         const label = relatedButton.querySelector("span");
-        if (label) label.textContent = "+";
+
+        if (label) {
+          label.textContent = "+";
+        }
       }
     });
   });
