@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,1157 +8,419 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
 <style>
-:root {
-  --burgundy: #3E000C;
-  --burgundy-light: #7A2437;
-  --cream: #F6EBDD;
-  --rose: #EBD8D0;
-  --muted: #96716F;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--cream);
-  color: var(--burgundy);
-  font-family: Inter, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-button { font: inherit; }
-button:focus-visible, a:focus-visible {
-  outline: 2px solid var(--burgundy-light);
-  outline-offset: 5px;
-}
+:root{--burgundy:#3E000C;--burgundy-light:#7A2437;--cream:#F6EBDD;--rose:#EBD8D0;--muted:#96716F}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--burgundy);font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+button{font:inherit}
+button:focus-visible,a:focus-visible{outline:2px solid var(--burgundy-light);outline-offset:5px}
 
 /* PORTFOLIO INTRO */
-.intro {
-  height: 400svh;
-  position: relative;
-  overflow: clip;
-  background: var(--burgundy);
-  color: var(--cream);
-}
-.intro-inner {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  padding: 25px;
-}
-.intro-word {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .035em;
-  width: 100%;
-  white-space: nowrap;
-  font: 400 clamp(54px, 15vw, 220px)/.9 "Bodoni Moda", serif;
-  letter-spacing: -.085em;
-}
-.intro-group {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 1.1s ease, transform 1.1s cubic-bezier(.16,1,.3,1);
-  will-change: opacity, transform;
-}
-.intro-group.is-visible { opacity: 1; transform: translateY(0); }
-.intro-port { color: #fff; }
-.intro-fol { color: #D88EAD; }
-.intro-io { color: var(--cream); }
-.intro-note {
-  position: absolute;
-  bottom: 38px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  white-space: nowrap;
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(246,235,221,.7);
-}
-.intro-note::before {
-  content: "";
-  height: 1px;
-  width: 35px;
-  background: currentColor;
-}
+.intro{height:400svh;position:relative;overflow:clip;background:#3E000C;color:var(--cream);transition:background-color .9s ease,color .9s ease}
+.intro-inner{position:sticky;top:0;height:100svh;width:100%;display:flex;justify-content:center;align-items:center;overflow:hidden;padding:25px;transition:background-color .9s ease}
+.intro-word{display:flex;align-items:center;justify-content:center;gap:.015em;width:100%;white-space:nowrap;font:400 clamp(54px,15vw,220px)/.9 "Bodoni Moda",serif;letter-spacing:-.085em}
+.intro-group{display:inline-block;opacity:0;transform:translateY(45px);transition:opacity .8s ease,transform 1s cubic-bezier(.16,1,.3,1),color .8s ease;will-change:opacity,transform}
+.intro-group.is-visible{opacity:1;transform:translateY(0)}
+.intro-port{color:#FFF8F0}
+.intro-tfo{color:#2B0008}
+.intro-lio{color:#D88EAD}
+.intro.is-stage-1{background-color:#3E000C}
+.intro.is-stage-2{background-color:#682033}
+.intro.is-stage-3{background-color:#F6EBDD}
+.intro.is-stage-1 .intro-port{color:#FFF8F0}
+.intro.is-stage-2 .intro-port{color:#F6EBDD}
+.intro.is-stage-2 .intro-tfo{color:#31000A}
+.intro.is-stage-3 .intro-port{color:#3E000C}
+.intro.is-stage-3 .intro-tfo{color:#7A2437}
+.intro.is-stage-3 .intro-lio{color:#D88EAD}
+.intro-signature{position:absolute;right:clamp(22px,6vw,90px);bottom:clamp(28px,7vh,70px);color:var(--burgundy);text-align:right;font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(16px,2vw,25px);letter-spacing:.015em;line-height:1;opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .9s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.intro-signature strong{display:block;font-size:clamp(28px,4.5vw,58px);font-weight:500;letter-spacing:-.055em}
+.intro.is-stage-3 .intro-signature{opacity:1;transform:translateY(0)}
 
 /* INTRODUCTION PORTRAIT */
-.intro-portrait {
-  position: relative;
-  min-height: 100svh;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  padding: 90px 7%;
-  isolation: isolate;
-  background: linear-gradient(135deg, #F6EBDD 0%, #F0DED4 55%, #E7C9C2 100%);
-}
-.intro-portrait::before,
-.intro-portrait::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  border: 1px solid rgba(62,0,12,.22);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.intro-portrait::before {
-  width: min(72vw, 850px);
-  aspect-ratio: 1;
-  right: -18%;
-  top: -42%;
-}
-.intro-portrait::after {
-  width: min(54vw, 640px);
-  aspect-ratio: 1;
-  left: -22%;
-  bottom: -40%;
-}
-.portrait-layout {
-  width: min(1320px, 100%);
-  display: grid;
-  grid-template-columns: 1fr minmax(260px, 440px) 1fr;
-  align-items: center;
-  gap: clamp(18px, 3vw, 52px);
-}
-.portrait-word {
-  font-family: "Bodoni Moda", serif;
-  font-weight: 400;
-  line-height: .82;
-  letter-spacing: -.075em;
-  text-transform: uppercase;
-  font-size: clamp(62px, 9.4vw, 150px);
-  opacity: 0;
-  transition: transform 1.15s cubic-bezier(.16,1,.3,1), opacity .9s ease;
-  will-change: transform, opacity;
-}
-.portrait-word-left {
-  color: var(--burgundy);
-  transform: translateX(-100px);
-  text-align: right;
-}
-.portrait-word-right {
-  color: #B97B82;
-  transform: translateX(100px);
-  text-align: left;
-}
-.portrait-word .accent {
-  color: #B97B82;
-  font-style: italic;
-}
-.portrait-word-right .accent { color: var(--burgundy); }
-.portrait-image-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 5.4;
-  max-height: 650px;
-  overflow: hidden;
-  border-radius: 48% 48% 44% 44% / 38% 38% 30% 30%;
-  background: linear-gradient(160deg, #E7C9C2, #D8B0AA 60%, #7A2437);
-  box-shadow: 0 24px 70px rgba(62,0,12,.14);
-  opacity: 0;
-  transform: translateY(55px) scale(.96);
-  transition: transform 1.25s cubic-bezier(.16,1,.3,1), opacity 1s ease;
-  will-change: transform, opacity;
-}
-.portrait-image-wrap::after {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  border: 1px solid rgba(246,235,221,.6);
-  border-radius: inherit;
-  pointer-events: none;
-}
-.portrait-image-wrap img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center top;
-}
-.portrait-caption {
-  position: absolute;
-  left: 50%;
-  bottom: 28px;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--cream);
-  z-index: 1;
-  text-shadow: 0 1px 8px rgba(62,0,12,.5);
-}
-.intro-portrait.in-view .portrait-word-left,
-.intro-portrait.in-view .portrait-word-right {
-  opacity: 1;
-  transform: translateX(0);
-}
-.intro-portrait.in-view .portrait-image-wrap {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-.intro-portrait.in-view .portrait-word-right { transition-delay: .12s; }
-.intro-portrait.in-view .portrait-image-wrap { transition-delay: .18s; }
-.portrait-side-note {
-  display: block;
-  margin-top: 22px;
-  font-family: Inter, Arial, sans-serif;
-  font-size: 9px;
-  line-height: 1.8;
-  letter-spacing: 2px;
-  color: #8C5D5E;
-  text-transform: uppercase;
-}
+.intro-portrait{position:relative;min-height:100svh;overflow:hidden;display:grid;place-items:center;padding:90px 7%;isolation:isolate;background:linear-gradient(135deg,#F6EBDD 0%,#F0DED4 55%,#E7C9C2 100%)}
+.intro-portrait::before,.intro-portrait::after{content:"";position:absolute;z-index:-1;border:1px solid rgba(62,0,12,.22);border-radius:50%;pointer-events:none}
+.intro-portrait::before{width:min(72vw,850px);aspect-ratio:1;right:-18%;top:-42%}
+.intro-portrait::after{width:min(54vw,640px);aspect-ratio:1;left:-22%;bottom:-40%}
+.portrait-layout{width:min(1320px,100%);display:grid;grid-template-columns:1fr minmax(260px,440px) 1fr;align-items:center;gap:clamp(18px,3vw,52px)}
+.portrait-word{font-family:"Bodoni Moda",serif;font-weight:400;line-height:.82;letter-spacing:-.075em;text-transform:uppercase;font-size:clamp(62px,9.4vw,150px);opacity:0;transition:transform 1.15s cubic-bezier(.16,1,.3,1),opacity .9s ease;will-change:transform,opacity}
+.portrait-word-left{color:var(--burgundy);transform:translateX(-100px);text-align:right}
+.portrait-word-right{color:#B97B82;transform:translateX(100px);text-align:left}
+.portrait-word .accent{color:#B97B82;font-style:italic}
+.portrait-word-right .accent{color:var(--burgundy)}
+.portrait-image-wrap{position:relative;width:100%;aspect-ratio:4/5.4;max-height:650px;overflow:hidden;border-radius:48% 48% 44% 44%/38% 38% 30% 30%;background:linear-gradient(160deg,#E7C9C2,#D8B0AA 60%,#7A2437);box-shadow:0 24px 70px rgba(62,0,12,.14);opacity:0;transform:translateY(55px) scale(.96);transition:transform 1.25s cubic-bezier(.16,1,.3,1),opacity 1s ease;will-change:transform,opacity}
+.portrait-image-wrap::after{content:"";position:absolute;inset:12px;border:1px solid rgba(246,235,221,.6);border-radius:inherit;pointer-events:none}
+.portrait-image-wrap img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top}
+.portrait-caption{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);white-space:nowrap;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream);z-index:1;text-shadow:0 1px 8px rgba(62,0,12,.5)}
+.intro-portrait.in-view .portrait-word-left,.intro-portrait.in-view .portrait-word-right{opacity:1;transform:translateX(0)}
+.intro-portrait.in-view .portrait-image-wrap{opacity:1;transform:translateY(0) scale(1)}
+.intro-portrait.in-view .portrait-word-right{transition-delay:.12s}
+.intro-portrait.in-view .portrait-image-wrap{transition-delay:.18s}
+.portrait-side-note{display:block;margin-top:22px;font-family:Inter,Arial,sans-serif;font-size:9px;line-height:1.8;letter-spacing:2px;color:#8C5D5E;text-transform:uppercase}
 
 /* IMAGE 6 QUOTE STAGE */
-.quote-stage {
-  position: relative;
-  min-height: 100svh;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  isolation: isolate;
-  padding: 90px 7%;
-  background: #fff;
-  color: var(--burgundy);
-}
-.quote-stage-inner {
-  position: relative;
-  width: min(1200px, 100%);
-  min-height: 65svh;
-  display: grid;
-  place-items: center;
-}
-.quote-stage-art {
-  position: absolute;
-  z-index: 0;
-  left: 50%;
-  top: 50%;
-  width: min(78vw, 850px);
-  max-height: 78svh;
-  height: auto;
-  object-fit: contain;
-  transform: translate(-150%, -50%) rotate(-8deg) scale(.82);
-  opacity: 0;
-  transition: transform 1.45s cubic-bezier(.16,1,.3,1), opacity .8s ease;
-  will-change: transform, opacity;
-}
-.quote-stage-text {
-  position: relative;
-  z-index: 1;
-  width: min(690px, 78%);
-  margin-left: 18%;
-  text-align: center;
-  font-family: "Bodoni Moda", Georgia, serif;
-  font-size: clamp(38px, 6.8vw, 88px);
-  font-weight: 400;
-  line-height: 1.02;
-  letter-spacing: -.055em;
-  color: #3E000C;
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .9s ease .65s, transform 1s cubic-bezier(.16,1,.3,1) .65s;
-}
-.quote-stage-text em {
-  color: #8C3049;
-  font-weight: 400;
-}
-.quote-stage.in-view .quote-stage-art {
-  opacity: 1;
-  transform: translate(-50%, -50%) rotate(0) scale(1);
-}
-.quote-stage.in-view .quote-stage-text {
-  opacity: 1;
-  transform: translateY(0);
-}
+.quote-stage{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;isolation:isolate;padding:90px 7%;background:#F6EBDD;color:var(--cream)}
+.quote-stage-inner{position:relative;width:min(1200px,100%);min-height:75svh;display:grid;place-items:center}
+.quote-stage-art{position:absolute;z-index:0;left:50%;top:50%;width:min(90vw,1050px);max-height:88svh;height:auto;object-fit:contain;transform:translate(-155%,-50%) rotate(-9deg) scale(.78);opacity:0;clip-path:inset(0 100% 0 0);transition:transform 1.5s cubic-bezier(.16,1,.3,1),opacity .7s ease,clip-path 1.5s cubic-bezier(.16,1,.3,1);will-change:transform,opacity,clip-path}
+.quote-stage-text{position:relative;z-index:1;width:min(760px,78%);margin-left:2%;text-align:center;font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(42px,7.2vw,94px);font-weight:400;font-style:italic;line-height:1.03;letter-spacing:-.045em;color:#F6EBDD;opacity:0;transform:translateY(24px) scale(.97);text-shadow:0 2px 18px rgba(30,0,7,.12);transition:opacity .9s ease .8s,transform 1s cubic-bezier(.16,1,.3,1) .8s}
+.quote-stage-text em{display:inline-block;color:#FFF7ED;font-weight:500}
+.quote-stage.in-view .quote-stage-art{opacity:1;clip-path:inset(0 0 0 0);transform:translate(-50%,-50%) rotate(0) scale(1)}
+.quote-stage.in-view .quote-stage-text{opacity:1;transform:translateY(0) scale(1)}
 
 /* ABOUT */
-.about {
-  padding: 110px 10%;
-  background: var(--cream);
-}
-.section-kicker {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #8C5D5E;
-}
-.section-kicker::before {
-  content: "";
-  width: 28px;
-  height: 1px;
-  background: currentColor;
-}
-.about-heading {
-  margin: 40px 0 60px;
-  width: 100%;
-  overflow: hidden;
-  text-align: center;
-  font: 400 clamp(48px, 9.5vw, 135px)/.86 "Bodoni Moda", serif;
-  letter-spacing: -.065em;
-  text-transform: uppercase;
-}
-.about-heading .heading-line {
-  display: block;
-  transition: transform 1.1s cubic-bezier(.16,1,.3,1), opacity .8s ease;
-}
-.about-heading .heading-line:first-child {
-  color: var(--burgundy-light);
-  transform: translateX(-110%);
-  opacity: 0;
-}
-.about-heading .heading-line:last-child {
-  color: #B97B82;
-  transform: translateX(110%);
-  opacity: 0;
-}
-.about-heading.in-view .heading-line {
-  transform: translateX(0);
-  opacity: 1;
-}
-.about-heading.in-view .heading-line:last-child { transition-delay: .25s; }
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border: 1px solid rgba(62,0,12,.25);
-}
-.about-card {
-  min-width: 0;
-  padding: clamp(25px,4vw,55px);
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
-  transition: transform 1.15s cubic-bezier(.16,1,.3,1), opacity .8s ease;
-}
-.about-card:first-child { transform: translateX(-90px); }
-.about-card:last-child { transform: translateX(90px); }
-.about-grid.in-view .about-card {
-  transform: translateX(0);
-  opacity: 1;
-}
-.about-grid.in-view .about-card:last-child { transition-delay: .18s; }
-.about-card:first-child {
-  background: linear-gradient(135deg,#F4E6D6,#EBD8C5);
-}
-.about-card:last-child {
-  background: linear-gradient(135deg,#EFE0D5,#E2C9C0);
-  border-left: 1px solid rgba(62,0,12,.2);
-}
-.card-kicker {
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #8C5D5E;
-}
-.card-title {
-  margin: 35px 0 24px;
-  font: 600 clamp(44px,5.6vw,82px)/.86 "Bodoni Moda",serif;
-  letter-spacing: -.065em;
-  text-transform: uppercase;
-}
-.card-title::first-letter { font-size: 1.08em; font-weight: 600; }
-.card-copy {
-  font-size: 12px;
-  line-height: 1.9;
-  color: #6C4143;
-  max-width: 550px;
-}
-.card-icons {
-  display: flex;
-  gap: 12px;
-  margin: 25px 0;
-}
-.card-icon {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(62,0,12,.28);
-  border-radius: 50%;
-  font-size: 15px;
-}
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin: 25px 0;
-}
-.skill-tags span {
-  border: 1px solid rgba(62,0,12,.22);
-  padding: 8px 10px;
-  font-size: 8px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-.read-more {
-  margin-top: 22px;
-  padding: 8px 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  border: 0;
-  background: transparent;
-  color: var(--burgundy);
-  font-size: 9px;
-  letter-spacing: 2.5px;
-  cursor: pointer;
-}
-.read-more::before {
-  content: "";
-  width: 28px;
-  height: 1px;
-  background: currentColor;
-}
-.expanded-copy { display: none; margin-top: 18px; }
-.expanded-copy.open { display: block; }
-.expanded-copy p { margin-bottom: 14px; }
-.quote {
-  padding: 18px 0;
-  margin-top: 20px;
-  border-top: 1px solid rgba(62,0,12,.2);
-  border-bottom: 1px solid rgba(62,0,12,.2);
-  font: italic 23px/1.3 "Bodoni Moda",serif;
-}
+.about{padding:110px 10%;background:var(--cream)}
+.section-kicker{display:flex;align-items:center;gap:12px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C5D5E}
+.section-kicker::before{content:"";width:28px;height:1px;background:currentColor}
+.about-heading{margin:40px 0 60px;width:100%;overflow:hidden;text-align:center;font:400 clamp(48px,9.5vw,135px)/.86 "Bodoni Moda",serif;letter-spacing:-.065em;text-transform:uppercase}
+.about-heading .heading-line{display:block;transition:transform 1.1s cubic-bezier(.16,1,.3,1),opacity .8s ease}
+.about-heading .heading-line:first-child{color:var(--burgundy-light);transform:translateX(-110%);opacity:0}
+.about-heading .heading-line:last-child{color:#B97B82;transform:translateX(110%);opacity:0}
+.about-heading.in-view .heading-line{transform:translateX(0);opacity:1}
+.about-heading.in-view .heading-line:last-child{transition-delay:.25s}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(62,0,12,.25)}
+.about-card{min-width:0;padding:clamp(25px,4vw,55px);position:relative;overflow:hidden;opacity:0;transition:transform 1.15s cubic-bezier(.16,1,.3,1),opacity .8s ease}
+.about-card:first-child{transform:translateX(-90px);background:linear-gradient(135deg,#F4E6D6,#EBD8C5)}
+.about-card:last-child{transform:translateX(90px);background:linear-gradient(135deg,#EFE0D5,#E2C9C0);border-left:1px solid rgba(62,0,12,.2)}
+.about-grid.in-view .about-card{transform:translateX(0);opacity:1}
+.about-grid.in-view .about-card:last-child{transition-delay:.18s}
+.card-kicker{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C5D5E}
+.card-title{margin:35px 0 24px;font:600 clamp(44px,5.6vw,82px)/.86 "Bodoni Moda",serif;letter-spacing:-.065em;text-transform:uppercase}
+.card-title::first-letter{font-size:1.08em;font-weight:600}
+.card-copy{font-size:12px;line-height:1.9;color:#6C4143;max-width:550px}
+.card-icons{display:flex;gap:12px;margin:25px 0}
+.card-icon{width:36px;height:36px;display:grid;place-items:center;border:1px solid rgba(62,0,12,.28);border-radius:50%;font-size:15px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:7px;margin:25px 0}
+.skill-tags span{border:1px solid rgba(62,0,12,.22);padding:8px 10px;font-size:8px;letter-spacing:1.5px;text-transform:uppercase}
+.read-more{margin-top:22px;padding:8px 0;display:inline-flex;align-items:center;gap:12px;border:0;background:transparent;color:var(--burgundy);font-size:9px;letter-spacing:2.5px;cursor:pointer}
+.read-more::before{content:"";width:28px;height:1px;background:currentColor}
+.expanded-copy{display:none;margin-top:18px}
+.expanded-copy.open{display:block}
+.expanded-copy p{margin-bottom:14px}
+.quote{padding:18px 0;margin-top:20px;border-top:1px solid rgba(62,0,12,.2);border-bottom:1px solid rgba(62,0,12,.2);font:italic 23px/1.3 "Bodoni Moda",serif}
 
 /* PROJECTS */
-.projects-section {
-  padding: 100px 10% 80px;
-  background: var(--cream);
-}
-.projects-title-button {
-  position: relative;
-  width: 100%;
-  border: 0;
-  background: transparent;
-  color: var(--burgundy);
-  cursor: pointer;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: center;
-  gap: clamp(10px,1.8vw,24px);
-  padding: 18px 0 36px;
-}
-.my-word {
-  font: 400 clamp(42px,6.5vw,88px)/1 Inter,sans-serif;
-  letter-spacing: -.075em;
-  color: #7A2437;
-  opacity: .7;
-}
-.projects-word {
-  font: 400 clamp(64px,10vw,138px)/.9 "Bodoni Moda",serif;
-  letter-spacing: -.075em;
-}
-.projects-hint {
-  flex-basis: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 14px;
-  font-size: 8px;
-  letter-spacing: 2.5px;
-  color: #8C5D5E;
-}
-.projects-hint span {
-  display: inline-block;
-  font-size: 15px;
-  transition: transform .35s ease;
-}
-.projects-title-button[aria-expanded="true"] .projects-hint span {
-  transform: rotate(180deg);
-}
-.projects-title-underline {
-  position: absolute;
-  bottom: 22px;
-  left: 50%;
-  width: 0;
-  height: 1px;
-  background: var(--burgundy-light);
-  transform: translateX(-50%);
-  transition: width .5s ease;
-}
-.projects-title-button:hover .projects-title-underline,
-.projects-title-button[aria-expanded="true"] .projects-title-underline {
-  width: min(200px,45%);
-}
-.projects-list {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transform: translateY(20px);
-  transition: max-height 1s cubic-bezier(.16,1,.3,1),opacity .5s,transform .5s;
-}
-.projects-list.revealed {
-  max-height: 1000px;
-  opacity: 1;
-  transform: translateY(0);
-}
-.project-item {
-  position: relative;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 70px 1fr 40px;
-  align-items: center;
-  gap: 20px;
-  padding: 28px 25px;
-  text-align: left;
-  border: 0;
-  border-bottom: 1px solid rgba(62,0,12,.2);
-  background: transparent;
-  color: var(--burgundy);
-  cursor: pointer;
-  overflow: hidden;
-  transition: color .4s ease;
-}
-.project-item::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--burgundy);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform .5s cubic-bezier(.16,1,.3,1);
-}
-.project-item:nth-child(even)::before { background: #6A2936; }
-.project-item:hover::before,
-.project-item:focus-visible::before { transform: scaleY(1); }
-.project-item:hover,
-.project-item:focus-visible { color: var(--cream); }
-.project-number,.project-name,.project-arrow {
-  position: relative;
-  z-index: 1;
-}
-.project-number {
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: #A17C78;
-}
-.project-name {
-  font: 400 clamp(29px,5.3vw,68px)/1.05 "Bodoni Moda",serif;
-  letter-spacing: -.045em;
-}
-.project-arrow {
-  font-size: 25px;
-  text-align: right;
-  transition: transform .3s ease;
-}
-.project-item:hover .project-arrow { transform: translate(4px,-4px); }
-.and-more {
-  padding: 25px 0 10px;
-  text-align: center;
-  font: italic 24px "Bodoni Moda",serif;
-  color: var(--burgundy-light);
-}
+.projects-section{padding:100px 10% 80px;background:var(--cream)}
+.projects-title-button{position:relative;width:100%;border:0;background:transparent;color:var(--burgundy);cursor:pointer;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:clamp(10px,1.8vw,24px);padding:18px 0 36px}
+.my-word{font:400 clamp(42px,6.5vw,88px)/1 Inter,sans-serif;letter-spacing:-.075em;color:#7A2437;opacity:.7}
+.projects-word{font:400 clamp(64px,10vw,138px)/.9 "Bodoni Moda",serif;letter-spacing:-.075em}
+.projects-hint{flex-basis:100%;display:flex;justify-content:center;align-items:center;gap:10px;margin-top:14px;font-size:8px;letter-spacing:2.5px;color:#8C5D5E}
+.projects-hint span{display:inline-block;font-size:15px;transition:transform .35s ease}
+.projects-title-button[aria-expanded="true"] .projects-hint span{transform:rotate(180deg)}
+.projects-title-underline{position:absolute;bottom:22px;left:50%;width:0;height:1px;background:var(--burgundy-light);transform:translateX(-50%);transition:width .5s ease}
+.projects-title-button:hover .projects-title-underline,.projects-title-button[aria-expanded="true"] .projects-title-underline{width:min(200px,45%)}
+.projects-list{max-height:0;opacity:0;overflow:hidden;transform:translateY(20px);transition:max-height 1s cubic-bezier(.16,1,.3,1),opacity .5s,transform .5s}
+.projects-list.revealed{max-height:1000px;opacity:1;transform:translateY(0)}
+.project-item{position:relative;width:100%;display:grid;grid-template-columns:70px 1fr 40px;align-items:center;gap:20px;padding:28px 25px;text-align:left;border:0;border-bottom:1px solid rgba(62,0,12,.2);background:transparent;color:var(--burgundy);cursor:pointer;overflow:hidden;transition:color .4s ease}
+.project-item::before{content:"";position:absolute;inset:0;background:var(--burgundy);transform:scaleY(0);transform-origin:bottom;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.project-item:nth-child(even)::before{background:#6A2936}
+.project-item:hover::before,.project-item:focus-visible::before{transform:scaleY(1)}
+.project-item:hover,.project-item:focus-visible{color:var(--cream)}
+.project-number,.project-name,.project-arrow{position:relative;z-index:1}
+.project-number{font-size:10px;letter-spacing:2px;color:#A17C78}
+.project-name{font:400 clamp(29px,5.3vw,68px)/1.05 "Bodoni Moda",serif;letter-spacing:-.045em}
+.project-arrow{font-size:25px;text-align:right;transition:transform .3s ease}
+.project-item:hover .project-arrow{transform:translate(4px,-4px)}
+.and-more{padding:25px 0 10px;text-align:center;font:italic 24px "Bodoni Moda",serif;color:var(--burgundy-light)}
 
 /* PROJECT DETAILS */
-.project-detail {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: var(--cream);
-  overflow-y: auto;
-  padding: clamp(25px,6vw,80px);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(25px);
-  transition: opacity .4s ease,transform .5s ease,visibility .4s;
-}
-.project-detail.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-.detail-back {
-  display: inline-flex;
-  gap: 12px;
-  align-items: center;
-  border: 0;
-  background: transparent;
-  color: var(--burgundy);
-  font-size: 9px;
-  letter-spacing: 2px;
-  cursor: pointer;
-  padding: 12px 0;
-}
-.detail-topline {
-  margin-top: 55px;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: #936C6B;
-}
-.detail-title {
-  margin: 35px 0 20px;
-  font: 400 clamp(55px,11vw,145px)/.9 "Bodoni Moda",serif;
-  letter-spacing: -.07em;
-  overflow-wrap: anywhere;
-}
-.detail-intro {
-  max-width: 650px;
-  color: #795456;
-  font-size: 13px;
-  line-height: 1.9;
-}
-.detail-media-grid {
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 15px;
-}
-.detail-media {
-  min-height: 240px;
-  padding: 20px;
-  background: linear-gradient(135deg,#EBD8C5,#E2C9C0);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: #7A2437;
-}
-.detail-media-main { min-height: 400px; }
-.detail-media span {
-  font-size: 9px;
-  letter-spacing: 2px;
-}
-.detail-media small {
-  font: italic 20px "Bodoni Moda",serif;
-}
-.detail-info-grid {
-  margin-top: 35px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 35px;
-}
-.detail-label {
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: #936C6B;
-}
-.detail-info-grid p {
-  margin-top: 15px;
-  max-width: 500px;
-  font-size: 12px;
-  line-height: 1.9;
-  color: #795456;
-}
+.project-detail{position:fixed;inset:0;z-index:100;background:var(--cream);overflow-y:auto;padding:clamp(25px,6vw,80px);opacity:0;visibility:hidden;transform:translateY(25px);transition:opacity .4s ease,transform .5s ease,visibility .4s}
+.project-detail.active{opacity:1;visibility:visible;transform:translateY(0)}
+.detail-back{display:inline-flex;gap:12px;align-items:center;border:0;background:transparent;color:var(--burgundy);font-size:9px;letter-spacing:2px;cursor:pointer;padding:12px 0}
+.detail-topline{margin-top:55px;display:flex;justify-content:space-between;gap:20px;font-size:9px;letter-spacing:2px;color:#936C6B}
+.detail-title{margin:35px 0 20px;font:400 clamp(55px,11vw,145px)/.9 "Bodoni Moda",serif;letter-spacing:-.07em;overflow-wrap:anywhere}
+.detail-intro{max-width:650px;color:#795456;font-size:13px;line-height:1.9}
+.detail-media-grid{margin-top:50px;display:grid;grid-template-columns:1.5fr 1fr;gap:15px}
+.detail-media{min-height:240px;padding:20px;background:linear-gradient(135deg,#EBD8C5,#E2C9C0);display:flex;flex-direction:column;justify-content:space-between;color:#7A2437}
+.detail-media-main{min-height:400px}
+.detail-media span{font-size:9px;letter-spacing:2px}
+.detail-media small{font:italic 20px "Bodoni Moda",serif}
+.detail-info-grid{margin-top:35px;display:grid;grid-template-columns:1fr 1fr;gap:35px}
+.detail-label{font-size:9px;letter-spacing:2px;color:#936C6B}
+.detail-info-grid p{margin-top:15px;max-width:500px;font-size:12px;line-height:1.9;color:#795456}
 
 /* MOTIVATION */
-.motivation-section {
-  padding: 110px 10%;
-  background: #EBD8D0;
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 7%;
-  align-items: center;
-  overflow: hidden;
-}
-.motivation-photo {
-  min-height: 480px;
-  background: #D7C2B6;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateX(-90px);
-  transition: transform 1.15s cubic-bezier(.16,1,.3,1),opacity .85s ease;
-}
-.motivation-copy {
-  opacity: 0;
-  transform: translateX(90px);
-  transition: transform 1.15s cubic-bezier(.16,1,.3,1),opacity .85s ease;
-}
-.motivation-section.in-view .motivation-photo,
-.motivation-section.in-view .motivation-copy {
-  opacity: 1;
-  transform: translateX(0);
-}
-.motivation-section.in-view .motivation-copy { transition-delay: .18s; }
-.motivation-photo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 480px;
-  object-fit: cover;
-  filter: grayscale(100%);
-  animation: photoDrift 8s ease-in-out infinite alternate;
-  will-change: transform;
-}
-@keyframes photoDrift {
-  from { transform: translateX(-2.5%) scale(1.04); }
-  to { transform: translateX(2.5%) scale(1.04); }
-}
-.motivation-copy h2 {
-  margin: 30px 0;
-  font: 400 clamp(45px,7vw,90px)/.9 "Bodoni Moda",serif;
-  letter-spacing: -.06em;
-}
-.motivation-copy h2 em {
-  color: var(--burgundy-light);
-  font-weight: 400;
-}
-.motivation-copy p {
-  max-width: 500px;
-  font: 400 15px/1.9 "Bodoni Moda",serif;
-  color: #795456;
-}
-.motivation-icons {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-}
-.motivation-icons span {
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(62,0,12,.25);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 17px;
-}
-.motivation-signature {
-  display: block;
-  margin-top: 30px;
-  font-size: 8px;
-  letter-spacing: 2px;
-  color: #8C5D5E;
-}
-.footer {
-  padding: 30px 10%;
-  background: var(--burgundy);
-  color: var(--cream);
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 8px;
-  letter-spacing: 2px;
-}
+.motivation-section{padding:110px 10%;background:#EBD8D0;display:grid;grid-template-columns:.9fr 1.1fr;gap:7%;align-items:center;overflow:hidden}
+.motivation-photo{min-height:480px;background:#D7C2B6;overflow:hidden;opacity:0;transform:translateX(-90px);transition:transform 1.15s cubic-bezier(.16,1,.3,1),opacity .85s ease}
+.motivation-copy{opacity:0;transform:translateX(90px);transition:transform 1.15s cubic-bezier(.16,1,.3,1),opacity .85s ease}
+.motivation-section.in-view .motivation-photo,.motivation-section.in-view .motivation-copy{opacity:1;transform:translateX(0)}
+.motivation-section.in-view .motivation-copy{transition-delay:.18s}
+.motivation-photo img{display:block;width:100%;height:100%;min-height:480px;object-fit:cover;filter:grayscale(100%);animation:photoDrift 8s ease-in-out infinite alternate;will-change:transform}
+@keyframes photoDrift{from{transform:translateX(-2.5%) scale(1.04)}to{transform:translateX(2.5%) scale(1.04)}}
+.motivation-copy h2{margin:30px 0;font:400 clamp(45px,7vw,90px)/.9 "Bodoni Moda",serif;letter-spacing:-.06em}
+.motivation-copy h2 em{color:var(--burgundy-light);font-weight:400}
+.motivation-copy p{max-width:500px;font:400 15px/1.9 "Bodoni Moda",serif;color:#795456}
+.motivation-icons{display:flex;gap:15px;margin-top:30px}
+.motivation-icons span{width:40px;height:40px;border:1px solid rgba(62,0,12,.25);border-radius:50%;display:grid;place-items:center;font-size:17px}
+.motivation-signature{display:block;margin-top:30px;font-size:8px;letter-spacing:2px;color:#8C5D5E}
+.footer{padding:30px 10%;background:var(--burgundy);color:var(--cream);display:flex;justify-content:space-between;gap:20px;font-size:8px;letter-spacing:2px}
 
 /* MOBILE */
-@media(max-width:760px) {
-  .intro-inner { padding: 18px; }
-  .intro-word { font-size: clamp(42px,14vw,100px); letter-spacing: -.09em; }
-  .intro-note { bottom: 25px; font-size: 7px; letter-spacing: 1.5px; }
-
-  .intro-portrait {
-    min-height: auto;
-    padding: 85px 6% 95px;
-  }
-  .portrait-layout {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px 12px;
-  }
-  .portrait-image-wrap {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    width: min(72%, 360px);
-    justify-self: center;
-    aspect-ratio: 4 / 5.2;
-  }
-  .portrait-word {
-    font-size: clamp(50px, 12vw, 82px);
-    align-self: start;
-  }
-  .portrait-word-left {
-    grid-column: 1;
-    grid-row: 2;
-    text-align: left;
-  }
-  .portrait-word-right {
-    grid-column: 2;
-    grid-row: 2;
-    text-align: right;
-  }
-  .portrait-side-note {
-    font-size: 7px;
-    letter-spacing: 1px;
-    margin-top: 14px;
-  }
-  .portrait-caption {
-    bottom: 22px;
-    font-size: 7px;
-    letter-spacing: 1.5px;
-  }
-  .intro-portrait::before {
-    width: 95vw;
-    right: -40%;
-    top: -10%;
-  }
-  .intro-portrait::after {
-    width: 75vw;
-    left: -40%;
-    bottom: -12%;
-  }
-
-  /* IMAGE 6 QUOTE STAGE — MOBILE */
-  .quote-stage {
-    min-height: 85svh;
-    padding: 65px 5%;
-  }
-  .quote-stage-inner { min-height: 65svh; }
-  .quote-stage-art {
-    width: 110vw;
-    max-height: 68svh;
-    transform: translate(-150%, -50%) rotate(-8deg) scale(.8);
-  }
-  .quote-stage.in-view .quote-stage-art {
-    transform: translate(-50%, -50%) rotate(0) scale(1);
-  }
-  .quote-stage-text {
-    width: 88%;
-    margin-left: 8%;
-    font-size: clamp(36px, 10vw, 58px);
-    text-shadow: 0 1px 12px rgba(255,255,255,.5);
-  }
-
-  .about { padding: 75px 6%; }
-  .about-heading { margin: 35px 0 40px; font-size: clamp(43px,11vw,82px); }
-  .about-grid { grid-template-columns: 1fr; }
-  .about-card { padding: 28px 23px; }
-  .about-card:first-child { transform: translateX(-60px); }
-  .about-card:last-child {
-    transform: translateX(60px);
-    border-left: 0;
-    border-top: 1px solid rgba(62,0,12,.2);
-  }
-  .card-title { font-size: clamp(48px,11vw,70px); font-weight: 600; }
-  .projects-section { padding: 70px 6%; }
-  .projects-title-button { gap: 10px; }
-  .my-word { font-size: clamp(40px,10vw,62px); }
-  .projects-word { font-size: clamp(58px,13vw,90px); }
-  .project-item { grid-template-columns: 35px 1fr 25px; gap: 10px; padding: 25px 8px; }
-  .project-name { font-size: clamp(27px,7vw,44px); }
-  .project-number { font-size: 8px; }
-  .project-arrow { font-size: 20px; }
-  .project-detail { padding: 25px 6%; }
-  .detail-topline { margin-top: 35px; font-size: 8px; }
-  .detail-title { font-size: clamp(50px,12vw,85px); }
-  .detail-media-grid { grid-template-columns: 1fr; margin-top: 30px; }
-  .detail-media-main { min-height: 250px; }
-  .detail-media { min-height: 180px; }
-  .detail-info-grid { grid-template-columns: 1fr; gap: 25px; }
-  .motivation-section { padding: 75px 6%; grid-template-columns: 1fr; gap: 35px; }
-  .motivation-photo,.motivation-photo img { min-height: 350px; }
-  .motivation-photo { transform: translateX(-60px); }
-  .motivation-copy { transform: translateX(60px); }
-  .motivation-copy h2 { font-size: clamp(48px,11vw,75px); }
-  .motivation-copy p { font-size: 16px; }
-  .footer { padding: 25px 6%; flex-direction: column; line-height: 1.8; }
+@media(max-width:760px){
+.intro-inner{padding:18px}
+.intro-word{font-size:clamp(42px,14vw,100px);letter-spacing:-.09em}
+.intro-portrait{min-height:auto;padding:85px 6% 95px}
+.portrait-layout{grid-template-columns:1fr 1fr;gap:20px 12px}
+.portrait-image-wrap{grid-column:1/-1;grid-row:1;width:min(72%,360px);justify-self:center;aspect-ratio:4/5.2}
+.portrait-word{font-size:clamp(50px,12vw,82px);align-self:start}
+.portrait-word-left{grid-column:1;grid-row:2;text-align:left}
+.portrait-word-right{grid-column:2;grid-row:2;text-align:right}
+.portrait-side-note{font-size:7px;letter-spacing:1px;margin-top:14px}
+.portrait-caption{bottom:22px;font-size:7px;letter-spacing:1.5px}
+.intro-portrait::before{width:95vw;right:-40%;top:-10%}
+.intro-portrait::after{width:75vw;left:-40%;bottom:-12%}
+.quote-stage{min-height:85svh;padding:65px 5%}
+.quote-stage-inner{min-height:65svh}
+.quote-stage-art{width:110vw;max-height:68svh;transform:translate(-155%,-50%) rotate(-8deg) scale(.8)}
+.quote-stage.in-view .quote-stage-art{transform:translate(-50%,-50%) rotate(0) scale(1)}
+.quote-stage-text{width:88%;margin-left:8%;font-size:clamp(36px,10vw,58px);text-shadow:0 1px 12px rgba(255,255,255,.5)}
+.about{padding:75px 6%}
+.about-heading{margin:35px 0 40px;font-size:clamp(43px,11vw,82px)}
+.about-grid{grid-template-columns:1fr}
+.about-card{padding:28px 23px}
+.about-card:first-child{transform:translateX(-60px)}
+.about-card:last-child{transform:translateX(60px);border-left:0;border-top:1px solid rgba(62,0,12,.2)}
+.card-title{font-size:clamp(48px,11vw,70px);font-weight:600}
+.projects-section{padding:70px 6%}
+.projects-title-button{gap:10px}
+.my-word{font-size:clamp(40px,10vw,62px)}
+.projects-word{font-size:clamp(58px,13vw,90px)}
+.project-item{grid-template-columns:35px 1fr 25px;gap:10px;padding:25px 8px}
+.project-name{font-size:clamp(27px,7vw,44px)}
+.project-number{font-size:8px}
+.project-arrow{font-size:20px}
+.project-detail{padding:25px 6%}
+.detail-topline{margin-top:35px;font-size:8px}
+.detail-title{font-size:clamp(50px,12vw,85px)}
+.detail-media-grid{grid-template-columns:1fr;margin-top:30px}
+.detail-media-main{min-height:250px}
+.detail-media{min-height:180px}
+.detail-info-grid{grid-template-columns:1fr;gap:25px}
+.motivation-section{padding:75px 6%;grid-template-columns:1fr;gap:35px}
+.motivation-photo,.motivation-photo img{min-height:350px}
+.motivation-photo{transform:translateX(-60px)}
+.motivation-copy{transform:translateX(60px)}
+.motivation-copy h2{font-size:clamp(48px,11vw,75px)}
+.motivation-copy p{font-size:16px}
+.footer{padding:25px 6%;flex-direction:column;line-height:1.8}
 }
-
-@media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
-    animation-duration:.01ms !important;
-    transition-duration:.01ms !important;
-    scroll-behavior:auto !important;
-  }
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
-
 <body>
 
 <!-- PORTFOLIO INTRO -->
 <section class="intro" id="home" aria-label="Portfolio intro">
-  <div class="intro-inner">
-    <h1 class="intro-word" aria-label="Portfolio">
-      <span class="intro-group intro-port is-visible">PORT</span><span class="intro-group intro-fol">FOL</span><span class="intro-group intro-io">IO</span>
-    </h1>
-    <div class="intro-note">Scroll to reveal · Shopify · Design · Customer experience</div>
-  </div>
+<div class="intro-inner">
+<h1 class="intro-word" aria-label="Portfolio">
+<span class="intro-group intro-port is-visible">POR</span><span class="intro-group intro-tfo">TFO</span><span class="intro-group intro-lio">LIO</span>
+</h1>
+<div class="intro-signature"><strong>Luiza</strong>Sargsyan</div>
+</div>
 </section>
 
 <!-- INTRODUCTION PORTRAIT -->
 <section class="intro-portrait" id="hello" aria-label="Introduction">
-  <div class="portrait-layout">
-
-    <div class="portrait-word portrait-word-left">
-      Hey<span class="accent">,</span>
-      <span class="portrait-side-note">
-        Creative mind<br>
-        with an eye for detail
-      </span>
-    </div>
-
-    <figure class="portrait-image-wrap">
-      <img
-        src="image5"
-        alt="Portrait of Luiza Sargsyan"
-        loading="lazy"
-      >
-      <figcaption class="portrait-caption">
-        Shopify · Design · Digital experience
-      </figcaption>
-    </figure>
-
-    <div class="portrait-word portrait-word-right">
-      I am<br>
-      <span class="accent">Luiza</span>
-      <span class="portrait-side-note">
-        Building thoughtful<br>
-        digital experiences
-      </span>
-    </div>
-
-  </div>
+<div class="portrait-layout">
+<div class="portrait-word portrait-word-left">
+Hey<span class="accent">,</span>
+<span class="portrait-side-note">Creative mind<br>with an eye for detail</span>
+</div>
+<figure class="portrait-image-wrap">
+<img src="image5" alt="Portrait of Luiza Sargsyan" loading="lazy">
+<figcaption class="portrait-caption">Shopify · Design · Digital experience</figcaption>
+</figure>
+<div class="portrait-word portrait-word-right">
+I am<br><span class="accent">Luiza</span>
+<span class="portrait-side-note">Building thoughtful<br>digital experiences</span>
+</div>
+</div>
 </section>
 
 <!-- IMAGE 6 · QUOTE REVEAL -->
 <section class="quote-stage" id="quoteStage" aria-label="Inspirational quote">
-  <div class="quote-stage-inner">
-    <img class="quote-stage-art" src="image6" alt="" loading="lazy">
-    <blockquote class="quote-stage-text">
-      If you can imagine it,<br>
-      <em>You can do it!</em>
-    </blockquote>
-  </div>
+<div class="quote-stage-inner">
+<img class="quote-stage-art" src="image6" alt="" loading="lazy">
+<blockquote class="quote-stage-text">
+If you can imagine it,<br>
+<em>You can do it!</em>
+</blockquote>
+</div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
-  <div class="section-kicker">A little more about me</div>
-  <h2 class="about-heading"><span class="heading-line">A little more</span><span class="heading-line">about me</span></h2>
-
-  <div class="about-grid">
-    <article class="about-card">
-      <div class="card-kicker">Personal</div>
-      <h3 class="card-title">Personal</h3>
-      <p class="card-copy">I’m Luiza Sargsyan — Armenian, based in Yerevan, and someone who believes in building a life filled with experiences worth remembering.</p>
-      <div class="card-icons" aria-hidden="true">
-        <span class="card-icon">▤</span><span class="card-icon">⌁</span><span class="card-icon">⌂</span>
-      </div>
-      <div class="expanded-copy" id="personalMore">
-        <p>I love travelling, discovering new places and collecting memories. I have visited more than 30 European cities, and Paris remains one of my favourites for its architecture, historic streets and atmosphere.</p>
-        <p>Freelancing gives me more than an income. It gives me freedom — to choose how I work, where I work, how I use my time and which direction I take.</p>
-        <p>I have worked in a traditional 9-to-6 environment, but I have always wanted to keep learning and building something of my own.</p>
-        <p>I enjoy reading, writing down my thoughts, trying new recipes and cooking Armenian food for people I love. I believe life is too short to postpone the things that matter. I want to look back with memories, not regrets.</p>
-        <div class="quote">“The mind is a wonderful servant, but a terrible master.”</div>
-        <p><small>— Robin Sharma, <em>The Monk Who Sold His Ferrari</em></small></p>
-      </div>
-      <button class="read-more" type="button" data-target="personalMore">READ MORE <span>+</span></button>
-    </article>
-
-    <article class="about-card">
-      <div class="card-kicker">Professional</div>
-      <h3 class="card-title">Professional</h3>
-      <p class="card-copy">Shopify Specialist &amp; Designer focused on creating clean, premium and conversion-conscious digital experiences.</p>
-      <div class="card-icons" aria-hidden="true">
-        <span class="card-icon">♙</span><span class="card-icon">&lt;/&gt;</span><span class="card-icon">♧</span>
-      </div>
-      <div class="skill-tags">
-        <span>Shopify</span><span>Design</span><span>Liquid</span><span>CRO</span><span>UX</span>
-      </div>
-      <div class="expanded-copy" id="professionalMore">
-        <p>My first profession was psychology, which helps me understand communication, customer behaviour and the way people interact with digital products.</p>
-        <p>I have more than a year of hands-on Shopify experience and have worked with Armenian and international clients, both through Upwork and independently.</p>
-        <p>I build and customize storefronts with a focus on visual clarity, responsive layouts, usability and the details that help a brand feel trustworthy.</p>
-        <p>My work includes Shopify store setup and management, theme customization, Liquid, HTML, CSS, JavaScript, custom sections, product and collection pages, landing pages, metafields, metaobjects, navigation, mega menus, Markets, currencies, shipping settings, SEO, app integrations, bug fixes and UX improvements.</p>
-      </div>
-      <button class="read-more" type="button" data-target="professionalMore">READ MORE <span>+</span></button>
-    </article>
-  </div>
+<div class="section-kicker">A little more about me</div>
+<h2 class="about-heading"><span class="heading-line">A little more</span><span class="heading-line">about me</span></h2>
+<div class="about-grid">
+<article class="about-card">
+<div class="card-kicker">Personal</div>
+<h3 class="card-title">Personal</h3>
+<p class="card-copy">I’m Luiza Sargsyan — Armenian, based in Yerevan, and someone who believes in building a life filled with experiences worth remembering.</p>
+<div class="card-icons" aria-hidden="true"><span class="card-icon">▤</span><span class="card-icon">⌁</span><span class="card-icon">⌂</span></div>
+<div class="expanded-copy" id="personalMore">
+<p>I love travelling, discovering new places and collecting memories. I have visited more than 30 European cities, and Paris remains one of my favourites for its architecture, historic streets and atmosphere.</p>
+<p>Freelancing gives me more than an income. It gives me freedom — to choose how I work, where I work, how I use my time and which direction I take.</p>
+<p>I have worked in a traditional 9-to-6 environment, but I have always wanted to keep learning and building something of my own.</p>
+<p>I enjoy reading, writing down my thoughts, trying new recipes and cooking Armenian food for people I love. I believe life is too short to postpone the things that matter. I want to look back with memories, not regrets.</p>
+<div class="quote">“The mind is a wonderful servant, but a terrible master.”</div>
+<p><small>— Robin Sharma, <em>The Monk Who Sold His Ferrari</em></small></p>
+</div>
+<button class="read-more" type="button" data-target="personalMore">READ MORE <span>+</span></button>
+</article>
+<article class="about-card">
+<div class="card-kicker">Professional</div>
+<h3 class="card-title">Professional</h3>
+<p class="card-copy">Shopify Specialist &amp; Designer focused on creating clean, premium and conversion-conscious digital experiences.</p>
+<div class="card-icons" aria-hidden="true"><span class="card-icon">♙</span><span class="card-icon">&lt;/&gt;</span><span class="card-icon">♧</span></div>
+<div class="skill-tags"><span>Shopify</span><span>Design</span><span>Liquid</span><span>CRO</span><span>UX</span></div>
+<div class="expanded-copy" id="professionalMore">
+<p>My first profession was psychology, which helps me understand communication, customer behaviour and the way people interact with digital products.</p>
+<p>I have more than a year of hands-on Shopify experience and have worked with Armenian and international clients, both through Upwork and independently.</p>
+<p>I build and customize storefronts with a focus on visual clarity, responsive layouts, usability and the details that help a brand feel trustworthy.</p>
+<p>My work includes Shopify store setup and management, theme customization, Liquid, HTML, CSS, JavaScript, custom sections, product and collection pages, landing pages, metafields, metaobjects, navigation, mega menus, Markets, currencies, shipping settings, SEO, app integrations, bug fixes and UX improvements.</p>
+</div>
+<button class="read-more" type="button" data-target="professionalMore">READ MORE <span>+</span></button>
+</article>
+</div>
 </section>
 
 <!-- PROJECTS -->
 <section class="projects-section" id="projects">
-  <button class="projects-title-button" id="projectsToggle" type="button" aria-expanded="false">
-    <span class="my-word">My</span>
-    <span class="projects-word">Projects</span>
-    <span class="projects-title-underline" aria-hidden="true"></span>
-    <span class="projects-hint">EXPLORE SELECTED WORK <span>↓</span></span>
-  </button>
-
-  <div class="projects-list" id="projectsList">
-    <button class="project-item" type="button" data-project="0"><span class="project-number">01</span><span class="project-name">Strix Art</span><span class="project-arrow">↗</span></button>
-    <button class="project-item" type="button" data-project="1"><span class="project-number">02</span><span class="project-name">Apparel Base System</span><span class="project-arrow">↗</span></button>
-    <button class="project-item" type="button" data-project="2"><span class="project-number">03</span><span class="project-name">FaceDunk</span><span class="project-arrow">↗</span></button>
-    <button class="project-item" type="button" data-project="3"><span class="project-number">04</span><span class="project-name">Rains</span><span class="project-arrow">↗</span></button>
-    <button class="project-item" type="button" data-project="4"><span class="project-number">05</span><span class="project-name">Haus</span><span class="project-arrow">↗</span></button>
-    <div class="and-more">and more...</div>
-  </div>
+<button class="projects-title-button" id="projectsToggle" type="button" aria-expanded="false">
+<span class="my-word">My</span><span class="projects-word">Projects</span>
+<span class="projects-title-underline" aria-hidden="true"></span>
+<span class="projects-hint">EXPLORE SELECTED WORK <span>↓</span></span>
+</button>
+<div class="projects-list" id="projectsList">
+<button class="project-item" type="button" data-project="0"><span class="project-number">01</span><span class="project-name">Strix Art</span><span class="project-arrow">↗</span></button>
+<button class="project-item" type="button" data-project="1"><span class="project-number">02</span><span class="project-name">Apparel Base System</span><span class="project-arrow">↗</span></button>
+<button class="project-item" type="button" data-project="2"><span class="project-number">03</span><span class="project-name">FaceDunk</span><span class="project-arrow">↗</span></button>
+<button class="project-item" type="button" data-project="3"><span class="project-number">04</span><span class="project-name">Rains</span><span class="project-arrow">↗</span></button>
+<button class="project-item" type="button" data-project="4"><span class="project-number">05</span><span class="project-name">Haus</span><span class="project-arrow">↗</span></button>
+<div class="and-more">and more...</div>
+</div>
 </section>
 
 <!-- MOTIVATION -->
 <section class="motivation-section">
-  <div class="motivation-photo">
-    <img src="image4" alt="Luiza Sargsyan" loading="lazy">
-  </div>
-  <div class="motivation-copy">
-    <div class="section-kicker">A reminder for the road ahead</div>
-    <h2>Keep becoming<br><em>who you imagined.</em></h2>
-    <p>Do not shrink your vision to fit the life you already know. Keep learning, trust the work you put in, and take the next step before you feel completely ready. The future is built by the courage to begin again.</p>
-    <div class="motivation-icons" aria-hidden="true"><span>✳</span><span>↗</span><span>♡</span></div>
-    <div class="motivation-signature">LUIZA SARGSYAN · SHOPIFY SPECIALIST</div>
-  </div>
+<div class="motivation-photo"><img src="image4" alt="Luiza Sargsyan" loading="lazy"></div>
+<div class="motivation-copy">
+<div class="section-kicker">A reminder for the road ahead</div>
+<h2>Keep becoming<br><em>who you imagined.</em></h2>
+<p>Do not shrink your vision to fit the life you already know. Keep learning, trust the work you put in, and take the next step before you feel completely ready. The future is built by the courage to begin again.</p>
+<div class="motivation-icons" aria-hidden="true"><span>✳</span><span>↗</span><span>♡</span></div>
+<div class="motivation-signature">LUIZA SARGSYAN · SHOPIFY SPECIALIST</div>
+</div>
 </section>
-
-<footer class="footer">
-  <span>SHOPIFY · DESIGN · CUSTOMER EXPERIENCE</span>
-  <span>YEREVAN · ARMENIA</span>
-</footer>
+<footer class="footer"><span>SHOPIFY · DESIGN · CUSTOMER EXPERIENCE</span><span>YEREVAN · ARMENIA</span></footer>
 
 <!-- PROJECT DETAIL OVERLAY -->
 <section class="project-detail" id="projectDetail" role="dialog" aria-modal="true" aria-hidden="true">
-  <button class="detail-back" id="detailBack" type="button">← BACK TO MY PROJECTS</button>
-  <div class="detail-topline"><span id="detailNumber">PROJECT 01</span><span>SELECTED WORK · SHOPIFY</span></div>
-  <h2 class="detail-title" id="detailTitle">Strix Art</h2>
-  <p class="detail-intro" id="detailIntro">Project overview, visuals and video will be added here.</p>
-  <div class="detail-media-grid">
-    <div class="detail-media detail-media-main"><span>PROJECT VISUAL / VIDEO</span><small>Media placeholder</small></div>
-    <div class="detail-media"><span>IMAGE 02</span><small>Image placeholder</small></div>
-    <div class="detail-media"><span>IMAGE 03</span><small>Image placeholder</small></div>
-  </div>
-  <div class="detail-info-grid">
-    <div><span class="detail-label">OVERVIEW</span><p id="detailOverview">Details about this project will be added soon.</p></div>
-    <div><span class="detail-label">SCOPE OF WORK</span><p>Design · Shopify · Theme customization · Responsive experience</p></div>
-  </div>
+<button class="detail-back" id="detailBack" type="button">← BACK TO MY PROJECTS</button>
+<div class="detail-topline"><span id="detailNumber">PROJECT 01</span><span>SELECTED WORK · SHOPIFY</span></div>
+<h2 class="detail-title" id="detailTitle">Strix Art</h2>
+<p class="detail-intro" id="detailIntro">Project overview, visuals and video will be added here.</p>
+<div class="detail-media-grid">
+<div class="detail-media detail-media-main"><span>PROJECT VISUAL / VIDEO</span><small>Media placeholder</small></div>
+<div class="detail-media"><span>IMAGE 02</span><small>Image placeholder</small></div>
+<div class="detail-media"><span>IMAGE 03</span><small>Image placeholder</small></div>
+</div>
+<div class="detail-info-grid">
+<div><span class="detail-label">OVERVIEW</span><p id="detailOverview">Details about this project will be added soon.</p></div>
+<div><span class="detail-label">SCOPE OF WORK</span><p>Design · Shopify · Theme customization · Responsive experience</p></div>
+</div>
 </section>
 
 <script>
-const projects = [
-  {
-    name: "Strix Art",
-    intro: "A premium e-commerce project. Project information, visuals and video can be added here.",
-    overview: "Project overview and results will be added soon."
-  },
-  {
-    name: "Apparel Base System",
-    intro: "A digital storefront concept focused on product presentation and a clear shopping experience.",
-    overview: "Project information and deliverables will be added soon."
-  },
-  {
-    name: "FaceDunk",
-    intro: "A beauty e-commerce experience with an emphasis on product discovery and brand presentation.",
-    overview: "Project information and deliverables will be added soon."
-  },
-  {
-    name: "Rains",
-    intro: "A minimal product-focused storefront concept.",
-    overview: "Project information and deliverables will be added soon."
-  },
-  {
-    name: "Haus",
-    intro: "A contemporary digital storefront concept.",
-    overview: "Project information and deliverables will be added soon."
-  }
+const projects=[
+{name:"Strix Art",intro:"A premium e-commerce project. Project information, visuals and video can be added here.",overview:"Project overview and results will be added soon."},
+{name:"Apparel Base System",intro:"A digital storefront concept focused on product presentation and a clear shopping experience.",overview:"Project information and deliverables will be added soon."},
+{name:"FaceDunk",intro:"A beauty e-commerce experience with an emphasis on product discovery and brand presentation.",overview:"Project information and deliverables will be added soon."},
+{name:"Rains",intro:"A minimal product-focused storefront concept.",overview:"Project information and deliverables will be added soon."},
+{name:"Haus",intro:"A contemporary digital storefront concept.",overview:"Project information and deliverables will be added soon."}
 ];
 
-/* Reveal PORT, FOL and IO progressively while scrolling */
-const intro = document.querySelector('.intro');
-const introGroups = [...document.querySelectorAll('.intro-group')];
-let introTicking = false;
-
-function updateIntroReveal() {
-  const rect = intro.getBoundingClientRect();
-  const totalScrollable = Math.max(1, intro.offsetHeight - window.innerHeight);
-  const progress = Math.min(1, Math.max(0, -rect.top / totalScrollable));
-  const visibleCount = progress < 0.27 ? 1 : progress < 0.62 ? 2 : 3;
-
-  introGroups.forEach((group, index) => {
-    group.classList.toggle('is-visible', index < visibleCount);
-  });
-
-  introTicking = false;
+/* Reveal POR, then TFO, then LIO; change the background with each stage. */
+const intro=document.querySelector('.intro');
+const introGroups=[...document.querySelectorAll('.intro-group')];
+let introTicking=false;
+function updateIntroReveal(){
+const rect=intro.getBoundingClientRect();
+const totalScrollable=Math.max(1,intro.offsetHeight-window.innerHeight);
+const progress=Math.min(1,Math.max(0,-rect.top/totalScrollable));
+const visibleCount=progress<.28?1:progress<.62?2:3;
+introGroups.forEach((group,index)=>group.classList.toggle('is-visible',index<visibleCount));
+intro.classList.toggle('is-stage-1',progress<.28);
+intro.classList.toggle('is-stage-2',progress>=.28&&progress<.62);
+intro.classList.toggle('is-stage-3',progress>=.62);
+introTicking=false;
 }
-
-window.addEventListener('scroll', () => {
-  if (!introTicking) {
-    window.requestAnimationFrame(updateIntroReveal);
-    introTicking = true;
-  }
-}, { passive: true });
-
-window.addEventListener('resize', updateIntroReveal);
+window.addEventListener('scroll',()=>{
+if(!introTicking){window.requestAnimationFrame(updateIntroReveal);introTicking=true}
+},{passive:true});
+window.addEventListener('resize',updateIntroReveal);
 updateIntroReveal();
 
 /* Repeat animations when scrolling into or away from sections */
-const replaySections = document.querySelectorAll(
-  '.intro-portrait, .quote-stage, .about-heading, .about-grid, .motivation-section'
-);
-
-const replayObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    entry.target.classList.toggle('in-view', entry.isIntersecting);
-  });
-}, { threshold: 0.22 });
-
-replaySections.forEach(section => replayObserver.observe(section));
+const replaySections=document.querySelectorAll('.intro-portrait,.quote-stage,.about-heading,.about-grid,.motivation-section');
+const replayObserver=new IntersectionObserver(entries=>{
+entries.forEach(entry=>entry.target.classList.toggle('in-view',entry.isIntersecting));
+},{threshold:.22});
+replaySections.forEach(section=>replayObserver.observe(section));
 
 /* Expand and collapse project list */
-const projectsToggle = document.getElementById('projectsToggle');
-const projectsList = document.getElementById('projectsList');
-const projectDetail = document.getElementById('projectDetail');
-const detailBack = document.getElementById('detailBack');
-const detailTitle = document.getElementById('detailTitle');
-const detailNumber = document.getElementById('detailNumber');
-const detailIntro = document.getElementById('detailIntro');
-const detailOverview = document.getElementById('detailOverview');
-
-projectsToggle.addEventListener('click', () => {
-  const isOpen = projectsList.classList.toggle('revealed');
-  projectsToggle.setAttribute('aria-expanded', String(isOpen));
+const projectsToggle=document.getElementById('projectsToggle');
+const projectsList=document.getElementById('projectsList');
+const projectDetail=document.getElementById('projectDetail');
+const detailBack=document.getElementById('detailBack');
+const detailTitle=document.getElementById('detailTitle');
+const detailNumber=document.getElementById('detailNumber');
+const detailIntro=document.getElementById('detailIntro');
+const detailOverview=document.getElementById('detailOverview');
+projectsToggle.addEventListener('click',()=>{
+const isOpen=projectsList.classList.toggle('revealed');
+projectsToggle.setAttribute('aria-expanded',String(isOpen));
 });
 
 /* Open the selected project */
-document.querySelectorAll('.project-item').forEach(button => {
-  button.addEventListener('click', () => {
-    const index = Number(button.dataset.project);
-    const project = projects[index];
-
-    detailTitle.textContent = project.name;
-    detailNumber.textContent = `PROJECT ${String(index + 1).padStart(2, '0')}`;
-    detailIntro.textContent = project.intro;
-    detailOverview.textContent = project.overview;
-
-    projectDetail.scrollTop = 0;
-    projectDetail.classList.add('active');
-    projectDetail.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    detailBack.focus({ preventScroll: true });
-  });
+document.querySelectorAll('.project-item').forEach(button=>{
+button.addEventListener('click',()=>{
+const index=Number(button.dataset.project);
+const project=projects[index];
+detailTitle.textContent=project.name;
+detailNumber.textContent=`PROJECT ${String(index+1).padStart(2,'0')}`;
+detailIntro.textContent=project.intro;
+detailOverview.textContent=project.overview;
+projectDetail.scrollTop=0;
+projectDetail.classList.add('active');
+projectDetail.setAttribute('aria-hidden','false');
+document.body.style.overflow='hidden';
+detailBack.focus({preventScroll:true});
+});
 });
 
 /* Close project detail */
-function closeProjectDetail() {
-  projectDetail.classList.remove('active');
-  projectDetail.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
+function closeProjectDetail(){
+projectDetail.classList.remove('active');
+projectDetail.setAttribute('aria-hidden','true');
+document.body.style.overflow='';
 }
-
-detailBack.addEventListener('click', closeProjectDetail);
-
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && projectDetail.classList.contains('active')) {
-    closeProjectDetail();
-  }
+detailBack.addEventListener('click',closeProjectDetail);
+document.addEventListener('keydown',event=>{
+if(event.key==='Escape'&&projectDetail.classList.contains('active'))closeProjectDetail();
 });
 
 /* Read more / read less */
-document.querySelectorAll('.read-more').forEach(button => {
-  button.addEventListener('click', () => {
-    const target = document.getElementById(button.dataset.target);
-    const isOpen = target.classList.toggle('open');
-
-    button.innerHTML = isOpen
-      ? 'READ LESS <span>−</span>'
-      : 'READ MORE <span>+</span>';
-  });
+document.querySelectorAll('.read-more').forEach(button=>{
+button.addEventListener('click',()=>{
+const target=document.getElementById(button.dataset.target);
+const isOpen=target.classList.toggle('open');
+button.innerHTML=isOpen?'READ LESS <span>−</span>':'READ MORE <span>+</span>';
+});
 });
 </script>
-
 </body>
 </html>
