@@ -25,7 +25,9 @@
   --sans: "DM Sans", Arial, sans-serif;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -40,10 +42,23 @@ body {
   font-family: var(--sans);
 }
 
-button, a { -webkit-tap-highlight-color: transparent; }
-button { font: inherit; }
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
 
 ::selection {
   background: var(--wine);
@@ -112,7 +127,9 @@ img { display: block; max-width: 100%; }
   flex: 0 0 auto;
   opacity: 0;
   transform: translateY(45px);
-  transition: opacity .55s ease, transform .8s cubic-bezier(.2,.7,.2,1);
+  transition:
+    opacity .55s ease,
+    transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
 .intro-letter.visible {
@@ -120,13 +137,29 @@ img { display: block; max-width: 100%; }
   transform: translateY(0);
 }
 
-.intro-letter.por { color: #fff7ed; }
-.intro-letter.tfo { color: #a94c62; }
-.intro-letter.lio { color: #f2dfcb; }
+.intro-letter.por {
+  color: #fff7ed;
+}
 
-.intro.is-light .intro-letter.por { color: var(--wine); }
-.intro.is-light .intro-letter.tfo { color: #a94c62; }
-.intro.is-light .intro-letter.lio { color: #d8bda7; }
+.intro-letter.tfo {
+  color: #a94c62;
+}
+
+.intro-letter.lio {
+  color: #f2dfcb;
+}
+
+.intro.is-light .intro-letter.por {
+  color: var(--wine);
+}
+
+.intro.is-light .intro-letter.tfo {
+  color: #a94c62;
+}
+
+.intro.is-light .intro-letter.lio {
+  color: #d8bda7;
+}
 
 .intro.is-light .intro-caption,
 .intro.is-light .intro-scroll-label {
@@ -181,7 +214,9 @@ img { display: block; max-width: 100%; }
   line-height: .9;
   opacity: 0;
   transform: translateY(12px);
-  transition: opacity .6s ease, transform .6s ease;
+  transition:
+    opacity .6s ease,
+    transform .6s ease;
 }
 
 .intro-signature.show {
@@ -202,7 +237,9 @@ img { display: block; max-width: 100%; }
   font-weight: 400;
 }
 
-.intro.is-light .intro-signature { color: var(--wine); }
+.intro.is-light .intro-signature {
+  color: var(--wine);
+}
 
 /* =========================================
    2. DOOR SECTION
@@ -210,8 +247,8 @@ img { display: block; max-width: 100%; }
 
 .door-section {
   position: relative;
-  min-height: 100svh;
   height: 100svh;
+  min-height: 600px;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -226,7 +263,11 @@ img { display: block; max-width: 100%; }
   inset: 0;
   z-index: -2;
   background:
-    radial-gradient(ellipse at center, rgba(126,31,51,.28), transparent 65%),
+    radial-gradient(
+      ellipse at center,
+      rgba(126,31,51,.28),
+      transparent 65%
+    ),
     var(--wine);
 }
 
@@ -239,7 +280,9 @@ img { display: block; max-width: 100%; }
   opacity: .82;
   transform: translateY(-50%);
   filter: saturate(.8);
-  transition: opacity 1s ease, transform 1.3s cubic-bezier(.2,.7,.2,1);
+  transition:
+    opacity 1s ease,
+    transform 1.3s cubic-bezier(.2,.7,.2,1);
 }
 
 .door-side-left {
@@ -254,7 +297,7 @@ img { display: block; max-width: 100%; }
 
 .door-section.in-view .door-side-left,
 .door-section.in-view .door-side-right {
-  transform: translateY(-50%) translateX(0);
+  transform: translateY(-50%);
 }
 
 /* Central clickable door */
@@ -305,7 +348,9 @@ img { display: block; max-width: 100%; }
   object-fit: cover;
   opacity: .85;
   transform: scale(1.02);
-  transition: transform 2s cubic-bezier(.2,.7,.2,1), opacity .8s ease;
+  transition:
+    transform 2s cubic-bezier(.2,.7,.2,1),
+    opacity .8s ease;
 }
 
 .door-button:hover .door-inside-image {
@@ -337,7 +382,9 @@ img { display: block; max-width: 100%; }
   text-align: center;
   text-wrap: balance;
   text-shadow: 0 2px 20px rgba(39,0,8,.55);
-  transition: opacity .5s ease, transform .7s ease;
+  transition:
+    opacity .5s ease,
+    transform .7s ease;
 }
 
 .door-label small {
@@ -358,8 +405,18 @@ img { display: block; max-width: 100%; }
   transform-style: preserve-3d;
   border: 1px solid rgba(246,235,223,.4);
   background:
-    linear-gradient(90deg,rgba(255,255,255,.07),transparent 15%,rgba(0,0,0,.12)),
-    linear-gradient(135deg,#702033,#3e000c 55%,#260007);
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.07),
+      transparent 15%,
+      rgba(0,0,0,.12)
+    ),
+    linear-gradient(
+      135deg,
+      #702033,
+      #3e000c 55%,
+      #260007
+    );
   box-shadow: inset 0 0 45px rgba(0,0,0,.13);
   transition: transform 1.8s cubic-bezier(.2,.7,.15,1);
 }
@@ -419,7 +476,7 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
 }
 
-/* Transition overlay */
+/* Door transition overlay */
 
 .door-overlay {
   position: fixed;
@@ -431,8 +488,13 @@ img { display: block; max-width: 100%; }
   transition: clip-path 1.15s cubic-bezier(.7,0,.2,1);
 }
 
-.door-overlay.active { clip-path: inset(0); }
-.door-overlay.leave { clip-path: inset(0 0 100% 0); }
+.door-overlay.active {
+  clip-path: inset(0);
+}
+
+.door-overlay.leave {
+  clip-path: inset(0 0 100% 0);
+}
 
 /* =========================================
    SHARED STYLES
@@ -464,7 +526,9 @@ img { display: block; max-width: 100%; }
 .reveal {
   opacity: 0;
   transform: translateY(55px);
-  transition: opacity 1s ease, transform 1.2s cubic-bezier(.2,.7,.2,1);
+  transition:
+    opacity 1s ease,
+    transform 1.2s cubic-bezier(.2,.7,.2,1);
 }
 
 .reveal.in-view {
@@ -517,12 +581,22 @@ img { display: block; max-width: 100%; }
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background: linear-gradient(135deg,rgba(234,214,200,.32),rgba(246,235,223,.2));
+  background:
+    linear-gradient(
+      135deg,
+      rgba(234,214,200,.32),
+      rgba(246,235,223,.2)
+    );
 }
 
 .about-card + .about-card {
   border-left: 1px solid var(--line);
-  background: linear-gradient(135deg,rgba(193,132,137,.12),rgba(122,36,55,.15));
+  background:
+    linear-gradient(
+      135deg,
+      rgba(193,132,137,.12),
+      rgba(122,36,55,.15)
+    );
 }
 
 .card-label {
@@ -608,14 +682,21 @@ img { display: block; max-width: 100%; }
   transition: width .3s ease;
 }
 
-.read-more:hover::before { width: 45px; }
-.read-more span { margin-left: 9px; }
+.read-more:hover::before {
+  width: 45px;
+}
+
+.read-more span {
+  margin-left: 9px;
+}
 
 .details-panel {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: grid-template-rows .7s ease, opacity .4s ease;
+  transition:
+    grid-template-rows .7s ease,
+    opacity .4s ease;
 }
 
 .details-panel.open {
@@ -623,7 +704,9 @@ img { display: block; max-width: 100%; }
   opacity: 1;
 }
 
-.details-inner { overflow: hidden; }
+.details-inner {
+  overflow: hidden;
+}
 
 .details-content {
   padding: 45px clamp(25px,5vw,70px);
@@ -676,7 +759,12 @@ img { display: block; max-width: 100%; }
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center,rgba(126,31,51,.25),transparent 65%);
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(126,31,51,.25),
+      transparent 65%
+    );
 }
 
 .quote-layout {
@@ -709,7 +797,9 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 25px 80px rgba(0,0,0,.2);
   opacity: 0;
   transform: translateY(35px) scale(.98);
-  transition: opacity .9s ease, transform 1.1s cubic-bezier(.2,.7,.2,1);
+  transition:
+    opacity .9s ease,
+    transform 1.1s cubic-bezier(.2,.7,.2,1);
 }
 
 .quote-art.in-view {
@@ -730,7 +820,12 @@ img { display: block; max-width: 100%; }
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg,rgba(39,0,8,.02),rgba(39,0,8,.12));
+  background:
+    linear-gradient(
+      180deg,
+      rgba(39,0,8,.02),
+      rgba(39,0,8,.12)
+    );
   pointer-events: none;
 }
 
@@ -757,7 +852,9 @@ img { display: block; max-width: 100%; }
   min-height: 1.08em;
 }
 
-.quote-line + .quote-line { margin-top: 8px; }
+.quote-line + .quote-line {
+  margin-top: 8px;
+}
 
 .quote-cursor {
   display: inline-block;
@@ -806,7 +903,9 @@ img { display: block; max-width: 100%; }
   object-fit: cover;
 }
 
-.portrait-copy .eyebrow { margin-bottom: 32px; }
+.portrait-copy .eyebrow {
+  margin-bottom: 32px;
+}
 
 .portrait-copy h2 {
   margin: 0;
@@ -867,7 +966,9 @@ img { display: block; max-width: 100%; }
   line-height: 1.8;
 }
 
-.project-list { border-top: 1px solid var(--line); }
+.project-list {
+  border-top: 1px solid var(--line);
+}
 
 .project-item {
   display: grid;
@@ -879,7 +980,9 @@ img { display: block; max-width: 100%; }
   transition: padding .35s ease;
 }
 
-.project-item:hover { padding-inline: 12px; }
+.project-item:hover {
+  padding-inline: 12px;
+}
 
 .project-number {
   color: var(--muted);
@@ -911,7 +1014,9 @@ img { display: block; max-width: 100%; }
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 50%;
-  transition: background .3s ease,color .3s ease;
+  transition:
+    background .3s ease,
+    color .3s ease;
 }
 
 .project-item:hover .project-arrow {
@@ -1023,8 +1128,13 @@ img { display: block; max-width: 100%; }
 ========================================= */
 
 @media (max-width: 768px) {
-  .intro { height: 340svh; }
-  .intro-sticky { min-height: 450px; }
+  .intro {
+    height: 340svh;
+  }
+
+  .intro-sticky {
+    min-height: 450px;
+  }
 
   .intro-word {
     font-size: clamp(2.7rem,11.2vw,5.5rem);
@@ -1048,8 +1158,13 @@ img { display: block; max-width: 100%; }
     bottom: 48px;
   }
 
-  .intro-signature span { font-size: 9px; }
-  .intro-signature strong { font-size: 25px; }
+  .intro-signature span {
+    font-size: 9px;
+  }
+
+  .intro-signature strong {
+    font-size: 25px;
+  }
 
   .door-section {
     min-height: 650px;
@@ -1068,8 +1183,13 @@ img { display: block; max-width: 100%; }
     transform: none;
   }
 
-  .door-side-left { left: 5%; }
-  .door-side-right { right: 5%; }
+  .door-side-left {
+    left: 5%;
+  }
+
+  .door-side-right {
+    right: 5%;
+  }
 
   .door-section.in-view .door-side-left,
   .door-section.in-view .door-side-right {
@@ -1102,21 +1222,27 @@ img { display: block; max-width: 100%; }
     line-height: 1.8;
   }
 
-  .section-shell { width: 88%; }
+  .section-shell {
+    width: 88%;
+  }
 
   .about-section {
     padding: 75px 0 80px;
     border-radius: 0 0 16px 16px;
   }
 
-  .about-heading { margin: 0 auto 48px; }
+  .about-heading {
+    margin: 0 auto 48px;
+  }
 
   .about-heading h2 {
     font-size: clamp(47px,11vw,90px);
     line-height: .82;
   }
 
-  .about-grid { grid-template-columns: 1fr; }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
 
   .about-card {
     min-height: 0;
@@ -1133,8 +1259,13 @@ img { display: block; max-width: 100%; }
     font-size: clamp(45px,11vw,68px);
   }
 
-  .about-card p { font-size: 12px; }
-  .read-more { margin-top: 25px; }
+  .about-card p {
+    font-size: 12px;
+  }
+
+  .read-more {
+    margin-top: 25px;
+  }
 
   .quote-section {
     min-height: auto;
@@ -1147,7 +1278,9 @@ img { display: block; max-width: 100%; }
     gap: 30px;
   }
 
-  .quote-side-note { padding-top: 0; }
+  .quote-side-note {
+    padding-top: 0;
+  }
 
   .quote-art {
     width: 100%;
@@ -1179,7 +1312,9 @@ img { display: block; max-width: 100%; }
     font-size: clamp(52px,12vw,82px);
   }
 
-  .projects-section { padding: 80px 0; }
+  .projects-section {
+    padding: 80px 0;
+  }
 
   .projects-heading {
     display: block;
@@ -1190,7 +1325,9 @@ img { display: block; max-width: 100%; }
     font-size: clamp(62px,14vw,100px);
   }
 
-  .projects-heading p { margin-top: 25px; }
+  .projects-heading p {
+    margin-top: 25px;
+  }
 
   .project-item {
     grid-template-columns: 28px 1fr 38px;
@@ -1198,7 +1335,9 @@ img { display: block; max-width: 100%; }
     padding: 23px 0;
   }
 
-  .project-name { font-size: clamp(29px,7vw,43px); }
+  .project-name {
+    font-size: clamp(29px,7vw,43px);
+  }
 
   .project-arrow {
     width: 34px;
@@ -1214,8 +1353,13 @@ img { display: block; max-width: 100%; }
     font-size: clamp(48px,11vw,90px);
   }
 
-  .footer { padding: 60px 7% 28px; }
-  .footer-top { display: block; }
+  .footer {
+    padding: 60px 7% 28px;
+  }
+
+  .footer-top {
+    display: block;
+  }
 
   .footer-contact {
     margin-top: 30px;
@@ -1245,8 +1389,13 @@ img { display: block; max-width: 100%; }
     height: 19vh;
   }
 
-  .about-heading h2 { font-size: 12vw; }
-  .about-card { padding: 26px 20px; }
+  .about-heading h2 {
+    font-size: 12vw;
+  }
+
+  .about-card {
+    padding: 26px 20px;
+  }
 
   .tag-list span {
     padding: 8px;
@@ -1258,7 +1407,9 @@ img { display: block; max-width: 100%; }
     gap: 8px;
   }
 
-  .project-name { font-size: 27px; }
+  .project-name {
+    font-size: 27px;
+  }
 
   .project-arrow {
     width: 29px;
@@ -1284,7 +1435,10 @@ img { display: block; max-width: 100%; }
 
 <section class="intro" id="portfolioIntro" aria-label="Portfolio introduction">
   <div class="intro-sticky" id="introSticky">
-    <div class="intro-caption">Independent creative portfolio</div>
+
+    <div class="intro-caption">
+      Independent creative portfolio
+    </div>
 
     <div class="intro-stage">
       <div class="intro-word" aria-label="Portfolio">
@@ -1312,27 +1466,36 @@ img { display: block; max-width: 100%; }
     <div class="intro-progress">
       <div class="intro-progress-bar" id="introProgressBar"></div>
     </div>
+
   </div>
 </section>
 
-<!-- 2. DOOR SECTION -->
+<!-- 2. DOOR SECTION
+     image1 = left image
+     image2 = right image
+     image3 = central door
+-->
 
 <section class="door-section" id="doorSection">
+
   <div class="door-backdrop"></div>
 
-  <div class="door-instruction">A different side of the story</div>
+  <div class="door-instruction">
+    A different side of the story
+  </div>
 
+  <!-- FIXED: exact GitHub filename -->
   <img
     class="door-side door-side-left"
-    src="./image1(akncocov)"
-    alt=""
+    src="./image1(aknocov)"
+    alt="Luiza"
     loading="lazy"
   >
 
   <img
     class="door-side door-side-right"
     src="./image2(mac-i%20dimac)"
-    alt=""
+    alt="Luiza working at her laptop"
     loading="lazy"
   >
 
@@ -1342,6 +1505,7 @@ img { display: block; max-width: 100%; }
     type="button"
     aria-label="Discover what's inside"
   >
+
     <div class="door-inside">
       <img
         class="door-inside-image"
@@ -1359,7 +1523,9 @@ img { display: block; max-width: 100%; }
     </span>
 
     <div class="door-leaf"></div>
+
   </button>
+
 </section>
 
 <div class="door-overlay" id="doorOverlay" aria-hidden="true"></div>
@@ -1374,8 +1540,11 @@ img { display: block; max-width: 100%; }
     </header>
 
     <div class="about-grid">
+
       <article class="about-card reveal">
+
         <div class="card-label">Personal</div>
+
         <h3>Personal</h3>
 
         <p>
@@ -1399,10 +1568,13 @@ img { display: block; max-width: 100%; }
         >
           Read more <span>+</span>
         </button>
+
       </article>
 
       <article class="about-card reveal">
+
         <div class="card-label">Professional</div>
+
         <h3>Professional</h3>
 
         <p>
@@ -1435,19 +1607,27 @@ img { display: block; max-width: 100%; }
         >
           Read more <span>+</span>
         </button>
+
       </article>
+
     </div>
 
     <div class="details-panel" id="personalDetails">
       <div class="details-inner">
         <div class="details-content">
+
           <h4>Beyond the screen</h4>
+
           <p>
             I value creativity, meaningful experiences, thoughtful details and
             the process of turning ideas into something tangible. Curiosity and
             consistency are essential to both personal growth and creative work.
           </p>
-          <button class="close-details" type="button">Close −</button>
+
+          <button class="close-details" type="button">
+            Close −
+          </button>
+
         </div>
       </div>
     </div>
@@ -1455,14 +1635,20 @@ img { display: block; max-width: 100%; }
     <div class="details-panel" id="professionalDetails">
       <div class="details-inner">
         <div class="details-content">
+
           <h4>How I approach my work</h4>
+
           <p>
             I work with Shopify store structure, custom Liquid, CSS, responsive
             layouts, product pages and user experience. My goal is to balance
             visual quality with clarity, usability and a consistent brand
             identity, creating stores that work smoothly across desktop and mobile.
           </p>
-          <button class="close-details" type="button">Close −</button>
+
+          <button class="close-details" type="button">
+            Close −
+          </button>
+
         </div>
       </div>
     </div>
@@ -1474,12 +1660,18 @@ img { display: block; max-width: 100%; }
 
 <section class="quote-section" id="quoteSection">
   <div class="quote-layout">
+
     <div class="quote-side-note reveal">
       A thought to keep<br>moving forward
     </div>
 
     <div class="quote-art" id="quoteArt">
-      <img src="./image6(tuxt)" alt="" loading="lazy">
+
+      <img
+        src="./image6(tuxt)"
+        alt=""
+        loading="lazy"
+      >
 
       <div
         class="quote-text"
@@ -1489,13 +1681,16 @@ img { display: block; max-width: 100%; }
         <span class="quote-line" id="quoteLineOne"></span>
         <span class="quote-line" id="quoteLineTwo"></span>
       </div>
+
     </div>
+
   </div>
 </section>
 
 <!-- 5. PORTRAIT -->
 
 <section class="portrait-section" id="portraitSection">
+
   <div class="portrait-image-wrap reveal">
     <img
       src="./image5(nstac%20macov)"
@@ -1505,34 +1700,49 @@ img { display: block; max-width: 100%; }
   </div>
 
   <div class="portrait-copy reveal">
-    <div class="eyebrow">The person behind the portfolio</div>
+
+    <div class="eyebrow">
+      The person behind the portfolio
+    </div>
+
     <h2>Curiosity<br>into creation.</h2>
+
     <p>
       I enjoy exploring ideas, learning new skills and building digital
       experiences with intention. Every project is an opportunity to combine
       design, functionality and a clear understanding of the people who will
       use it.
     </p>
-    <div class="portrait-signature">Luiza Sargsyan</div>
+
+    <div class="portrait-signature">
+      Luiza Sargsyan
+    </div>
+
   </div>
+
 </section>
 
 <!-- 6. PROJECTS -->
 
 <section class="projects-section" id="projectsSection">
   <div class="section-shell">
+
     <div class="projects-heading reveal">
+
       <div>
         <div class="eyebrow">Selected work</div>
         <h2>Projects</h2>
       </div>
+
       <p>
         A selection of digital experiences, e-commerce concepts and creative
         work shaped by design and functionality.
       </p>
+
     </div>
 
     <div class="project-list">
+
       <a
         class="project-item reveal"
         href="https://facedunk.com/"
@@ -1540,10 +1750,12 @@ img { display: block; max-width: 100%; }
         rel="noreferrer"
       >
         <span class="project-number">01</span>
+
         <span class="project-name">
           Facedunk
           <span class="project-type">Beauty · E-commerce</span>
         </span>
+
         <span class="project-arrow" aria-hidden="true">↗</span>
       </a>
 
@@ -1554,10 +1766,12 @@ img { display: block; max-width: 100%; }
         rel="noreferrer"
       >
         <span class="project-number">02</span>
+
         <span class="project-name">
           Gotcha
           <span class="project-type">E-commerce · Store experience</span>
         </span>
+
         <span class="project-arrow" aria-hidden="true">↗</span>
       </a>
 
@@ -1568,10 +1782,12 @@ img { display: block; max-width: 100%; }
         rel="noreferrer"
       >
         <span class="project-number">03</span>
+
         <span class="project-name">
           Sloenka
           <span class="project-type">Bakery · Brand experience</span>
         </span>
+
         <span class="project-arrow" aria-hidden="true">↗</span>
       </a>
 
@@ -1582,12 +1798,15 @@ img { display: block; max-width: 100%; }
         rel="noreferrer"
       >
         <span class="project-number">04</span>
+
         <span class="project-name">
           White Store
           <span class="project-type">Retail · E-commerce</span>
         </span>
+
         <span class="project-arrow" aria-hidden="true">↗</span>
       </a>
+
     </div>
   </div>
 </section>
@@ -1595,21 +1814,35 @@ img { display: block; max-width: 100%; }
 <!-- 7. MOTIVATION -->
 
 <section class="motivation-section" id="motivationSection">
+
   <div class="motivation-image">
-    <img src="./image4(nstac%20teqvac%20depi%20camera)" alt="" loading="lazy">
+    <img
+      src="./image4(nstac%20teqvac%20depi%20camera)"
+      alt=""
+      loading="lazy"
+    >
   </div>
 
   <div class="motivation-content reveal">
+
     <div class="eyebrow">Keep creating</div>
+
     <h2>Make ideas<br>feel real.</h2>
-    <p>Thoughtful design. Clear purpose. Meaningful digital experiences.</p>
+
+    <p>
+      Thoughtful design. Clear purpose. Meaningful digital experiences.
+    </p>
+
   </div>
+
 </section>
 
 <!-- 8. FOOTER -->
 
 <footer class="footer" id="contactSection">
+
   <div class="footer-top">
+
     <div>
       <div class="eyebrow">Have a project in mind?</div>
       <div class="footer-title">Let's create.</div>
@@ -1620,12 +1853,14 @@ img { display: block; max-width: 100%; }
       <div>Shopify Specialist &amp; Designer</div>
       <a href="#portfolioIntro">Back to top ↑</a>
     </div>
+
   </div>
 
   <div class="footer-bottom">
     <span>© <span id="currentYear"></span> Luiza Sargsyan</span>
     <span>Designed with intention</span>
   </div>
+
 </footer>
 
 <script>
@@ -1655,6 +1890,7 @@ img { display: block; max-width: 100%; }
 
   function updateIntro() {
     const rect = intro.getBoundingClientRect();
+
     const scrollable = Math.max(
       1,
       intro.offsetHeight - window.innerHeight
@@ -1677,6 +1913,7 @@ img { display: block; max-width: 100%; }
     });
 
     const lightPhase = progress >= 0.22 && progress < 0.40;
+
     intro.classList.toggle("is-light", lightPhase);
 
     if (progress < 0.22) {
@@ -1703,8 +1940,11 @@ img { display: block; max-width: 100%; }
       `translate3d(0, ${shiftY}px, 0)`;
 
     progressBar.style.width = `${progress * 100}%`;
+
     signature.classList.toggle("show", progress >= 0.56);
-    scrollLabel.style.opacity = progress >= 0.88 ? "0" : ".7";
+
+    scrollLabel.style.opacity =
+      progress >= 0.88 ? "0" : ".7";
 
     ticking = false;
   }
@@ -1721,6 +1961,7 @@ img { display: block; max-width: 100%; }
   });
 
   window.addEventListener("resize", requestIntroUpdate);
+
   updateIntro();
 
   /* =====================================
@@ -1787,6 +2028,7 @@ img { display: block; max-width: 100%; }
     if (doorAnimating) return;
 
     doorAnimating = true;
+
     doorButton.classList.add("opening");
     doorOverlay.classList.add("active");
 
@@ -1810,6 +2052,8 @@ img { display: block; max-width: 100%; }
 
   /* =====================================
      QUOTE TYPEWRITER
+     Replays when the quote leaves and
+     re-enters the viewport.
   ===================================== */
 
   const quoteArt = document.getElementById("quoteArt");
@@ -1834,7 +2078,10 @@ img { display: block; max-width: 100%; }
     quoteLineTwo.textContent = "";
 
     const cursor = document.getElementById("quoteCursor");
-    if (cursor) cursor.remove();
+
+    if (cursor) {
+      cursor.remove();
+    }
   }
 
   function typeText() {
@@ -1847,10 +2094,12 @@ img { display: block; max-width: 100%; }
     }
 
     const thisRun = typingRun;
+
     let firstIndex = 0;
     let secondIndex = 0;
 
     const cursor = document.createElement("span");
+
     cursor.className = "quote-cursor";
     cursor.id = "quoteCursor";
     cursor.setAttribute("aria-hidden", "true");
@@ -1867,11 +2116,20 @@ img { display: block; max-width: 100%; }
           quoteFirst.slice(0, firstIndex);
 
         quoteLineOne.appendChild(cursor);
-        typingTimer = window.setTimeout(typeFirstLine, 58);
+
+        typingTimer = window.setTimeout(
+          typeFirstLine,
+          58
+        );
       } else {
         quoteLineOne.textContent = quoteFirst;
+
         quoteLineTwo.appendChild(cursor);
-        typingTimer = window.setTimeout(typeSecondLine, 220);
+
+        typingTimer = window.setTimeout(
+          typeSecondLine,
+          220
+        );
       }
     }
 
@@ -1885,7 +2143,11 @@ img { display: block; max-width: 100%; }
           quoteSecond.slice(0, secondIndex);
 
         quoteLineTwo.appendChild(cursor);
-        typingTimer = window.setTimeout(typeSecondLine, 65);
+
+        typingTimer = window.setTimeout(
+          typeSecondLine,
+          65
+        );
       } else {
         quoteLineTwo.textContent = quoteSecond;
         cursor.classList.add("done");
@@ -1893,7 +2155,10 @@ img { display: block; max-width: 100%; }
       }
     }
 
-    typingTimer = window.setTimeout(typeFirstLine, 500);
+    typingTimer = window.setTimeout(
+      typeFirstLine,
+      500
+    );
   }
 
   if ("IntersectionObserver" in window) {
@@ -1923,14 +2188,24 @@ img { display: block; max-width: 100%; }
 
   document.querySelectorAll("[data-details]").forEach((button) => {
     button.addEventListener("click", () => {
-      const panel = document.getElementById(button.dataset.details);
+      const panel = document.getElementById(
+        button.dataset.details
+      );
+
       const isOpen = panel.classList.contains("open");
 
       panel.classList.toggle("open", !isOpen);
-      button.setAttribute("aria-expanded", String(!isOpen));
+
+      button.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+      );
 
       const label = button.querySelector("span");
-      if (label) label.textContent = isOpen ? "+" : "−";
+
+      if (label) {
+        label.textContent = isOpen ? "+" : "−";
+      }
 
       if (!isOpen) {
         window.setTimeout(() => {
@@ -1946,6 +2221,7 @@ img { display: block; max-width: 100%; }
   document.querySelectorAll(".close-details").forEach((button) => {
     button.addEventListener("click", () => {
       const panel = button.closest(".details-panel");
+
       panel.classList.remove("open");
 
       const relatedButton = document.querySelector(
@@ -1956,10 +2232,17 @@ img { display: block; max-width: 100%; }
         relatedButton.setAttribute("aria-expanded", "false");
 
         const label = relatedButton.querySelector("span");
-        if (label) label.textContent = "+";
+
+        if (label) {
+          label.textContent = "+";
+        }
       }
     });
   });
+
+  /* =====================================
+     FOOTER YEAR
+  ===================================== */
 
   document.getElementById("currentYear").textContent =
     new Date().getFullYear();
