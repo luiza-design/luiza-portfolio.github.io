@@ -56,9 +56,9 @@ a:focus-visible {
   color: var(--cream);
 }
 
-/* =====================================================
-   1. PORTFOLIO INTRO
-===================================================== */
+/* ==================================================
+   01 — PORTFOLIO INTRO
+================================================== */
 
 .intro {
   height: 340svh;
@@ -212,11 +212,9 @@ a:focus-visible {
 
 .intro.is-light .intro-signature { color: var(--wine); }
 
-/* =====================================================
-   2. DOOR SECTION
-   image1 and image2 are grouped on the LEFT.
-   The door is on the RIGHT.
-===================================================== */
+/* ==================================================
+   02 — DOOR SECTION
+================================================== */
 
 .door-section {
   position: relative;
@@ -256,8 +254,6 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-/* Both images are placed together on the left */
-
 .door-gallery {
   position: relative;
   z-index: 1;
@@ -278,9 +274,7 @@ a:focus-visible {
   background: rgba(246,235,223,.025);
   opacity: .9;
   filter: saturate(.8);
-  transition:
-    opacity .7s ease,
-    transform 1s cubic-bezier(.2,.7,.2,1);
+  transition: opacity .7s, transform 1s;
 }
 
 .door-side-left {
@@ -295,10 +289,7 @@ a:focus-visible {
   transform: translateY(-10px);
 }
 
-.door-section.in-view .door-side-left {
-  transform: translateY(0);
-}
-
+.door-section.in-view .door-side-left,
 .door-section.in-view .door-side-right {
   transform: translateY(0);
 }
@@ -307,8 +298,6 @@ a:focus-visible {
   opacity: 1;
   transform: translateY(-5px) scale(1.015);
 }
-
-/* Door on the right */
 
 .door-button {
   position: relative;
@@ -437,9 +426,7 @@ a:focus-visible {
   transform: perspective(1600px) rotateY(-7deg);
 }
 
-.door-button.opening {
-  pointer-events: none;
-}
+.door-button.opening { pointer-events: none; }
 
 .door-button.opening .door-leaf {
   transform: perspective(1600px) rotateY(-112deg);
@@ -449,10 +436,6 @@ a:focus-visible {
 .door-button.opening .door-label {
   opacity: 0;
   transform: translateY(-50%) translateX(15px);
-}
-
-.door-button.opening .door-inside-image {
-  transform: scale(1.13);
 }
 
 .door-overlay {
@@ -465,17 +448,12 @@ a:focus-visible {
   transition: clip-path 1.15s cubic-bezier(.7,0,.2,1);
 }
 
-.door-overlay.active {
-  clip-path: inset(0);
-}
+.door-overlay.active { clip-path: inset(0); }
+.door-overlay.leave { clip-path: inset(0 0 100% 0); }
 
-.door-overlay.leave {
-  clip-path: inset(0 0 100% 0);
-}
-
-/* =====================================================
+/* ==================================================
    SHARED SECTION STYLES
-===================================================== */
+================================================== */
 
 .section-shell {
   width: min(84%,1600px);
@@ -502,7 +480,7 @@ a:focus-visible {
 
 .reveal {
   opacity: 0;
-  transform: translateY(55px);
+  transform: translateY(45px);
   transition: opacity 1s, transform 1.2s cubic-bezier(.2,.7,.2,1);
 }
 
@@ -511,9 +489,9 @@ a:focus-visible {
   transform: translateY(0);
 }
 
-/* =====================================================
-   3. ABOUT
-===================================================== */
+/* ==================================================
+   03 — ABOUT
+================================================== */
 
 .about-section {
   position: relative;
@@ -590,8 +568,6 @@ a:focus-visible {
   line-height: 1.9;
 }
 
-/* Read-more buttons remain; icon rows and skill tags removed */
-
 .read-more {
   margin-top: auto;
   padding: 35px 0 0;
@@ -666,9 +642,407 @@ a:focus-visible {
   cursor: pointer;
 }
 
-/* =====================================================
-   4. QUOTE
-===================================================== */
+/* ==================================================
+   04 — NEW INTERACTIVE FOUNDATION SECTION
+================================================== */
+
+.foundation-section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(75px,9vw,140px) 0;
+  background: #6d2938;
+  color: var(--cream);
+  isolation: isolate;
+}
+
+.foundation-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 82% 40%,rgba(246,235,223,.11),transparent 43%),
+    linear-gradient(120deg,#6d2938,#793b49 55%,#8c4c59);
+}
+
+.foundation-shell {
+  width: min(84%,1500px);
+  margin-inline: auto;
+}
+
+.foundation-heading {
+  margin-bottom: clamp(45px,7vw,90px);
+}
+
+.foundation-heading .eyebrow {
+  color: #e4c5bd;
+}
+
+.foundation-heading h2 {
+  margin: 25px 0 0;
+  max-width: 900px;
+  font-family: var(--serif);
+  font-size: clamp(50px,8.5vw,125px);
+  font-weight: 400;
+  line-height: .86;
+  letter-spacing: -.06em;
+  text-transform: uppercase;
+}
+
+.foundation-heading h2 span {
+  display: block;
+  color: #e4c5bd;
+}
+
+.foundation-layout {
+  display: grid;
+  grid-template-columns: minmax(270px,.78fr) minmax(0,1.22fr);
+  gap: clamp(45px,8vw,130px);
+  align-items: center;
+}
+
+/* Left: three numbered circles and titles */
+
+.foundation-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(25px,4vw,48px);
+}
+
+.foundation-item {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  align-items: center;
+  gap: clamp(18px,2.8vw,38px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--cream);
+  text-align: left;
+  cursor: pointer;
+}
+
+.foundation-number {
+  width: clamp(58px,6.2vw,82px);
+  height: clamp(58px,6.2vw,82px);
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(246,235,223,.75);
+  border-radius: 50%;
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: clamp(23px,3vw,36px);
+  transition:
+    transform .45s cubic-bezier(.2,.7,.2,1),
+    background-color .4s,
+    color .4s,
+    border-color .4s,
+    box-shadow .4s;
+}
+
+.foundation-title {
+  font-family: var(--serif);
+  font-size: clamp(28px,3.8vw,53px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.025em;
+  transition: color .35s, transform .45s;
+}
+
+.foundation-item:hover .foundation-number,
+.foundation-item:focus-visible .foundation-number,
+.foundation-item.active .foundation-number {
+  transform: scale(1.12);
+  background: var(--cream);
+  border-color: var(--cream);
+  color: #6d2938;
+  box-shadow: 0 0 0 7px rgba(246,235,223,.09);
+}
+
+.foundation-item:hover .foundation-title,
+.foundation-item.active .foundation-title {
+  color: #fff5e9;
+  transform: translateX(5px);
+}
+
+/* Right: decorative animated visual */
+
+.foundation-visual {
+  position: relative;
+  min-height: 430px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(246,235,223,.22);
+  background: rgba(39,0,8,.12);
+  perspective: 1000px;
+}
+
+.foundation-visual::before,
+.foundation-visual::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(246,235,223,.15);
+  border-radius: 50%;
+  transition: transform 1s cubic-bezier(.2,.7,.2,1);
+}
+
+.foundation-visual::before {
+  transform: translate(-10%,4%) rotate(-20deg) scale(.86);
+}
+
+.foundation-visual::after {
+  transform: translate(12%,-3%) rotate(25deg) scale(1.1);
+}
+
+.foundation-visual[data-active="skills"]::before {
+  transform: translate(-17%,-6%) rotate(40deg) scale(.95);
+}
+
+.foundation-visual[data-active="skills"]::after {
+  transform: translate(13%,8%) rotate(-35deg) scale(.72);
+}
+
+.foundation-visual[data-active="approach"]::before {
+  transform: translate(15%,-10%) rotate(65deg) scale(1.12);
+}
+
+.foundation-visual[data-active="approach"]::after {
+  transform: translate(-14%,10%) rotate(-55deg) scale(.82);
+}
+
+.foundation-visual[data-active="drives"]::before {
+  transform: translate(-5%,12%) rotate(80deg) scale(.75);
+}
+
+.foundation-visual[data-active="drives"]::after {
+  transform: translate(16%,-8%) rotate(-80deg) scale(1.16);
+}
+
+.visual-orbit {
+  position: absolute;
+  width: 63%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(246,235,223,.28);
+  border-radius: 50%;
+  animation: orbitSpin 24s linear infinite;
+}
+
+.visual-orbit::before,
+.visual-orbit::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--cream);
+  box-shadow: 0 0 22px rgba(246,235,223,.3);
+}
+
+.visual-orbit::before {
+  top: 12%;
+  left: 16%;
+}
+
+.visual-orbit::after {
+  right: 7%;
+  bottom: 24%;
+  width: 6px;
+  height: 6px;
+  background: #d6a0a4;
+}
+
+.visual-orbit.orbit-two {
+  width: 43%;
+  border-style: dashed;
+  animation-duration: 32s;
+  animation-direction: reverse;
+}
+
+.visual-orbit.orbit-two::before {
+  top: 70%;
+  left: 4%;
+  width: 7px;
+  height: 7px;
+  background: #d6a0a4;
+}
+
+.visual-orbit.orbit-two::after {
+  right: 17%;
+  bottom: auto;
+  top: 3%;
+  width: 5px;
+  height: 5px;
+}
+
+@keyframes orbitSpin {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+
+.visual-core {
+  position: relative;
+  z-index: 2;
+  width: clamp(140px,19vw,250px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(246,235,223,.55);
+  border-radius: 50%;
+  background: linear-gradient(145deg,rgba(246,235,223,.12),rgba(39,0,8,.12));
+  box-shadow:
+    inset 0 0 35px rgba(246,235,223,.04),
+    0 0 60px rgba(39,0,8,.1);
+  transition: transform .7s, background .7s, border-color .7s;
+}
+
+.visual-core-inner {
+  width: 72%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(246,235,223,.3);
+  border-radius: 50%;
+  font-family: var(--serif);
+  font-size: clamp(50px,7vw,95px);
+  color: var(--cream);
+  transition: transform .6s;
+}
+
+.foundation-visual[data-active="skills"] .visual-core {
+  transform: scale(1.05);
+  background: rgba(246,235,223,.1);
+}
+
+.foundation-visual[data-active="approach"] .visual-core {
+  transform: rotate(-8deg) scale(.97);
+  border-radius: 38% 62% 57% 43% / 44% 40% 60% 56%;
+}
+
+.foundation-visual[data-active="drives"] .visual-core {
+  transform: scale(1.04) rotate(8deg);
+  background: rgba(246,235,223,.13);
+}
+
+.foundation-visual[data-active="drives"] .visual-core-inner {
+  transform: rotate(-15deg);
+}
+
+.visual-corner {
+  position: absolute;
+  z-index: 3;
+  left: 24px;
+  bottom: 23px;
+  color: rgba(246,235,223,.7);
+  font-size: 8px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.visual-index {
+  position: absolute;
+  z-index: 3;
+  top: 23px;
+  right: 24px;
+  color: rgba(246,235,223,.8);
+  font-family: var(--serif);
+  font-size: 22px;
+}
+
+/* Detail opens from the bottom of the clicked item */
+
+.foundation-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows .6s cubic-bezier(.2,.7,.2,1),
+    opacity .35s,
+    margin .4s;
+  margin-top: 0;
+}
+
+.foundation-detail.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 24px;
+}
+
+.foundation-detail-inner {
+  overflow: hidden;
+}
+
+.foundation-detail-content {
+  position: relative;
+  padding: clamp(25px,4vw,48px);
+  background: var(--cream);
+  color: var(--wine);
+}
+
+.foundation-detail-content h3 {
+  margin: 0 0 18px;
+  font-family: var(--serif);
+  font-size: clamp(32px,4vw,55px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.foundation-detail-content p {
+  max-width: 680px;
+  margin: 0 0 15px;
+  color: #7c5355;
+  font-size: 13px;
+  line-height: 1.95;
+}
+
+.foundation-detail-content ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.foundation-detail-content li {
+  padding: 9px 12px;
+  border: 1px solid rgba(62,0,12,.2);
+  color: var(--wine);
+  font-size: 9px;
+  letter-spacing: .07em;
+}
+
+.foundation-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--wine);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.foundation-close::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  transition: width .3s;
+}
+
+.foundation-close:hover::before { width: 38px; }
+
+/* ==================================================
+   05 — QUOTE
+================================================== */
 
 .quote-section {
   position: relative;
@@ -787,9 +1161,9 @@ a:focus-visible {
   50% { opacity: 0; }
 }
 
-/* =====================================================
-   5. PORTRAIT
-===================================================== */
+/* ==================================================
+   06 — PORTRAIT
+================================================== */
 
 .portrait-section {
   min-height: 100svh;
@@ -842,10 +1216,9 @@ a:focus-visible {
   font-style: italic;
 }
 
-/* =====================================================
-   6. PROJECTS
-   Each complete row has its own burgundy background.
-===================================================== */
+/* ==================================================
+   07 — PROJECTS
+================================================== */
 
 .projects-section {
   padding: 110px 0;
@@ -880,16 +1253,12 @@ a:focus-visible {
 .project-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
   border-top: 1px solid rgba(246,235,223,.2);
 }
-
-/* Full-width colored project rows */
 
 .project-item {
   --row-bg: #4b0715;
   --row-hover: #64172a;
-
   width: 100%;
   display: grid;
   grid-template-columns: 70px 1fr 60px;
@@ -900,10 +1269,7 @@ a:focus-visible {
   border-bottom: 1px solid rgba(246,235,223,.18);
   background: var(--row-bg);
   color: var(--cream);
-  transition:
-    background-color .45s ease,
-    padding .35s ease,
-    color .35s ease;
+  transition: background-color .45s, padding .35s;
 }
 
 .project-item:nth-child(1) {
@@ -942,7 +1308,6 @@ a:focus-visible {
   color: rgba(246,235,223,.63);
   font-size: 10px;
   letter-spacing: .15em;
-  transition: color .35s;
 }
 
 .project-name {
@@ -973,23 +1338,18 @@ a:focus-visible {
   border: 1px solid rgba(246,235,223,.4);
   border-radius: 50%;
   color: var(--cream);
-  transition:
-    background-color .35s,
-    color .35s,
-    transform .35s,
-    border-color .35s;
+  transition: background-color .35s, color .35s, transform .35s;
 }
 
 .project-item:hover .project-arrow {
   background: var(--cream);
-  border-color: var(--cream);
   color: var(--wine);
   transform: rotate(45deg);
 }
 
-/* =====================================================
-   7. MOTIVATION
-===================================================== */
+/* ==================================================
+   08 — MOTIVATION
+================================================== */
 
 .motivation-section {
   min-height: 80svh;
@@ -1042,9 +1402,9 @@ a:focus-visible {
   line-height: 1.9;
 }
 
-/* =====================================================
-   8. FOOTER
-===================================================== */
+/* ==================================================
+   09 — FOOTER
+================================================== */
 
 .footer {
   padding: 70px 8% 35px;
@@ -1086,13 +1446,12 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-/* =====================================================
+/* ==================================================
    MOBILE RESPONSIVE
-===================================================== */
+================================================== */
 
 @media (max-width: 768px) {
   .intro { height: 340svh; }
-
   .intro-sticky { min-height: 450px; }
 
   .intro-word {
@@ -1119,9 +1478,6 @@ a:focus-visible {
 
   .intro-signature span { font-size: 9px; }
   .intro-signature strong { font-size: 25px; }
-
-  /* Door section on mobile: two images grouped on left,
-     door on right, with smaller spacing and dimensions. */
 
   .door-section {
     min-height: 660px;
@@ -1161,7 +1517,6 @@ a:focus-visible {
   }
 
   .door-inside { inset: 6px; }
-
   .door-frame { border-width: 6px; }
 
   .door-label {
@@ -1177,9 +1532,15 @@ a:focus-visible {
   }
 
   .door-leaf::before { inset: 12px; }
-  .door-leaf::after { right: 13px; width: 7px; height: 7px; }
 
-  .section-shell { width: 88%; }
+  .door-leaf::after {
+    right: 13px;
+    width: 7px;
+    height: 7px;
+  }
+
+  .section-shell,
+  .foundation-shell { width: 88%; }
 
   .about-section {
     padding: 75px 0 80px;
@@ -1211,14 +1572,70 @@ a:focus-visible {
   }
 
   .about-card p { font-size: 12px; }
-
   .read-more { margin-top: 25px; }
-
   .details-content { padding: 30px 24px; }
 
   .details-content p {
     font-size: 12px;
     line-height: 1.9;
+  }
+
+  /* Foundation mobile */
+
+  .foundation-section {
+    padding: 75px 0;
+  }
+
+  .foundation-heading {
+    margin-bottom: 42px;
+  }
+
+  .foundation-heading h2 {
+    font-size: clamp(48px,11vw,80px);
+    line-height: .88;
+  }
+
+  .foundation-layout {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .foundation-list { gap: 22px; }
+
+  .foundation-item {
+    grid-template-columns: 62px 1fr;
+    gap: 19px;
+  }
+
+  .foundation-number {
+    width: 58px;
+    height: 58px;
+    font-size: 25px;
+  }
+
+  .foundation-title {
+    font-size: clamp(30px,7vw,43px);
+  }
+
+  .foundation-visual {
+    min-height: 320px;
+  }
+
+  .visual-core { width: 175px; }
+  .visual-core-inner { font-size: 68px; }
+
+  .foundation-detail.open { margin-top: 15px; }
+
+  .foundation-detail-content {
+    padding: 26px 22px;
+  }
+
+  .foundation-detail-content p {
+    font-size: 12px;
+  }
+
+  .foundation-detail-content li {
+    font-size: 8px;
   }
 
   .quote-section {
@@ -1314,7 +1731,6 @@ a:focus-visible {
   }
 
   .footer { padding: 60px 7% 28px; }
-
   .footer-top { display: block; }
 
   .footer-contact {
@@ -1351,9 +1767,7 @@ a:focus-visible {
     height: 52vh;
   }
 
-  .door-label {
-    font-size: clamp(19px,4.6vw,25px);
-  }
+  .door-label { font-size: clamp(19px,4.6vw,25px); }
 
   .door-label small {
     font-size: 6px;
@@ -1361,8 +1775,24 @@ a:focus-visible {
   }
 
   .about-heading h2 { font-size: 12vw; }
-
   .about-card { padding: 26px 20px; }
+
+  .foundation-heading h2 { font-size: 11vw; }
+
+  .foundation-item {
+    grid-template-columns: 53px 1fr;
+    gap: 15px;
+  }
+
+  .foundation-number {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+
+  .foundation-title { font-size: 29px; }
+  .foundation-visual { min-height: 280px; }
+  .visual-core { width: 145px; }
 
   .project-item {
     grid-template-columns: 22px 1fr 29px;
@@ -1398,7 +1828,7 @@ a:focus-visible {
 
 <body>
 
-<!-- 1. PORTFOLIO INTRO -->
+<!-- 01 — PORTFOLIO INTRO -->
 
 <section class="intro" id="portfolioIntro" aria-label="Portfolio introduction">
   <div class="intro-sticky" id="introSticky">
@@ -1433,17 +1863,14 @@ a:focus-visible {
   </div>
 </section>
 
-<!-- 2. DOOR SECTION -->
+<!-- 02 — DOOR -->
 
 <section class="door-section" id="doorSection">
 
   <div class="door-backdrop"></div>
-
   <div class="door-instruction">A different side of the story</div>
 
-  <!-- image1 and image2 are grouped together on the left -->
   <div class="door-gallery">
-
     <img
       class="door-side door-side-left"
       src="./image1(aknocov)"
@@ -1457,17 +1884,14 @@ a:focus-visible {
       alt="Luiza working at her laptop"
       loading="lazy"
     >
-
   </div>
 
-  <!-- The door stays on the right -->
   <button
     class="door-button"
     id="doorButton"
     type="button"
     aria-label="Discover what's inside"
   >
-
     <div class="door-inside">
       <img
         class="door-inside-image"
@@ -1485,14 +1909,13 @@ a:focus-visible {
     </span>
 
     <div class="door-leaf"></div>
-
   </button>
 
 </section>
 
 <div class="door-overlay" id="doorOverlay" aria-hidden="true"></div>
 
-<!-- 3. A LITTLE MORE ABOUT ME -->
+<!-- 03 — ABOUT -->
 
 <section class="about-section" id="aboutSection">
   <div class="section-shell">
@@ -1505,7 +1928,6 @@ a:focus-visible {
 
       <article class="about-card reveal">
         <div class="card-label">Personal</div>
-
         <h3>Personal</h3>
 
         <p>
@@ -1525,7 +1947,6 @@ a:focus-visible {
 
       <article class="about-card reveal">
         <div class="card-label">Professional</div>
-
         <h3>Professional</h3>
 
         <p>
@@ -1547,8 +1968,6 @@ a:focus-visible {
       </article>
 
     </div>
-
-    <!-- PERSONAL READ MORE -->
 
     <div class="details-panel" id="personalDetails">
       <div class="details-inner">
@@ -1604,12 +2023,9 @@ a:focus-visible {
           </p>
 
           <button class="close-details" type="button">Close −</button>
-
         </div>
       </div>
     </div>
-
-    <!-- PROFESSIONAL READ MORE -->
 
     <div class="details-panel" id="professionalDetails">
       <div class="details-inner">
@@ -1649,7 +2065,6 @@ a:focus-visible {
           </p>
 
           <button class="close-details" type="button">Close −</button>
-
         </div>
       </div>
     </div>
@@ -1657,7 +2072,116 @@ a:focus-visible {
   </div>
 </section>
 
-<!-- 4. QUOTE -->
+<!-- 04 — FOUNDATION: SKILLS / MY APPROACH / WHAT DRIVES ME -->
+
+<section class="foundation-section" id="foundationSection">
+  <div class="foundation-shell">
+
+    <header class="foundation-heading reveal">
+      <div class="eyebrow">What shapes my work</div>
+      <h2>The <span>Foundation</span></h2>
+    </header>
+
+    <div class="foundation-layout">
+
+      <!-- Left: interactive numbered circles -->
+
+      <div class="foundation-left">
+
+        <div class="foundation-list">
+
+          <button
+            class="foundation-item"
+            type="button"
+            data-foundation="skills"
+            aria-expanded="false"
+            aria-controls="foundationDetail"
+          >
+            <span class="foundation-number">01</span>
+            <span class="foundation-title">Skills</span>
+          </button>
+
+          <button
+            class="foundation-item"
+            type="button"
+            data-foundation="approach"
+            aria-expanded="false"
+            aria-controls="foundationDetail"
+          >
+            <span class="foundation-number">02</span>
+            <span class="foundation-title">My Approach</span>
+          </button>
+
+          <button
+            class="foundation-item"
+            type="button"
+            data-foundation="drives"
+            aria-expanded="false"
+            aria-controls="foundationDetail"
+          >
+            <span class="foundation-number">03</span>
+            <span class="foundation-title">What Drives Me</span>
+          </button>
+
+        </div>
+
+        <!-- The selected description expands below the numbered list -->
+
+        <div
+          class="foundation-detail"
+          id="foundationDetail"
+          aria-live="polite"
+          aria-hidden="true"
+        >
+          <div class="foundation-detail-inner">
+            <div class="foundation-detail-content">
+
+              <h3 id="foundationDetailTitle">Skills</h3>
+
+              <div id="foundationDetailBody"></div>
+
+              <button
+                class="foundation-close"
+                type="button"
+                id="foundationClose"
+              >
+                Close
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: animated decorative visual changes with selection -->
+
+      <div
+        class="foundation-visual reveal"
+        id="foundationVisual"
+        data-active="skills"
+        aria-hidden="true"
+      >
+        <span class="visual-index" id="visualIndex">01 / 03</span>
+
+        <div class="visual-orbit"></div>
+        <div class="visual-orbit orbit-two"></div>
+
+        <div class="visual-core">
+          <div class="visual-core-inner" id="visualSymbol">S</div>
+        </div>
+
+        <span class="visual-corner" id="visualCorner">
+          Technical craft
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- 05 — QUOTE -->
 
 <section class="quote-section" id="quoteSection">
   <div class="quote-layout">
@@ -1669,7 +2193,11 @@ a:focus-visible {
     <div class="quote-art" id="quoteArt">
       <img src="./image6(tuxt)" alt="" loading="lazy">
 
-      <div class="quote-text" id="quoteText" aria-label="If you can imagine it. You can do it!">
+      <div
+        class="quote-text"
+        id="quoteText"
+        aria-label="If you can imagine it. You can do it!"
+      >
         <span class="quote-line" id="quoteLineOne"></span>
         <span class="quote-line" id="quoteLineTwo"></span>
       </div>
@@ -1678,7 +2206,7 @@ a:focus-visible {
   </div>
 </section>
 
-<!-- 5. PORTRAIT -->
+<!-- 06 — PORTRAIT -->
 
 <section class="portrait-section" id="portraitSection">
 
@@ -1707,7 +2235,7 @@ a:focus-visible {
 
 </section>
 
-<!-- 6. PROJECTS -->
+<!-- 07 — PROJECTS -->
 
 <section class="projects-section" id="projectsSection">
   <div class="section-shell">
@@ -1726,8 +2254,6 @@ a:focus-visible {
 
   </div>
 
-  <!-- Each project row has a full-width burgundy background -->
-
   <div class="project-list">
 
     <a
@@ -1744,11 +2270,7 @@ a:focus-visible {
       <span class="project-arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a
-      class="project-item reveal"
-      href="#"
-      data-project="strixart"
-    >
+    <a class="project-item reveal" href="#" data-project="strixart">
       <span class="project-number">02</span>
       <span class="project-name">
         StrixArt
@@ -1757,11 +2279,7 @@ a:focus-visible {
       <span class="project-arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a
-      class="project-item reveal"
-      href="#"
-      data-project="rins"
-    >
+    <a class="project-item reveal" href="#" data-project="rins">
       <span class="project-number">03</span>
       <span class="project-name">
         Rins
@@ -1770,11 +2288,7 @@ a:focus-visible {
       <span class="project-arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a
-      class="project-item reveal"
-      href="#"
-      data-project="haus"
-    >
+    <a class="project-item reveal" href="#" data-project="haus">
       <span class="project-number">04</span>
       <span class="project-name">
         Haus
@@ -1783,11 +2297,7 @@ a:focus-visible {
       <span class="project-arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a
-      class="project-item reveal"
-      href="#"
-      data-project="appares"
-    >
+    <a class="project-item reveal" href="#" data-project="appares">
       <span class="project-number">05</span>
       <span class="project-name">
         ApparesBaseSystem
@@ -1799,7 +2309,7 @@ a:focus-visible {
   </div>
 </section>
 
-<!-- 7. MOTIVATION -->
+<!-- 08 — MOTIVATION -->
 
 <section class="motivation-section" id="motivationSection">
 
@@ -1819,7 +2329,7 @@ a:focus-visible {
 
 </section>
 
-<!-- 8. FOOTER -->
+<!-- 09 — FOOTER -->
 
 <footer class="footer" id="contactSection">
 
@@ -1856,9 +2366,9 @@ a:focus-visible {
   const clamp = (value, min, max) =>
     Math.max(min, Math.min(max, value));
 
-  /* -----------------------------------------------
-     PORTFOLIO LETTER-BY-LETTER SCROLL ANIMATION
-  ----------------------------------------------- */
+  /* ==================================================
+     PORTFOLIO INTRO
+  ================================================== */
 
   const intro = document.getElementById("portfolioIntro");
   const introSticky = document.getElementById("introSticky");
@@ -1866,11 +2376,13 @@ a:focus-visible {
   const progressBar = document.getElementById("introProgressBar");
   const signature = document.getElementById("introSignature");
   const scrollLabel = document.getElementById("introScrollLabel");
+  const introWord = document.querySelector(".intro-word");
 
   let introTicking = false;
 
   function updateIntro() {
     const rect = intro.getBoundingClientRect();
+
     const scrollable = Math.max(
       1,
       intro.offsetHeight - window.innerHeight
@@ -1915,8 +2427,8 @@ a:focus-visible {
       shiftY = -window.innerHeight * 0.85 * exitProgress;
     }
 
-    const introWord = document.querySelector(".intro-word");
-    introWord.style.transform = `translate3d(0, ${shiftY}px, 0)`;
+    introWord.style.transform =
+      `translate3d(0, ${shiftY}px, 0)`;
 
     progressBar.style.width = `${progress * 100}%`;
     signature.classList.toggle("show", progress >= 0.56);
@@ -1940,10 +2452,9 @@ a:focus-visible {
 
   updateIntro();
 
-  /* -----------------------------------------------
-     REVEAL SECTIONS WHEN SCROLLING
-     Elements can animate again when scrolling back.
-  ----------------------------------------------- */
+  /* ==================================================
+     REVEAL ELEMENTS
+  ================================================== */
 
   const revealElements = document.querySelectorAll(".reveal");
 
@@ -1972,9 +2483,9 @@ a:focus-visible {
     });
   }
 
-  /* -----------------------------------------------
-     DOOR SECTION REVEAL
-  ----------------------------------------------- */
+  /* ==================================================
+     DOOR SECTION
+  ================================================== */
 
   const doorSection = document.getElementById("doorSection");
   const doorButton = document.getElementById("doorButton");
@@ -1998,10 +2509,6 @@ a:focus-visible {
   } else {
     doorSection.classList.add("in-view");
   }
-
-  /* -----------------------------------------------
-     OPEN THE DOOR AND ENTER THE ABOUT SECTION
-  ----------------------------------------------- */
 
   let doorAnimating = false;
 
@@ -2030,10 +2537,180 @@ a:focus-visible {
     }, reduceMotion ? 150 : 2500);
   });
 
-  /* -----------------------------------------------
-     QUOTE TYPEWRITER ANIMATION
-     Replays when the user scrolls back to the quote.
-  ----------------------------------------------- */
+  /* ==================================================
+     FOUNDATION SECTION INTERACTIONS
+  ================================================== */
+
+  const foundationButtons = [
+    ...document.querySelectorAll("[data-foundation]")
+  ];
+
+  const foundationDetail =
+    document.getElementById("foundationDetail");
+
+  const foundationDetailTitle =
+    document.getElementById("foundationDetailTitle");
+
+  const foundationDetailBody =
+    document.getElementById("foundationDetailBody");
+
+  const foundationClose =
+    document.getElementById("foundationClose");
+
+  const foundationVisual =
+    document.getElementById("foundationVisual");
+
+  const visualIndex =
+    document.getElementById("visualIndex");
+
+  const visualSymbol =
+    document.getElementById("visualSymbol");
+
+  const visualCorner =
+    document.getElementById("visualCorner");
+
+  const foundationContent = {
+    skills: {
+      title: "Skills",
+      symbol: "S",
+      index: "01 / 03",
+      corner: "Technical craft",
+      paragraphs: [
+        "I combine Shopify development, visual design and customer experience to build stores that look considered and work smoothly. My focus is on creating a clear structure, consistent styling and a reliable experience across desktop and mobile.",
+        "My practical work includes store setup, theme customization, product and collection pages, custom Liquid, HTML, CSS, responsive layouts and improving the usability of existing sections."
+      ],
+      tags: [
+        "Shopify",
+        "Liquid",
+        "HTML & CSS",
+        "Responsive Design",
+        "UI / UX",
+        "Product Pages",
+        "Collections",
+        "Customer Experience"
+      ]
+    },
+
+    approach: {
+      title: "My Approach",
+      symbol: "A",
+      index: "02 / 03",
+      corner: "Design with purpose",
+      paragraphs: [
+        "I approach each project by balancing visual identity with practical functionality. A store should not only look premium; it should also feel intuitive, communicate clearly and help customers find what they need without unnecessary friction.",
+        "My background in psychology encourages me to consider how people interact with a page, what helps build trust and how thoughtful navigation, content hierarchy and consistent details can improve the overall customer journey."
+      ],
+      tags: [
+        "Visual Consistency",
+        "Customer Journey",
+        "Usability",
+        "Brand Identity",
+        "Conversion-Conscious Design"
+      ]
+    },
+
+    drives: {
+      title: "What Drives Me",
+      symbol: "D",
+      index: "03 / 03",
+      corner: "Curiosity in motion",
+      paragraphs: [
+        "I am motivated by curiosity, independence and the process of turning an idea into something tangible. I enjoy learning, exploring new ways to solve problems and paying attention to the small details that make a result feel complete.",
+        "I value consistency and personal growth. Every project gives me a chance to refine my skills, discover a new perspective and create something that feels purposeful rather than simply finished."
+      ],
+      tags: [
+        "Curiosity",
+        "Creativity",
+        "Consistency",
+        "Attention to Detail",
+        "Continuous Learning"
+      ]
+    }
+  };
+
+  let activeFoundation = null;
+
+  function renderFoundation(key) {
+    const content = foundationContent[key];
+
+    if (!content) return;
+
+    foundationDetailTitle.textContent = content.title;
+
+    foundationDetailBody.replaceChildren();
+
+    content.paragraphs.forEach(paragraphText => {
+      const paragraph = document.createElement("p");
+      paragraph.textContent = paragraphText;
+      foundationDetailBody.appendChild(paragraph);
+    });
+
+    const list = document.createElement("ul");
+
+    content.tags.forEach(tagText => {
+      const item = document.createElement("li");
+      item.textContent = tagText;
+      list.appendChild(item);
+    });
+
+    foundationDetailBody.appendChild(list);
+
+    foundationVisual.dataset.active = key;
+    visualIndex.textContent = content.index;
+    visualSymbol.textContent = content.symbol;
+    visualCorner.textContent = content.corner;
+  }
+
+  function closeFoundation() {
+    activeFoundation = null;
+
+    foundationDetail.classList.remove("open");
+    foundationDetail.setAttribute("aria-hidden", "true");
+
+    foundationButtons.forEach(button => {
+      button.classList.remove("active");
+      button.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  foundationButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const key = button.dataset.foundation;
+
+      if (activeFoundation === key) {
+        closeFoundation();
+        return;
+      }
+
+      activeFoundation = key;
+
+      foundationButtons.forEach(item => {
+        const isActive = item === button;
+        item.classList.toggle("active", isActive);
+        item.setAttribute("aria-expanded", String(isActive));
+      });
+
+      renderFoundation(key);
+
+      foundationDetail.classList.add("open");
+      foundationDetail.setAttribute("aria-hidden", "false");
+
+      if (window.innerWidth <= 768) {
+        window.setTimeout(() => {
+          foundationDetail.scrollIntoView({
+            behavior: reduceMotion ? "auto" : "smooth",
+            block: "nearest"
+          });
+        }, 180);
+      }
+    });
+  });
+
+  foundationClose.addEventListener("click", closeFoundation);
+
+  /* ==================================================
+     QUOTE TYPEWRITER
+  ================================================== */
 
   const quoteArt = document.getElementById("quoteArt");
   const quoteLineOne = document.getElementById("quoteLineOne");
@@ -2057,7 +2734,6 @@ a:focus-visible {
     quoteLineTwo.textContent = "";
 
     const cursor = document.getElementById("quoteCursor");
-
     if (cursor) cursor.remove();
   }
 
@@ -2092,18 +2768,12 @@ a:focus-visible {
 
         quoteLineOne.appendChild(cursor);
 
-        typingTimer = window.setTimeout(
-          typeFirstLine,
-          58
-        );
+        typingTimer = window.setTimeout(typeFirstLine, 58);
       } else {
         quoteLineOne.textContent = quoteFirst;
         quoteLineTwo.appendChild(cursor);
 
-        typingTimer = window.setTimeout(
-          typeSecondLine,
-          220
-        );
+        typingTimer = window.setTimeout(typeSecondLine, 220);
       }
     }
 
@@ -2118,10 +2788,7 @@ a:focus-visible {
 
         quoteLineTwo.appendChild(cursor);
 
-        typingTimer = window.setTimeout(
-          typeSecondLine,
-          65
-        );
+        typingTimer = window.setTimeout(typeSecondLine, 65);
       } else {
         quoteLineTwo.textContent = quoteSecond;
         cursor.classList.add("done");
@@ -2154,26 +2821,20 @@ a:focus-visible {
     typeText();
   }
 
-  /* -----------------------------------------------
+  /* ==================================================
      PERSONAL / PROFESSIONAL READ MORE
-  ----------------------------------------------- */
+  ================================================== */
 
   document.querySelectorAll("[data-details]").forEach(button => {
     button.addEventListener("click", () => {
-      const panel = document.getElementById(
-        button.dataset.details
-      );
-
+      const panel = document.getElementById(button.dataset.details);
       const isOpen = panel.classList.contains("open");
 
       panel.classList.toggle("open", !isOpen);
       button.setAttribute("aria-expanded", String(!isOpen));
 
       const label = button.querySelector("span");
-
-      if (label) {
-        label.textContent = isOpen ? "+" : "−";
-      }
+      if (label) label.textContent = isOpen ? "+" : "−";
 
       if (!isOpen) {
         window.setTimeout(() => {
@@ -2189,7 +2850,6 @@ a:focus-visible {
   document.querySelectorAll(".close-details").forEach(button => {
     button.addEventListener("click", () => {
       const panel = button.closest(".details-panel");
-
       panel.classList.remove("open");
 
       const relatedButton = document.querySelector(
@@ -2200,24 +2860,18 @@ a:focus-visible {
         relatedButton.setAttribute("aria-expanded", "false");
 
         const label = relatedButton.querySelector("span");
-
         if (label) label.textContent = "+";
       }
     });
   });
 
-  /* -----------------------------------------------
-     PROJECT PLACEHOLDERS
-     Replace # with each project's real URL when ready.
-  ----------------------------------------------- */
+  /* Project placeholder links */
 
   document.querySelectorAll("[data-project]").forEach(link => {
     link.addEventListener("click", event => {
       event.preventDefault();
     });
   });
-
-  /* Footer year */
 
   document.getElementById("currentYear").textContent =
     new Date().getFullYear();
