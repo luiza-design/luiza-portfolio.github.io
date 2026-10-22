@@ -98,7 +98,7 @@ img { display: block; max-width: 100%; }
   max-width: 96vw;
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(4.4rem, 18vw, 18rem);
+  font-size: clamp(4.4rem,18vw,18rem);
   line-height: .9;
   letter-spacing: -.075em;
   white-space: nowrap;
@@ -111,9 +111,7 @@ img { display: block; max-width: 100%; }
   flex: 0 0 auto;
   opacity: 0;
   transform: translateY(45px);
-  transition:
-    opacity .55s ease,
-    transform .8s cubic-bezier(.2,.7,.2,1);
+  transition: opacity .55s ease, transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
 .intro-letter.visible {
@@ -121,19 +119,9 @@ img { display: block; max-width: 100%; }
   transform: translateY(0);
 }
 
-/* Three groups, three distinct colors */
-
-.intro-letter.por {
-  color: #fff7ed;
-}
-
-.intro-letter.tfo {
-  color: #a94c62;
-}
-
-.intro-letter.lio {
-  color: #f2dfcb;
-}
+.intro-letter.por { color: #fff7ed; }
+.intro-letter.tfo { color: #a94c62; }
+.intro-letter.lio { color: #f2dfcb; }
 
 .intro.is-light .intro-letter.por { color: var(--wine); }
 .intro.is-light .intro-letter.tfo { color: #a94c62; }
@@ -209,26 +197,25 @@ img { display: block; max-width: 100%; }
 .intro-signature strong {
   margin-top: 5px;
   font-family: var(--serif);
-  font-size: clamp(24px, 3vw, 40px);
+  font-size: clamp(24px,3vw,40px);
   font-weight: 400;
 }
 
-.intro.is-light .intro-signature {
-  color: var(--wine);
-}
+.intro.is-light .intro-signature { color: var(--wine); }
 
 /* =========================================
-   2. DOOR
+   2. DOOR SECTION — UPDATED
 ========================================= */
 
 .door-section {
   position: relative;
   height: 100svh;
-  min-height: 550px;
+  min-height: 600px;
   display: grid;
   place-items: center;
   overflow: hidden;
-  padding: 25px;
+  isolation: isolate;
+  padding: 30px;
   background: var(--wine);
   color: var(--cream);
 }
@@ -236,37 +223,75 @@ img { display: block; max-width: 100%; }
 .door-backdrop {
   position: absolute;
   inset: 0;
+  z-index: -2;
   background:
-    radial-gradient(ellipse at center, rgba(120,26,48,.4), transparent 65%),
+    radial-gradient(ellipse at center, rgba(126,31,51,.28), transparent 65%),
     var(--wine);
 }
 
-.door-instruction {
+/* Side images */
+
+.door-side {
   position: absolute;
-  top: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  color: rgba(246,235,223,.7);
-  font-size: 9px;
-  letter-spacing: .24em;
-  text-align: center;
-  text-transform: uppercase;
+  top: 50%;
+  width: clamp(140px,21vw,340px);
+  height: clamp(220px,39vw,520px);
+  object-fit: cover;
+  opacity: .82;
+  transform: translateY(-50%);
+  filter: saturate(.8);
+  transition: opacity 1s ease, transform 1.3s cubic-bezier(.2,.7,.2,1);
 }
+
+.door-side-left {
+  left: clamp(18px,5vw,90px);
+  object-position: center;
+}
+
+.door-side-right {
+  right: clamp(18px,5vw,90px);
+  object-position: center;
+}
+
+.door-section.in-view .door-side-left {
+  transform: translateY(-50%) translateX(0);
+}
+
+.door-section.in-view .door-side-right {
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Center door */
 
 .door-button {
   position: relative;
-  width: min(42vw,390px);
-  min-width: 230px;
-  height: min(68vh,620px);
-  min-height: 350px;
+  z-index: 2;
+  width: clamp(220px,29vw,430px);
+  height: clamp(350px,68vh,650px);
+  min-height: 340px;
   padding: 0;
-  border: 1px solid rgba(246,235,223,.5);
+  border: 1px solid rgba(246,235,223,.55);
   background: transparent;
   color: var(--cream);
   cursor: pointer;
-  perspective: 1500px;
+  perspective: 1600px;
   isolation: isolate;
+  box-shadow: 0 30px 90px rgba(0,0,0,.2);
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 1s ease,
+    transform 1.2s cubic-bezier(.2,.7,.2,1),
+    box-shadow .5s ease;
+}
+
+.door-section.in-view .door-button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.door-button:hover {
+  box-shadow: 0 35px 100px rgba(0,0,0,.35);
 }
 
 .door-inside {
@@ -276,41 +301,60 @@ img { display: block; max-width: 100%; }
   background: var(--wine-dark);
 }
 
-.door-inside::before {
-  content: "";
+.door-inside-image {
   position: absolute;
   inset: 0;
-  background: url("image3") center / cover no-repeat;
-  opacity: .28;
-  transition: transform 1.8s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .85;
+  transform: scale(1.02);
+  transition: transform 2s cubic-bezier(.2,.7,.2,1), opacity .8s ease;
+}
+
+.door-button:hover .door-inside-image {
+  transform: scale(1.07);
 }
 
 .door-frame {
   position: absolute;
   inset: 0;
-  border: 8px solid rgba(246,235,223,.12);
-  outline: 1px solid rgba(246,235,223,.4);
+  z-index: 4;
+  border: 8px solid rgba(246,235,223,.13);
+  outline: 1px solid rgba(246,235,223,.45);
   outline-offset: -13px;
   pointer-events: none;
 }
 
 .door-label {
-  position: relative;
-  z-index: 1;
-  display: block;
-  padding-top: 145px;
+  position: absolute;
+  z-index: 5;
+  left: 8%;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cream);
   font-family: var(--serif);
-  font-size: clamp(35px,5vw,62px);
-  transition: opacity .4s ease;
+  font-size: clamp(25px,3.2vw,45px);
+  line-height: 1.08;
+  letter-spacing: -.025em;
+  text-align: center;
+  text-wrap: balance;
+  text-shadow: 0 2px 20px rgba(39,0,8,.55);
+  transition: opacity .5s ease, transform .7s ease;
 }
 
 .door-label small {
   display: block;
-  margin-top: 15px;
+  margin-top: 18px;
   font-family: var(--sans);
-  font-size: 9px;
-  letter-spacing: .25em;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .24em;
+  text-transform: uppercase;
 }
+
+/* Door leaf overlays the image and opens on click */
 
 .door-leaf {
   position: absolute;
@@ -320,16 +364,17 @@ img { display: block; max-width: 100%; }
   transform-style: preserve-3d;
   border: 1px solid rgba(246,235,223,.4);
   background:
-    linear-gradient(90deg,rgba(255,255,255,.08),transparent 15%,rgba(0,0,0,.12)),
+    linear-gradient(90deg,rgba(255,255,255,.07),transparent 15%,rgba(0,0,0,.12)),
     linear-gradient(135deg,#702033,#3e000c 55%,#260007);
-  transition: transform 1.9s cubic-bezier(.2,.7,.15,1);
+  box-shadow: inset 0 0 45px rgba(0,0,0,.13);
+  transition: transform 1.8s cubic-bezier(.2,.7,.15,1);
 }
 
 .door-leaf::before {
   content: "";
   position: absolute;
   inset: 16px;
-  border: 1px solid rgba(246,235,223,.28);
+  border: 1px solid rgba(246,235,223,.3);
 }
 
 .door-leaf::after {
@@ -341,10 +386,11 @@ img { display: block; max-width: 100%; }
   height: 9px;
   border-radius: 50%;
   background: #c6a17d;
+  box-shadow: 0 0 8px rgba(198,161,125,.35);
 }
 
 .door-button:hover .door-leaf {
-  transform: perspective(1500px) rotateY(-8deg);
+  transform: perspective(1600px) rotateY(-7deg);
 }
 
 .door-button.opening {
@@ -352,12 +398,34 @@ img { display: block; max-width: 100%; }
 }
 
 .door-button.opening .door-leaf {
-  transform: perspective(1500px) rotateY(-108deg);
+  transform: perspective(1600px) rotateY(-112deg);
+  box-shadow: 25px 12px 50px rgba(0,0,0,.4);
 }
 
 .door-button.opening .door-label {
   opacity: 0;
+  transform: translateY(-50%) translateX(15px);
 }
+
+.door-button.opening .door-inside-image {
+  transform: scale(1.13);
+}
+
+.door-instruction {
+  position: absolute;
+  z-index: 2;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  color: rgba(246,235,223,.55);
+  font-size: 8px;
+  letter-spacing: .25em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Full-screen transition after clicking the door */
 
 .door-overlay {
   position: fixed;
@@ -366,14 +434,14 @@ img { display: block; max-width: 100%; }
   background: var(--wine);
   clip-path: inset(100% 0 0 0);
   pointer-events: none;
-  transition: clip-path 1.2s cubic-bezier(.7,0,.2,1);
+  transition: clip-path 1.15s cubic-bezier(.7,0,.2,1);
 }
 
 .door-overlay.active { clip-path: inset(0); }
 .door-overlay.leave { clip-path: inset(0 0 100% 0); }
 
 /* =========================================
-   COMMON
+   SHARED STYLES
 ========================================= */
 
 .section-shell {
@@ -411,7 +479,8 @@ img { display: block; max-width: 100%; }
 }
 
 /* =========================================
-   3. ABOUT ME
+   3. A LITTLE MORE ABOUT ME
+   Small eyebrow removed; main heading remains.
 ========================================= */
 
 .about-section {
@@ -424,7 +493,7 @@ img { display: block; max-width: 100%; }
 }
 
 .about-heading {
-  margin: 42px auto 70px;
+  margin: 0 auto 70px;
   text-align: center;
 }
 
@@ -672,15 +741,12 @@ img { display: block; max-width: 100%; }
   pointer-events: none;
 }
 
-/* The text stays inside the burgundy area of the image */
-
 .quote-text {
   position: absolute;
   z-index: 2;
   top: 50%;
   left: 7%;
   width: 86%;
-  max-width: 100%;
   transform: translateY(-50%);
   color: #fff6ec;
   text-align: center;
@@ -698,9 +764,7 @@ img { display: block; max-width: 100%; }
   min-height: 1.08em;
 }
 
-.quote-line + .quote-line {
-  margin-top: 8px;
-}
+.quote-line + .quote-line { margin-top: 8px; }
 
 .quote-cursor {
   display: inline-block;
@@ -962,12 +1026,11 @@ img { display: block; max-width: 100%; }
 }
 
 /* =========================================
-   RESPONSIVE
+   MOBILE RESPONSIVE
 ========================================= */
 
 @media (max-width: 768px) {
   .intro { height: 340svh; }
-
   .intro-sticky { min-height: 450px; }
 
   .intro-word {
@@ -995,21 +1058,51 @@ img { display: block; max-width: 100%; }
   .intro-signature span { font-size: 9px; }
   .intro-signature strong { font-size: 25px; }
 
+  /* Mobile door layout: centered door with two side images */
+
   .door-section {
-    min-height: 600px;
-    height: 90svh;
-    padding: 20px;
+    min-height: 650px;
+    height: 92svh;
+    padding: 18px;
   }
 
+  .door-side {
+    top: auto;
+    bottom: 22px;
+    width: 27vw;
+    height: 24vh;
+    min-height: 120px;
+    max-height: 190px;
+    opacity: .72;
+    transform: none;
+  }
+
+  .door-side-left { left: 5%; }
+  .door-side-right { right: 5%; }
+
   .door-button {
-    width: min(74vw,340px);
-    height: min(64vh,520px);
+    width: min(64vw,330px);
+    height: min(60vh,510px);
     min-width: 0;
     min-height: 340px;
+    margin-top: -45px;
+  }
+
+  .door-label {
+    left: 6%;
+    right: 6%;
+    font-size: clamp(23px,6vw,35px);
+  }
+
+  .door-label small {
+    font-size: 7px;
+    letter-spacing: .18em;
   }
 
   .door-instruction {
-    top: 25px;
+    top: 24px;
+    font-size: 7px;
+    letter-spacing: .17em;
     line-height: 1.8;
   }
 
@@ -1020,7 +1113,7 @@ img { display: block; max-width: 100%; }
     border-radius: 0 0 16px 16px;
   }
 
-  .about-heading { margin: 38px auto 48px; }
+  .about-heading { margin: 0 auto 48px; }
 
   .about-heading h2 {
     font-size: clamp(47px,11vw,90px);
@@ -1145,6 +1238,17 @@ img { display: block; max-width: 100%; }
     letter-spacing: -.075em;
   }
 
+  .door-button {
+    width: 66vw;
+    height: 54vh;
+    min-height: 310px;
+  }
+
+  .door-side {
+    width: 25vw;
+    height: 19vh;
+  }
+
   .about-heading h2 { font-size: 12vw; }
   .about-card { padding: 26px 20px; }
 
@@ -1215,31 +1319,51 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-<!-- 2. DOOR -->
+<!-- 2. DOOR SECTION: IMAGE 3 AS THE DOOR, IMAGES 1 AND 2 ON SIDES -->
 
 <section class="door-section" id="doorSection">
   <div class="door-backdrop"></div>
-  <div class="door-instruction">A different side of the story · Enter</div>
+
+  <div class="door-instruction">
+    A different side of the story
+  </div>
+
+  <img class="door-side door-side-left"
+       src="image1"
+       alt=""
+       loading="lazy">
+
+  <img class="door-side door-side-right"
+       src="image2"
+       alt=""
+       loading="lazy">
 
   <button class="door-button" id="doorButton" type="button"
-          aria-label="Open the door and enter the portfolio">
-    <div class="door-inside"></div>
-    <div class="door-frame"></div>
-    <div class="door-label">
-      ABOUT ME
-      <small>CLICK TO ENTER</small>
+          aria-label="Discover what's inside">
+    <div class="door-inside">
+      <img class="door-inside-image"
+           src="image3"
+           alt=""
+           loading="lazy">
     </div>
+
+    <div class="door-frame"></div>
+
+    <span class="door-label">
+      Discover what's inside
+      <small>Click to enter</small>
+    </span>
+
     <div class="door-leaf"></div>
   </button>
 </section>
 
 <div class="door-overlay" id="doorOverlay" aria-hidden="true"></div>
 
-<!-- 3. ABOUT ME -->
+<!-- 3. A LITTLE MORE ABOUT ME -->
 
 <section class="about-section" id="aboutSection">
   <div class="section-shell">
-    <div class="eyebrow reveal">A little more about me</div>
 
     <header class="about-heading reveal">
       <h2>A LITTLE MORE <span>ABOUT ME</span></h2>
@@ -1330,10 +1454,11 @@ img { display: block; max-width: 100%; }
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- 4. QUOTE IMAGE AND TYPING TEXT -->
+<!-- 4. QUOTE IMAGE AND TYPEWRITER -->
 
 <section class="quote-section" id="quoteSection">
   <div class="quote-layout">
@@ -1344,7 +1469,8 @@ img { display: block; max-width: 100%; }
     <div class="quote-art" id="quoteArt">
       <img src="image6" alt="" loading="lazy">
 
-      <div class="quote-text" id="quoteText" aria-label="If you can imagine it. You can do it!">
+      <div class="quote-text" id="quoteText"
+           aria-label="If you can imagine it. You can do it!">
         <span class="quote-line" id="quoteLineOne"></span>
         <span class="quote-line" id="quoteLineTwo"></span>
       </div>
@@ -1471,7 +1597,7 @@ img { display: block; max-width: 100%; }
     Math.max(min, Math.min(max, value));
 
   /* =====================================
-     PORTFOLIO: CUMULATIVE LETTER REVEAL
+     PORTFOLIO INTRO ANIMATION
   ===================================== */
 
   const intro = document.getElementById("portfolioIntro");
@@ -1494,12 +1620,6 @@ img { display: block; max-width: 100%; }
     const travelled = clamp(-rect.top, 0, scrollable);
     const progress = travelled / scrollable;
 
-    /*
-      Each letter remains visible after appearing.
-      POR -> TFO -> LIO.
-      Going back up reverses the sequence.
-    */
-
     const revealPoints = [
       0.025, 0.065, 0.105,
       0.20, 0.245, 0.29,
@@ -1513,11 +1633,6 @@ img { display: block; max-width: 100%; }
       );
     });
 
-    /*
-      Background transitions from burgundy to cream
-      and back to burgundy.
-    */
-
     const lightPhase = progress >= 0.22 && progress < 0.40;
     intro.classList.toggle("is-light", lightPhase);
 
@@ -1528,12 +1643,6 @@ img { display: block; max-width: 100%; }
     } else {
       introSticky.style.backgroundColor = "#3e000c";
     }
-
-    /*
-      Keep the full word centered while revealing it.
-      Only after all letters have appeared, slowly
-      move the word upwards as the intro ends.
-    */
 
     let shiftY = 0;
 
@@ -1547,10 +1656,10 @@ img { display: block; max-width: 100%; }
       shiftY = -window.innerHeight * 0.85 * exitProgress;
     }
 
-    introWord.style.transform = `translate3d(0, ${shiftY}px, 0)`;
+    introWord.style.transform =
+      `translate3d(0, ${shiftY}px, 0)`;
 
     progressBar.style.width = `${progress * 100}%`;
-
     signature.classList.toggle("show", progress >= 0.56);
     scrollLabel.style.opacity = progress >= 0.88 ? "0" : ".7";
 
@@ -1572,7 +1681,7 @@ img { display: block; max-width: 100%; }
   updateIntro();
 
   /* =====================================
-     REVEAL SECTIONS ON ENTER / EXIT
+     REVEAL ANIMATIONS
   ===================================== */
 
   const revealElements = document.querySelectorAll(".reveal");
@@ -1600,12 +1709,34 @@ img { display: block; max-width: 100%; }
   }
 
   /* =====================================
-     DOOR TRANSITION
+     DOOR SECTION REVEAL ON SCROLL
   ===================================== */
 
+  const doorSection = document.getElementById("doorSection");
   const doorButton = document.getElementById("doorButton");
   const doorOverlay = document.getElementById("doorOverlay");
   const aboutSection = document.getElementById("aboutSection");
+
+  if ("IntersectionObserver" in window) {
+    const doorObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        doorSection.classList.toggle(
+          "in-view",
+          entry.isIntersecting
+        );
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    doorObserver.observe(doorSection);
+  } else {
+    doorSection.classList.add("in-view");
+  }
+
+  /* =====================================
+     CLICK DOOR → OPEN → SCROLL TO ABOUT
+  ===================================== */
 
   let doorAnimating = false;
 
@@ -1621,24 +1752,21 @@ img { display: block; max-width: 100%; }
         behavior: reduceMotion ? "auto" : "smooth",
         block: "start"
       });
-    }, reduceMotion ? 50 : 650);
+    }, reduceMotion ? 50 : 750);
 
     window.setTimeout(() => {
       doorOverlay.classList.add("leave");
-    }, reduceMotion ? 80 : 1250);
+    }, reduceMotion ? 80 : 1350);
 
     window.setTimeout(() => {
       doorOverlay.classList.remove("active", "leave");
       doorButton.classList.remove("opening");
       doorAnimating = false;
-    }, reduceMotion ? 150 : 2450);
+    }, reduceMotion ? 150 : 2500);
   });
 
   /* =====================================
      QUOTE TYPEWRITER
-     Image appears first, then text types in.
-     When scrolling away, text resets.
-     Scrolling back down plays it again.
   ===================================== */
 
   const quoteArt = document.getElementById("quoteArt");
@@ -1696,12 +1824,10 @@ img { display: block; max-width: 100%; }
           quoteFirst.slice(0, firstIndex);
 
         quoteLineOne.appendChild(cursor);
-
         typingTimer = window.setTimeout(typeFirstLine, 58);
       } else {
         quoteLineOne.textContent = quoteFirst;
         quoteLineTwo.appendChild(cursor);
-
         typingTimer = window.setTimeout(typeSecondLine, 220);
       }
     }
@@ -1716,7 +1842,6 @@ img { display: block; max-width: 100%; }
           quoteSecond.slice(0, secondIndex);
 
         quoteLineTwo.appendChild(cursor);
-
         typingTimer = window.setTimeout(typeSecondLine, 65);
       } else {
         quoteLineTwo.textContent = quoteSecond;
