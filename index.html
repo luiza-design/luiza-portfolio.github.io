@@ -1519,7 +1519,7 @@ a:focus-visible {
   object-fit: cover;
 }
 
-.mindset-quote-card .mindset-card-image { opacity: .92; }
+.mindset-quote-card .mindset-card-image { opacity: .54; }
 
 .mindset-quote-card::after,
 .mindset-points-card::after {
@@ -1575,6 +1575,8 @@ a:focus-visible {
   padding: clamp(75px, 7vw, 95px) clamp(24px, 4vw, 52px) 30px;
 }
 
+.mindset-points-card .mindset-card-label { z-index: 2; }
+
 .mindset-points {
   display: grid;
   gap: 0;
@@ -1614,72 +1616,6 @@ a:focus-visible {
   line-height: 1.8;
 }
 
-/* Correct image/text layering and align copy with the photographed surfaces. */
-.mindset-card-label {
-  z-index: 3;
-}
-
-.mindset-quote-card .mindset-quote {
-  z-index: 2;
-  top: 26%;
-  right: 15%;
-  bottom: auto;
-  left: 15%;
-  width: 70%;
-  max-width: none;
-  transform: none;
-  color: #4a0716;
-  text-align: left;
-  font-size: clamp(25px, 3.05vw, 43px);
-  line-height: 1.02;
-  letter-spacing: -.03em;
-  text-shadow: none;
-}
-
-.mindset-quote-card .mindset-quote small {
-  margin-top: 12px;
-  color: #6b3039;
-  font-size: 7px;
-  line-height: 1.6;
-  letter-spacing: .13em;
-}
-
-.mindset-points-card {
-  position: relative;
-}
-
-.mindset-points-card .mindset-points {
-  position: relative;
-  z-index: 2;
-}
-
-.mindset-points-card .mindset-point {
-  min-height: 92px;
-  align-items: start;
-  padding: 17px 0 14px;
-  border-bottom: 1px solid rgba(246,235,223,.42);
-}
-
-.mindset-points-card .mindset-point-number,
-.mindset-points-card .mindset-point h3,
-.mindset-points-card .mindset-point p {
-  position: relative;
-  z-index: 2;
-}
-
-.mindset-points-card .mindset-point-number {
-  padding-top: 2px;
-}
-
-.mindset-points-card .mindset-point h3 {
-  margin-bottom: 6px;
-  line-height: 1.35;
-}
-
-.mindset-points-card .mindset-point p {
-  line-height: 1.65;
-}
-
 /* ==================================================
    MOBILE — FREELANCER MINDSET
 ================================================== */
@@ -1690,26 +1626,20 @@ a:focus-visible {
   .mindset-grid { grid-template-columns: 1fr; gap: 18px; }
   .mindset-card { min-height: 480px; }
   .mindset-points-card { min-height: auto; padding: 70px 24px 20px; }
-  .mindset-point { grid-template-columns: 40px minmax(0,1fr); gap: 12px; padding: 18px 0; min-height: 0; }
+  .mindset-point { grid-template-columns: 40px minmax(0,1fr); gap: 12px; padding: 20px 0; }
   .mindset-point-number { font-size: 25px; }
   .mindset-point p { font-size: 11px; }
 }
 
 @media (max-width: 420px) {
   .mindset-card { min-height: 430px; }
-  .mindset-quote { font-size: 34px; }
-  .mindset-quote-card .mindset-quote {
-    top: 27%;
-    right: 12%;
-    left: 12%;
-    width: 76%;
-    font-size: clamp(23px, 7vw, 31px);
-    line-height: 1.02;
+  .mindset-quote {
+    top: 30%;
+    left: 19%;
+    width: 62%;
+    font-size: clamp(22px, 6vw, 30px);
   }
-  .mindset-quote-card .mindset-quote small {
-    margin-top: 9px;
-    font-size: 6px;
-  }
+  .mindset-quote small { font-size: 6px; margin-top: 12px; }
   .mindset-card-label { left: 20px; top: 20px; }
   .mindset-points-card { padding-right: 19px; padding-left: 19px; }
 }
