@@ -1445,6 +1445,277 @@ a:focus-visible {
 }
 
 /* ==================================================
+   09 — FREELANCER MINDSET
+================================================== */
+
+.freelancer-mindset {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(70px, 9vw, 140px) 7%;
+  color: var(--cream);
+  background: linear-gradient(112deg, #6b1b2c 0%, #4a0716 43%, #260008 100%);
+}
+
+.freelancer-mindset::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 12% 20%, rgba(193,132,137,.22), transparent 38%),
+              radial-gradient(ellipse at 88% 82%, rgba(18,0,5,.45), transparent 42%);
+}
+
+.mindset-shell {
+  position: relative;
+  z-index: 1;
+  width: min(1320px, 100%);
+  margin: 0 auto;
+}
+
+.mindset-heading {
+  margin-bottom: clamp(35px, 5vw, 70px);
+}
+
+.mindset-heading .eyebrow { color: #d3a6a4; }
+
+.mindset-heading h2 {
+  margin: 22px 0 0;
+  max-width: 900px;
+  font-family: var(--serif);
+  font-size: clamp(46px, 8vw, 108px);
+  font-weight: 400;
+  line-height: .92;
+  letter-spacing: -.045em;
+}
+
+.mindset-heading h2 span { color: #d9a9a5; }
+
+.mindset-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+  align-items: stretch;
+  gap: clamp(22px, 4vw, 58px);
+}
+
+.mindset-card {
+  position: relative;
+  min-width: 0;
+  min-height: 570px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(246,235,223,.2);
+  background: rgba(30,0,8,.26);
+}
+
+.mindset-card-image {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+}
+
+.mindset-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mindset-quote-card .mindset-card-image { opacity: .92; }
+
+.mindset-quote-card::after,
+.mindset-points-card::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+}
+
+.mindset-quote-card::after {
+  background: linear-gradient(180deg, rgba(64,0,13,.12), rgba(43,0,9,.86));
+}
+
+.mindset-points-card::after {
+  background: linear-gradient(120deg, rgba(60,0,13,.72), rgba(34,0,8,.84));
+}
+
+.mindset-card-label {
+  position: absolute;
+  top: 27px;
+  left: 28px;
+  color: rgba(246,235,223,.8);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.mindset-quote {
+  position: absolute;
+  right: clamp(24px, 4vw, 52px);
+  bottom: clamp(28px, 5vw, 60px);
+  left: clamp(24px, 4vw, 52px);
+  max-width: 540px;
+  font-family: var(--serif);
+  font-size: clamp(32px, 4.2vw, 58px);
+  line-height: 1.04;
+  letter-spacing: -.025em;
+}
+
+.mindset-quote small {
+  display: block;
+  margin-top: 25px;
+  color: #e2b8b0;
+  font-family: var(--sans);
+  font-size: 9px;
+  line-height: 1.8;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.mindset-points-card {
+  padding: clamp(75px, 7vw, 95px) clamp(24px, 4vw, 52px) 30px;
+}
+
+.mindset-points {
+  display: grid;
+  gap: 0;
+}
+
+.mindset-point {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 16px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(246,235,223,.22);
+}
+
+.mindset-point:first-child { padding-top: 0; }
+.mindset-point:last-child { border-bottom: 0; }
+
+.mindset-point-number {
+  color: #d9a9a5;
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.mindset-point h3 {
+  margin: 0 0 8px;
+  color: var(--cream);
+  font-size: clamp(13px, 1.3vw, 16px);
+  font-weight: 500;
+  letter-spacing: -.015em;
+}
+
+.mindset-point p {
+  max-width: 470px;
+  margin: 0;
+  color: rgba(246,235,223,.72);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+/* Correct image/text layering and align copy with the photographed surfaces. */
+.mindset-card-label {
+  z-index: 3;
+}
+
+.mindset-quote-card .mindset-quote {
+  z-index: 2;
+  top: 26%;
+  right: 15%;
+  bottom: auto;
+  left: 15%;
+  width: 70%;
+  max-width: none;
+  transform: none;
+  color: #4a0716;
+  text-align: left;
+  font-size: clamp(25px, 3.05vw, 43px);
+  line-height: 1.02;
+  letter-spacing: -.03em;
+  text-shadow: none;
+}
+
+.mindset-quote-card .mindset-quote small {
+  margin-top: 12px;
+  color: #6b3039;
+  font-size: 7px;
+  line-height: 1.6;
+  letter-spacing: .13em;
+}
+
+.mindset-points-card {
+  position: relative;
+}
+
+.mindset-points-card .mindset-points {
+  position: relative;
+  z-index: 2;
+}
+
+.mindset-points-card .mindset-point {
+  min-height: 92px;
+  align-items: start;
+  padding: 17px 0 14px;
+  border-bottom: 1px solid rgba(246,235,223,.42);
+}
+
+.mindset-points-card .mindset-point-number,
+.mindset-points-card .mindset-point h3,
+.mindset-points-card .mindset-point p {
+  position: relative;
+  z-index: 2;
+}
+
+.mindset-points-card .mindset-point-number {
+  padding-top: 2px;
+}
+
+.mindset-points-card .mindset-point h3 {
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.mindset-points-card .mindset-point p {
+  line-height: 1.65;
+}
+
+/* ==================================================
+   MOBILE — FREELANCER MINDSET
+================================================== */
+
+@media (max-width: 768px) {
+  .freelancer-mindset { padding: 75px 5%; }
+  .mindset-heading h2 { font-size: clamp(44px, 12vw, 76px); }
+  .mindset-grid { grid-template-columns: 1fr; gap: 18px; }
+  .mindset-card { min-height: 480px; }
+  .mindset-points-card { min-height: auto; padding: 70px 24px 20px; }
+  .mindset-point { grid-template-columns: 40px minmax(0,1fr); gap: 12px; padding: 18px 0; min-height: 0; }
+  .mindset-point-number { font-size: 25px; }
+  .mindset-point p { font-size: 11px; }
+}
+
+@media (max-width: 420px) {
+  .mindset-card { min-height: 430px; }
+  .mindset-quote { font-size: 34px; }
+  .mindset-quote-card .mindset-quote {
+    top: 27%;
+    right: 12%;
+    left: 12%;
+    width: 76%;
+    font-size: clamp(23px, 7vw, 31px);
+    line-height: 1.02;
+  }
+  .mindset-quote-card .mindset-quote small {
+    margin-top: 9px;
+    font-size: 6px;
+  }
+  .mindset-card-label { left: 20px; top: 20px; }
+  .mindset-points-card { padding-right: 19px; padding-left: 19px; }
+}
+
+
+/* ==================================================
    09 — FOOTER
 ================================================== */
 
@@ -1487,171 +1758,6 @@ a:focus-visible {
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-
-
-/* ==================================================
-   09 — FREELANCER NOTE
-================================================== */
-.freelancer-note {
-  position: relative;
-  overflow: hidden;
-  padding: clamp(75px,9vw,135px) 0;
-  color: var(--cream);
-  background: linear-gradient(112deg,#31000a 0%,#5a1022 48%,#3e000c 100%);
-  isolation: isolate;
-}
-.freelancer-note::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background: radial-gradient(ellipse at 16% 40%,rgba(193,132,137,.2),transparent 42%),
-              radial-gradient(ellipse at 88% 70%,rgba(39,0,8,.5),transparent 45%);
-  pointer-events: none;
-}
-.freelancer-note-layout {
-  width: min(84%,1600px);
-  margin-inline: auto;
-  display: grid;
-  grid-template-columns: minmax(0,.92fr) minmax(0,1.08fr);
-  align-items: stretch;
-  gap: clamp(28px,4vw,72px);
-}
-.freelancer-letter {
-  position: relative;
-  min-width: 0;
-  aspect-ratio: .835;
-  overflow: hidden;
-  display: block;
-  padding: 0;
-  background: #4b0715;
-  border: 1px solid rgba(246,235,223,.3);
-  box-shadow: 0 28px 80px rgba(0,0,0,.24);
-  isolation: isolate;
-}
-.freelancer-letter img {
-  position: absolute;
-  z-index: -2;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: .72;
-  filter: saturate(.78);
-}
-/* Darken the photo edges while keeping the paper area clear for the quote. */
-.freelancer-letter::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background: linear-gradient(90deg,rgba(39,0,8,.2),transparent 28%,transparent 76%,rgba(39,0,8,.18)),
-              linear-gradient(180deg,rgba(39,0,8,.12),transparent 24%,transparent 78%,rgba(39,0,8,.18));
-  pointer-events: none;
-}
-.freelancer-letter-copy {
-  position: absolute;
-  top: 29%;
-  left: 16%;
-  width: 61%;
-  height: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: clamp(8px,1.25vw,20px);
-  color: #4b1521;
-  overflow: hidden;
-}
-.freelancer-quote-mark { display: none; }
-.freelancer-quote {
-  margin: 0;
-  width: 100%;
-  font-family: var(--serif);
-  font-size: clamp(15px,1.65vw,27px);
-  font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: -.025em;
-  text-wrap: pretty;
-  overflow-wrap: break-word;
-}
-.freelancer-quote em { color: #79243a; font-style: italic; }
-.freelancer-quote-credit {
-  margin-top: clamp(8px,1vw,15px);
-  color: rgba(75,21,33,.8);
-  font-size: clamp(5px,.55vw,8px);
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-}
-.freelancer-notebook {
-  position: relative;
-  min-width: 0;
-  aspect-ratio: 1.065;
-  overflow: hidden;
-  background: #6d2938;
-  border: 1px solid rgba(246,235,223,.25);
-  isolation: isolate;
-}
-.freelancer-notebook > img {
-  position: absolute;
-  z-index: -2;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
-}
-.freelancer-notebook:hover > img { transform: scale(1.025); }
-.freelancer-principles {
-  position: absolute;
-  top: 12%;
-  left: 7.5%;
-  right: 7.5%;
-  bottom: 8%;
-  display: flex;
-  flex-direction: column;
-  color: #4b1521;
-}
-.freelancer-principle {
-  flex: 1 1 20%;
-  min-height: 0;
-  display: grid;
-  grid-template-columns: clamp(28px,3vw,48px) minmax(0,1fr);
-  align-items: center;
-  column-gap: clamp(10px,1.5vw,22px);
-  padding: 5px 0;
-  border-bottom: 1px solid rgba(75,21,33,.28);
-}
-.freelancer-principle:last-child { border-bottom: 0; }
-.freelancer-principle-number {
-  font-family: var(--serif);
-  font-size: clamp(17px,2vw,30px);
-  line-height: 1;
-  color: #79243a;
-}
-.freelancer-principle-copy { min-width: 0; }
-.freelancer-principle h3 {
-  margin: 0 0 clamp(3px,.45vw,7px);
-  font-family: var(--sans);
-  font-size: clamp(10px,1.05vw,16px);
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -.02em;
-  overflow-wrap: break-word;
-}
-.freelancer-principle p {
-  margin: 0;
-  font-family: var(--sans);
-  font-size: clamp(7px,.72vw,11px);
-  line-height: 1.5;
-  color: rgba(75,21,33,.78);
-  overflow-wrap: break-word;
-}
-.freelancer-note-caption { display: none; }
 
 /* ==================================================
    MOBILE RESPONSIVE
@@ -1745,18 +1851,6 @@ a:focus-visible {
     width: 7px;
     height: 7px;
   }
-
-
-  /* Freelancer note */
-  .freelancer-note { padding: 75px 0; }
-  .freelancer-note-layout {
-    width: 88%;
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-  .freelancer-letter { min-height: 390px; padding: 30px 25px; }
-  .freelancer-quote { font-size: clamp(34px,8.5vw,50px); }
-  .freelancer-notebook { min-height: 390px; }
 
   .section-shell,
   .foundation-shell { width: 88%; }
@@ -1961,42 +2055,6 @@ a:focus-visible {
     flex-direction: column;
     gap: 10px;
   }
-
-  /* Freelancer note: keep every line inside the paper areas on mobile. */
-  .freelancer-note { padding: 70px 0; }
-  .freelancer-note-layout {
-    width: 88%;
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .freelancer-letter {
-    width: 100%;
-    max-width: 520px;
-    aspect-ratio: .835;
-    margin-inline: auto;
-  }
-  .freelancer-letter-copy {
-    top: 29%;
-    left: 16%;
-    width: 61%;
-    height: 30%;
-    padding: 8px;
-  }
-  .freelancer-quote { font-size: clamp(15px,4.2vw,22px); }
-  .freelancer-quote-credit { font-size: 6px; margin-top: 7px; }
-  .freelancer-notebook {
-    width: 100%;
-    aspect-ratio: 1.065;
-  }
-  .freelancer-principles { top: 12%; left: 7.5%; right: 7.5%; bottom: 8%; }
-  .freelancer-principle {
-    grid-template-columns: 28px minmax(0,1fr);
-    column-gap: 9px;
-    padding: 3px 0;
-  }
-  .freelancer-principle-number { font-size: clamp(16px,4.5vw,23px); }
-  .freelancer-principle h3 { font-size: clamp(9px,2.6vw,13px); margin-bottom: 3px; }
-  .freelancer-principle p { font-size: clamp(6px,1.8vw,9px); line-height: 1.35; }
 }
 
 @media (max-width: 420px) {
@@ -2067,16 +2125,6 @@ a:focus-visible {
     width: 28px;
     height: 28px;
   }
-
-  .freelancer-note-layout { width: 91%; gap: 18px; }
-  .freelancer-letter-copy { padding: 6px; }
-  .freelancer-quote { font-size: clamp(13px,4vw,17px); line-height: 1.08; }
-  .freelancer-quote-credit { font-size: 5px; letter-spacing: .08em; }
-  .freelancer-principles { top: 12%; bottom: 8%; }
-  .freelancer-principle { grid-template-columns: 23px minmax(0,1fr); column-gap: 6px; }
-  .freelancer-principle-number { font-size: 16px; }
-  .freelancer-principle h3 { font-size: 8px; }
-  .freelancer-principle p { font-size: 6px; line-height: 1.25; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2650,59 +2698,54 @@ a:focus-visible {
 
 </section>
 
+<!-- 09 — FREELANCER MINDSET -->
+<section class="freelancer-mindset" id="freelancerMindset">
+  <div class="mindset-shell">
+    <header class="mindset-heading reveal">
+      <div class="eyebrow">The mindset behind the work</div>
+      <h2>Freelancing is built<br>on <span>how you grow.</span></h2>
+    </header>
 
-<!-- 09 — FREELANCER NOTE -->
-<section class="freelancer-note" id="freelancerNote" aria-label="Freelancer note and growth principles">
-  <div class="freelancer-note-layout">
-    <article class="freelancer-letter reveal">
-      <img src="./image8(letter)" alt="A hand holding a sheet of paper against burgundy fabric" loading="lazy">
-      <div class="freelancer-letter-copy">
-        <blockquote class="freelancer-quote">
-          Your next level begins where your willingness to learn begins.
+    <div class="mindset-grid">
+      <article class="mindset-card mindset-quote-card reveal">
+        <div class="mindset-card-image" aria-hidden="true">
+          <img src="./image8(letter)" alt="" loading="lazy">
+        </div>
+        <div class="mindset-card-label">A note to every freelancer</div>
+        <blockquote class="mindset-quote">
+          “Your next level begins where your willingness to learn begins.”
+          <small>Stay curious. Keep building. Keep going.</small>
         </blockquote>
-        <div class="freelancer-quote-credit">Stay curious. Keep building. Keep going.</div>
-      </div>
-    </article>
+      </article>
 
-    <div class="freelancer-notebook reveal">
-      <img src="./image9(notebook)" alt="Open spiral notebook with ruled writing lines" loading="lazy">
-      <div class="freelancer-principles" aria-label="Five principles to grow by">
-        <article class="freelancer-principle">
-          <span class="freelancer-principle-number">01</span>
-          <div class="freelancer-principle-copy">
-            <h3>Keep learning your field</h3>
-            <p>Study new tools, platform updates, design patterns, and the skills clients are asking for. Your expertise should keep evolving.</p>
+      <article class="mindset-card mindset-points-card reveal">
+        <div class="mindset-card-image" aria-hidden="true">
+          <img src="./image9(notebook)" alt="" loading="lazy">
+        </div>
+        <div class="mindset-card-label">Five principles to grow by</div>
+        <div class="mindset-points">
+          <div class="mindset-point">
+            <span class="mindset-point-number">01</span>
+            <div><h3>Keep learning your field</h3><p>Study new tools, platform updates, design patterns, and the skills clients are asking for. Your expertise should keep evolving.</p></div>
           </div>
-        </article>
-        <article class="freelancer-principle">
-          <span class="freelancer-principle-number">02</span>
-          <div class="freelancer-principle-copy">
-            <h3>Research different markets</h3>
-            <p>Follow specialists and businesses in different countries. Compare how markets work, what customers expect, and which solutions perform well.</p>
+          <div class="mindset-point">
+            <span class="mindset-point-number">02</span>
+            <div><h3>Research different markets</h3><p>Follow specialists and businesses in different countries. Compare how markets work, what customers expect, and which solutions perform well.</p></div>
           </div>
-        </article>
-        <article class="freelancer-principle">
-          <span class="freelancer-principle-number">03</span>
-          <div class="freelancer-principle-copy">
-            <h3>Stay motivated and curious</h3>
-            <p>Make room for new ideas, ask questions, and explore unfamiliar approaches instead of repeating what you already know.</p>
+          <div class="mindset-point">
+            <span class="mindset-point-number">03</span>
+            <div><h3>Stay motivated and curious</h3><p>Make room for new ideas, ask questions, and explore unfamiliar approaches instead of repeating what you already know.</p></div>
           </div>
-        </article>
-        <article class="freelancer-principle">
-          <span class="freelancer-principle-number">04</span>
-          <div class="freelancer-principle-copy">
-            <h3>Practice by building</h3>
-            <p>Turn what you learn into real projects. Test ideas, solve problems, review the results, and improve your process with every iteration.</p>
+          <div class="mindset-point">
+            <span class="mindset-point-number">04</span>
+            <div><h3>Practice by building</h3><p>Turn what you learn into real projects. Test ideas, solve problems, review the results, and improve your process with every iteration.</p></div>
           </div>
-        </article>
-        <article class="freelancer-principle">
-          <span class="freelancer-principle-number">05</span>
-          <div class="freelancer-principle-copy">
-            <h3>Communicate and deliver reliably</h3>
-            <p>Set clear expectations, ask thoughtful questions, respect deadlines, and keep clients informed. Trust is part of the work.</p>
+          <div class="mindset-point">
+            <span class="mindset-point-number">05</span>
+            <div><h3>Communicate and deliver reliably</h3><p>Set clear expectations, ask thoughtful questions, respect deadlines, and keep clients informed. Trust is part of the work.</p></div>
           </div>
-        </article>
-      </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
