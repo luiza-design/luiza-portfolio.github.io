@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,14 +59,14 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--burgundy-light);out
 .intro-portrait.in-view .portrait-image-wrap{transition-delay:.18s}
 .portrait-side-note{display:block;margin-top:22px;font-family:Inter,Arial,sans-serif;font-size:9px;line-height:1.8;letter-spacing:2px;color:#8C5D5E;text-transform:uppercase}
 
-/* IMAGE 6 QUOTE STAGE */
-.quote-stage{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;isolation:isolate;padding:90px 7%;background:#F6EBDD;color:var(--cream)}
-.quote-stage-inner{position:relative;width:min(1200px,100%);min-height:75svh;display:grid;place-items:center}
-.quote-stage-art{position:absolute;z-index:0;left:50%;top:50%;width:min(90vw,1050px);max-height:88svh;height:auto;object-fit:contain;transform:translate(-155%,-50%) rotate(-9deg) scale(.78);opacity:0;clip-path:inset(0 100% 0 0);transition:transform 1.5s cubic-bezier(.16,1,.3,1),opacity .7s ease,clip-path 1.5s cubic-bezier(.16,1,.3,1);will-change:transform,opacity,clip-path}
-.quote-stage-text{position:relative;z-index:1;width:min(760px,78%);margin-left:2%;text-align:center;font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(42px,7.2vw,94px);font-weight:400;font-style:italic;line-height:1.03;letter-spacing:-.045em;color:#F6EBDD;opacity:0;transform:translateY(24px) scale(.97);text-shadow:0 2px 18px rgba(30,0,7,.12);transition:opacity .9s ease .8s,transform 1s cubic-bezier(.16,1,.3,1) .8s}
-.quote-stage-text em{display:inline-block;color:#FFF7ED;font-weight:500}
+/* IMAGE 6 QUOTE STAGE — ART FIRST, TEXT SECOND */
+.quote-stage{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;isolation:isolate;padding:70px 5%;background:#F6EBDD;color:#3E000C}
+.quote-stage-inner{position:relative;width:min(1280px,100%);min-height:82svh;display:grid;place-items:center;overflow:hidden}
+.quote-stage-art{position:absolute;z-index:0;left:50%;top:50%;display:block;width:min(94vw,1160px);max-height:88svh;height:auto;object-fit:contain;transform:translate(-155%,-50%) rotate(-7deg) scale(.9);opacity:0;clip-path:inset(0 100% 0 0);transition:transform 1.35s cubic-bezier(.16,1,.3,1),opacity .45s ease,clip-path 1.45s cubic-bezier(.16,1,.3,1);will-change:transform,opacity,clip-path}
+.quote-stage-text{position:relative;z-index:1;width:min(620px,54%);max-width:620px;margin:0;padding:0;text-align:center;font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(30px,4.25vw,62px);font-weight:400;font-style:italic;line-height:1.06;letter-spacing:-.035em;color:#F6EBDD;opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(18px);text-shadow:none;transition:opacity .65s ease .95s,transform .85s cubic-bezier(.16,1,.3,1) .95s,clip-path .85s cubic-bezier(.16,1,.3,1) .95s}
+.quote-stage-text em{display:inline-block;margin-top:.12em;color:#F6EBDD;font-weight:500}
 .quote-stage.in-view .quote-stage-art{opacity:1;clip-path:inset(0 0 0 0);transform:translate(-50%,-50%) rotate(0) scale(1)}
-.quote-stage.in-view .quote-stage-text{opacity:1;transform:translateY(0) scale(1)}
+.quote-stage.in-view .quote-stage-text{opacity:1;clip-path:inset(0 0 0 0);transform:translateY(0)}
 
 /* ABOUT */
 .about{padding:110px 10%;background:var(--cream)}
@@ -80,10 +80,12 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--burgundy-light);out
 .about-heading.in-view .heading-line:last-child{transition-delay:.25s}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(62,0,12,.25)}
 .about-card{min-width:0;padding:clamp(25px,4vw,55px);position:relative;overflow:hidden;opacity:0;transition:transform 1.15s cubic-bezier(.16,1,.3,1),opacity .8s ease}
-.about-card:first-child{transform:translateX(-90px);background:linear-gradient(135deg,#F4E6D6,#EBD8C5)}
-.about-card:last-child{transform:translateX(90px);background:linear-gradient(135deg,#EFE0D5,#E2C9C0);border-left:1px solid rgba(62,0,12,.2)}
+.about-card:first-child{transform:translateX(-90px)}
+.about-card:last-child{transform:translateX(90px)}
 .about-grid.in-view .about-card{transform:translateX(0);opacity:1}
 .about-grid.in-view .about-card:last-child{transition-delay:.18s}
+.about-card:first-child{background:linear-gradient(135deg,#F4E6D6,#EBD8C5)}
+.about-card:last-child{background:linear-gradient(135deg,#EFE0D5,#E2C9C0);border-left:1px solid rgba(62,0,12,.2)}
 .card-kicker{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#8C5D5E}
 .card-title{margin:35px 0 24px;font:600 clamp(44px,5.6vw,82px)/.86 "Bodoni Moda",serif;letter-spacing:-.065em;text-transform:uppercase}
 .card-title::first-letter{font-size:1.08em;font-weight:600}
@@ -129,7 +131,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--burgundy-light);out
 .detail-back{display:inline-flex;gap:12px;align-items:center;border:0;background:transparent;color:var(--burgundy);font-size:9px;letter-spacing:2px;cursor:pointer;padding:12px 0}
 .detail-topline{margin-top:55px;display:flex;justify-content:space-between;gap:20px;font-size:9px;letter-spacing:2px;color:#936C6B}
 .detail-title{margin:35px 0 20px;font:400 clamp(55px,11vw,145px)/.9 "Bodoni Moda",serif;letter-spacing:-.07em;overflow-wrap:anywhere}
-.detail-intro{max-width:650px;color:#795456;font-size:13px;line-height:1.9}
+.detail-intro{max-width:650px;font-size:13px;line-height:1.9}
 .detail-media-grid{margin-top:50px;display:grid;grid-template-columns:1.5fr 1fr;gap:15px}
 .detail-media{min-height:240px;padding:20px;background:linear-gradient(135deg,#EBD8C5,#E2C9C0);display:flex;flex-direction:column;justify-content:space-between;color:#7A2437}
 .detail-media-main{min-height:400px}
@@ -159,6 +161,8 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--burgundy-light);out
 @media(max-width:760px){
 .intro-inner{padding:18px}
 .intro-word{font-size:clamp(42px,14vw,100px);letter-spacing:-.09em}
+.intro-signature{right:6%;bottom:7%;font-size:15px}
+.intro-signature strong{font-size:clamp(27px,7vw,42px)}
 .intro-portrait{min-height:auto;padding:85px 6% 95px}
 .portrait-layout{grid-template-columns:1fr 1fr;gap:20px 12px}
 .portrait-image-wrap{grid-column:1/-1;grid-row:1;width:min(72%,360px);justify-self:center;aspect-ratio:4/5.2}
@@ -169,11 +173,13 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--burgundy-light);out
 .portrait-caption{bottom:22px;font-size:7px;letter-spacing:1.5px}
 .intro-portrait::before{width:95vw;right:-40%;top:-10%}
 .intro-portrait::after{width:75vw;left:-40%;bottom:-12%}
-.quote-stage{min-height:85svh;padding:65px 5%}
-.quote-stage-inner{min-height:65svh}
-.quote-stage-art{width:110vw;max-height:68svh;transform:translate(-155%,-50%) rotate(-8deg) scale(.8)}
+
+/* IMAGE 6 — MOBILE */
+.quote-stage{min-height:82svh;padding:42px 3%}
+.quote-stage-inner{min-height:72svh;width:100%}
+.quote-stage-art{width:130vw;max-width:none;max-height:72svh;transform:translate(-155%,-50%) rotate(-7deg) scale(.9)}
 .quote-stage.in-view .quote-stage-art{transform:translate(-50%,-50%) rotate(0) scale(1)}
-.quote-stage-text{width:88%;margin-left:8%;font-size:clamp(36px,10vw,58px);text-shadow:0 1px 12px rgba(255,255,255,.5)}
+.quote-stage-text{width:58%;max-width:390px;font-size:clamp(25px,6.1vw,42px);line-height:1.08;letter-spacing:-.03em}
 .about{padding:75px 6%}
 .about-heading{margin:35px 0 40px;font-size:clamp(43px,11vw,82px)}
 .about-grid{grid-template-columns:1fr}
@@ -214,9 +220,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--burgundy-light);out
 <!-- PORTFOLIO INTRO -->
 <section class="intro" id="home" aria-label="Portfolio intro">
 <div class="intro-inner">
-<h1 class="intro-word" aria-label="Portfolio">
-<span class="intro-group intro-port is-visible">POR</span><span class="intro-group intro-tfo">TFO</span><span class="intro-group intro-lio">LIO</span>
-</h1>
+<h1 class="intro-word" aria-label="Portfolio"><span class="intro-group intro-port is-visible">POR</span><span class="intro-group intro-tfo">TFO</span><span class="intro-group intro-lio">LIO</span></h1>
 <div class="intro-signature"><strong>Luiza</strong>Sargsyan</div>
 </div>
 </section>
@@ -224,18 +228,12 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--burgundy-light);out
 <!-- INTRODUCTION PORTRAIT -->
 <section class="intro-portrait" id="hello" aria-label="Introduction">
 <div class="portrait-layout">
-<div class="portrait-word portrait-word-left">
-Hey<span class="accent">,</span>
-<span class="portrait-side-note">Creative mind<br>with an eye for detail</span>
-</div>
+<div class="portrait-word portrait-word-left">Hey<span class="accent">,</span><span class="portrait-side-note">Creative mind<br>with an eye for detail</span></div>
 <figure class="portrait-image-wrap">
 <img src="image5" alt="Portrait of Luiza Sargsyan" loading="lazy">
 <figcaption class="portrait-caption">Shopify · Design · Digital experience</figcaption>
 </figure>
-<div class="portrait-word portrait-word-right">
-I am<br><span class="accent">Luiza</span>
-<span class="portrait-side-note">Building thoughtful<br>digital experiences</span>
-</div>
+<div class="portrait-word portrait-word-right">I am<br><span class="accent">Luiza</span><span class="portrait-side-note">Building thoughtful<br>digital experiences</span></div>
 </div>
 </section>
 
@@ -243,10 +241,7 @@ I am<br><span class="accent">Luiza</span>
 <section class="quote-stage" id="quoteStage" aria-label="Inspirational quote">
 <div class="quote-stage-inner">
 <img class="quote-stage-art" src="image6" alt="" loading="lazy">
-<blockquote class="quote-stage-text">
-If you can imagine it,<br>
-<em>You can do it!</em>
-</blockquote>
+<blockquote class="quote-stage-text">If you can imagine it,<br><em>You can do it!</em></blockquote>
 </div>
 </section>
 
@@ -290,9 +285,7 @@ If you can imagine it,<br>
 <!-- PROJECTS -->
 <section class="projects-section" id="projects">
 <button class="projects-title-button" id="projectsToggle" type="button" aria-expanded="false">
-<span class="my-word">My</span><span class="projects-word">Projects</span>
-<span class="projects-title-underline" aria-hidden="true"></span>
-<span class="projects-hint">EXPLORE SELECTED WORK <span>↓</span></span>
+<span class="my-word">My</span><span class="projects-word">Projects</span><span class="projects-title-underline" aria-hidden="true"></span><span class="projects-hint">EXPLORE SELECTED WORK <span>↓</span></span>
 </button>
 <div class="projects-list" id="projectsList">
 <button class="project-item" type="button" data-project="0"><span class="project-number">01</span><span class="project-name">Strix Art</span><span class="project-arrow">↗</span></button>
@@ -315,6 +308,7 @@ If you can imagine it,<br>
 <div class="motivation-signature">LUIZA SARGSYAN · SHOPIFY SPECIALIST</div>
 </div>
 </section>
+
 <footer class="footer"><span>SHOPIFY · DESIGN · CUSTOMER EXPERIENCE</span><span>YEREVAN · ARMENIA</span></footer>
 
 <!-- PROJECT DETAIL OVERLAY -->
@@ -343,31 +337,31 @@ const projects=[
 {name:"Haus",intro:"A contemporary digital storefront concept.",overview:"Project information and deliverables will be added soon."}
 ];
 
-/* Reveal POR, then TFO, then LIO; change the background with each stage. */
+/* Reveal POR, then TFO, then LIO while scrolling */
 const intro=document.querySelector('.intro');
 const introGroups=[...document.querySelectorAll('.intro-group')];
 let introTicking=false;
 function updateIntroReveal(){
-const rect=intro.getBoundingClientRect();
-const totalScrollable=Math.max(1,intro.offsetHeight-window.innerHeight);
-const progress=Math.min(1,Math.max(0,-rect.top/totalScrollable));
-const visibleCount=progress<.28?1:progress<.62?2:3;
-introGroups.forEach((group,index)=>group.classList.toggle('is-visible',index<visibleCount));
-intro.classList.toggle('is-stage-1',progress<.28);
-intro.classList.toggle('is-stage-2',progress>=.28&&progress<.62);
-intro.classList.toggle('is-stage-3',progress>=.62);
-introTicking=false;
+  const rect=intro.getBoundingClientRect();
+  const totalScrollable=Math.max(1,intro.offsetHeight-window.innerHeight);
+  const progress=Math.min(1,Math.max(0,-rect.top/totalScrollable));
+  const visibleCount=progress<.28?1:progress<.62?2:3;
+  introGroups.forEach((group,index)=>group.classList.toggle('is-visible',index<visibleCount));
+  intro.classList.toggle('is-stage-1',progress<.28);
+  intro.classList.toggle('is-stage-2',progress>=.28&&progress<.62);
+  intro.classList.toggle('is-stage-3',progress>=.62);
+  introTicking=false;
 }
 window.addEventListener('scroll',()=>{
-if(!introTicking){window.requestAnimationFrame(updateIntroReveal);introTicking=true}
+  if(!introTicking){window.requestAnimationFrame(updateIntroReveal);introTicking=true}
 },{passive:true});
 window.addEventListener('resize',updateIntroReveal);
 updateIntroReveal();
 
-/* Repeat animations when scrolling into or away from sections */
+/* Replay section animations when scrolling in and out */
 const replaySections=document.querySelectorAll('.intro-portrait,.quote-stage,.about-heading,.about-grid,.motivation-section');
 const replayObserver=new IntersectionObserver(entries=>{
-entries.forEach(entry=>entry.target.classList.toggle('in-view',entry.isIntersecting));
+  entries.forEach(entry=>entry.target.classList.toggle('in-view',entry.isIntersecting));
 },{threshold:.22});
 replaySections.forEach(section=>replayObserver.observe(section));
 
@@ -381,45 +375,45 @@ const detailNumber=document.getElementById('detailNumber');
 const detailIntro=document.getElementById('detailIntro');
 const detailOverview=document.getElementById('detailOverview');
 projectsToggle.addEventListener('click',()=>{
-const isOpen=projectsList.classList.toggle('revealed');
-projectsToggle.setAttribute('aria-expanded',String(isOpen));
+  const isOpen=projectsList.classList.toggle('revealed');
+  projectsToggle.setAttribute('aria-expanded',String(isOpen));
 });
 
-/* Open the selected project */
+/* Open selected project */
 document.querySelectorAll('.project-item').forEach(button=>{
-button.addEventListener('click',()=>{
-const index=Number(button.dataset.project);
-const project=projects[index];
-detailTitle.textContent=project.name;
-detailNumber.textContent=`PROJECT ${String(index+1).padStart(2,'0')}`;
-detailIntro.textContent=project.intro;
-detailOverview.textContent=project.overview;
-projectDetail.scrollTop=0;
-projectDetail.classList.add('active');
-projectDetail.setAttribute('aria-hidden','false');
-document.body.style.overflow='hidden';
-detailBack.focus({preventScroll:true});
-});
+  button.addEventListener('click',()=>{
+    const index=Number(button.dataset.project);
+    const project=projects[index];
+    detailTitle.textContent=project.name;
+    detailNumber.textContent=`PROJECT ${String(index+1).padStart(2,'0')}`;
+    detailIntro.textContent=project.intro;
+    detailOverview.textContent=project.overview;
+    projectDetail.scrollTop=0;
+    projectDetail.classList.add('active');
+    projectDetail.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    detailBack.focus({preventScroll:true});
+  });
 });
 
 /* Close project detail */
 function closeProjectDetail(){
-projectDetail.classList.remove('active');
-projectDetail.setAttribute('aria-hidden','true');
-document.body.style.overflow='';
+  projectDetail.classList.remove('active');
+  projectDetail.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
 }
 detailBack.addEventListener('click',closeProjectDetail);
 document.addEventListener('keydown',event=>{
-if(event.key==='Escape'&&projectDetail.classList.contains('active'))closeProjectDetail();
+  if(event.key==='Escape'&&projectDetail.classList.contains('active'))closeProjectDetail();
 });
 
 /* Read more / read less */
 document.querySelectorAll('.read-more').forEach(button=>{
-button.addEventListener('click',()=>{
-const target=document.getElementById(button.dataset.target);
-const isOpen=target.classList.toggle('open');
-button.innerHTML=isOpen?'READ LESS <span>−</span>':'READ MORE <span>+</span>';
-});
+  button.addEventListener('click',()=>{
+    const target=document.getElementById(button.dataset.target);
+    const isOpen=target.classList.toggle('open');
+    button.innerHTML=isOpen?'READ LESS <span>−</span>':'READ MORE <span>+</span>';
+  });
 });
 </script>
 </body>
