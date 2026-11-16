@@ -1,3 +1,18 @@
+```html
+**Մաս 2/5**
+
+```html
+**Մաս 3/5**
+
+```html
+**Մաս 4/5**
+
+```html
+**Մաս 1/5 — HTML-ի սկիզբը և հիմնական CSS-ը**
+
+Սա տեղադրիր ֆայլի ամենասկզբում։ Հաջորդ մասերը շարունակիր անմիջապես դրա վերջից։
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -641,8 +656,7 @@ a:focus-visible {
   text-transform: uppercase;
   cursor: pointer;
 }
-
-/* ==================================================
+  /* ==================================================
    04 — NEW INTERACTIVE FOUNDATION SECTION
 ================================================== */
 
@@ -674,9 +688,7 @@ a:focus-visible {
   margin-bottom: clamp(45px,7vw,90px);
 }
 
-.foundation-heading .eyebrow {
-  color: #e4c5bd;
-}
+.foundation-heading .eyebrow { color: #e4c5bd; }
 
 .foundation-heading h2 {
   margin: 25px 0 0;
@@ -700,8 +712,6 @@ a:focus-visible {
   gap: clamp(45px,8vw,130px);
   align-items: center;
 }
-
-/* Left: three numbered circles and titles */
 
 .foundation-list {
   display: flex;
@@ -764,8 +774,6 @@ a:focus-visible {
   color: #fff5e9;
   transform: translateX(5px);
 }
-
-/* Right: animated freelance workspace orbit */
 
 .foundation-visual {
   position: relative;
@@ -831,7 +839,7 @@ a:focus-visible {
   to { transform: rotate(360deg); }
 }
 
- .freelance-item {
+.freelance-item {
   position: absolute;
   z-index: 3;
   display: grid;
@@ -933,7 +941,6 @@ a:focus-visible {
   transition: none;
 }
 
-/* MacBook screen only: deliberately no word or lettering in the centre. */
 .visual-core-inner::before {
   content: "";
   position: absolute;
@@ -993,8 +1000,6 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-/* Detail opens from the bottom of the clicked item */
-
 .foundation-detail {
   display: grid;
   grid-template-rows: 0fr;
@@ -1012,9 +1017,7 @@ a:focus-visible {
   margin-top: 24px;
 }
 
-.foundation-detail-inner {
-  overflow: hidden;
-}
+.foundation-detail-inner { overflow: hidden; }
 
 .foundation-detail-content {
   position: relative;
@@ -1443,8 +1446,7 @@ a:focus-visible {
   font-size: 12px;
   line-height: 1.9;
 }
-
-/* ==================================================
+  /* ==================================================
    09 — FREELANCER MINDSET
 ================================================== */
 
@@ -1575,8 +1577,6 @@ a:focus-visible {
   padding: clamp(75px, 7vw, 95px) clamp(24px, 4vw, 52px) 30px;
 }
 
-.mindset-points-card .mindset-card-label { z-index: 2; }
-
 .mindset-points {
   display: grid;
   gap: 0;
@@ -1616,9 +1616,7 @@ a:focus-visible {
   line-height: 1.8;
 }
 
-/* ==================================================
-   MOBILE — FREELANCER MINDSET
-================================================== */
+/* MOBILE — FREELANCER MINDSET */
 
 @media (max-width: 768px) {
   .freelancer-mindset { padding: 75px 5%; }
@@ -1633,17 +1631,10 @@ a:focus-visible {
 
 @media (max-width: 420px) {
   .mindset-card { min-height: 430px; }
-  .mindset-quote {
-    top: 30%;
-    left: 19%;
-    width: 62%;
-    font-size: clamp(22px, 6vw, 30px);
-  }
-  .mindset-quote small { font-size: 6px; margin-top: 12px; }
+  .mindset-quote { font-size: 34px; }
   .mindset-card-label { left: 20px; top: 20px; }
   .mindset-points-card { padding-right: 19px; padding-left: 19px; }
 }
-
 
 /* ==================================================
    09 — FOOTER
@@ -1825,13 +1816,8 @@ a:focus-visible {
 
   /* Foundation mobile */
 
-  .foundation-section {
-    padding: 75px 0;
-  }
-
-  .foundation-heading {
-    margin-bottom: 42px;
-  }
+  .foundation-section { padding: 75px 0; }
+  .foundation-heading { margin-bottom: 42px; }
 
   .foundation-heading h2 {
     font-size: clamp(48px,11vw,80px);
@@ -1860,10 +1846,7 @@ a:focus-visible {
     font-size: clamp(30px,7vw,43px);
   }
 
-  .foundation-visual {
-    min-height: 320px;
-  }
-
+  .foundation-visual { min-height: 320px; }
   .visual-core { width: 175px; }
   .visual-core-inner { font-size: 0; }
 
@@ -1873,13 +1856,8 @@ a:focus-visible {
     padding: 26px 22px;
   }
 
-  .foundation-detail-content p {
-    font-size: 12px;
-  }
-
-  .foundation-detail-content li {
-    font-size: 8px;
-  }
+  .foundation-detail-content p { font-size: 12px; }
+  .foundation-detail-content li { font-size: 8px; }
 
   .quote-section {
     min-height: auto;
@@ -2070,8 +2048,7 @@ a:focus-visible {
 </head>
 
 <body>
-
-<!-- 01 — PORTFOLIO INTRO -->
+  <!-- 01 — PORTFOLIO INTRO -->
 
 <section class="intro" id="portfolioIntro" aria-label="Portfolio introduction">
   <div class="intro-sticky" id="introSticky">
@@ -2315,7 +2292,7 @@ a:focus-visible {
   </div>
 </section>
 
-<!-- 04 — FOUNDATION: SKILLS / MY APPROACH / WHAT DRIVES ME -->
+<!-- 04 — FOUNDATION -->
 
 <section class="foundation-section" id="foundationSection">
   <div class="foundation-shell">
@@ -2326,8 +2303,6 @@ a:focus-visible {
     </header>
 
     <div class="foundation-layout">
-
-      <!-- Left: interactive numbered circles -->
 
       <div class="foundation-left">
 
@@ -2368,8 +2343,6 @@ a:focus-visible {
 
         </div>
 
-        <!-- The selected description expands below the numbered list -->
-
         <div
           class="foundation-detail"
           id="foundationDetail"
@@ -2396,8 +2369,6 @@ a:focus-visible {
         </div>
 
       </div>
-
-      <!-- Right: animated decorative visual changes with selection -->
 
       <div
         class="foundation-visual reveal"
@@ -2456,6 +2427,7 @@ a:focus-visible {
               <path d="M12 21h24" stroke="currentColor" stroke-width="1.5" opacity=".55"/>
             </svg>
           </span>
+
           <span class="freelance-item coffee-item" title="Coffee cup">
             <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
               <path d="M9 17h25v17a7 7 0 0 1-7 7h-11a7 7 0 0 1-7-7V17Z" fill="#f6ebdf" stroke="currentColor" stroke-width="2.2"/>
@@ -2569,7 +2541,12 @@ a:focus-visible {
       <span class="project-arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a class="project-item reveal" href="#" data-project="strixart">
+    <a
+      class="project-item reveal"
+      href="https://www.google.com/search?q=strixartgloves.&client=safari&hs=Jr0q&sca_esv=de79952fb05bdd25&sxsrf=AKL5yDg81HFpFlCHT6nTwkM5zwEbZVttPg%3A1794846501180&source=hp&ei=JS_7ar6_CNqvi-gPrub6oAk&iflsig=AHSINFcAAAAAavs9NbqbWUJ_5R4XDKi28xzx5mH8xywC&oq=strix+a&gs_lp=Egdnd3Mtd2l6IgdzdHJpeCBhKgQIABgnMgQQIxgnMgQQIxgnMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIKEAAYgAQYywEYCjIFEAAYgAQyBRAAGIAEMgUQABiABEizFVAAWOYGcAB4AJABAJgByAGgAdwHqgEFMC42LjG4AQHIAQD4AQGYAgWgAqkFwgILEC4YgAQYxwEY0QPCAgUQLhiABJgDAJIHAzAuNaAHvUGyBwMwLjW4B6kFwgcFMC4zLjLIBwyACAE&sclient=gws-wiz"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <span class="project-number">02</span>
       <span class="project-name">
         StrixArt
@@ -2578,16 +2555,26 @@ a:focus-visible {
       <span class="project-arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a class="project-item reveal" href="#" data-project="rins">
+    <a
+      class="project-item reveal"
+      href="https://rains.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <span class="project-number">03</span>
       <span class="project-name">
-        Rins
+        RAINS
         <span class="project-type">E-commerce · Store experience</span>
       </span>
       <span class="project-arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a class="project-item reveal" href="#" data-project="haus">
+    <a
+      class="project-item reveal"
+      href="https://drink.haus"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <span class="project-number">04</span>
       <span class="project-name">
         Haus
@@ -2596,10 +2583,15 @@ a:focus-visible {
       <span class="project-arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a class="project-item reveal" href="#" data-project="appares">
+    <a
+      class="project-item reveal"
+      href="https://apparelbasesystem.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <span class="project-number">05</span>
       <span class="project-name">
-        ApparesBaseSystem
+        Apparel Base System
         <span class="project-type">E-commerce · Digital experience</span>
       </span>
       <span class="project-arrow" aria-hidden="true">↗</span>
@@ -2629,19 +2621,26 @@ a:focus-visible {
 </section>
 
 <!-- 09 — FREELANCER MINDSET -->
+
 <section class="freelancer-mindset" id="freelancerMindset">
   <div class="mindset-shell">
+
     <header class="mindset-heading reveal">
       <div class="eyebrow">The mindset behind the work</div>
       <h2>Freelancing is built<br>on <span>how you grow.</span></h2>
     </header>
 
     <div class="mindset-grid">
+
       <article class="mindset-card mindset-quote-card reveal">
         <div class="mindset-card-image" aria-hidden="true">
           <img src="./image8(letter)" alt="" loading="lazy">
         </div>
-        <div class="mindset-card-label">A note to every freelancer</div>
+
+        <div class="mindset-card-label">
+          A note to every freelancer
+        </div>
+
         <blockquote class="mindset-quote">
           “Your next level begins where your willingness to learn begins.”
           <small>Stay curious. Keep building. Keep going.</small>
@@ -2652,30 +2651,76 @@ a:focus-visible {
         <div class="mindset-card-image" aria-hidden="true">
           <img src="./image9(notebook)" alt="" loading="lazy">
         </div>
-        <div class="mindset-card-label">Five principles to grow by</div>
+
+        <div class="mindset-card-label">
+          Five principles to grow by
+        </div>
+
         <div class="mindset-points">
+
           <div class="mindset-point">
             <span class="mindset-point-number">01</span>
-            <div><h3>Keep learning your field</h3><p>Study new tools, platform updates, design patterns, and the skills clients are asking for. Your expertise should keep evolving.</p></div>
+            <div>
+              <h3>Keep learning your field</h3>
+              <p>
+                Study new tools, platform updates, design patterns,
+                and the skills clients are asking for. Your expertise
+                should keep evolving.
+              </p>
+            </div>
           </div>
+
           <div class="mindset-point">
             <span class="mindset-point-number">02</span>
-            <div><h3>Research different markets</h3><p>Follow specialists and businesses in different countries. Compare how markets work, what customers expect, and which solutions perform well.</p></div>
+            <div>
+              <h3>Research different markets</h3>
+              <p>
+                Follow specialists and businesses in different countries.
+                Compare how markets work, what customers expect, and
+                which solutions perform well.
+              </p>
+            </div>
           </div>
+
           <div class="mindset-point">
             <span class="mindset-point-number">03</span>
-            <div><h3>Stay motivated and curious</h3><p>Make room for new ideas, ask questions, and explore unfamiliar approaches instead of repeating what you already know.</p></div>
+            <div>
+              <h3>Stay motivated and curious</h3>
+              <p>
+                Make room for new ideas, ask questions, and explore
+                unfamiliar approaches instead of repeating what you
+                already know.
+              </p>
+            </div>
           </div>
+
           <div class="mindset-point">
             <span class="mindset-point-number">04</span>
-            <div><h3>Practice by building</h3><p>Turn what you learn into real projects. Test ideas, solve problems, review the results, and improve your process with every iteration.</p></div>
+            <div>
+              <h3>Practice by building</h3>
+              <p>
+                Turn what you learn into real projects. Test ideas,
+                solve problems, review the results, and improve your
+                process with every iteration.
+              </p>
+            </div>
           </div>
+
           <div class="mindset-point">
             <span class="mindset-point-number">05</span>
-            <div><h3>Communicate and deliver reliably</h3><p>Set clear expectations, ask thoughtful questions, respect deadlines, and keep clients informed. Trust is part of the work.</p></div>
+            <div>
+              <h3>Communicate and deliver reliably</h3>
+              <p>
+                Set clear expectations, ask thoughtful questions,
+                respect deadlines, and keep clients informed.
+                Trust is part of the work.
+              </p>
+            </div>
           </div>
+
         </div>
       </article>
+
     </div>
   </div>
 </section>
@@ -2705,7 +2750,6 @@ a:focus-visible {
   </div>
 
 </footer>
-
 <script>
 (() => {
   "use strict";
