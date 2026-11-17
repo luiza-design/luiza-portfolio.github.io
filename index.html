@@ -61,7 +61,7 @@ a:focus-visible {
 ================================================== */
 
 .intro {
-  height: 340svh;
+  height: 400svh;
   position: relative;
   background: var(--wine);
   color: var(--cream);
@@ -124,6 +124,11 @@ a:focus-visible {
 }
 
 .intro-letter.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-letter[data-step="0"] {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1715,64 +1720,6 @@ a:focus-visible {
   min-width: 0;
 }
 
-.upwork-puzzle-frame {
-  position: relative;
-  width: 100%;
-  aspect-ratio: .88;
-  overflow: hidden;
-  background: #e3cfc1;
-  box-shadow: 0 24px 65px rgba(62,0,12,.12);
-}
-
-.upwork-puzzle-frame::after {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  border: 1px solid rgba(62,0,12,.12);
-  pointer-events: none;
-}
-
-.upwork-puzzle {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: repeat(4, minmax(0, 1fr));
-}
-
-.upwork-puzzle-piece {
-  min-width: 0;
-  min-height: 0;
-  background-image: url("https://raw.githubusercontent.com/luiza-design/luiza-portfolio.github.io/main/image7%28phone%29");
-  background-repeat: no-repeat;
-  background-size: 400% 400%;
-  opacity: 0;
-  transform: translate(var(--piece-x, 0), var(--piece-y, 0)) rotate(var(--piece-rotate, 0deg)) scale(.82);
-  transition:
-    opacity .55s ease,
-    transform .9s cubic-bezier(.2,.7,.2,1);
-  transition-delay: var(--piece-delay, 0ms);
-  will-change: transform, opacity;
-}
-
-.upwork-section.is-visible .upwork-puzzle-piece {
-  opacity: 1;
-  transform: translate(0, 0) rotate(0deg) scale(1);
-}
-
-.upwork-image-caption {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding-top: 14px;
-  color: #8d6868;
-  font-size: 8px;
-  letter-spacing: .19em;
-  line-height: 1.6;
-  text-transform: uppercase;
-}
-
 .upwork-content {
   min-width: 0;
 }
@@ -1963,7 +1910,6 @@ a:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .upwork-puzzle-piece,
   .upwork-wordmark span,
   .upwork-tip {
     opacity: 1;
@@ -1972,73 +1918,7 @@ a:focus-visible {
   }
 }
 
-/* ==================================================
-   UPWORK — FULL-SCREEN IMAGE, THEN FULL-WIDTH CONTENT
-================================================== */
-
-.upwork-image-hero {
-  position: relative;
-  width: 100%;
-  height: 100svh;
-  min-height: 520px;
-  overflow: hidden;
-  background: #e3cfc1;
-  isolation: isolate;
-}
-
-.upwork-image-hero .upwork-puzzle-frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  aspect-ratio: auto;
-  box-shadow: none;
-  background: #e3cfc1;
-}
-
-.upwork-image-hero .upwork-puzzle-frame::after {
-  border: 0;
-}
-
-.upwork-image-hero .upwork-puzzle {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: repeat(4, minmax(0, 1fr));
-}
-
-.upwork-image-hero .upwork-image-caption {
-  position: absolute;
-  z-index: 3;
-  right: clamp(20px, 5vw, 72px);
-  bottom: clamp(22px, 4vh, 48px);
-  left: clamp(20px, 5vw, 72px);
-  padding: 0;
-  color: #fffaf5;
-  text-shadow: 0 1px 12px rgba(0,0,0,.3);
-}
-
-.upwork-image-scroll {
-  position: absolute;
-  z-index: 3;
-  right: clamp(20px, 5vw, 72px);
-  bottom: clamp(58px, 8vh, 88px);
-  color: #fffaf5;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: .2em;
-  text-shadow: 0 1px 12px rgba(0,0,0,.35);
-}
-
-.upwork-image-scroll span {
-  display: inline-block;
-  margin-left: 9px;
-  font-size: 15px;
-  animation: upwork-scroll-arrow 1.5s ease-in-out infinite;
-}
-
-@keyframes upwork-scroll-arrow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
-}
+/* UPWORK — FULL-WIDTH CONTENT */
 
 .upwork-section {
   padding: clamp(78px, 10vw, 145px) clamp(6%, calc((100vw - 1100px) / 2), 12%);
@@ -2081,34 +1961,11 @@ a:focus-visible {
 }
 
 @media (max-width: 700px) {
-  .upwork-image-hero {
-    height: 100svh;
-    min-height: 480px;
-  }
-  .upwork-image-hero .upwork-image-caption {
-    right: 6%;
-    bottom: 22px;
-    left: 6%;
-    font-size: 7px;
-  }
-  .upwork-image-scroll {
-    right: 6%;
-    bottom: 58px;
-    font-size: 7px;
-  }
   .upwork-section { padding: 76px 6% 85px; }
   .upwork-layout { display: block; }
   .upwork-wordmark { font-size: clamp(64px, 16vw, 100px); }
   .upwork-tip { grid-template-columns: 36px minmax(0, 1fr); gap: 12px; }
   .upwork-tip p { font-size: 12px; }
-}
-
-@media (max-width: 380px) {
-  .upwork-image-hero { min-height: 440px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .upwork-image-scroll span { animation: none; }
 }
 
 /* ==================================================
@@ -2160,7 +2017,7 @@ a:focus-visible {
 ================================================== */
 
 @media (max-width: 768px) {
-  .intro { height: 340svh; }
+  .intro { height: 400svh; }
   .intro-sticky { min-height: 450px; }
 
   .intro-word {
@@ -2531,15 +2388,15 @@ a:focus-visible {
 
     <div class="intro-stage">
       <div class="intro-word" aria-label="Portfolio">
-        <span class="intro-letter por">P</span>
-        <span class="intro-letter por">O</span>
-        <span class="intro-letter por">R</span>
-        <span class="intro-letter tfo">T</span>
-        <span class="intro-letter tfo">F</span>
-        <span class="intro-letter tfo">O</span>
-        <span class="intro-letter lio">L</span>
-        <span class="intro-letter lio">I</span>
-        <span class="intro-letter lio">O</span>
+        <span class="intro-letter por visible" data-step="0">P</span>
+        <span class="intro-letter por" data-step="1">O</span>
+        <span class="intro-letter por" data-step="1">R</span>
+        <span class="intro-letter tfo" data-step="1">T</span>
+        <span class="intro-letter tfo" data-step="2">F</span>
+        <span class="intro-letter tfo" data-step="2">O</span>
+        <span class="intro-letter lio" data-step="2">L</span>
+        <span class="intro-letter lio" data-step="3">I</span>
+        <span class="intro-letter lio" data-step="3">O</span>
       </div>
     </div>
 
@@ -3180,20 +3037,7 @@ a:focus-visible {
   </div>
 </section>
 
-<!-- 10 — FULL-SCREEN UPWORK IMAGE -->
-
-<section class="upwork-image-hero" id="upworkImageHero" aria-label="Upwork portfolio visual">
-  <div class="upwork-puzzle-frame" aria-label="Portfolio image assembling piece by piece">
-    <div class="upwork-puzzle" id="upworkPuzzle" aria-hidden="true"></div>
-  </div>
-  <div class="upwork-image-caption">
-    <span>Build your presence</span>
-    <span>One step at a time</span>
-  </div>
-  <div class="upwork-image-scroll" aria-hidden="true">SCROLL TO EXPLORE <span>↓</span></div>
-</section>
-
-<!-- 11 — UPWORK: WHAT YOU NEED TO KNOW -->
+<!-- 10 — UPWORK: WHAT YOU NEED TO KNOW -->
 
 <section class="upwork-section" id="upworkSection">
   <div class="upwork-shell">
@@ -3387,45 +3231,24 @@ a:focus-visible {
       1
     );
 
-    const visibleCount = Math.ceil(progress * letters.length);
+    // Initial state: P. Each viewport-length scroll reveals the next group:
+    // 1st scroll = ORT, 2nd = FOL, 3rd = IO.
+    const revealStep = Math.min(3, Math.floor(progress * 3 + 0.001));
 
-    letters.forEach((letter, index) => {
-      letter.classList.toggle(
-        "visible",
-        index < visibleCount
-      );
+    letters.forEach(letter => {
+      const step = Number(letter.dataset.step || 0);
+      letter.classList.toggle("visible", step <= revealStep);
     });
 
-    const lightProgress = progress > 0.38 && progress < 0.72;
+    const lightProgress = false;
+    intro.classList.remove("is-light");
 
-    intro.classList.toggle("is-light", lightProgress);
-
-    let shiftY = 0;
-
-    if (progress > 0.70) {
-      const exitProgress = clamp(
-        (progress - 0.70) / 0.30,
-        0,
-        1
-      );
-
-      shiftY = -window.innerHeight * 0.85 * exitProgress;
-    }
-
-    introSticky.style.backgroundColor =
-      lightProgress ? "#f6ebdf" : "#3e000c";
-
-    introSticky.style.color =
-      lightProgress ? "#3e000c" : "#f6ebdf";
-
-    const introWord = document.querySelector(".intro-word");
-
-    introWord.style.transform =
-      `translate3d(0, ${shiftY}px, 0)`;
+    introSticky.style.backgroundColor = "#3e000c";
+    introSticky.style.color = "#f6ebdf";
 
     progressBar.style.width = `${progress * 100}%`;
-    signature.classList.toggle("show", progress >= 0.56);
-    scrollLabel.style.opacity = progress >= 0.88 ? "0" : ".7";
+    signature.classList.toggle("show", revealStep === 3 && progress > 0.96);
+    scrollLabel.style.opacity = revealStep === 3 ? ".35" : ".7";
 
     introTicking = false;
   }
@@ -3949,51 +3772,10 @@ if ("IntersectionObserver" in window) {
 
 
   /* ==================================================
-     UPWORK SECTION — PUZZLE + WORDMARK REVEAL
+     UPWORK SECTION — WORDMARK + CONTENT REVEAL
   ================================================== */
 
-  const upworkImageHero = document.getElementById("upworkImageHero");
   const upworkSection = document.getElementById("upworkSection");
-  const upworkPuzzle = document.getElementById("upworkPuzzle");
-
-  if (upworkImageHero && upworkPuzzle) {
-    const puzzleRows = 4;
-    const puzzleColumns = 4;
-    const puzzleCount = puzzleRows * puzzleColumns;
-
-    for (let index = 0; index < puzzleCount; index++) {
-      const row = Math.floor(index / puzzleColumns);
-      const column = index % puzzleColumns;
-      const piece = document.createElement("span");
-
-      piece.className = "upwork-puzzle-piece";
-      piece.style.backgroundPosition =
-        `${(column / (puzzleColumns - 1)) * 100}% ${(row / (puzzleRows - 1)) * 100}%`;
-      piece.style.setProperty("--piece-delay", `${(row * puzzleColumns + column) * 42}ms`);
-      piece.style.setProperty("--piece-x", `${(column - 1.5) * 34}px`);
-      piece.style.setProperty("--piece-y", `${(row - 1.5) * 34}px`);
-      piece.style.setProperty("--piece-rotate", `${((index % 2) ? 1 : -1) * (8 + row * 2)}deg`);
-
-      upworkPuzzle.appendChild(piece);
-    }
-
-    if (reduceMotion) {
-      upworkImageHero.classList.add("is-visible");
-    } else if ("IntersectionObserver" in window) {
-      const upworkImageObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            upworkImageHero.classList.add("is-visible");
-            upworkImageObserver.disconnect();
-          }
-        });
-      }, { threshold: 0.12 });
-
-      upworkImageObserver.observe(upworkImageHero);
-    } else {
-      upworkImageHero.classList.add("is-visible");
-    }
-  }
 
   if (upworkSection) {
     if (reduceMotion) {
