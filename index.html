@@ -1651,6 +1651,466 @@ a:focus-visible {
   .mindset-points-card { padding-right: 19px; padding-left: 19px; }
 }
 
+
+/* ==================================================
+   10 — UPWORK: WHAT YOU NEED TO KNOW
+================================================== */
+
+.upwork-section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(76px, 9vw, 132px) 7%;
+  color: var(--wine);
+  background: #f2e5d9;
+  isolation: isolate;
+}
+
+.upwork-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 12% 22%, rgba(193,132,137,.16), transparent 38%),
+    radial-gradient(ellipse at 90% 82%, rgba(121,36,58,.09), transparent 42%);
+}
+
+.upwork-shell {
+  width: min(1320px, 100%);
+  margin: 0 auto;
+}
+
+.upwork-heading {
+  max-width: 1050px;
+  margin: 0 auto clamp(42px, 6vw, 78px);
+  text-align: center;
+}
+
+.upwork-heading .eyebrow {
+  justify-content: center;
+  color: #95666a;
+}
+
+.upwork-heading h2 {
+  margin: 23px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(43px, 7.2vw, 100px);
+  font-weight: 400;
+  line-height: .94;
+  letter-spacing: -.055em;
+  text-transform: uppercase;
+}
+
+.upwork-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(30px, 5.5vw, 82px);
+}
+
+.upwork-image-column {
+  position: sticky;
+  top: 7vh;
+  min-width: 0;
+}
+
+.upwork-puzzle-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: .88;
+  overflow: hidden;
+  background: #e3cfc1;
+  box-shadow: 0 24px 65px rgba(62,0,12,.12);
+}
+
+.upwork-puzzle-frame::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  border: 1px solid rgba(62,0,12,.12);
+  pointer-events: none;
+}
+
+.upwork-puzzle {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+
+.upwork-puzzle-piece {
+  min-width: 0;
+  min-height: 0;
+  background-image: url("./image7(call)");
+  background-repeat: no-repeat;
+  background-size: 400% 400%;
+  opacity: 0;
+  transform: translate(var(--piece-x, 0), var(--piece-y, 0)) rotate(var(--piece-rotate, 0deg)) scale(.82);
+  transition:
+    opacity .55s ease,
+    transform .9s cubic-bezier(.2,.7,.2,1);
+  transition-delay: var(--piece-delay, 0ms);
+  will-change: transform, opacity;
+}
+
+.upwork-section.is-visible .upwork-puzzle-piece {
+  opacity: 1;
+  transform: translate(0, 0) rotate(0deg) scale(1);
+}
+
+.upwork-image-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 14px;
+  color: #8d6868;
+  font-size: 8px;
+  letter-spacing: .19em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.upwork-content {
+  min-width: 0;
+}
+
+.upwork-wordmark {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: .045em;
+  margin: 0 0 38px;
+  overflow: hidden;
+  color: var(--wine);
+  font-family: var(--sans);
+  font-size: clamp(56px, 8.2vw, 112px);
+  font-weight: 700;
+  line-height: .95;
+  letter-spacing: -.085em;
+}
+
+.upwork-wordmark span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(115%);
+  transition:
+    opacity .32s ease,
+    transform .48s cubic-bezier(.2,.75,.2,1);
+  transition-delay: var(--letter-delay, 0ms);
+}
+
+.upwork-section.is-visible .upwork-wordmark span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.upwork-wordmark-note {
+  margin: -25px 0 28px;
+  color: #95666a;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+.upwork-tips {
+  border-top: 1px solid rgba(62,0,12,.2);
+}
+
+.upwork-tip {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 16px;
+  padding: 23px 0 25px;
+  border-bottom: 1px solid rgba(62,0,12,.2);
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity .55s ease,
+    transform .65s cubic-bezier(.2,.7,.2,1);
+  transition-delay: var(--tip-delay, 0ms);
+}
+
+.upwork-section.is-visible .upwork-tip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.upwork-tip-number {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff8ef;
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1;
+}
+
+.upwork-tip:nth-child(1) .upwork-tip-number { background: #9d5864; }
+.upwork-tip:nth-child(2) .upwork-tip-number { background: #b47c50; }
+.upwork-tip:nth-child(3) .upwork-tip-number { background: #7d8061; }
+.upwork-tip:nth-child(4) .upwork-tip-number { background: #79536e; }
+.upwork-tip:nth-child(5) .upwork-tip-number { background: #557b78; }
+
+.upwork-tip h3 {
+  margin: 1px 0 10px;
+  color: var(--wine);
+  font-family: var(--serif);
+  font-size: clamp(23px, 2.5vw, 33px);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -.025em;
+}
+
+.upwork-tip p {
+  margin: 0 0 11px;
+  color: #806366;
+  font-size: 11px;
+  line-height: 1.85;
+}
+
+.upwork-tip p:last-child { margin-bottom: 0; }
+
+.upwork-tip strong {
+  color: #541323;
+  font-weight: 700;
+}
+
+.upwork-example {
+  margin-top: 12px;
+  padding: 13px 15px;
+  border-left: 2px solid #b47c50;
+  background: rgba(255,255,255,.42);
+  color: #77575a;
+  font-size: 10px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.upwork-example-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #95666a;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.upwork-closing-note {
+  margin: 25px 0 0;
+  padding: 19px 20px;
+  background: #e8d5c9;
+  color: #6f424a;
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.5vw, 31px);
+  line-height: 1.15;
+}
+
+@media (min-width: 1500px) {
+  .upwork-layout { gap: 100px; }
+  .upwork-tip { padding-block: 27px 29px; }
+  .upwork-tip p { font-size: 12px; }
+}
+
+@media (max-width: 900px) {
+  .upwork-section { padding-inline: 5%; }
+  .upwork-layout { gap: 28px; }
+  .upwork-wordmark { font-size: clamp(52px, 8vw, 76px); }
+  .upwork-tip { grid-template-columns: 36px minmax(0,1fr); gap: 12px; }
+  .upwork-tip-number { width: 32px; height: 32px; font-size: 17px; }
+  .upwork-tip h3 { font-size: clamp(22px, 2.8vw, 29px); }
+}
+
+@media (max-width: 700px) {
+  .upwork-section { padding: 76px 6% 85px; }
+  .upwork-heading { margin-bottom: 38px; }
+  .upwork-heading h2 { font-size: clamp(39px, 10.8vw, 68px); }
+  .upwork-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+  }
+  .upwork-image-column { position: relative; top: auto; }
+  .upwork-puzzle-frame {
+    width: min(100%, 560px);
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
+  }
+  .upwork-image-caption { width: min(100%, 560px); margin: 0 auto; }
+  .upwork-content { width: 100%; }
+  .upwork-wordmark {
+    justify-content: center;
+    margin-bottom: 32px;
+    font-size: clamp(64px, 16vw, 100px);
+  }
+  .upwork-wordmark-note { text-align: center; margin-top: -20px; }
+  .upwork-tip { padding: 21px 0 23px; }
+  .upwork-tip h3 { font-size: clamp(25px, 7vw, 32px); }
+  .upwork-tip p { font-size: 12px; }
+}
+
+@media (max-width: 380px) {
+  .upwork-section { padding-inline: 5%; }
+  .upwork-tip { grid-template-columns: 32px minmax(0,1fr); gap: 10px; }
+  .upwork-tip-number { width: 30px; height: 30px; }
+  .upwork-tip h3 { font-size: 24px; }
+  .upwork-tip p { font-size: 11px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .upwork-puzzle-piece,
+  .upwork-wordmark span,
+  .upwork-tip {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==================================================
+   UPWORK — FULL-SCREEN IMAGE, THEN FULL-WIDTH CONTENT
+================================================== */
+
+.upwork-image-hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 520px;
+  overflow: hidden;
+  background: #e3cfc1;
+  isolation: isolate;
+}
+
+.upwork-image-hero .upwork-puzzle-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  box-shadow: none;
+  background: #e3cfc1;
+}
+
+.upwork-image-hero .upwork-puzzle-frame::after {
+  border: 0;
+}
+
+.upwork-image-hero .upwork-puzzle {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+
+.upwork-image-hero .upwork-image-caption {
+  position: absolute;
+  z-index: 3;
+  right: clamp(20px, 5vw, 72px);
+  bottom: clamp(22px, 4vh, 48px);
+  left: clamp(20px, 5vw, 72px);
+  padding: 0;
+  color: #fffaf5;
+  text-shadow: 0 1px 12px rgba(0,0,0,.3);
+}
+
+.upwork-image-scroll {
+  position: absolute;
+  z-index: 3;
+  right: clamp(20px, 5vw, 72px);
+  bottom: clamp(58px, 8vh, 88px);
+  color: #fffaf5;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-shadow: 0 1px 12px rgba(0,0,0,.35);
+}
+
+.upwork-image-scroll span {
+  display: inline-block;
+  margin-left: 9px;
+  font-size: 15px;
+  animation: upwork-scroll-arrow 1.5s ease-in-out infinite;
+}
+
+@keyframes upwork-scroll-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+.upwork-section {
+  padding: clamp(78px, 10vw, 145px) clamp(6%, calc((100vw - 1100px) / 2), 12%);
+}
+
+.upwork-shell {
+  width: min(1100px, 100%);
+}
+
+.upwork-layout {
+  display: block;
+}
+
+.upwork-content {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.upwork-wordmark {
+  justify-content: center;
+  font-size: clamp(72px, 11vw, 140px);
+  margin-bottom: 32px;
+}
+
+.upwork-wordmark-note {
+  text-align: center;
+  margin-top: -18px;
+  margin-bottom: 38px;
+}
+
+.upwork-tip {
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 20px;
+  padding: 29px 0 31px;
+}
+
+.upwork-tip p {
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .upwork-image-hero {
+    height: 100svh;
+    min-height: 480px;
+  }
+  .upwork-image-hero .upwork-image-caption {
+    right: 6%;
+    bottom: 22px;
+    left: 6%;
+    font-size: 7px;
+  }
+  .upwork-image-scroll {
+    right: 6%;
+    bottom: 58px;
+    font-size: 7px;
+  }
+  .upwork-section { padding: 76px 6% 85px; }
+  .upwork-layout { display: block; }
+  .upwork-wordmark { font-size: clamp(64px, 16vw, 100px); }
+  .upwork-tip { grid-template-columns: 36px minmax(0, 1fr); gap: 12px; }
+  .upwork-tip p { font-size: 12px; }
+}
+
+@media (max-width: 380px) {
+  .upwork-image-hero { min-height: 440px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .upwork-image-scroll span { animation: none; }
+}
+
 /* ==================================================
    09 — FOOTER
 ================================================== */
@@ -2719,7 +3179,155 @@ a:focus-visible {
     </div>
   </div>
 </section>
-<!-- 10 — FOOTER -->
+
+<!-- 10 — FULL-SCREEN UPWORK IMAGE -->
+
+<section class="upwork-image-hero" id="upworkImageHero" aria-label="Upwork portfolio visual">
+  <div class="upwork-puzzle-frame" aria-label="Portfolio image assembling piece by piece">
+    <div class="upwork-puzzle" id="upworkPuzzle" aria-hidden="true"></div>
+  </div>
+  <div class="upwork-image-caption">
+    <span>Build your presence</span>
+    <span>One step at a time</span>
+  </div>
+  <div class="upwork-image-scroll" aria-hidden="true">SCROLL TO EXPLORE <span>↓</span></div>
+</section>
+
+<!-- 11 — UPWORK: WHAT YOU NEED TO KNOW -->
+
+<section class="upwork-section" id="upworkSection">
+  <div class="upwork-shell">
+
+    <header class="upwork-heading reveal">
+      <div class="eyebrow">A practical guide for freelancers</div>
+      <h2>What You Need to Know<br>When Working on Upwork</h2>
+    </header>
+
+    <div class="upwork-layout">
+      <div class="upwork-content">
+
+        <h3 class="upwork-wordmark" aria-label="Upwork">
+          <span style="--letter-delay:0ms">U</span>
+          <span style="--letter-delay:65ms">P</span>
+          <span style="--letter-delay:130ms">W</span>
+          <span style="--letter-delay:195ms">O</span>
+          <span style="--letter-delay:260ms">R</span>
+          <span style="--letter-delay:325ms">K</span>
+        </h3>
+        <div class="upwork-wordmark-note">Five essentials for a stronger profile</div>
+
+        <div class="upwork-tips">
+
+          <article class="upwork-tip" style="--tip-delay:420ms">
+            <span class="upwork-tip-number">1</span>
+            <div>
+              <h3>Choose a Clear, Specific Professional Title</h3>
+              <p>
+                If your title simply says <strong>“Shopify Developer,”</strong>
+                a client may not understand your specialisation, the services
+                you provide, or the problems you can solve. Use your title to
+                communicate your professional direction and the value you offer.
+              </p>
+              <div class="upwork-example">
+                <span class="upwork-example-label">A more specific example</span>
+                Shopify Developer | Store Development &amp; Customization |
+                Custom Liquid, HTML &amp; CSS
+              </div>
+            </div>
+          </article>
+
+          <article class="upwork-tip" style="--tip-delay:560ms">
+            <span class="upwork-tip-number">2</span>
+            <div>
+              <h3>Build a Relevant Portfolio</h3>
+              <p>
+                Your portfolio should demonstrate your experience, skills and
+                the quality of your work. It helps clients understand what you
+                can offer and why they should choose you.
+              </p>
+              <p><strong>A strong project presentation should include:</strong></p>
+              <div class="upwork-example">
+                <strong>Problem</strong>
+                What challenge did the project have?
+                <br><strong>Solution</strong>
+                How did you approach and solve it?
+                <br><strong>Result</strong>
+                What changed or improved after your work?
+              </div>
+            </div>
+          </article>
+
+          <article class="upwork-tip" style="--tip-delay:700ms">
+            <span class="upwork-tip-number">3</span>
+            <div>
+              <h3>Write a Targeted Profile Description</h3>
+              <p>
+                Your description should clearly explain what you do, which
+                problems you solve and what value you can bring to a project.
+              </p>
+              <div class="upwork-example">
+                <span class="upwork-example-label">Avoid generic wording</span>
+                “I am a hardworking and passionate Shopify developer. I always
+                deliver high-quality work.”
+              </div>
+              <div class="upwork-example">
+                <span class="upwork-example-label">Make it more specific</span>
+                “I specialize in Shopify store development and theme
+                customization, including custom Liquid and CSS solutions,
+                with a focus on responsive design and user experience.”
+              </div>
+            </div>
+          </article>
+
+          <article class="upwork-tip" style="--tip-delay:840ms">
+            <span class="upwork-tip-number">4</span>
+            <div>
+              <h3>Customize Every Proposal</h3>
+              <p>Make every proposal relevant to the specific project:</p>
+              <div class="upwork-example">
+                <strong>Address</strong> the client's actual requirements.
+                <br><strong>Explain</strong> how you plan to solve the problem.
+                <br><strong>Show</strong> relevant experience or a work sample.
+                <br><strong>Connect</strong> your approach to the client's needs.
+              </div>
+              <p>
+                Sending the same proposal to every client is a common mistake.
+                It can make it seem as though you have not studied the project
+                or understood the client's requirements.
+              </p>
+            </div>
+          </article>
+
+          <article class="upwork-tip" style="--tip-delay:980ms">
+            <span class="upwork-tip-number">5</span>
+            <div>
+              <h3>Keep Your Profile Active and Up to Date</h3>
+              <p>
+                Completing your Upwork profile once and leaving it unchanged
+                for months is not the best approach. Keep it aligned with your
+                professional development.
+              </p>
+              <div class="upwork-example">
+                <strong>Update</strong> your portfolio after completing new projects.
+                <br><strong>Add</strong> skills as you gain experience.
+                <br><strong>Refresh</strong> your service descriptions as your
+                expertise grows.
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="upwork-closing-note">
+          Your Upwork profile should grow with you.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 — FOOTER -->
 
 <footer class="footer" id="contactSection">
 
@@ -3337,6 +3945,72 @@ if ("IntersectionObserver" in window) {
     mindsetObserver.observe(mindsetSection);
   } else if (mindsetSection) {
     startMindsetAnimation();
+  }
+
+
+  /* ==================================================
+     UPWORK SECTION — PUZZLE + WORDMARK REVEAL
+  ================================================== */
+
+  const upworkImageHero = document.getElementById("upworkImageHero");
+  const upworkSection = document.getElementById("upworkSection");
+  const upworkPuzzle = document.getElementById("upworkPuzzle");
+
+  if (upworkImageHero && upworkPuzzle) {
+    const puzzleRows = 4;
+    const puzzleColumns = 4;
+    const puzzleCount = puzzleRows * puzzleColumns;
+
+    for (let index = 0; index < puzzleCount; index++) {
+      const row = Math.floor(index / puzzleColumns);
+      const column = index % puzzleColumns;
+      const piece = document.createElement("span");
+
+      piece.className = "upwork-puzzle-piece";
+      piece.style.backgroundPosition =
+        `${(column / (puzzleColumns - 1)) * 100}% ${(row / (puzzleRows - 1)) * 100}%`;
+      piece.style.setProperty("--piece-delay", `${(row * puzzleColumns + column) * 42}ms`);
+      piece.style.setProperty("--piece-x", `${(column - 1.5) * 34}px`);
+      piece.style.setProperty("--piece-y", `${(row - 1.5) * 34}px`);
+      piece.style.setProperty("--piece-rotate", `${((index % 2) ? 1 : -1) * (8 + row * 2)}deg`);
+
+      upworkPuzzle.appendChild(piece);
+    }
+
+    if (reduceMotion) {
+      upworkImageHero.classList.add("is-visible");
+    } else if ("IntersectionObserver" in window) {
+      const upworkImageObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            upworkImageHero.classList.add("is-visible");
+            upworkImageObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.12 });
+
+      upworkImageObserver.observe(upworkImageHero);
+    } else {
+      upworkImageHero.classList.add("is-visible");
+    }
+  }
+
+  if (upworkSection) {
+    if (reduceMotion) {
+      upworkSection.classList.add("is-visible");
+    } else if ("IntersectionObserver" in window) {
+      const upworkContentObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            upworkSection.classList.add("is-visible");
+            upworkContentObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.08 });
+      upworkContentObserver.observe(upworkSection);
+    } else {
+      upworkSection.classList.add("is-visible");
+    }
   }
 
   document.getElementById("currentYear").textContent =
