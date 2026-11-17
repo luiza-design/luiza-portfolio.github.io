@@ -2459,18 +2459,17 @@ a:focus-visible {
   <div class="quote-layout">
 
     <div class="quote-side-note reveal">
-      A reminder to keep<br>
-      imagining and creating
+      A thought to keep<br>moving forward
     </div>
 
     <div class="quote-art" id="quoteArt">
-      <img
-        src="./image6(quote%20background)"
-        alt=""
-        loading="lazy"
-      >
+      <img src="./image6(tuxt)" alt="" loading="lazy">
 
-      <div class="quote-text">
+      <div
+        class="quote-text"
+        id="quoteText"
+        aria-label="If you can imagine it. You can do it!"
+      >
         <span class="quote-line" id="quoteLineOne"></span>
         <span class="quote-line" id="quoteLineTwo"></span>
       </div>
@@ -3098,114 +3097,116 @@ a:focus-visible {
      QUOTE TYPEWRITER
   ================================================== */
 
-  const quoteArt = document.getElementById("quoteArt");
-  const quoteLineOne = document.getElementById("quoteLineOne");
-  const quoteLineTwo = document.getElementById("quoteLineTwo");
+  /* ==================================================
+   QUOTE TYPEWRITER
+================================================== */
 
-  const quoteFirst = "If you can imagine it.";
-  const quoteSecond = "You can do it!";
+const quoteArt = document.getElementById("quoteArt");
+const quoteLineOne = document.getElementById("quoteLineOne");
+const quoteLineTwo = document.getElementById("quoteLineTwo");
 
-  let typingTimer = null;
-  let typingRun = 0;
+const quoteFirst = "If you can imagine it.";
+const quoteSecond = "You can do it!";
 
-  function stopTyping() {
-    typingRun++;
+let typingTimer = null;
+let typingRun = 0;
 
-    if (typingTimer !== null) {
-      window.clearTimeout(typingTimer);
+function stopTyping() {
+  typingRun++;
+
+  if (typingTimer !== null) {
+    window.clearTimeout(typingTimer);
+    typingTimer = null;
+  }
+
+  quoteLineOne.textContent = "";
+  quoteLineTwo.textContent = "";
+
+  const cursor = document.getElementById("quoteCursor");
+  if (cursor) cursor.remove();
+}
+
+function typeText() {
+  stopTyping();
+
+  if (reduceMotion) {
+    quoteLineOne.textContent = quoteFirst;
+    quoteLineTwo.textContent = quoteSecond;
+    return;
+  }
+
+  const thisRun = typingRun;
+  let firstIndex = 0;
+  let secondIndex = 0;
+
+  const cursor = document.createElement("span");
+  cursor.className = "quote-cursor";
+  cursor.id = "quoteCursor";
+  cursor.setAttribute("aria-hidden", "true");
+
+  function typeFirstLine() {
+    if (thisRun !== typingRun) return;
+
+    if (firstIndex < quoteFirst.length) {
+      firstIndex++;
+
+      quoteLineOne.textContent =
+        quoteFirst.slice(0, firstIndex);
+
+      quoteLineOne.appendChild(cursor);
+
+      typingTimer = window.setTimeout(typeFirstLine, 58);
+    } else {
+      quoteLineOne.textContent = quoteFirst;
+      quoteLineTwo.appendChild(cursor);
+
+      typingTimer = window.setTimeout(typeSecondLine, 220);
+    }
+  }
+
+  function typeSecondLine() {
+    if (thisRun !== typingRun) return;
+
+    if (secondIndex < quoteSecond.length) {
+      secondIndex++;
+
+      quoteLineTwo.textContent =
+        quoteSecond.slice(0, secondIndex);
+
+      quoteLineTwo.appendChild(cursor);
+
+      typingTimer = window.setTimeout(typeSecondLine, 65);
+    } else {
+      quoteLineTwo.textContent = quoteSecond;
+      cursor.classList.add("done");
       typingTimer = null;
     }
-
-    quoteLineOne.textContent = "";
-    quoteLineTwo.textContent = "";
-
-    const cursor = document.getElementById("quoteCursor");
-    if (cursor) cursor.remove();
   }
 
-  function typeText() {
-    stopTyping();
+  typingTimer = window.setTimeout(typeFirstLine, 500);
+}
 
-    if (reduceMotion) {
-      quoteLineOne.textContent = quoteFirst;
-      quoteLineTwo.textContent = quoteSecond;
-      return;
-    }
+if ("IntersectionObserver" in window) {
+  const quoteObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          quoteArt.classList.add("in-view");
+          typeText();
+        } else {
+          quoteArt.classList.remove("in-view");
+          stopTyping();
+        }
+      });
+    },
+    { threshold: 0.38 }
+  );
 
-    const thisRun = typingRun;
-    let firstIndex = 0;
-    let secondIndex = 0;
-
-    const cursor = document.createElement("span");
-    cursor.className = "quote-cursor";
-    cursor.id = "quoteCursor";
-    cursor.setAttribute("aria-hidden", "true");
-
-    quoteLineOne.appendChild(cursor);
-
-    function typeFirstLine() {
-      if (thisRun !== typingRun) return;
-
-      if (firstIndex < quoteFirst.length) {
-        firstIndex++;
-
-        quoteLineOne.textContent =
-          quoteFirst.slice(0, firstIndex);
-
-        quoteLineOne.appendChild(cursor);
-
-        typingTimer = window.setTimeout(typeFirstLine, 58);
-      } else {
-        quoteLineOne.textContent = quoteFirst;
-        quoteLineTwo.appendChild(cursor);
-
-        typingTimer = window.setTimeout(typeSecondLine, 220);
-      }
-    }
-
-    function typeSecondLine() {
-      if (thisRun !== typingRun) return;
-
-      if (secondIndex < quoteSecond.length) {
-        secondIndex++;
-
-        quoteLineTwo.textContent =
-          quoteSecond.slice(0, secondIndex);
-
-        quoteLineTwo.appendChild(cursor);
-
-        typingTimer = window.setTimeout(typeSecondLine, 65);
-      } else {
-        quoteLineTwo.textContent = quoteSecond;
-        cursor.classList.add("done");
-        typingTimer = null;
-      }
-    }
-
-    typingTimer = window.setTimeout(typeFirstLine, 500);
-  }
-
-  if ("IntersectionObserver" in window) {
-    const quoteObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            quoteArt.classList.add("in-view");
-            typeText();
-          } else {
-            quoteArt.classList.remove("in-view");
-            stopTyping();
-          }
-        });
-      },
-      { threshold: 0.38 }
-    );
-
-    quoteObserver.observe(quoteArt);
-  } else {
-    quoteArt.classList.add("in-view");
-    typeText();
-  }
+  quoteObserver.observe(quoteArt);
+} else {
+  quoteArt.classList.add("in-view");
+  typeText();
+}
 
   /* ==================================================
      PERSONAL / PROFESSIONAL READ MORE
