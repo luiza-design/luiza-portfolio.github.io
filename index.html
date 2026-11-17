@@ -1,18 +1,3 @@
-```html
-**Մաս 2/5**
-
-```html
-**Մաս 3/5**
-
-```html
-**Մաս 4/5**
-
-```html
-**Մաս 1/5 — HTML-ի սկիզբը և հիմնական CSS-ը**
-
-Սա տեղադրիր ֆայլի ամենասկզբում։ Հաջորդ մասերը շարունակիր անմիջապես դրա վերջից։
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -613,7 +598,7 @@ a:focus-visible {
 .details-panel {
   display: grid;
   grid-template-rows: 0fr;
-  opacity: 0;
+    opacity: 0;
   transition: grid-template-rows .7s, opacity .4s;
 }
 
@@ -1213,7 +1198,7 @@ a:focus-visible {
 .portrait-section {
   min-height: 100svh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 8%;
   padding: 110px 8%;
@@ -1455,7 +1440,7 @@ a:focus-visible {
   overflow: hidden;
   padding: clamp(70px, 9vw, 140px) 7%;
   color: var(--cream);
-  background: linear-gradient(112deg, #6b1b2c 0%, #4a0716 43%, #260008 100%);
+  background: linear-gradient(112deg, #260008 0%, #4a0716 48%, #762b3d 100%);
 }
 
 .freelancer-mindset::before {
@@ -1463,8 +1448,7 @@ a:focus-visible {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse at 12% 20%, rgba(193,132,137,.22), transparent 38%),
-              radial-gradient(ellipse at 88% 82%, rgba(18,0,5,.45), transparent 42%);
+  background: linear-gradient(90deg, rgba(26,0,7,.24) 0%, transparent 48%, rgba(225,164,166,.10) 100%);
 }
 
 .mindset-shell {
@@ -1509,19 +1493,13 @@ a:focus-visible {
   background: rgba(30,0,8,.26);
 }
 
-.mindset-card-image {
-  position: absolute;
-  z-index: -2;
-  inset: 0;
+.mindset-quote-card {
+  background: linear-gradient(145deg, #3b0613 0%, #260008 100%);
 }
 
-.mindset-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.mindset-points-card {
+  background: linear-gradient(135deg, #8a4050 0%, #6f293b 52%, #542033 100%);
 }
-
-.mindset-quote-card .mindset-card-image { opacity: .54; }
 
 .mindset-quote-card::after,
 .mindset-points-card::after {
@@ -1533,11 +1511,11 @@ a:focus-visible {
 }
 
 .mindset-quote-card::after {
-  background: linear-gradient(180deg, rgba(64,0,13,.12), rgba(43,0,9,.86));
+  background: radial-gradient(ellipse at 25% 15%, rgba(193,132,137,.13), transparent 55%);
 }
 
 .mindset-points-card::after {
-  background: linear-gradient(120deg, rgba(60,0,13,.72), rgba(34,0,8,.84));
+  background: linear-gradient(120deg, rgba(255,220,214,.05), rgba(34,0,8,.10));
 }
 
 .mindset-card-label {
@@ -1614,6 +1592,43 @@ a:focus-visible {
   color: rgba(246,235,223,.72);
   font-size: 11px;
   line-height: 1.8;
+}
+
+/* FREELANCER MINDSET — entrance and typewriter animation */
+
+.mindset-quote {
+  opacity: 0;
+  transform: translateY(-115px);
+  transition: opacity .9s ease, transform 1.15s cubic-bezier(.18,.75,.25,1);
+}
+
+.freelancer-mindset.is-active .mindset-quote {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mindset-point h3,
+.mindset-point p {
+  visibility: hidden;
+}
+
+.mindset-point.is-typing h3,
+.mindset-point.is-typing p,
+.mindset-point.is-typed h3,
+.mindset-point.is-typed p {
+  visibility: visible;
+}
+
+.mindset-point-number {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.mindset-point.is-typing .mindset-point-number,
+.mindset-point.is-typed .mindset-point-number {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* MOBILE — FREELANCER MINDSET */
@@ -1782,8 +1797,7 @@ a:focus-visible {
   }
 
   .about-heading { margin: 0 auto 48px; }
-
-  .about-heading h2 {
+    .about-heading h2 {
     font-size: clamp(47px,11vw,90px);
     line-height: .82;
   }
@@ -2382,73 +2396,60 @@ a:focus-visible {
           <span class="freelance-item laptop-item" title="MacBook">
             <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
               <rect x="8" y="7" width="32" height="25" rx="2.5" stroke="currentColor" stroke-width="2.4"/>
-              <path d="M4 36h40l-4 5H8l-4-5Z" fill="currentColor"/>
-              <path d="M13 12h22v15H13z" fill="currentColor" opacity=".15"/>
-            </svg>
-          </span>
-
-          <span class="freelance-item notebook-item" title="Notebook">
-            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-              <rect x="11" y="5" width="28" height="38" rx="2" fill="#f6ebdf" stroke="currentColor" stroke-width="2"/>
-              <path d="M17 5v38" stroke="currentColor" stroke-width="2"/>
-              <path d="M21 15h12M21 21h12M21 27h12M21 33h9" stroke="#b77b85" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M7 11v3M7 19v3M7 27v3M7 35v3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-            </svg>
-          </span>
-
-          <span class="freelance-item pencil-item" title="Ecom Studio pencil">
-            <svg viewBox="0 0 132 84" fill="none" aria-hidden="true">
-              <g transform="rotate(-34 66 42)">
-                <rect x="10" y="31" width="112" height="22" rx="3" fill="#e5bd83" stroke="#5a1b2b" stroke-width="1.5"/>
-                <path d="M10 31 0 42l10 11Z" fill="#f2dfcb" stroke="#5a1b2b" stroke-width="1.5" stroke-linejoin="round"/>
-                <path d="M0 42 5 40l5 2-5 2Z" fill="#5a1b2b"/>
-                <rect x="101" y="31" width="10" height="22" fill="#c18489"/>
-                <path d="M111 31h7a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4h-7Z" fill="#f6ebdf" stroke="#5a1b2b" stroke-width="1.5"/>
-                <text x="57" y="45.5" fill="#4a0b19" font-family="Arial,sans-serif" font-size="9" font-weight="700" text-anchor="middle" letter-spacing=".7">Ecom Studio</text>
-              </g>
-            </svg>
-          </span>
-
-          <span class="freelance-item headphones-item" title="Over-ear headphones">
-            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-              <path d="M8 26v-5a16 16 0 0 1 32 0v5" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-              <rect x="5" y="23" width="10" height="17" rx="4" fill="currentColor"/>
-              <rect x="33" y="23" width="10" height="17" rx="4" fill="currentColor"/>
-              <path d="M10 28v7M38 28v7" stroke="#3e000c" stroke-width="1.5" stroke-linecap="round" opacity=".55"/>
+                            <rect x="8" y="7" width="32" height="25" rx="2.5" stroke="currentColor" stroke-width="2.4"/>
+              <path d="M4 36h40l-3 5H7l-3-5Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+              <path d="M19 36h10" stroke="currentColor" stroke-width="2"/>
             </svg>
           </span>
         </div>
 
         <div class="freelance-orbit orbit-outer" aria-hidden="true">
-          <span class="freelance-item mouse-item" title="Computer mouse">
+          <span class="freelance-item notebook-item" title="Notebook">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <rect x="10" y="6" width="28" height="36" rx="2" stroke="currentColor" stroke-width="2.4"/>
+              <path d="M17 6v36M22 15h10M22 22h10M22 29h8" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </span>
+
+          <span class="freelance-item pencil-item" title="Ecom Studio">
+            <svg viewBox="0 0 118 84" fill="none" aria-hidden="true">
+              <path d="M18 59 72 5l16 16-54 54-20 4 4-20Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+              <path d="m65 12 16 16M18 59l16 16" stroke="currentColor" stroke-width="2"/>
+              <text x="59" y="81" text-anchor="middle" fill="currentColor" font-size="8" letter-spacing="1.2">Ecom Studio</text>
+            </svg>
+          </span>
+
+          <span class="freelance-item headphones-item" title="Headphones">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M7 25v-4a17 17 0 0 1 34 0v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="5" y="23" width="9" height="16" rx="4" stroke="currentColor" stroke-width="2.5"/>
+              <rect x="34" y="23" width="9" height="16" rx="4" stroke="currentColor" stroke-width="2.5"/>
+            </svg>
+          </span>
+
+          <span class="freelance-item mouse-item" title="Mouse">
             <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
               <rect x="12" y="5" width="24" height="38" rx="12" stroke="currentColor" stroke-width="2.5"/>
               <path d="M24 6v12" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M12 21h24" stroke="currentColor" stroke-width="1.5" opacity=".55"/>
             </svg>
           </span>
 
-          <span class="freelance-item coffee-item" title="Coffee cup">
+          <span class="freelance-item coffee-item" title="Coffee">
             <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-              <path d="M9 17h25v17a7 7 0 0 1-7 7h-11a7 7 0 0 1-7-7V17Z" fill="#f6ebdf" stroke="currentColor" stroke-width="2.2"/>
-              <path d="M34 21h4a5 5 0 0 1 0 10h-4" stroke="currentColor" stroke-width="2.2"/>
-              <path d="M16 11c-3-3 2-4 0-7M24 11c-3-3 2-4 0-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M7 43h34" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M9 16h26v18a7 7 0 0 1-7 7H16a7 7 0 0 1-7-7V16Z" stroke="currentColor" stroke-width="2.4"/>
+              <path d="M35 20h3a5 5 0 0 1 0 10h-3M16 9c-3-3 2-4 0-7M25 9c-3-3 2-4 0-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
             </svg>
           </span>
         </div>
 
-        <div class="visual-core" aria-hidden="true">
-          <div class="visual-core-inner" id="visualSymbol"></div>
+        <div class="visual-core">
+          <div class="visual-core-inner"></div>
         </div>
 
-        <span class="visual-corner" id="visualCorner">
-          Technical craft
-        </span>
+        <span class="visual-corner" id="visualCorner">Technical craft</span>
       </div>
 
     </div>
-
   </div>
 </section>
 
@@ -2458,17 +2459,18 @@ a:focus-visible {
   <div class="quote-layout">
 
     <div class="quote-side-note reveal">
-      A thought to keep<br>moving forward
+      A reminder to keep<br>
+      imagining and creating
     </div>
 
     <div class="quote-art" id="quoteArt">
-      <img src="./image6(tuxt)" alt="" loading="lazy">
-
-      <div
-        class="quote-text"
-        id="quoteText"
-        aria-label="If you can imagine it. You can do it!"
+      <img
+        src="./image6(quote%20background)"
+        alt=""
+        loading="lazy"
       >
+
+      <div class="quote-text">
         <span class="quote-line" id="quoteLineOne"></span>
         <span class="quote-line" id="quoteLineTwo"></span>
       </div>
@@ -2633,24 +2635,18 @@ a:focus-visible {
     <div class="mindset-grid">
 
       <article class="mindset-card mindset-quote-card reveal">
-        <div class="mindset-card-image" aria-hidden="true">
-          <img src="./image8(letter)" alt="" loading="lazy">
-        </div>
 
         <div class="mindset-card-label">
           A note to every freelancer
         </div>
 
         <blockquote class="mindset-quote">
-          “Your next level begins where your willingness to learn begins.”
+          “Your next level begins with the decision to grow.”
           <small>Stay curious. Keep building. Keep going.</small>
         </blockquote>
       </article>
 
       <article class="mindset-card mindset-points-card reveal">
-        <div class="mindset-card-image" aria-hidden="true">
-          <img src="./image9(notebook)" alt="" loading="lazy">
-        </div>
 
         <div class="mindset-card-label">
           Five principles to grow by
@@ -2724,7 +2720,6 @@ a:focus-visible {
     </div>
   </div>
 </section>
-
 <!-- 10 — FOOTER -->
 
 <footer class="footer" id="contactSection">
@@ -2750,6 +2745,7 @@ a:focus-visible {
   </div>
 
 </footer>
+
 <script>
 (() => {
   "use strict";
@@ -2771,44 +2767,31 @@ a:focus-visible {
   const progressBar = document.getElementById("introProgressBar");
   const signature = document.getElementById("introSignature");
   const scrollLabel = document.getElementById("introScrollLabel");
-  const introWord = document.querySelector(".intro-word");
 
   let introTicking = false;
 
   function updateIntro() {
     const rect = intro.getBoundingClientRect();
+    const scrollableDistance = intro.offsetHeight - window.innerHeight;
 
-    const scrollable = Math.max(
-      1,
-      intro.offsetHeight - window.innerHeight
+    const progress = clamp(
+      -rect.top / scrollableDistance,
+      0,
+      1
     );
 
-    const travelled = clamp(-rect.top, 0, scrollable);
-    const progress = travelled / scrollable;
-
-    const revealPoints = [
-      0.025, 0.065, 0.105,
-      0.20, 0.245, 0.29,
-      0.39, 0.435, 0.48
-    ];
+    const visibleCount = Math.ceil(progress * letters.length);
 
     letters.forEach((letter, index) => {
       letter.classList.toggle(
         "visible",
-        progress >= revealPoints[index]
+        index < visibleCount
       );
     });
 
-    const lightPhase = progress >= 0.22 && progress < 0.40;
-    intro.classList.toggle("is-light", lightPhase);
+    const lightProgress = progress > 0.38 && progress < 0.72;
 
-    if (progress < 0.22) {
-      introSticky.style.backgroundColor = "#3e000c";
-    } else if (progress < 0.40) {
-      introSticky.style.backgroundColor = "#f6ebdf";
-    } else {
-      introSticky.style.backgroundColor = "#3e000c";
-    }
+    intro.classList.toggle("is-light", lightProgress);
 
     let shiftY = 0;
 
@@ -2821,6 +2804,14 @@ a:focus-visible {
 
       shiftY = -window.innerHeight * 0.85 * exitProgress;
     }
+
+    introSticky.style.backgroundColor =
+      lightProgress ? "#f6ebdf" : "#3e000c";
+
+    introSticky.style.color =
+      lightProgress ? "#3e000c" : "#f6ebdf";
+
+    const introWord = document.querySelector(".intro-word");
 
     introWord.style.transform =
       `translate3d(0, ${shiftY}px, 0)`;
@@ -3260,13 +3251,92 @@ a:focus-visible {
     });
   });
 
-  /* Project placeholder links */
+  /* ==================================================
+     FREELANCER MINDSET — DROP-IN QUOTE + STAGGERED TYPEWRITER
+  ================================================== */
 
-  document.querySelectorAll("[data-project]").forEach(link => {
-    link.addEventListener("click", event => {
-      event.preventDefault();
+  const mindsetSection = document.getElementById("freelancerMindset");
+  const mindsetPoints = [
+    ...document.querySelectorAll(".mindset-point")
+  ];
+
+  let mindsetAnimationStarted = false;
+
+  function typeMindsetText(element, text, speed, done) {
+    let index = 0;
+    element.textContent = "";
+
+    function typeNext() {
+      if (index < text.length) {
+        element.textContent += text.charAt(index);
+        index++;
+        window.setTimeout(typeNext, speed);
+      } else if (done) {
+        done();
+      }
+    }
+
+    typeNext();
+  }
+
+  function startMindsetAnimation() {
+    if (mindsetAnimationStarted) return;
+    mindsetAnimationStarted = true;
+
+    mindsetSection.classList.add("is-active");
+
+    mindsetPoints.forEach(point => {
+      const title = point.querySelector("h3");
+      const description = point.querySelector("p");
+      title.dataset.fullText = title.textContent.trim();
+      description.dataset.fullText = description.textContent.trim();
     });
-  });
+
+    if (reduceMotion) {
+      mindsetPoints.forEach(point => {
+        point.classList.add("is-typed");
+        point.querySelector("h3").textContent =
+          point.querySelector("h3").dataset.fullText;
+        point.querySelector("p").textContent =
+          point.querySelector("p").dataset.fullText;
+      });
+      return;
+    }
+
+    mindsetPoints.forEach((point, pointIndex) => {
+      const title = point.querySelector("h3");
+      const description = point.querySelector("p");
+
+      title.textContent = "";
+      description.textContent = "";
+
+      window.setTimeout(() => {
+        point.classList.add("is-typing");
+
+        typeMindsetText(title, title.dataset.fullText, 19, () => {
+          typeMindsetText(description, description.dataset.fullText, 8, () => {
+            point.classList.remove("is-typing");
+            point.classList.add("is-typed");
+          });
+        });
+      }, pointIndex * 650);
+    });
+  }
+
+  if (mindsetSection && "IntersectionObserver" in window) {
+    const mindsetObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startMindsetAnimation();
+          mindsetObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.22 });
+
+    mindsetObserver.observe(mindsetSection);
+  } else if (mindsetSection) {
+    startMindsetAnimation();
+  }
 
   document.getElementById("currentYear").textContent =
     new Date().getFullYear();
